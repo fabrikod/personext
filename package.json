@@ -32,7 +32,8 @@
     "hooks": {
       "pre-commit": "yarn run lint",
       "pre-push": "yarn run test",
-      "post-merge": "yarn install"
+      "post-merge": "yarn install",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   }
 }
