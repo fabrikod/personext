@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import '../settings/fonts.css';
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -17,5 +18,9 @@
 }
 
 body {
-  @apply bg-base-1
+  @apply bg-base-1 font-proxima-nova
+}
+
+.column-blogs .blog-card {
+  @apply !p-6
 }

@@ -21,8 +21,12 @@ module.exports = {
       },
       boxShadow: {
         'card': '0px 0px 5px rgba(0, 0, 0, 0.1)'
+      },
+      fontFamily: {
+        'proxima-nova': 'Proxima Nova'
       }
     },
   },
+  important: true,
   plugins: [],
 }

@@ -1,4 +1,4 @@
-import { useAxios } from '@/hooks'
+import { useAxios } from './index'
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import useSWR from 'swr'
