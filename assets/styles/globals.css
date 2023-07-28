@@ -24,3 +24,15 @@ body {
 .column-blogs .blog-card {
   @apply !p-6
 }
+
+#blog #blog-content .content-img-full{
+  @apply mx-auto w-full
+}
+
+#blog #blog-content .content-img-cover{
+  @apply mx-auto h-[500px]
+}
+
+#blog #blog-content .content-img-orginal{
+  @apply mx-auto
+}

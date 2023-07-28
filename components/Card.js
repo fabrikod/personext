@@ -1,22 +1,25 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import CardType from '../constrait/CardType'
 import Image from 'next/image'
 import Chip from './Chip'
 import * as Icons from './Icons'
 import SvgPublish from './Icons/Publish'
+import Link from 'next/link'
+import classNames from 'classnames'
 
-export default function Card({ children, description, title, tags, image, name, type = 'fulltext', className }) {
+export default function Card(props) {
+  const { type, children } = props
   const CardComponent = CardTypeComponent[type];
+  const [customClass, setColumnClass] = useState()
+
   return (
-    <CardComponent
-      description={description}
-      title={title}
-      tags={tags}
-      image={image}
-      children={children}
-      name={name}
-      className={className}
-    />
+    <div className={classNames('rounded-[30px] shadow-card p-9 bg-base-2', customClass)}>
+      {
+        children
+          ? children
+          : <CardComponent {...props} setColumnClass={setColumnClass} />
+      }
+    </div>
   )
 }
 
@@ -24,13 +27,12 @@ const CardTypeComponent = {
   [CardType.Profile]: ProfileCard,
   [CardType.FullText]: FullTextCard,
   [CardType.HalfText]: HalfTextCard,
-  [CardType.QuarterText]: QuarterTextCard,
   [CardType.FullImage]: FullImageCard
 }
 
 function ProfileCard({ children, description, name, job, tags, image }) {
   return (
-    <div className='rounded-[30px] shadow-card p-9 bg-base-2'>
+    <div>
       <Image
         src="/img/Ellipse 2.png"
         width={152}
@@ -55,10 +57,10 @@ function ProfileCard({ children, description, name, job, tags, image }) {
   )
 }
 
-function FullTextCard({ children, description, title, tags }) {
+function FullTextCard({ children, description, title, tags, slug }) {
   return (
-    <div className='blog-card rounded-[30px] shadow-card p-9 bg-base-2'>
-      <h3 className='font-bold text-4xl text-primary-2'>{title}</h3>
+    <div>
+      <h3 className='font-bold text-4xl text-primary-2'><Link href={slug}>{title}</Link></h3>
       <p className='font-semibold text-primary-3 mt-6'>
         {description}
       </p>
@@ -71,19 +73,23 @@ function FullTextCard({ children, description, title, tags }) {
   )
 }
 
-function HalfTextCard({ children, description, title, image, tags }) {
+function HalfTextCard({ children, description, title, image, tags, slug }) {
   return (
-    <div className='blog-card rounded-[30px] shadow-card p-9 flex flex-col md:flex-row bg-base-2 gap-10'>
-      <div className='shrink-0 flex justify-center md:w-[220px]'>
-        <Image
-          src={image}
-          width={262}
-          height={259}
-          alt="Picture of the author"
-        />
-      </div>
-      <div className='flex flex-col justify-between'>
-        <h3 className='font-bold text-4xl text-primary-2'>{title}</h3>
+    <div className='flex flex-col h-full items-start md:flex-row gap-10'>
+      {
+        image && (
+          <div className='h-60 sm:h-96 md:h-full w-full relative md:w-1/3'>
+            <Image
+              src={image}
+              fill
+              className='object-cover rounded-[20px] h-full w-full'
+              alt="Picture of the author"
+            />
+          </div>
+        )
+      }
+      <div className='flex flex-col justify-between md:w-2/3'>
+        <h3 className='font-bold text-4xl text-primary-2'><Link href={slug}>{title}</Link></h3>
         <p className='font-semibold text-primary-3 mt-4'>
           {description}
         </p>
@@ -98,47 +104,28 @@ function HalfTextCard({ children, description, title, image, tags }) {
   )
 }
 
-function QuarterTextCard({ children, description, title, image, tags }) {
+function FullImageCard({ children, description, title, image, tags, slug, setColumnClass }) {
+
+  useEffect(() => {
+    setColumnClass('!p-5')
+  }, [])
+
   return (
-    <div className='blog-card rounded-[30px] shadow-card p-6 bg-base-2'>
-      <Image
-        src={image}
-        width={337}
-        height={194}
-        className='object-cover h-[194px] rounded-[20px]'
-        alt="Picture of the author"
-      />
+    <div className='relative h-96 sm:h-full'>
+      <Link href={slug}>
+        <Image
+          src={image}
+          fill
+          className='object-cover rounded-[20px]'
+          alt="Picture of the author"
+        />
+      </Link>
 
-      <h3 className='font-bold text-2xl text-primary-2 mt-4'>{title}</h3>
-
-      <p className='font-semibold text-lg text-primary-3 mt-4'>
-        {description}
-      </p>
-
-      {/* <div className='flex mt-3 gap-x-3'>
-        {
-          tags.map((tag, index) => <Chip className='text-primary-1 rounded-[15px] !py-3' key={index}>{tag}</Chip>)
-        }
-      </div> */}
-    </div>
-  )
-}
-
-function FullImageCard({ children, description, title, image, tags }) {
-  return (
-    <div className='blog-card rounded-[30px] shadow-card p-6 bg-base-2 relative'>
-      <Image
-        src={image}
-        width={337}
-        height={262}
-        alt="Picture of the author"
-      />
-
-      <button className='bg-base-3 px-3 py-2 rounded-lg absolute top-11 left-11 self-end text-sm'>
+      <button className='bg-base-3 px-3 py-2 rounded-lg absolute top-5 left-5 self-end text-sm'>
         Drawings I made in summer
       </button>
 
-      <button className='bg-base-3 px-3 py-1 rounded-3xl absolute bottom-12 right-12 self-end text-xs flex gap-2 items-center'>
+      <button className='bg-base-3 px-3 py-1 rounded-3xl absolute bottom-5 right-5 self-end text-xs flex gap-2 items-center'>
         <SvgPublish />
         dribble.com
       </button>
