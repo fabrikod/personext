@@ -4,6 +4,7 @@ const yaml = require('js-yaml');
 const fetchData = () => {
   const delimiter = '---';
   const markdownContent = fs.readFileSync('./README.md', 'utf-8');
+  throw new Error('aaaaaaaaaaaaaaa');
   var log = ["aaaaaaaaaaaaaaa"];
   const startIndex = markdownContent.indexOf(delimiter) + delimiter.length;
   log.push(startIndex)
