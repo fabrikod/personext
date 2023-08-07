@@ -5,6 +5,7 @@ import { fetchData } from "../utils/readFile"
 export async function getServerSideProps() {
   try {
     const data = fetchData();
+    console.log("datadatadatadata", data);
     const { data: { user, blogs } } = data;
 
     const heroBlogs = blogs.filter(blog => blog.hero)
