@@ -12,6 +12,7 @@ export async function getServerSideProps() {
 
     return {
       props: {
+        data: data,
         user: user || {},
         withoutHeroBlogs: withoutHeroBlogs || [],
         heroBlogs: heroBlogs || [],
@@ -31,8 +32,8 @@ export async function getServerSideProps() {
   }
 }
 
-export default function Home({ user, withoutHeroBlogs, heroBlogs, errors }) {
-  console.log("datadatadatadata", user, withoutHeroBlogs, heroBlogs, errors);
+export default function Home({ user, withoutHeroBlogs, heroBlogs, errors, data }) {
+  console.log("datadatadatadata", data);
 
   return (
     <AppLayout>
