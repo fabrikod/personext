@@ -34,6 +34,7 @@ export async function getServerSideProps() {
 
 export default function Home({ user, withoutHeroBlogs, heroBlogs, errors, data }) {
   console.log("datadatadatadata", data);
+  console.log("{ user, withoutHeroBlogs, heroBlogs, errors, data }", { user, withoutHeroBlogs, heroBlogs, errors, data });
 
   return (
     <AppLayout>
