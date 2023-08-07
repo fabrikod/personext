@@ -2,7 +2,7 @@ import Card from 'components/Card'
 import AppLayout from 'layouts/AppLayout'
 import Image from 'next/image';
 import Chip from '@/components/Chip';
-import { fetchData } from "../../utils/readFile"
+import { fetchData } from "../utils/readFile"
 
 export default function BlogPage({ blog, user }) {
   return (
