@@ -4,6 +4,7 @@ import { fetchData } from "../utils/readFile"
 
 export async function getServerSideProps() {
   try {
+    const funk = fetchData
     const data = fetchData();
     const { data: { user, blogs } } = data;
 
@@ -12,6 +13,7 @@ export async function getServerSideProps() {
 
     return {
       props: {
+        funk: funk,
         data: data,
         user: user || {},
         withoutHeroBlogs: withoutHeroBlogs || [],
@@ -32,9 +34,9 @@ export async function getServerSideProps() {
   }
 }
 
-export default function Home({ user, withoutHeroBlogs, heroBlogs, errors, data }) {
+export default function Home({ user, withoutHeroBlogs, heroBlogs, errors, data, funk }) {
   console.log("datadatadatadata", data);
-  console.log("{ user, withoutHeroBlogs, heroBlogs, errors, data }", { user, withoutHeroBlogs, heroBlogs, errors, data });
+  console.log("{ user, withoutHeroBlogs, heroBlogs, errors, data, funk }", { user, withoutHeroBlogs, heroBlogs, errors, data, funk });
 
   return (
     <AppLayout>
