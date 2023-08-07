@@ -5,7 +5,6 @@ import { fetchData } from "../utils/readFile"
 export async function getServerSideProps() {
   try {
     const data = fetchData();
-    console.log("datadatadatadata", data);
     const { data: { user, blogs } } = data;
 
     const heroBlogs = blogs.filter(blog => blog.hero)
@@ -33,6 +32,8 @@ export async function getServerSideProps() {
 }
 
 export default function Home({ user, withoutHeroBlogs, heroBlogs, errors }) {
+  console.log("datadatadatadata", user, withoutHeroBlogs, heroBlogs, errors);
+
   return (
     <AppLayout>
       <div className='flex flex-col gap-12 lg:flex-row'>
