@@ -1,8 +1,8 @@
 import Card from 'components/Card'
 import AppLayout from 'layouts/AppLayout'
-import { getReadMeData } from '@/services/readme.service';
 import Image from 'next/image';
 import Chip from '@/components/Chip';
+import { fetchData } from "../../utils/readFile"
 
 export default function BlogPage({ blog, user }) {
   return (
@@ -48,7 +48,7 @@ export default function BlogPage({ blog, user }) {
 
 export async function getStaticPaths() {
   try {
-    const { data: { blogs } } = await getReadMeData()
+    const { data: { blogs } } = fetchData()
     const paths = blogs.map(({ slug }) => ({
       params: { slug }
     }))
@@ -67,7 +67,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   try {
-    const { data: { user, blogs } } = await getReadMeData()
+    const { data: { user, blogs } } = fetchData()
     const slug = params.slug;
     const blog = blogs.find(blog => blog.slug === slug)
 

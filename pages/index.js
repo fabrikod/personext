@@ -1,10 +1,10 @@
 import Card from 'components/Card'
 import AppLayout from 'layouts/AppLayout'
-import { getReadMeData } from 'services/readme.service';
+import { fetchData } from "../utils/readFile"
 
 export async function getServerSideProps() {
   try {
-    const data = await getReadMeData();
+    const data = fetchData();
     const { data: { user, blogs } } = data;
 
     const heroBlogs = blogs.filter(blog => blog.hero)
@@ -25,7 +25,7 @@ export async function getServerSideProps() {
         user: {},
         withoutHeroBlogs: [],
         heroBlogs: [],
-        errors: error.response.data.errors || []
+        errors: error.errors || []
       },
     };
   }
