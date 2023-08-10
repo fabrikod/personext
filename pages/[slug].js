@@ -49,7 +49,7 @@ export default function BlogPage({ blog, user, socials }) {
 
 export async function getStaticPaths() {
   try {
-    const blogs = await getReadMeData('/data/blogs.md')
+    const blogs = await getReadMeData('data/blogs.md')
     const paths = blogs.data.map(({ slug }) => ({
       params: { slug }
     }))
@@ -68,9 +68,9 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   try {
-    const blogs = await getReadMeData('/data/blogs.md')
-    const user = await getReadMeData('/data/user.md')
-    const socials = await getReadMeData('/data/socials.md')
+    const blogs = await getReadMeData('data/blogs.md')
+    const user = await getReadMeData('data/user.md')
+    const socials = await getReadMeData('data/socials.md')
 
     const blog = blogs.data.find(blog => blog.slug === params.slug)
 

@@ -3,7 +3,7 @@ const yaml = require('js-yaml');
 
 const fetchData = (file) => {
   console.log('filefilefilefil e', file)
-  const path = `${process.cwd()}${file}`
+  const path = `${process.cwd()}/${file}`
   console.log('44444444444', path)
   const markdownContent = fs.readFileSync(process.cwd() + '/data/blogs.md', 'utf-8');
   const markdownContent2 = fs.readFileSync(path, 'utf-8');
