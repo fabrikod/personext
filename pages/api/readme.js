@@ -17,6 +17,9 @@ export default async function handler(req, res) {
   try {
     const { file } = req.query;
 
+    console.log('filefilefile11111', file)
+    console.log('req.query', req.query)
+
     if (!file) {
       return res.status(400).json({ error: 'file parameter is missing.' });
     }
