@@ -30,7 +30,7 @@ const CardTypeComponent = {
   [CardType.FullImage]: FullImageCard
 }
 
-function ProfileCard({ children, description, name, job, tags, image }) {
+function ProfileCard({ children, description, name, job, tags, image, socials }) {
   return (
     <div>
       <Image
@@ -46,13 +46,19 @@ function ProfileCard({ children, description, name, job, tags, image }) {
         {description}
       </p>
 
-      <Chip>
-        <Icons.Twitter></Icons.Twitter>
-        <Icons.Instagram></Icons.Instagram>
-        <Icons.Linkedin></Icons.Linkedin>
-        <Icons.Behance></Icons.Behance>
-        <Icons.Dribbble></Icons.Dribbble>
-      </Chip>
+      {
+        socials && <Chip>
+          {
+            socials.map((social, index) => {
+              const ComponentName = Icons[social.name]
+              if (!ComponentName) {
+                return null
+              }
+              return <Link href={social.url} key={index} target="_blank"><ComponentName /></Link>;
+            })
+          }
+        </Chip>
+      }
     </div>
   )
 }

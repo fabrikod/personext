@@ -6,7 +6,6 @@ const slug = (url) => {
     .trim();
 }
 
-
 export {
   slug
 }

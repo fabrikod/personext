@@ -1,6 +1,6 @@
 import axios from "../utils/axios"
 
-const getReadMeData = () => axios.get("readme")
+const getReadMeData = (file) => axios.get(`readme?file=${file}`)
 
 export {
   getReadMeData

@@ -1,47 +1,23 @@
 import Card from 'components/Card'
 import AppLayout from 'layouts/AppLayout'
+import { getReadMeData } from '@/services/readme.service'
+import { useEffect } from 'react'
 
 export async function getServerSideProps() {
-  const fs = require('fs');
-  const yaml = require('js-yaml');
-
   try {
-    const delimiter = '---';
-    const markdownContent = fs.readFileSync('./README.md', 'utf-8');
-    const startIndex = markdownContent.indexOf(delimiter) + delimiter.length;
-    const endIndex = markdownContent.indexOf(delimiter, startIndex);
+    const user = await getReadMeData('/data/user.md')
+    const blogs = await getReadMeData('/data/blogs.md')
+    const socials = await getReadMeData('/data/socials.md')
 
-    if (startIndex === -1 || endIndex === -1) {
-      throw new Error('Invalid Markdown file format');
-    }
-
-    const extractedContent = markdownContent.slice(startIndex, endIndex).trim();
-    const yamlData = yaml.load(extractedContent);
-
-    const data = {
-      user: {
-        email: yamlData.email,
-        name: yamlData.name,
-        surname: yamlData.surname,
-        fullName: `${yamlData.name} ${yamlData.surname}`,
-        description: yamlData.description,
-        job: yamlData.job,
-        username: yamlData.username,
-        socialMediaLinks: yamlData.socialMediaLinks
-      },
-      blogs: yamlData.blogList,
-    }
-
-    const { user, blogs } = data;
-
-    const heroBlogs = blogs.filter(blog => blog.hero)
-    const withoutHeroBlogs = blogs.filter(blog => !blog.hero)
+    const heroBlogs = blogs.data.filter(blog => blog.hero)
+    const withoutHeroBlogs = blogs.data.filter(blog => !blog.hero)
 
     return {
       props: {
-        user: user || {},
+        user: user.data || {},
         withoutHeroBlogs: withoutHeroBlogs || [],
         heroBlogs: heroBlogs || [],
+        socials: socials.data || []
       }
     }
   } catch (error) {
@@ -58,9 +34,7 @@ export async function getServerSideProps() {
   }
 }
 
-export default function Home({ user, withoutHeroBlogs, heroBlogs, errors, data, funk }) {
-  console.log("datadatadatadata", data);
-  console.log("{ user, withoutHeroBlogs, heroBlogs, errors, data, funk }", { user, withoutHeroBlogs, heroBlogs, errors, data, funk });
+export default function Home({ user, withoutHeroBlogs, heroBlogs, socials, errors }) {
 
   return (
     <AppLayout>
@@ -71,6 +45,7 @@ export default function Home({ user, withoutHeroBlogs, heroBlogs, errors, data, 
             name={user.fullName}
             job={user.job}
             description={user.description}
+            socials={socials}
           />
         </section>
         <section id='blogs' className='grid gap-y-10 lg:w-3/5'>

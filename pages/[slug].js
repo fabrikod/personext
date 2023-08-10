@@ -2,9 +2,9 @@ import Card from 'components/Card'
 import AppLayout from 'layouts/AppLayout'
 import Image from 'next/image';
 import Chip from '@/components/Chip';
-import { fetchData } from "../utils/readFile"
+import { getReadMeData } from '@/services/readme.service';
 
-export default function BlogPage({ blog, user }) {
+export default function BlogPage({ blog, user, socials }) {
   return (
     <AppLayout>
       {
@@ -16,6 +16,7 @@ export default function BlogPage({ blog, user }) {
               name={user.fullName}
               job={user.job}
               description={user.description}
+              socials={socials}
             />
           </section>
           <section id='blog' className='lg:w-3/5'>
@@ -34,7 +35,7 @@ export default function BlogPage({ blog, user }) {
               <div>
                 <div className='flex flex-wrap mt-9 gap-3 '>
                   {
-                    blog.tags.map((tag, index) => <Chip className='text-primary-1 !rounded-[15px] !py-3 self-start' key={index}>{tag}</Chip>)
+                    blog && blog.tags.map((tag, index) => <Chip className='text-primary-1 !rounded-[15px] !py-3 self-start' key={index}>{tag}</Chip>)
                   }
                 </div>
               </div>
@@ -48,8 +49,8 @@ export default function BlogPage({ blog, user }) {
 
 export async function getStaticPaths() {
   try {
-    const { data: { blogs } } = fetchData()
-    const paths = blogs.map(({ slug }) => ({
+    const blogs = await getReadMeData('/data/blogs.md')
+    const paths = blogs.data.map(({ slug }) => ({
       params: { slug }
     }))
 
@@ -67,21 +68,25 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   try {
-    const { data: { user, blogs } } = fetchData()
-    const slug = params.slug;
-    const blog = blogs.find(blog => blog.slug === slug)
+    const blogs = await getReadMeData('/data/blogs.md')
+    const user = await getReadMeData('/data/user.md')
+    const socials = await getReadMeData('/data/socials.md')
+
+    const blog = blogs.data.find(blog => blog.slug === params.slug)
 
     return {
       props: {
-        blog: blog || {},
-        user: user || {}
+        blog: blog || [],
+        user: user.data || {},
+        socials: socials.data || []
       },
     }
   } catch (error) {
     return {
       props: {
         blog: {},
-        user: {}
+        user: {},
+        socials: []
       }
     }
   }
