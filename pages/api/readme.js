@@ -3,7 +3,9 @@ const yaml = require('js-yaml');
 
 const fetchData = (file) => {
   console.log('filefilefilefil e', file)
-  const markdownContent = fs.readFileSync(process.cwd() + file, 'utf-8');
+  const deger = '/data/user.md'
+  const markdownContent = fs.readFileSync(process.cwd() + deger, 'utf-8');
+  // const m = fs.readFileSync(process.cwd() + file, 'utf-8');
   const yamlData = yaml.load(markdownContent);
 
   return yamlData
