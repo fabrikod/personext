@@ -4,10 +4,11 @@ const yaml = require('js-yaml');
 const fetchData = (filePath) => {
   console.log('filefilefilefil e', filePath)
   const deger = '/data/user.md'
+  const deger2 = filePath
   if (filePath === deger) {
     console.log('888888888', true)
   }
-  const markdownContent = fs.readFileSync(process.cwd() + filePath, 'utf-8');
+  const markdownContent = fs.readFileSync(process.cwd() + deger2, 'utf-8');
   // const m = fs.readFileSync(process.cwd() + file, 'utf-8');
   const yamlData = yaml.load(markdownContent);
 
