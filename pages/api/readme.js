@@ -2,9 +2,9 @@ const fs = require('fs');
 const yaml = require('js-yaml');
 
 const fetchData = () => {
-  console.log("111111111111111")
+  console.log("111111111111111", process.cwd() + '/README.md')
   const delimiter = '---';
-  const markdownContent = fs.readFileSync('./README.md', 'utf-8');
+  const markdownContent = fs.readFileSync(process.cwd() + '/README.md', 'utf-8');
   console.log("markdownContent", markdownContent)
   const startIndex = markdownContent.indexOf(delimiter) + delimiter.length;
   const endIndex = markdownContent.indexOf(delimiter, startIndex);
