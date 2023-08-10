@@ -3,9 +3,11 @@ const yaml = require('js-yaml');
 
 const fetchData = (file) => {
   console.log('filefilefilefil e', file)
-  console.log('process.cwd() + file', process.cwd() + file)
+  const path = `${process.cwd()}${file}`
+  console.log('44444444444', path)
   const markdownContent = fs.readFileSync(process.cwd() + '/data/blogs.md', 'utf-8');
-
+  const markdownContent2 = fs.readFileSync(path, 'utf-8');
+  console.log('55555555555', path)
   const yamlData = yaml.load(markdownContent);
 
   return yamlData
@@ -14,9 +16,6 @@ const fetchData = (file) => {
 export default async function handler(req, res) {
   try {
     const { file } = req.query;
-
-    console.log('filefilefile11111', file)
-    console.log('req.query', req.query)
 
     if (!file) {
       return res.status(400).json({ error: 'file parameter is missing.' });
