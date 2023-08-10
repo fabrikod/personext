@@ -4,15 +4,20 @@ const yaml = require('js-yaml');
 const fetchData = () => {
   const delimiter = '---';
   const markdownContent = fs.readFileSync('./README.md', 'utf-8');
+  console.log("markdownContent")
   const startIndex = markdownContent.indexOf(delimiter) + delimiter.length;
   const endIndex = markdownContent.indexOf(delimiter, startIndex);
+  console.log("startIndex", startIndex)
 
   if (startIndex === -1 || endIndex === -1) {
     throw new Error('Invalid Markdown file format');
   }
 
   const extractedContent = markdownContent.slice(startIndex, endIndex).trim();
+  console.log("extractedContent", extractedContent)
+
   const yamlData = yaml.load(extractedContent);
+  console.log("yamlData", yamlData)
 
   return yamlData
 }
