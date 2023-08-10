@@ -8,7 +8,7 @@ const fetchData = (filePath) => {
   if (filePath === deger) {
     console.log('888888888', true)
   }
-  const markdownContent = fs.readFileSync(process.cwd() + deger2, 'utf-8');
+  const markdownContent = fs.readFileSync(process.cwd() + deger, 'utf-8');
   // const m = fs.readFileSync(process.cwd() + file, 'utf-8');
   const yamlData = yaml.load(markdownContent);
 
