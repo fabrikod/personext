@@ -2,8 +2,13 @@ const fs = require('fs');
 const yaml = require('js-yaml');
 
 const fetchData = (file) => {
+  console.log('filefilefilefile', file)
   const markdownContent = fs.readFileSync(process.cwd() + file, 'utf-8');
+  console.log('markdownContentmarkdownContent', markdownContent)
+
   const yamlData = yaml.load(markdownContent);
+
+  console.log('yamlDatayamlData', yamlData)
 
   return yamlData
 }
