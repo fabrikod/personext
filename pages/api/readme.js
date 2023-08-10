@@ -5,11 +5,8 @@ const fetchData = (file) => {
   console.log('filefilefilefil e', file)
   console.log('process.cwd() + file', process.cwd() + file)
   const markdownContent = fs.readFileSync(process.cwd() + '/data/blogs.md', 'utf-8');
-  console.log('markdownContentmarkdownContent', markdownContent)
 
   const yamlData = yaml.load(markdownContent);
-
-  console.log('yamlDatayamlData', yamlData)
 
   return yamlData
 }
