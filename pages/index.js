@@ -5,9 +5,9 @@ import { useEffect } from 'react'
 
 export async function getServerSideProps() {
   try {
-    const user = await getReadMeData('data/user.md')
-    const blogs = await getReadMeData('data/blogs.md')
-    const socials = await getReadMeData('data/socials.md')
+    const user = await getReadMeData('/data/user.md')
+    const blogs = await getReadMeData('/data/blogs.md')
+    const socials = await getReadMeData('/data/socials.md')
 
     const heroBlogs = blogs.data.filter(blog => blog.hero)
     const withoutHeroBlogs = blogs.data.filter(blog => !blog.hero)
