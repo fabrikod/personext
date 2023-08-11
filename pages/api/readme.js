@@ -2,7 +2,7 @@ const fs = require('fs');
 const yaml = require('js-yaml');
 
 const fetchData = (filePath) => {
-  const deger = '/data/user.md'
+  const deger = '/data/blogs.md'
 
   console.log('11111111111', deger)
   console.log('11111111111', filePath)
