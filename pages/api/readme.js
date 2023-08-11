@@ -2,7 +2,7 @@ const fs = require('fs');
 const yaml = require('js-yaml');
 
 const fetchData = (filePath) => {
-  const deger = '/data/blogs.md'
+  const deger = '/data/socials.md'
   console.log("111111111111", deger);
   console.log("111111111111", filePath);
   console.log("111111111111", `${process.cwd()}${deger}`);
