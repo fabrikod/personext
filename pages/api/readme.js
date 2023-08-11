@@ -22,7 +22,7 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'file parameter is missing.' });
     }
 
-    const data = fetchData('/data/user.md')
+    const data = fetchData(file)
 
     res.status(200).json({
       data
