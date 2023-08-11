@@ -6,6 +6,8 @@ const fetchData = (filePath) => {
   const deger2 = '/data/blogs.md'
   const deger3 = '/data/user.md'
   console.log("111111111111", deger);
+  console.log("111111111111", deger2);
+  console.log("111111111111", deger3);
   console.log("111111111111", filePath);
   console.log("111111111111", `${process.cwd()}${deger}`);
   console.log("111111111111", `${process.cwd()}${filePath}`);
