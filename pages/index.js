@@ -9,6 +9,10 @@ export async function getServerSideProps() {
     const blogs = await getReadMeData('/data/blogs.md')
     const socials = await getReadMeData('/data/socials.md')
 
+    console.log('222222222222', user)
+    console.log('222222222222', blogs)
+    console.log('222222222222', socials)
+
     const heroBlogs = blogs.data.filter(blog => blog.hero)
     const withoutHeroBlogs = blogs.data.filter(blog => !blog.hero)
 

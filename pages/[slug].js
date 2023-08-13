@@ -35,7 +35,7 @@ export default function BlogPage({ blog, user, socials }) {
               <div>
                 <div className='flex flex-wrap mt-9 gap-3 '>
                   {
-                    blog && blog.tags.map((tag, index) => <Chip className='text-primary-1 !rounded-[15px] !py-3 self-start' key={index}>{tag}</Chip>)
+                    blog.tags && blog.tags.map((tag, index) => <Chip className='text-primary-1 !rounded-[15px] !py-3 self-start' key={index}>{tag}</Chip>)
                   }
                 </div>
               </div>
