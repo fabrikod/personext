@@ -2,14 +2,30 @@ const fs = require('fs');
 const yaml = require('js-yaml');
 
 const fetchData = (filePath) => {
-  const deger = '/data/blogs.md'
+  const blogs = '/data/blogs.md'
+  const user = '/data/user.md'
+  const socials = '/data/socials.md'
 
-  console.log('11111111111', deger)
-  console.log('11111111111', filePath)
-  console.log('11111111111', `${process.cwd()}${deger}`)
-  console.log('11111111111', `${process.cwd()}${filePath}`)
+  var markdownContent = {}
 
-  const markdownContent = fs.readFileSync(`${process.cwd()}${filePath}`, 'utf-8');
+  switch (filePath) {
+    case blogs:
+      markdownContent = fs.readFileSync(`${process.cwd()}${blogs}`, 'utf-8');
+      break;
+
+    case user:
+      markdownContent = fs.readFileSync(`${process.cwd()}${user}`, 'utf-8');
+      break;
+
+    case socials:
+      markdownContent = fs.readFileSync(`${process.cwd()}${socials}`, 'utf-8');
+      break;
+
+    default:
+      markdownContent = fs.readFileSync(`${process.cwd()}${blogs}`, 'utf-8');
+      break;
+  }
+
   const yamlData = yaml.load(markdownContent);
 
   return yamlData
