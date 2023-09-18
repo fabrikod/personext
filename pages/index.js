@@ -46,6 +46,7 @@ export default function Home({ user, withoutHeroBlogs, heroBlogs, socials, error
             job={user.job}
             description={user.description}
             socials={socials}
+            image={user.image}
           />
         </section>
         <section id='blogs' className='grid gap-y-10 lg:w-3/5'>

@@ -34,7 +34,7 @@ function ProfileCard({ children, description, name, job, tags, image, socials })
   return (
     <div>
       <Image
-        src="/img/Ellipse 2.png"
+        src={image}
         width={152}
         height={152}
         alt="Picture of the author"
