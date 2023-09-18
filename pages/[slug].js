@@ -17,6 +17,7 @@ export default function BlogPage({ blog, user, socials }) {
               job={user.job}
               description={user.description}
               socials={socials}
+              image={user.image}
             />
           </section>
           <section id='blog' className='lg:w-3/5'>
