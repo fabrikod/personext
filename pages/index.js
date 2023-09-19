@@ -1,4 +1,4 @@
-import Card from 'components/Card'
+import Card from '@/components/Card'
 import AppLayout from 'layouts/AppLayout'
 import { getReadMeData } from '@/services/readme.service'
 import { useEffect } from 'react'
@@ -7,7 +7,6 @@ export async function getServerSideProps() {
   try {
     const user = await getReadMeData('/data/user.md')
     const blogs = await getReadMeData('/data/blogs.md')
-    const socials = await getReadMeData('/data/socials.md')
 
     const heroBlogs = blogs.data.filter(blog => blog.hero)
     const withoutHeroBlogs = blogs.data.filter(blog => !blog.hero)
@@ -17,7 +16,6 @@ export async function getServerSideProps() {
         user: user.data || {},
         withoutHeroBlogs: withoutHeroBlogs || [],
         heroBlogs: heroBlogs || [],
-        socials: socials.data || []
       }
     }
   } catch (error) {
@@ -34,7 +32,7 @@ export async function getServerSideProps() {
   }
 }
 
-export default function Home({ user, withoutHeroBlogs, heroBlogs, socials, errors }) {
+export default function Home({ user, withoutHeroBlogs, heroBlogs, errors }) {
 
   return (
     <AppLayout>
@@ -45,7 +43,7 @@ export default function Home({ user, withoutHeroBlogs, heroBlogs, socials, error
             name={user.fullName}
             job={user.job}
             description={user.description}
-            socials={socials}
+            socials={user.socials}
             image={user.image}
           />
         </section>

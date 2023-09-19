@@ -1,3 +1,5 @@
-import * as converters from './converters';
-
-export { converters }
+export {
+  slug,
+  yaml,
+  getSettings
+} from './converters';

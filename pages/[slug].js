@@ -1,10 +1,10 @@
-import Card from 'components/Card'
+import Card from '@/components/Card'
 import AppLayout from 'layouts/AppLayout'
 import Image from 'next/image';
 import Chip from '@/components/Chip';
 import { getReadMeData } from '@/services/readme.service';
 
-export default function BlogPage({ blog, user, socials }) {
+export default function BlogPage({ blog, user }) {
   return (
     <AppLayout>
       {
@@ -16,7 +16,7 @@ export default function BlogPage({ blog, user, socials }) {
               name={user.fullName}
               job={user.job}
               description={user.description}
-              socials={socials}
+              socials={user.socials}
               image={user.image}
             />
           </section>
@@ -71,7 +71,6 @@ export async function getStaticProps({ params }) {
   try {
     const blogs = await getReadMeData('/data/blogs.md')
     const user = await getReadMeData('/data/user.md')
-    const socials = await getReadMeData('/data/socials.md')
 
     const blog = blogs.data.find(blog => blog.slug === params.slug)
 
@@ -79,7 +78,6 @@ export async function getStaticProps({ params }) {
       props: {
         blog: blog || [],
         user: user.data || {},
-        socials: socials.data || []
       },
     }
   } catch (error) {
@@ -87,7 +85,6 @@ export async function getStaticProps({ params }) {
       props: {
         blog: {},
         user: {},
-        socials: []
       }
     }
   }

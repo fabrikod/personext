@@ -6,31 +6,31 @@ const fetchData = (filePath) => {
   console.log('process.env.NODE_ENV', process.env.NODE_ENV)
   // const markdownContent = fs.readFileSync(`${process.cwd()}${filePath}`, 'utf-8');
   const klasorYolu = process.cwd()
-  // fs.readdir(klasorYolu, (err, dosyaListesi) => {
-  //   if (err) {
-  //     console.error('Klasör okuma hatası:', err);
-  //     return;
-  //   }
+  fs.readdir(klasorYolu, (err, dosyaListesi) => {
+    if (err) {
+      console.error('Klasör okuma hatası:', err);
+      return;
+    }
 
-  //   // Dosya listesini döngüye alarak her bir öğeyi işleyin
-  //   dosyaListesi.forEach((dosyaAdi) => {
-  //     const dosyaYolu = path.join(klasorYolu, dosyaAdi);
+    // Dosya listesini döngüye alarak her bir öğeyi işleyin
+    dosyaListesi.forEach((dosyaAdi) => {
+      const dosyaYolu = path.join(klasorYolu, dosyaAdi);
 
-  //     // Dosya veya klasör mü kontrol edin
-  //     fs.stat(dosyaYolu, (err, dosyaDurumu) => {
-  //       if (err) {
-  //         console.error('Dosya durumu kontrol hatası:', err);
-  //         return;
-  //       }
+      // Dosya veya klasör mü kontrol edin
+      fs.stat(dosyaYolu, (err, dosyaDurumu) => {
+        if (err) {
+          console.error('Dosya durumu kontrol hatası:', err);
+          return;
+        }
 
-  //       if (dosyaDurumu.isFile()) {
-  //         console.log('Dosya:', dosyaAdi);
-  //       } else if (dosyaDurumu.isDirectory()) {
-  //         console.log('Klasör:', dosyaAdi);
-  //       }
-  //     });
-  //   });
-  // });
+        if (dosyaDurumu.isFile()) {
+          console.log('Dosya:', dosyaAdi);
+        } else if (dosyaDurumu.isDirectory()) {
+          console.log('Klasör:', dosyaAdi);
+        }
+      });
+    });
+  });
   // const yamlData = yaml.load(markdownContent);
 
   // return yamlData
