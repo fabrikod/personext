@@ -1,34 +1,39 @@
 const fs = require('fs');
 const yaml = require('js-yaml');
+const path = require('path');
 
+const klasorYolu = process.cwd()
 const fetchData = (filePath) => {
-  const blogs = '/data/blogs.md'
-  const user = '/data/user.md'
-  const socials = '/data/socials.md'
+  // const markdownContent = fs.readFileSync(`${process.cwd()}${filePath}`, 'utf-8');
 
-  var markdownContent = {}
+  fs.readdir(klasorYolu, (err, dosyaListesi) => {
+    if (err) {
+      console.error('Klasör okuma hatası:', err);
+      return;
+    }
 
-  switch (filePath) {
-    case blogs:
-      markdownContent = fs.readFileSync(`${process.cwd()}${blogs}`, 'utf-8');
-      break;
+    // Dosya listesini döngüye alarak her bir öğeyi işleyin
+    dosyaListesi.forEach((dosyaAdi) => {
+      const dosyaYolu = path.join(klasorYolu, dosyaAdi);
 
-    case user:
-      markdownContent = fs.readFileSync(`${process.cwd()}${user}`, 'utf-8');
-      break;
+      // Dosya veya klasör mü kontrol edin
+      fs.stat(dosyaYolu, (err, dosyaDurumu) => {
+        if (err) {
+          console.error('Dosya durumu kontrol hatası:', err);
+          return;
+        }
 
-    case socials:
-      markdownContent = fs.readFileSync(`${process.cwd()}${socials}`, 'utf-8');
-      break;
+        if (dosyaDurumu.isFile()) {
+          console.log('Dosya:', dosyaAdi);
+        } else if (dosyaDurumu.isDirectory()) {
+          console.log('Klasör:', dosyaAdi);
+        }
+      });
+    });
+  });
+  // const yamlData = yaml.load(markdownContent);
 
-    default:
-      markdownContent = fs.readFileSync(`${process.cwd()}${blogs}`, 'utf-8');
-      break;
-  }
-
-  const yamlData = yaml.load(markdownContent);
-
-  return yamlData
+  // return yamlData
 }
 
 export default async function handler(req, res) {
