@@ -10,6 +10,7 @@ apiClient.interceptors.response.use(
   (response) => response.data,
   (error) => {
     const { response } = error;
+    console.log('responseresponseresponse', response)
     if (response) {
       console.error(`Request failed with status code ${response.status}:`, error);
       throw error;
