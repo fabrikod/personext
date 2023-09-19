@@ -2,10 +2,9 @@ const fs = require('fs');
 const yaml = require('js-yaml');
 const path = require('path');
 
-const klasorYolu = process.cwd()
 const fetchData = (filePath) => {
   // const markdownContent = fs.readFileSync(`${process.cwd()}${filePath}`, 'utf-8');
-
+  const klasorYolu = process.cwd()
   fs.readdir(klasorYolu, (err, dosyaListesi) => {
     if (err) {
       console.error('Klasör okuma hatası:', err);
