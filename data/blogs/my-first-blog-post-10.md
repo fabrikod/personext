@@ -1,12 +1,11 @@
-type: halftext
-hero: 1
-title: My First Blog Post 2
+type: fulltext
+title: My First Blog Post 5
 description: 'Having worked in product development and consulting for years, here’s the one thing all the clients I’ve worked with have had in common: No one knows how to make products.'
-slug: my-first-blog-post-2
+slug: my-first-blog-post-5
 image: /img/img1.png
 tags: 
-- Product Design
-- Typography
+  - Product Design
+  - Typography
 content: "Having worked in product development and consulting for years, here’s the one thing all the clients I’ve worked with have had in common: No one knows how to make products. 
 
 <br><br>

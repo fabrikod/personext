@@ -5,10 +5,15 @@ import Chip from '@/components/Chip';
 import { getBlogService, getUserService, getBlogBySlugService } from '@/services/md.services'
 import { ArrowLeft } from '@/components/Icons';
 import { useRouter } from 'next/router';
-
+import ErrorPage from 'next/error'
+import Link from 'next/link';
 
 export default function BlogPage({ blog, user }) {
   const router = useRouter();
+
+  if (!blog) {
+    return <ErrorPage statusCode={404} />
+  }
 
   return (
     <AppLayout>
@@ -16,9 +21,9 @@ export default function BlogPage({ blog, user }) {
         blog &&
         <div className='flex flex-col gap-12 lg:flex-row'>
           <section id='profile' className='flex-auto lg:w-2/5 relative'>
-            <button className='absolute -top-20' onClick={() => router.back()}>
-              <ArrowLeft width={70} className="stroke-gray-200" />
-            </button>
+            <Link className='absolute -top-20' href="/">
+              <ArrowLeft width={70} className="stroke-primary-1" />
+            </Link>
             <Card
               type='profile'
               name={user.fullName}
@@ -88,9 +93,10 @@ export async function getStaticProps({ params }) {
       },
     }
   } catch (error) {
+
     return {
       props: {
-        blog: {},
+        blog: null,
         user: {},
       }
     }
