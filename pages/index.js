@@ -1,34 +1,25 @@
 import Card from '@/components/Card'
 import AppLayout from 'layouts/AppLayout'
-import { getReadMeData } from '@/services/readme.service'
-import { useEffect } from 'react'
+import { getBlogService, getUserService } from '@/services/md.services'
 
 export async function getServerSideProps() {
-  try {
-    const user = await getReadMeData('/data/user.md')
-    const blogs = await getReadMeData('/data/blogs.md')
+  const blogs = await getBlogService()
+  const user = await getUserService()
+  const withoutHeroBlogs = []
+  const heroBlogs = []
 
-    const heroBlogs = blogs.data.filter(blog => blog.hero)
-    const withoutHeroBlogs = blogs.data.filter(blog => !blog.hero)
+  blogs.forEach((blog) => {
+    blog.attributes.hero
+      ? heroBlogs.push(blog.attributes)
+      : withoutHeroBlogs.push(blog.attributes)
+  })
 
-    return {
-      props: {
-        user: user.data || {},
-        withoutHeroBlogs: withoutHeroBlogs || [],
-        heroBlogs: heroBlogs || [],
-      }
+  return {
+    props: {
+      user: user || {},
+      withoutHeroBlogs: withoutHeroBlogs || [],
+      heroBlogs: heroBlogs || [],
     }
-  } catch (error) {
-    console.error(error);
-
-    return {
-      props: {
-        user: {},
-        withoutHeroBlogs: [],
-        heroBlogs: [],
-        errors: error.errors || []
-      },
-    };
   }
 }
 
@@ -51,6 +42,7 @@ export default function Home({ user, withoutHeroBlogs, heroBlogs, errors }) {
           {errors && <p className='text-red-600'>{errors.map(error => error)}</p>}
           <div className='grid gap-y-10'>
             {
+              heroBlogs &&
               heroBlogs.map((blog, index) =>
                 <Card
                   {...blog}

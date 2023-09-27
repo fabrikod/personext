@@ -2,7 +2,7 @@ import Card from '@/components/Card'
 import AppLayout from 'layouts/AppLayout'
 import Image from 'next/image';
 import Chip from '@/components/Chip';
-import { getReadMeData } from '@/services/readme.service';
+import { getBlogService, getUserService, getBlogBySlugService } from '@/services/md.services'
 
 export default function BlogPage({ blog, user }) {
   return (
@@ -50,34 +50,32 @@ export default function BlogPage({ blog, user }) {
 
 export async function getStaticPaths() {
   try {
-    const blogs = await getReadMeData('/data/blogs.md')
-    const paths = blogs.data.map(({ slug }) => ({
+    const blogs = await getBlogService()
+    const paths = blogs.map(({ slug }) => ({
       params: { slug }
     }))
 
     return {
       paths,
-      fallback: false
+      fallback: true
     };
   } catch (error) {
     return {
       paths: [],
-      fallback: false
+      fallback: true
     };
   }
 }
 
 export async function getStaticProps({ params }) {
   try {
-    const blogs = await getReadMeData('/data/blogs.md')
-    const user = await getReadMeData('/data/user.md')
-
-    const blog = blogs.data.find(blog => blog.slug === params.slug)
+    const blog = await getBlogBySlugService(params.slug)
+    const user = await getUserService()
 
     return {
       props: {
         blog: blog || [],
-        user: user.data || {},
+        user: user || {},
       },
     }
   } catch (error) {

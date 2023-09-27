@@ -18,7 +18,7 @@
 }
 
 body {
-  @apply bg-base-1 font-proxima-nova
+  @apply bg-base-1
 }
 
 .column-blogs .blog-card {

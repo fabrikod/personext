@@ -6,16 +6,21 @@ const slug = (url) => {
     .trim();
 }
 
-const yaml = (content, settingName) => {
+const yaml = (content) => {
   const yaml = require('js-yaml');
-  const yamlData = yaml.load(content);
-  return settingName ? yamlData[settingName] : yamlData
+  return yaml.load(content);
 }
+
+const getConvertSettings = (settings, settingName) => {
+  const jsonData = yaml(settings)
+  return settingName ? jsonData[settingName] : yamlData
+}
+
 
 const getSettings = (settingName) => {
   const fs = require('fs');
   const settings = fs.readFileSync(`${process.cwd()}/data/settings.md`, 'utf-8');
-  return yaml(settings, settingName)
+  return getConvertSettings(settings, settingName)
 }
 
 export {
