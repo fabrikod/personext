@@ -19,6 +19,11 @@ module.exports = {
         'base-2': '#FFFFFF;',
         'base-3': '#F7F7F7;',
       },
+      stroke: {
+        'base-1': '#F9F9F9;',
+        'base-2': '#FFFFFF;',
+        'base-3': '#F7F7F7;',
+      },
       boxShadow: {
         'card': '0px 0px 5px rgba(0, 0, 0, 0.1)'
       },

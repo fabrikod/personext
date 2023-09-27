@@ -3,14 +3,22 @@ import AppLayout from 'layouts/AppLayout'
 import Image from 'next/image';
 import Chip from '@/components/Chip';
 import { getBlogService, getUserService, getBlogBySlugService } from '@/services/md.services'
+import { ArrowLeft } from '@/components/Icons';
+import { useRouter } from 'next/router';
+
 
 export default function BlogPage({ blog, user }) {
+  const router = useRouter();
+
   return (
     <AppLayout>
       {
         blog &&
         <div className='flex flex-col gap-12 lg:flex-row'>
-          <section id='profile' className='flex-auto lg:w-2/5'>
+          <section id='profile' className='flex-auto lg:w-2/5 relative'>
+            <button className='absolute -top-20' onClick={() => router.back()}>
+              <ArrowLeft width={70} className="stroke-gray-200" />
+            </button>
             <Card
               type='profile'
               name={user.fullName}
@@ -26,6 +34,7 @@ export default function BlogPage({ blog, user }) {
                 <Image
                   src={blog.image}
                   fill
+                  alt=""
                   className='object-cover w-full rounded-[20px]'
                 />
               </div>

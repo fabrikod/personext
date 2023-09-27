@@ -36,8 +36,6 @@ export const getFileData = async (file, pathValue) => {
 
 export const getUserFileData = async () => {
   const userData = getFileData('user.md')
-  console.log('userDatauserData', userData)
-
   return userData
 }
 
