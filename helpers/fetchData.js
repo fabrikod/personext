@@ -1,9 +1,10 @@
+import { BLOG_FOLDER_PATH } from '@/constrait';
 
 const fs = require('fs').promises;
 const path = require('path');
 
-export const getBlogsFilesData = async () => {
-  const folderPath = `${process.cwd()}/data/blogs`;
+export const getBlogsFilesData = async (page,) => {
+  const folderPath = BLOG_FOLDER_PATH
   const blogs = []
 
   try {
@@ -11,12 +12,12 @@ export const getBlogsFilesData = async () => {
 
     for (const file of files) {
       if (path.extname(file) === '.md') {
-        const mdDosyaYolu = path.join(folderPath, file);
-        const content = await fs.readFile(mdDosyaYolu, 'utf8');
+        const mdFilePath = path.join(folderPath, file);
+        const content = await fs.readFile(mdFilePath, 'utf8');
 
         blogs.push({
           slug: file.split('.')[0],
-          attributes: content
+          attributes: content,
         })
       }
     }

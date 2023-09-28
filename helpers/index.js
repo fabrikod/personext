@@ -7,5 +7,5 @@ export {
 export {
   getBlogsFilesData,
   getUserFileData,
-  getBlogBySlugData
+  getBlogBySlugData,
 } from './fetchData';
