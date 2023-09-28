@@ -9,8 +9,9 @@ export default function Chip({ children, className }) {
       text-sm 
       px-7 
       inline-flex 
-      gap-x-7 
+      gap-7 
       cursor-pointer 
+      flex-wrap
       ${className}
     `}>
       {children}

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import CardType from '../constrait/CardType'
+import { CardType, DESCRIPTION_MAX_LENGTH } from '../constrait'
 import Image from 'next/image'
 import Chip from './Chip'
 import * as Icons from './Icons'
@@ -13,7 +13,7 @@ export default function Card(props) {
   const [customClass, setColumnClass] = useState()
 
   return (
-    <div className={classNames('rounded-[30px] shadow-card p-9 bg-base-2', customClass)}>
+    <div className={classNames('rounded-[30px] shadow-card p-9 bg-base-2', customClass, type !== 'profile' ? 'card' : '')}>
       {
         children
           ? children
@@ -65,10 +65,10 @@ function ProfileCard({ children, description, name, job, tags, image, socials })
 
 function FullTextCard({ children, description, title, tags, slug }) {
   return (
-    <div>
+    <div className='min-h-[190px]'>
       <h3 className='font-bold text-4xl text-primary-2'><Link href={slug}>{title}</Link></h3>
       <p className='font-semibold text-primary-3 mt-6'>
-        {description}
+        {description.length > DESCRIPTION_MAX_LENGTH ? `${description.substring(0, DESCRIPTION_MAX_LENGTH)}...` : description}
       </p>
       <div className='flex flex-wrap mt-9 gap-3 '>
         {
@@ -79,12 +79,12 @@ function FullTextCard({ children, description, title, tags, slug }) {
   )
 }
 
-function HalfTextCard({ children, description, title, image, tags, slug }) {
+function HalfTextCard({ children, description, title, image, tags, slug, imageClassName }) {
   return (
-    <div className='flex flex-col h-full items-start md:flex-row gap-10'>
+    <div className='flex flex-wrap h-full min-h-[190px] items-start gap-10'>
       {
         image && (
-          <div className='h-60 sm:h-96 md:h-full w-full relative md:w-1/3'>
+          <div className={'min-w-[200px] min-h-[190px] relative ' + imageClassName}>
             <Image
               src={image}
               fill
@@ -94,7 +94,7 @@ function HalfTextCard({ children, description, title, image, tags, slug }) {
           </div>
         )
       }
-      <div className='flex flex-col justify-between md:w-2/3'>
+      <div className='flex flex-1 flex-col justify-between'>
         <h3 className='font-bold text-4xl text-primary-2'><Link href={slug}>{title}</Link></h3>
         <p className='font-semibold text-primary-3 mt-4'>
           {description}
@@ -117,7 +117,7 @@ function FullImageCard({ children, description, title, image, tags, slug, setCol
   }, [])
 
   return (
-    <div className='relative h-96 sm:h-full'>
+    <div className='relative aspect-square'>
       <Link href={slug}>
         <Image
           src={image}

@@ -17,6 +17,10 @@
   }
 }
 
+* {
+  @apply !box-border;
+}
+
 body {
   @apply bg-base-1
 }
@@ -35,4 +39,18 @@ body {
 
 #blog #blog-content .content-img-orginal{
   @apply mx-auto
+}
+
+.card-list .card:nth-child(2n+1) {
+  @apply float-left mr-0 mb-12 w-full sm:mr-12 max-md:!w-full;
+  width: calc(50% - 24px);
+}
+
+.card-list .card:nth-child(2n) {
+  @apply float-left mb-12 md:float-right max-md:!w-full;
+  width: calc(50% - 24px);
+}
+
+.card-list .card {
+  @apply min-w-[350px] md:min-w-[200px];
 }

@@ -52,12 +52,13 @@ export default function Home({ user, withoutHeroBlogs, heroBlogs, errors }) {
             }
           </div>
 
-          <div className='grid sm:grid-cols-2 gap-10'>
+          <div className='card-list'>
             {
               withoutHeroBlogs.map((blog, index) =>
                 <Card
                   {...blog}
                   key={index}
+                  imageClassName={blog.type === 'halftext' ? 'w-full h-72 lg:h-auto' : ''}
                 />
               )
             }

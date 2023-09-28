@@ -1,6 +1,6 @@
 type: fulltext
 title: My First Blog Post 5
-description: 'Having worked in product development and consulting for years, here’s the one thing all the clients I’ve worked with have had in common: No one knows how to make products.'
+description: 'Having worked in product devel'
 slug: my-first-blog-post-5
 image: /img/img1.png
 tags: 

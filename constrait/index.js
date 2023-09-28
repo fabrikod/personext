@@ -6,4 +6,9 @@ const CardType = Object.freeze({
   Custom: 'custom'
 });
 
-export default CardType
+const DESCRIPTION_MAX_LENGTH = 300
+
+export {
+  CardType,
+  DESCRIPTION_MAX_LENGTH
+}
