@@ -1,4 +1,4 @@
-import { getBlogsFilesData, getUserFileData, getBlogBySlugData, yaml } from "@/helpers"
+import { getBlogsFilesData, getUserFileData, getBlogBySlugData, yaml, getBlogFileJsonData, readJsonFileData } from "@/helpers"
 
 export const getBlogService = async () => {
   const blogs = await getBlogsFilesData()
@@ -19,6 +19,22 @@ export const getUserService = async () => {
 
 export const getBlogBySlugService = async (slug) => {
   const blog = await getBlogBySlugData(slug)
+  const jsonBlog = yaml(blog)
+  return jsonBlog
+}
+
+export const getBlogJsonService = async ({ perpage, page }) => {
+  const data = await getBlogFileJsonData({ perpage: perpage || 4, page: page || 1 })
+  data.data = data.data.map(({ slug, attributes }) => ({
+    slug,
+    attributes: yaml(attributes)
+  }))
+
+  return data
+}
+
+export const getReadJsonFileService = async (slug) => {
+  const blog = await readJsonFileData()
   const jsonBlog = yaml(blog)
   return jsonBlog
 }

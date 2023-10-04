@@ -1,3 +1,6 @@
+const fs = require('fs');
+const jsyaml = require('js-yaml');
+
 const slug = (url) => {
   return url
     .toLowerCase()
@@ -7,8 +10,7 @@ const slug = (url) => {
 }
 
 const yaml = (content) => {
-  const yaml = require('js-yaml');
-  return yaml.load(content);
+  return jsyaml.load(content);
 }
 
 const getConvertSettings = (settings, settingName) => {
@@ -16,9 +18,7 @@ const getConvertSettings = (settings, settingName) => {
   return settingName ? jsonData[settingName] : yamlData
 }
 
-
 const getSettings = (settingName) => {
-  const fs = require('fs');
   const settings = fs.readFileSync(`${process.cwd()}/data/settings.md`, 'utf-8');
   return getConvertSettings(settings, settingName)
 }

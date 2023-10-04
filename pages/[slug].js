@@ -2,7 +2,7 @@ import Card from '@/components/Card'
 import AppLayout from 'layouts/AppLayout'
 import Image from 'next/image';
 import Chip from '@/components/Chip';
-import { getBlogService, getUserService, getBlogBySlugService } from '@/services/md.services'
+import { getUserService, getBlogBySlugService, getReadJsonFileService } from '@/services/md.services'
 import { ArrowLeft } from '@/components/Icons';
 import { useRouter } from 'next/router';
 import ErrorPage from 'next/error'
@@ -64,9 +64,9 @@ export default function BlogPage({ blog, user }) {
 
 export async function getStaticPaths() {
   try {
-    const blogs = await getBlogService()
-    const paths = blogs.map(({ slug }) => ({
-      params: { slug }
+    const blogs = await getReadJsonFileService()
+    const paths = blogs.map(({ file }) => ({
+      params: { slug: file }
     }))
 
     return {

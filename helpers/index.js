@@ -8,4 +8,6 @@ export {
   getBlogsFilesData,
   getUserFileData,
   getBlogBySlugData,
+  getBlogFileJsonData,
+  readJsonFileData
 } from './fetchData';

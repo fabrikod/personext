@@ -1,29 +1,51 @@
 import Card from '@/components/Card'
 import AppLayout from 'layouts/AppLayout'
-import { getBlogService, getUserService } from '@/services/md.services'
+import { getUserService, getBlogJsonService } from '@/services/md.services'
+import ReactPaginate from 'react-paginate';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+import apiClient from '@/utils/axios';
 
-export async function getServerSideProps() {
-  const blogs = await getBlogService()
+const PERPAGE = 4
+
+export async function getServerSideProps({ query }) {
+  const { page } = query
   const user = await getUserService()
-  const withoutHeroBlogs = []
-  const heroBlogs = []
-
-  blogs.forEach((blog) => {
-    blog.attributes.hero
-      ? heroBlogs.push(blog.attributes)
-      : withoutHeroBlogs.push(blog.attributes)
-  })
+  const { data, meta } = await getBlogJsonService({ perpage: PERPAGE, page: page || 1 })
+  const blogs = data.map(({ attributes }) => attributes)
 
   return {
     props: {
       user: user || {},
-      withoutHeroBlogs: withoutHeroBlogs || [],
-      heroBlogs: heroBlogs || [],
+      blogs: blogs || [],
+      meta: meta || {}
     }
   }
 }
 
-export default function Home({ user, withoutHeroBlogs, heroBlogs, errors }) {
+export default function Home({ user, blogs, meta, errors }) {
+  const router = useRouter()
+  const [firstUse, setFirstUse] = useState(false)
+
+  const pageChanged = (event) => {
+    router.push({
+      query: {
+        page: event.selected + 1
+      }
+    })
+  }
+
+  useEffect(() => {
+    if (firstUse) {
+      async function fetchBlog() {
+        blogs = await apiClient.get('/blog')
+        console.log('blogsblogsblogs', blogs)
+      }
+      fetchBlog()
+    }
+
+    setFirstUse(true)
+  }, [router.query])
 
   return (
     <AppLayout>
@@ -40,7 +62,7 @@ export default function Home({ user, withoutHeroBlogs, heroBlogs, errors }) {
         </section>
         <section id='blogs' className='grid gap-y-10 lg:w-3/5'>
           {errors && <p className='text-red-600'>{errors.map(error => error)}</p>}
-          <div className='grid gap-y-10'>
+          {/* <div className='grid gap-y-10'>
             {
               heroBlogs &&
               heroBlogs.map((blog, index) =>
@@ -50,11 +72,11 @@ export default function Home({ user, withoutHeroBlogs, heroBlogs, errors }) {
                 />
               )
             }
-          </div>
+          </div> */}
 
           <div className='card-list'>
             {
-              withoutHeroBlogs.map((blog, index) =>
+              blogs.map((blog, index) =>
                 <Card
                   {...blog}
                   key={index}
@@ -65,6 +87,17 @@ export default function Home({ user, withoutHeroBlogs, heroBlogs, errors }) {
           </div>
         </section>
       </div>
+
+      <ReactPaginate
+        onPageChange={pageChanged}
+        breakLabel="..."
+        nextLabel=">"
+        pageRangeDisplayed={10}
+        pageCount={meta.pageCount}
+        previousLabel="<"
+        renderOnZeroPageCount={null}
+        className='pagination flex gap-5 justify-center mt-10'
+      />
     </AppLayout>
   )
 }
