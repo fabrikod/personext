@@ -1,3 +1,4 @@
+publishedAt: "2023-09-08"
 type: halftext
 hero: 1
 title: My First Blog Post 2

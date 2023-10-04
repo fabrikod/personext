@@ -1,3 +1,4 @@
+publishedAt: "2023-09-07"
 type: fulltext
 hero: 1
 title: My First Blog Post 1
