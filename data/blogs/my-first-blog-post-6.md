@@ -2,7 +2,7 @@ publishedAt: "2023-09-11"
 type: fullimage
 title: My First Blog Post 6
 description: 'Having worked in product development and consulting for years, here’s the one thing all the clients I’ve worked with have had in common: No one knows how to make products.'
-slug: my-first-blog-post-6
+slug: /my-first-blog-post-6
 image: /img/img1.png
 tags: 
 - Product Design

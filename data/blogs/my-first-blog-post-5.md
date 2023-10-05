@@ -2,7 +2,7 @@ publishedAt: "2023-09-10"
 type: fulltext
 title: My First Blog Post 5
 description: 'Having worked in product devel long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less'
-slug: my-first-blog-post-5
+slug: /my-first-blog-post-5
 image: /img/img1.png
 tags: 
   - Product Design

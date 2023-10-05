@@ -3,7 +3,7 @@ type: fulltext
 hero: 1
 title: My First Blog Post 1
 description: 'all the clients I’ve worked with have had in common: No one knows how to make products.'
-slug: my-first-blog-post-1
+slug: /my-first-blog-post-1
 image: /img/img1.png
 tags: 
   - Product Design

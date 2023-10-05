@@ -7,6 +7,7 @@ import { ArrowLeft } from '@/components/Icons';
 import { useRouter } from 'next/router';
 import ErrorPage from 'next/error'
 import Link from 'next/link';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 export default function BlogPage({ blog, user }) {
   const router = useRouter();
@@ -65,7 +66,7 @@ export default function BlogPage({ blog, user }) {
 export async function getStaticPaths() {
   const blogs = await getReadJsonFileService()
   const paths = blogs.map(({ file }) => ({
-    params: { slug: file }
+    params: { slug: file.split('.')[0] }
   }))
 
   return {
@@ -74,7 +75,7 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params, locale }) {
   const blog = await getBlogBySlugService(params.slug)
   const user = await getUserService()
 
@@ -82,6 +83,9 @@ export async function getStaticProps({ params }) {
     props: {
       blog: blog || [],
       user: user || {},
+      ...(await serverSideTranslations(locale, [
+        'common',
+      ])),
     },
   }
 }
