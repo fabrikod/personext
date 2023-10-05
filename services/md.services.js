@@ -35,6 +35,5 @@ export const getBlogJsonService = async ({ perpage, page }) => {
 
 export const getReadJsonFileService = async (slug) => {
   const blog = await readJsonFileData()
-  const jsonBlog = yaml(blog)
-  return jsonBlog
+  return blog
 }
