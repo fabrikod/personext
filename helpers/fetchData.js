@@ -6,22 +6,17 @@ const path = require('path');
 export const getBlogsFilesData = async (jsonBlogArray) => {
   const blogs = []
 
-  try {
-    for (const { file } of jsonBlogArray) {
-      if (path.extname(file) === '.md') {
-        const mdFilePath = path.join(BLOG_FOLDER_PATH, file);
-        const content = await fs.readFile(mdFilePath, 'utf8');
+  for (const { file } of jsonBlogArray) {
+    if (path.extname(file) === '.md') {
+      const mdFilePath = path.join(BLOG_FOLDER_PATH, file);
+      const content = await fs.readFile(mdFilePath, 'utf8');
 
-        blogs.push({
-          slug: file.split('.')[0],
-          attributes: content,
-        })
-      }
+      blogs.push({
+        slug: file.split('.')[0],
+        attributes: content,
+      })
     }
-  } catch (err) {
-    console.error('Error:', err);
   }
-
   return blogs
 }
 

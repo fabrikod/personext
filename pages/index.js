@@ -5,10 +5,12 @@ import ReactPaginate from 'react-paginate';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import apiClient from '@/utils/axios';
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 const PERPAGE = 4
 
-export async function getServerSideProps({ query }) {
+export async function getServerSideProps({ query, locale }) {
   const { page } = query
   const user = await getUserService()
   const { data, meta } = await getBlogJsonService({ perpage: PERPAGE, page: page || 1 })
@@ -18,7 +20,10 @@ export async function getServerSideProps({ query }) {
     props: {
       user: user || {},
       blogs: blogs || [],
-      meta: meta || {}
+      meta: meta || {},
+      ...(await serverSideTranslations(locale ?? 'en', [
+        'common',
+      ])),
     }
   }
 }
@@ -26,6 +31,8 @@ export async function getServerSideProps({ query }) {
 export default function Home({ user, blogs, meta, errors }) {
   const router = useRouter()
   const [firstUse, setFirstUse] = useState(false)
+  const { locales, locale: activeLocale, defaultLocale } = router
+  const { t } = useTranslation("common");
 
   const pageChanged = (event) => {
     router.push({
@@ -39,14 +46,12 @@ export default function Home({ user, blogs, meta, errors }) {
     if (firstUse) {
       async function fetchBlog() {
         blogs = await apiClient.get('/blog')
-        console.log('blogsblogsblogs', blogs)
       }
       fetchBlog()
     }
 
     setFirstUse(true)
   }, [router.query])
-
   return (
     <AppLayout>
       <div className='flex flex-col gap-12 lg:flex-row'>

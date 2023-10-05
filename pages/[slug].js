@@ -63,42 +63,25 @@ export default function BlogPage({ blog, user }) {
 }
 
 export async function getStaticPaths() {
-  try {
-    const blogs = await getReadJsonFileService()
-    const paths = blogs.map(({ file }) => ({
-      params: { slug: file }
-    }))
+  const blogs = await getReadJsonFileService()
+  const paths = blogs.map(({ file }) => ({
+    params: { slug: file }
+  }))
 
-    return {
-      paths,
-      fallback: true
-    };
-  } catch (error) {
-    return {
-      paths: [],
-      fallback: true
-    };
-  }
+  return {
+    paths,
+    fallback: true
+  };
 }
 
 export async function getStaticProps({ params }) {
-  try {
-    const blog = await getBlogBySlugService(params.slug)
-    const user = await getUserService()
+  const blog = await getBlogBySlugService(params.slug)
+  const user = await getUserService()
 
-    return {
-      props: {
-        blog: blog || [],
-        user: user || {},
-      },
-    }
-  } catch (error) {
-
-    return {
-      props: {
-        blog: null,
-        user: {},
-      }
-    }
+  return {
+    props: {
+      blog: blog || [],
+      user: user || {},
+    },
   }
 }
