@@ -1,9 +1,9 @@
-const fs = require('fs').promises;
-const path = require('path');
+const fs = require('fs').promises
+const path = require('path')
 
-const yaml = (content) => {
-  const yaml = require('js-yaml');
-  return yaml.load(content);
+const yaml = content => {
+  const yaml = require('js-yaml')
+  return yaml.load(content)
 }
 
 const getMetaDataBySortBlog = async () => {
@@ -11,30 +11,36 @@ const getMetaDataBySortBlog = async () => {
   const BLOG_FOLDER_PATH = `${MAIN_MD_FILE_PATH}/blogs`
 
   const blogMetaDataArray = []
-  const files = await fs.readdir(BLOG_FOLDER_PATH);
+  const files = await fs.readdir(BLOG_FOLDER_PATH)
 
   for (const file of files) {
     if (path.extname(file) === '.md') {
-      const mdFilePath = path.join(BLOG_FOLDER_PATH, file);
-      const fileStats = await fs.stat(mdFilePath);
-      const content = await fs.readFile(mdFilePath, 'utf8');
+      const mdFilePath = path.join(BLOG_FOLDER_PATH, file)
+      const fileStats = await fs.stat(mdFilePath)
+      const content = await fs.readFile(mdFilePath, 'utf8')
+      const json = yaml(content)
 
       blogMetaDataArray.push({
         file: file,
         createdAt: fileStats.birthtime,
-        publishedAt: new Date(yaml(content).publishedAt)
+        publishedAt: new Date(json.publishedAt),
+        tags: json.tags || [],
       })
     }
   }
 
   blogMetaDataArray.sort((first, last) => last.publishedAt - first.publishedAt)
 
-  await fs.writeFile(`${process.cwd()}/data/blogs.json`, JSON.stringify(blogMetaDataArray, null, 2), (err) => {
-    if (err) {
-      console.error('JSON file write error:', err);
-      return;
+  await fs.writeFile(
+    `${process.cwd()}/data/blogs.json`,
+    JSON.stringify(blogMetaDataArray, null, 2),
+    err => {
+      if (err) {
+        console.error('JSON file write error:', err)
+        return
+      }
     }
-  });
+  )
 }
 
 getMetaDataBySortBlog()

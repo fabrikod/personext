@@ -2,51 +2,102 @@
   {
     "file": "my-first-blog-post-8.md",
     "createdAt": "2023-10-04T11:05:27.100Z",
-    "publishedAt": "2023-09-18T00:00:00.000Z"
+    "publishedAt": "2023-09-18T00:00:00.000Z",
+    "tags": [
+      "Product Design",
+      "Drones",
+      "Biotechnology"
+    ]
   },
   {
     "file": "my-first-blog-post-4.md",
     "createdAt": "2023-10-04T11:05:27.100Z",
-    "publishedAt": "2023-09-16T00:00:00.000Z"
+    "publishedAt": "2023-09-16T00:00:00.000Z",
+    "tags": [
+      "Product Design",
+      "Typography",
+      "Drones"
+    ]
   },
   {
     "file": "my-first-blog-post-10.md",
     "createdAt": "2023-10-04T11:05:27.100Z",
-    "publishedAt": "2023-09-14T00:00:00.000Z"
+    "publishedAt": "2023-09-14T00:00:00.000Z",
+    "tags": [
+      "Artificial Intelligence",
+      "Typography"
+    ]
   },
   {
     "file": "my-first-blog-post-9.md",
     "createdAt": "2023-10-04T11:05:27.104Z",
-    "publishedAt": "2023-09-13T00:00:00.000Z"
+    "publishedAt": "2023-09-13T00:00:00.000Z",
+    "tags": [
+      "Cybersecurity",
+      "Typography",
+      "Green Technology"
+    ]
   },
   {
     "file": "my-first-blog-post-7.md",
     "createdAt": "2023-10-04T11:05:27.100Z",
-    "publishedAt": "2023-09-12T00:00:00.000Z"
+    "publishedAt": "2023-09-12T00:00:00.000Z",
+    "tags": [
+      "Product Design",
+      "Medical Technology",
+      "Robotics",
+      "Artificial Intelligence"
+    ]
   },
   {
     "file": "my-first-blog-post-6.md",
     "createdAt": "2023-10-04T11:05:27.100Z",
-    "publishedAt": "2023-09-11T00:00:00.000Z"
+    "publishedAt": "2023-09-11T00:00:00.000Z",
+    "tags": [
+      "Gaming",
+      "Robotics",
+      "Blockchain"
+    ]
   },
   {
     "file": "my-first-blog-post-5.md",
     "createdAt": "2023-10-04T11:05:27.100Z",
-    "publishedAt": "2023-09-10T00:00:00.000Z"
+    "publishedAt": "2023-09-10T00:00:00.000Z",
+    "tags": [
+      "Product Design",
+      "Typography",
+      "Biotechnology",
+      "Gaming",
+      "Telecommunications"
+    ]
   },
   {
     "file": "my-first-blog-post-3.md",
     "createdAt": "2023-10-04T11:05:27.100Z",
-    "publishedAt": "2023-09-09T00:00:00.000Z"
+    "publishedAt": "2023-09-09T00:00:00.000Z",
+    "tags": [
+      "Renewable Energy",
+      "Blockchain"
+    ]
   },
   {
     "file": "my-first-blog-post-2.md",
     "createdAt": "2023-10-04T11:05:27.100Z",
-    "publishedAt": "2023-09-08T00:00:00.000Z"
+    "publishedAt": "2023-09-08T00:00:00.000Z",
+    "tags": [
+      "Cybersecurity",
+      "Robotics",
+      "3D Printing"
+    ]
   },
   {
     "file": "my-first-blog-post-1.md",
     "createdAt": "2023-10-04T11:05:27.100Z",
-    "publishedAt": "2023-09-07T00:00:00.000Z"
+    "publishedAt": "2023-09-07T00:00:00.000Z",
+    "tags": [
+      "Product Design",
+      "Typography",
+      "Gaming"
+    ]
   }
 ]

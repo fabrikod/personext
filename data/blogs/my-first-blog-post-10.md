@@ -5,7 +5,7 @@ description: 'Having worked in product development and consulting for years, her
 slug: /my-first-blog-post-10
 image: /img/img1.png
 tags: 
-  - Product Design
+  - Artificial Intelligence
   - Typography
 content: "Having worked in product development and consulting for years, here’s the one thing all the clients I’ve worked with have had in common: No one knows how to make products. 
 

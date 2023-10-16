@@ -6,7 +6,8 @@ slug: /my-first-blog-post-8
 image: /img/img1.png
 tags: 
   - Product Design
-  - Typography
+  - Drones
+  - Biotechnology
 content: "Having worked in product development and consulting for years, here’s the one thing all the clients I’ve worked with have had in common: No one knows how to make products. 
 
 <br><br>

@@ -1,19 +1,28 @@
 import React from 'react'
 
-export default function Chip({ children, className }) {
+export default function Chip({ children, className, onClick }) {
+  const handleClick = () => {
+    onClick && onClick()
+  }
+
   return (
-    <div className={`
-      bg-base-3 
-      rounded-[30px] 
-      py-4 
-      text-sm 
-      px-7 
+    <div
+      onClick={handleClick}
+      className={`
       inline-flex 
-      gap-7 
       cursor-pointer 
-      flex-wrap
+      flex-wrap 
+      gap-7 
+      rounded-[30px] 
+      bg-base-3 
+      px-4 
+      py-4 
+      text-sm
       ${className}
-    `}>
+      duration-500
+      hover:bg-gray-200
+    `}
+    >
       {children}
     </div>
   )
