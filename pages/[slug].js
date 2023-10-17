@@ -61,12 +61,19 @@ export default function BlogPage({ blog, user }) {
                 <div className="mt-9 flex flex-wrap gap-3 ">
                   {blog.tags &&
                     blog.tags.map((tag, index) => (
-                      <Chip
-                        className="self-start !rounded-[15px] !py-3 text-primary-1"
+                      <Link
+                        href={{
+                          pathname: '/',
+                          query: {
+                            tag: tag.replace(/\s/g, '-'),
+                          },
+                        }}
                         key={index}
                       >
-                        {tag}
-                      </Chip>
+                        <Chip className="self-start !rounded-[15px] !py-3 text-primary-1">
+                          {tag}
+                        </Chip>
+                      </Link>
                     ))}
                 </div>
               </div>

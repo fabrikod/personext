@@ -66,7 +66,7 @@ function ProfileCard({ description, name, job, tags, image, socials }) {
   )
 }
 
-function FullTextCard({ description, title, tags, slug, tagOnClick }) {
+function FullTextCard({ description, title, tags, slug }) {
   return (
     <div className="min-h-[190px]">
       <h3 className="text-4xl font-bold text-primary-2">
@@ -79,13 +79,19 @@ function FullTextCard({ description, title, tags, slug, tagOnClick }) {
       </p>
       <div className="mt-9 flex flex-wrap gap-3">
         {tags.map((tag, index) => (
-          <Chip
-            onClick={() => tagOnClick(tag)}
-            className="self-start !rounded-[15px] !py-3 text-primary-1"
+          <Link
+            href={{
+              pathname: '/',
+              query: {
+                tag: tag.replace(/\s/g, '-'),
+              },
+            }}
             key={index}
           >
-            {tag}
-          </Chip>
+            <Chip className="self-start !rounded-[15px] !py-3 text-primary-1">
+              {tag}
+            </Chip>
+          </Link>
         ))}
       </div>
     </div>
@@ -99,7 +105,6 @@ function HalfTextCard({
   tags,
   slug,
   imageClassName,
-  tagOnClick,
 }) {
   return (
     <div className="flex h-full min-h-[190px] flex-wrap items-start gap-10">
@@ -127,13 +132,19 @@ function HalfTextCard({
 
         <div className="mt-9 flex flex-wrap gap-3">
           {tags.map((tag, index) => (
-            <Chip
-              onClick={() => tagOnClick(tag)}
-              className="!rounded-[15px] !py-3 text-primary-1"
+            <Link
+              href={{
+                pathname: '/',
+                query: {
+                  tag: tag.replace(/\s/g, '-'),
+                },
+              }}
               key={index}
             >
-              {tag}
-            </Chip>
+              <Chip className="!rounded-[15px] !py-3 text-primary-1">
+                {tag}
+              </Chip>
+            </Link>
           ))}
         </div>
       </div>

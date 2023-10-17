@@ -96,7 +96,6 @@ export default function Home({ user, blogs, meta, errors }) {
               <Card
                 {...blog}
                 key={index}
-                tagOnClick={tagClick}
                 imageClassName={
                   blog.type === 'halftext' ? 'w-full h-72 lg:h-auto' : ''
                 }
