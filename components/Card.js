@@ -155,17 +155,11 @@ function HalfTextCard({
                 : description}
             </span>
           ) : (
-            <span
-              dangerouslySetInnerHTML={{
-                __html:
-                  memoizedContent.length > DESCRIPTION_MAX_LENGTH
-                    ? `${memoizedContent.substring(
-                        0,
-                        DESCRIPTION_MAX_LENGTH
-                      )}...`
-                    : memoizedContent,
-              }}
-            />
+            <span>
+              {memoizedContent.length > DESCRIPTION_MAX_LENGTH
+                ? `${memoizedContent.substring(0, DESCRIPTION_MAX_LENGTH)}...`
+                : memoizedContent}
+            </span>
           )}
         </p>
 
