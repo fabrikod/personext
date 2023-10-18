@@ -1,10 +1,10 @@
 username: johndoe
-name: John
-surname: Doe
-job: Product Designer at Fabrikod
-description: I’m Adam Smith, a designer and builder of digital products for people.
-email: johndoe@example.com
-image: /img/Ellipse 2.png
+name: Abdullah
+surname: ÖNDEN
+job: 👋 Hey, I’m @abdullahonden Assistant Profesor at Yalova University and Founder of Fabrikod.
+description: Developing new technologies, teaching to next generation.
+email: 'abdullah.onden@fabrikod.com'
+image: '/img/profile.jpg'
 socials:
   - name: Twitter
     url: https://twitter.com/johndoe
