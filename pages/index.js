@@ -7,8 +7,9 @@ import { useEffect, useState } from 'react'
 import apiClient from '@/utils/axios'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+// import { xmlToJson } from '@/helpers'
 
-const PERPAGE = 6
+const PERPAGE = 10
 
 export async function getServerSideProps({ query, locale }) {
   const { page } = query
@@ -19,6 +20,8 @@ export async function getServerSideProps({ query, locale }) {
     tag: query.tag,
   })
   const blogs = data.map(({ attributes }) => attributes)
+
+  // xmlToJson('abdullahnden.WordPress.2023-09-19.xml')
 
   return {
     props: {
@@ -38,15 +41,6 @@ export default function Home({ user, blogs, meta, errors }) {
     router.push({
       query: {
         page: event.selected + 1,
-      },
-    })
-  }
-
-  const tagClick = tagName => {
-    router.push({
-      query: {
-        ...router.query,
-        tag: tagName.replace(/\s/g, '-'),
       },
     })
   }

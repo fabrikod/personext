@@ -1,0 +1,16 @@
+publishedAt: '2012-06-15 17:48:04'
+type: halftext
+title: Facebook Sayfası Efsanesi Bitti
+description: ''
+slug: facebook-sayfasi-efsanesi-bitti
+image: ''
+tags:
+  - key: facebook
+    name: Facebook
+  - key: facebook-sayfalari
+    name: facebook sayfaları
+  - key: internet
+    name: İnternet
+  - key: tanitimini-yap
+    name: tanıtımını yap
+content: "Hepimiz biliyoruz ki Facebook kurulduğundan beri müthiş bir ivme ile yükseldi ve her anlamda hayatımıza dahil oldu. Bu yükselişte pek çok yeniliği de kullanıcılarına sundu. Şüphesiz bunlardan en önemlisi \"<strong>facebook sayfası</strong>\" kavramını getirmesi idi. Bu sayfalar aslında mikroblog gibi işliyordu, sayfayı beğenmiş kişiler sayfa ile ilgili bir gelişme olduğunda akışlarından olan biteni takip ediyordu, yani bu sayfa sahipleri için korkunç bir reklam kaynağı olmuştu.\r\n\r\nFark ettiyseniz hep geçmiş zaman kullandım zira artık böyle değil. Açıldığından beri \"paralı olacakmış\" esprilerinin yapıldığı Facebook \"<strong>öne çıkar</strong>\" ve \"<strong>tanıtımını yap</strong>\" eklentileri ile ciddi anlamda paralı oldu.\r\n\r\nHala farketmeyenler varsa belirteyim, diyelim ki \"10.000\" takipçisi olan bir sayfanız var, eskiden bir paylaşımda bulunduğunuzda bu paylaşım takipçinizin akışına düşerken şimdi %5 - %10 aralığında düşüyor. Yani 10.000 takipçiniz varsa 1.000 kişi bunu görüyor. Aslında bu ücret kavramından önce de vardı fakat bu kadar net değildi. Şimdi her postunuzun altında vereceğiniz ücrete göre size ulaştırılacak kişi sayısını veren bir modül beliriyor.\r\n\r\n[caption id=\"attachment_418\" align=\"aligncenter\" width=\"392\"]<a href=\"http://www.abdullahonden.com/wp-content/uploads/facebook-tanitimini-yap1.jpg\"><img class=\"aligncenter size-full wp-image-454\" title=\"facebook-tanitimini-yap\" src=\"http://www.abdullahonden.com/wp-content/uploads/facebook-tanitimini-yap1.jpg\" alt=\"Facebook Tanıtımını Yap\" width=\"392\" height=\"312\" /></a> Facebook Tanıtımını Yap Özelliği[/caption]\r\n<p style=\"text-align: left;\">Yine o an toplamda ulaşılan kişi sayısı da artık net bir şekilde gözüküyor, örneğin 10.000 like almış bir sayfanın örnek bir postu şöyle:</p>\r\n\r\n\r\n[caption id=\"attachment_417\" align=\"aligncenter\" width=\"427\"]<a href=\"http://www.abdullahonden.com/wp-content/uploads/facebook-ulasilan-kisi.jpg\"><img class=\"size-full wp-image-417 \" title=\"facebook-ulasilan-kisi\" src=\"http://www.abdullahonden.com/wp-content/uploads/facebook-ulasilan-kisi.jpg\" alt=\"Facebook Ulaşılan Kişi Sayısı\" width=\"427\" height=\"438\" /></a> Facebook Ulaşılan Kişi Sayısı[/caption]\r\n<p style=\"text-align: left;\">Görüleceği üzere \"<strong>bir like alın bedava reklam yapın</strong>\" şeklinde sosyal medya ajansları tarafından şirketlere pazarlanan \"Facebook Sayfası Efsanesi\" burada bitiyor. Bundan sonra kullanıcıların daha etkileşim halinde olup data bıraktığı \"<strong>facebook uygulamalarının</strong>\" değeri artacak. Zira bir sayfa açıp sürekli post girmenin artık bir getirisi yok, ancak gerçekten müşterileri ile etkileşimde olup onların problemlerine çözüm getirmek için bu destek sürdürülebilir. Fakat kampanyaları günlük olarak post etmenin artık sadece %5 - %10 arasında getiri sağlayacağını düşünerek hareket etmekte fayda var. Tekrar etmem gerekirse, ben geleceğin \"facebook uygulamalarında\" olduğunu düşünüyorum.</p>"

@@ -39,14 +39,17 @@ export default function BlogPage({ blog, user }) {
           </section>
           <section id="blog" className="lg:w-3/5">
             <Card>
-              <div className="relative h-60 sm:h-80">
-                <Image
-                  src={blog.image}
-                  fill
-                  alt=""
-                  className="w-full rounded-[20px] object-cover"
-                />
-              </div>
+              {blog.image && (
+                <div className="relative h-60 sm:h-80">
+                  <Image
+                    src={blog.image}
+                    fill
+                    alt=""
+                    className="w-full rounded-[20px] object-cover"
+                  />
+                </div>
+              )}
+
               <div className="pt-10">
                 <h3 className="text-4xl font-bold text-primary-2">
                   {blog.title}
@@ -65,13 +68,13 @@ export default function BlogPage({ blog, user }) {
                         href={{
                           pathname: '/',
                           query: {
-                            tag: tag.replace(/\s/g, '-'),
+                            tag: tag.key,
                           },
                         }}
                         key={index}
                       >
                         <Chip className="self-start !rounded-[15px] !py-3 text-primary-1">
-                          {tag}
+                          {tag.name}
                         </Chip>
                       </Link>
                     ))}
@@ -88,7 +91,7 @@ export default function BlogPage({ blog, user }) {
 export async function getStaticPaths() {
   const blogs = await getReadJsonFileService()
   const paths = blogs.map(({ file }) => ({
-    params: { slug: file.split('.')[0] },
+    params: { slug: decodeURIComponent(file.split('.')[0]) },
   }))
 
   return {

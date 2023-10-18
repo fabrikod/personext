@@ -12,7 +12,7 @@ export const getBlogsFilesData = async jsonBlogArray => {
       const content = await fs.readFile(mdFilePath, 'utf8')
 
       blogs.push({
-        slug: file.split('.')[0],
+        slug: decodeURIComponent(file.split('.')[0]),
         attributes: content,
       })
     }
@@ -40,16 +40,16 @@ export const getBlogBySlugData = async slug => {
 export const readJsonFileData = async () => {
   const fileContents = await fs.readFile(JSON_BLOG_PATH, 'utf8')
   const jsonData = JSON.parse(fileContents)
-
   return jsonData
 }
 
-export const getBlogFileJsonData = async ({ perpage, page, tag }) => {
+export const getBlogFileJsonData = async ({ perpage, page, queryTag }) => {
   var jsonData = await readJsonFileData()
 
-  if (tag) {
-    const tagName = tag.replace(/-/g, ' ')
-    jsonData = jsonData.filter(data => data.tags.includes(tagName))
+  if (queryTag) {
+    jsonData = jsonData.filter(data =>
+      data.tags.find(blogTag => blogTag.key === queryTag)
+    )
   }
 
   const startIndex = (page - 1) * perpage

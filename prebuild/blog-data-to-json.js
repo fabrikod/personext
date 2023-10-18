@@ -29,7 +29,9 @@ const getMetaDataBySortBlog = async () => {
     }
   }
 
-  blogMetaDataArray.sort((first, last) => last.publishedAt - first.publishedAt)
+  blogMetaDataArray.sort(
+    (first, last) => new Date(last.publishedAt) - new Date(first.publishedAt)
+  )
 
   await fs.writeFile(
     `${process.cwd()}/data/blogs.json`,

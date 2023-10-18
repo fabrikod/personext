@@ -77,23 +77,26 @@ function FullTextCard({ description, title, tags, slug }) {
           ? `${description.substring(0, DESCRIPTION_MAX_LENGTH)}...`
           : description}
       </p>
-      <div className="mt-9 flex flex-wrap gap-3">
-        {tags.map((tag, index) => (
-          <Link
-            href={{
-              pathname: '/',
-              query: {
-                tag: tag.replace(/\s/g, '-'),
-              },
-            }}
-            key={index}
-          >
-            <Chip className="self-start !rounded-[15px] !py-3 text-primary-1">
-              {tag}
-            </Chip>
-          </Link>
-        ))}
-      </div>
+
+      {tags.length && (
+        <div className="mt-9 flex flex-wrap gap-3">
+          {tags.map((tag, index) => (
+            <Link
+              href={{
+                pathname: '/',
+                query: {
+                  tag: tag.key,
+                },
+              }}
+              key={index}
+            >
+              <Chip className="self-start !rounded-[15px] !py-3 text-primary-1">
+                {tag.name}
+              </Chip>
+            </Link>
+          ))}
+        </div>
+      )}
     </div>
   )
 }
@@ -112,12 +115,14 @@ function HalfTextCard({
         <div
           className={'relative min-h-[190px] min-w-[200px] ' + imageClassName}
         >
-          <Image
-            src={image}
-            fill
-            className="h-full w-full rounded-[20px] object-cover"
-            alt="Picture of the author"
-          />
+          {image && (
+            <Image
+              src={image}
+              fill
+              className="h-full w-full rounded-[20px] object-cover"
+              alt="Picture of the author"
+            />
+          )}
         </div>
       )}
       <div className="flex flex-1 flex-col justify-between">
@@ -130,23 +135,25 @@ function HalfTextCard({
             : description}
         </p>
 
-        <div className="mt-9 flex flex-wrap gap-3">
-          {tags.map((tag, index) => (
-            <Link
-              href={{
-                pathname: '/',
-                query: {
-                  tag: tag.replace(/\s/g, '-'),
-                },
-              }}
-              key={index}
-            >
-              <Chip className="!rounded-[15px] !py-3 text-primary-1">
-                {tag}
-              </Chip>
-            </Link>
-          ))}
-        </div>
+        {tags.length !== 0 && (
+          <div className="mt-9 flex flex-wrap gap-3">
+            {tags.map((tag, index) => (
+              <Link
+                href={{
+                  pathname: '/',
+                  query: {
+                    tag: tag.key,
+                  },
+                }}
+                key={index}
+              >
+                <Chip className="!rounded-[15px] !py-3 text-primary-1">
+                  {tag.name}
+                </Chip>
+              </Link>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   )
@@ -160,12 +167,12 @@ function FullImageCard({ image, tags, slug, setColumnClass }) {
   return (
     <div className="relative aspect-square">
       <Link href={slug}>
-        <Image
+        {/* <Image
           src={image}
           fill
           className="rounded-[20px] object-cover"
           alt="Picture of the author"
-        />
+        /> */}
       </Link>
 
       <button className="absolute left-5 top-5 self-end rounded-lg bg-base-3 px-3 py-2 text-sm">
