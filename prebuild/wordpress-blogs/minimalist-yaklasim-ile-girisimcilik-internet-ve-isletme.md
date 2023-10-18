@@ -3,7 +3,8 @@ type: halftext
 title: Minimalist Yaklaşım ile Girişimcilik, İnternet ve İşletme
 description: ''
 slug: minimalist-yaklasim-ile-girisimcilik-internet-ve-isletme
-image: ''
+image: >-
+  https://www.abdullahonden.com/wp-content/uploads/simplicity_is_beauty_by_cifro-d38rys2.png
 tags:
   - key: fikriyat
     name: Fikriyat

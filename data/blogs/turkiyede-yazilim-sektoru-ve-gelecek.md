@@ -2,7 +2,7 @@ publishedAt: '2008-10-21 12:58:39'
 type: halftext
 title: Türkiye’de Yazılım Sektörü ve Gelecek
 description: ''
-slug: turkiye%e2%80%99de-yazilim-sektoru-ve-gelecek
+slug: turkiyede-yazilim-sektoru-ve-gelecek
 image: ''
 tags:
   - key: bilgisayar-muhendisligi

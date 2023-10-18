@@ -1,6 +1,8 @@
 const fs = require('fs')
 const jsyaml = require('js-yaml')
 const xml2js = require('xml2js')
+const cheerio = require('cheerio')
+const axios = require('axios')
 
 const getFileContent = path => {
   return fs.readFileSync(`${process.cwd()}/${path}`, 'utf-8')
@@ -20,24 +22,34 @@ const xmlToJson = path => {
     mergeAttrs: true, // Özellikleri ana özellik olarak birleştirir
   })
 
-  parser.parseString(xmlContent, (err, result) => {
+  parser.parseString(xmlContent, async (err, result) => {
     if (err) {
       console.error(err)
     } else {
-      result.rss.channel.item
-        .filter(
-          blog =>
-            blog['wp:status'] === 'publish' && blog['wp:ping_status'] === 'open'
-        )
-        .forEach((blog, index) => {
-          console.log('blog.guidblog.guid', blog.guid)
+      const filterData = result.rss.channel.item.filter(
+        blog =>
+          blog['wp:status'] === 'publish' && blog['wp:ping_status'] === 'open'
+      )
+
+      for (const [key, blog] of Object.entries(filterData)) {
+        try {
+          const response = await axios.get(blog.link)
+          var isimage = false
+          var elementsWithClass
+          if (response.status === 200) {
+            const htmlContent = response.data
+            const $ = cheerio.load(htmlContent)
+            elementsWithClass = $('.wp-post-image')
+            isimage = Boolean(elementsWithClass.length)
+          }
+          console.log(blog.link, isimage)
           const blogData = {
             publishedAt: blog['wp:post_date'],
             type: 'halftext',
             title: blog.title.trim(),
             description: blog.description,
             slug: blog['wp:post_name'],
-            image: isImageUrl(blog.guid ? blog.guid._ : '') ? blog.guid._ : '',
+            image: isimage ? elementsWithClass.attr('src') : '',
             tags: Array.isArray(blog.category)
               ? blog.category.map(tag => ({
                   key: tag.nicename,
@@ -62,7 +74,10 @@ const xmlToJson = path => {
               }
             }
           )
-        })
+        } catch (error) {
+          console.log('error')
+        }
+      }
     }
   })
 }

@@ -3,7 +3,7 @@ type: halftext
 title: Facebook Sayfası Efsanesi Bitti
 description: ''
 slug: facebook-sayfasi-efsanesi-bitti
-image: ''
+image: https://www.abdullahonden.com/wp-content/uploads/facebook-tanitimini-yap.jpg
 tags:
   - key: facebook
     name: Facebook

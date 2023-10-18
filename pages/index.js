@@ -12,12 +12,12 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 const PERPAGE = 10
 
 export async function getServerSideProps({ query, locale }) {
-  const { page } = query
+  const { page, tag } = query
   const user = await getUserService()
   const { data, meta } = await getBlogJsonService({
     perpage: PERPAGE,
     page: page || 1,
-    tag: query.tag,
+    tag: tag,
   })
   const blogs = data.map(({ attributes }) => attributes)
 
@@ -40,6 +40,7 @@ export default function Home({ user, blogs, meta, errors }) {
   const pageChanged = event => {
     router.push({
       query: {
+        ...router.query,
         page: event.selected + 1,
       },
     })

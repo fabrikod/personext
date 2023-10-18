@@ -3,7 +3,8 @@ type: halftext
 title: E-Bağış'ın Gelişmesi ile Afrika'da Milyonlarca İnsanın Hayatı Değişiyor
 description: ''
 slug: e-bagisin-gelismesi-ile-afrikada-milyonlarca-insanin-hayati-degisiyor
-image: ''
+image: >-
+  https://www.abdullahonden.com/wp-content/uploads/abdullah_onden_e_bagis_milyonlarca_insanin_hayatini_degistiriyor_1566388921_7058.jpg
 tags:
   - key: bagis
     name: Bağış

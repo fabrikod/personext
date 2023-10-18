@@ -34,7 +34,7 @@ export const getBlogJsonService = async ({ perpage, page, tag }) => {
   const data = await getBlogFileJsonData({
     perpage: perpage || 4,
     page: page || 1,
-    tag: tag,
+    queryTag: tag,
   })
   data.data = data.data.map(({ slug, attributes }) => ({
     slug,

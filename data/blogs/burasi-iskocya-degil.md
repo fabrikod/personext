@@ -3,7 +3,7 @@ type: halftext
 title: Burası İskoçya Değil, İstanbul
 description: ''
 slug: burasi-iskocya-degil
-image: ''
+image: https://www.abdullahonden.com/wp-content/uploads/fener4.jpg
 tags:
   - key: gezi
     name: Gezi

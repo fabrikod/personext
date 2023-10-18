@@ -5,7 +5,8 @@ title: >-
   Nasıl Yapılır?
 description: ''
 slug: siyaset-secimlerde-dijital-pazarlama
-image: ''
+image: >-
+  https://www.abdullahonden.com/wp-content/uploads/How-Social-Media-Has-Transformed-Political-Campaigns.png
 tags:
   - key: akademik
     name: Akademik

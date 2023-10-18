@@ -3,7 +3,8 @@ type: halftext
 title: Deneyimsel Pazarlama ile Tüm Duyuları Tavlayın
 description: ''
 slug: deneyimsel-pazarlama
-image: ''
+image: >-
+  https://www.abdullahonden.com/wp-content/uploads/Make_It_Happen_Experiential_B2B_Marketing_600x200_Website.jpg
 tags:
   - key: akademik
     name: Akademik

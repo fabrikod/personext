@@ -3,7 +3,7 @@ type: halftext
 title: 'Sosyal Medyada Marka Krizleri: Duygu Analizi İle Yöntemi Vaka İncelemesi'
 description: ''
 slug: sosyal-medyada-marka-krizleri-duygu-analizi-ile-yontemi-vaka-incelemesi
-image: ''
+image: https://www.abdullahonden.com/wp-content/uploads/sentiment-analysis.jpg
 tags:
   - key: akademik
     name: Akademik

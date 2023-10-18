@@ -3,7 +3,7 @@ type: halftext
 title: 'E-Ticaret''in Karanlık Sokağı: Tek Ürün Siteleri'
 description: ''
 slug: e-ticaret-tek-urun-siteleri
-image: ''
+image: https://www.abdullahonden.com/wp-content/uploads/yesticaret-tekurun.jpg
 tags:
   - key: e-ticaret
     name: E-Ticaret

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { CardType, DESCRIPTION_MAX_LENGTH } from '../constrait'
 import Image from 'next/image'
 import Chip from './Chip'
@@ -41,7 +41,9 @@ function ProfileCard({ description, name, job, tags, image, socials }) {
     <div>
       <Image src={image} width={152} height={152} alt="Picture of the author" />
 
-      <h1 className="mt-7 text-5xl font-bold">{name}</h1>
+      <Link href="/">
+        <h1 className="mt-7 text-5xl font-bold">{name}</h1>
+      </Link>
       <h2 className="mt-3 text-2xl font-semibold text-primary-1">{job}</h2>
       <p className="mb-7 mt-2 text-xl font-normal text-primary-3">
         {description}
@@ -103,12 +105,20 @@ function FullTextCard({ description, title, tags, slug }) {
 
 function HalfTextCard({
   description,
+  content,
   title,
   image,
   tags,
   slug,
   imageClassName,
 }) {
+  const memoizedContent = useMemo(() => {
+    if (process.browser) {
+      const doc = new DOMParser().parseFromString(content, 'text/html')
+      return doc.body.textContent || ''
+    }
+  }, [content])
+
   return (
     <div className="flex h-full min-h-[190px] flex-wrap items-start gap-10">
       {image && (
@@ -130,9 +140,25 @@ function HalfTextCard({
           <Link href={slug}>{title}</Link>
         </h3>
         <p className="mt-4 font-semibold text-primary-3">
-          {description.length > DESCRIPTION_MAX_LENGTH
-            ? `${description.substring(0, DESCRIPTION_MAX_LENGTH)}...`
-            : description}
+          {description ? (
+            <span>
+              {description.length > DESCRIPTION_MAX_LENGTH
+                ? `${description.substring(0, DESCRIPTION_MAX_LENGTH)}...`
+                : description}
+            </span>
+          ) : (
+            <span
+              dangerouslySetInnerHTML={{
+                __html:
+                  memoizedContent.length > DESCRIPTION_MAX_LENGTH
+                    ? `${memoizedContent.substring(
+                        0,
+                        DESCRIPTION_MAX_LENGTH
+                      )}...`
+                    : memoizedContent,
+              }}
+            />
+          )}
         </p>
 
         {tags.length !== 0 && (

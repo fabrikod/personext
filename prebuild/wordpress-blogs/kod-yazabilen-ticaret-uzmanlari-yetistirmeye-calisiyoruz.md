@@ -3,7 +3,7 @@ type: halftext
 title: Kod Yazabilen Ticaret Uzmanları Yetiştirmeye Çalışıyoruz
 description: ''
 slug: kod-yazabilen-ticaret-uzmanlari-yetistirmeye-calisiyoruz
-image: ''
+image: https://www.abdullahonden.com/wp-content/uploads/ders.jpeg
 tags:
   - key: akademik
     name: Akademik

@@ -8,14 +8,14 @@ import {
   getReadJsonFileService,
 } from '@/services/md.services'
 import { ArrowLeft } from '@/components/Icons'
-import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
 import Link from 'next/link'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { useEffect } from 'react'
+import { Router, useRouter } from 'next/router'
 
 export default function BlogPage({ blog, user }) {
   const router = useRouter()
-
   if (!blog) {
     return <ErrorPage statusCode={404} />
   }
@@ -25,9 +25,12 @@ export default function BlogPage({ blog, user }) {
       {blog && (
         <div className="flex flex-col gap-12 lg:flex-row">
           <section id="profile" className="relative flex-auto lg:w-2/5">
-            <Link className="absolute -top-20" href="/">
+            <div
+              className="absolute -top-20 cursor-pointer"
+              onClick={() => router.back()}
+            >
               <ArrowLeft width={70} className="stroke-primary-1" />
-            </Link>
+            </div>
             <Card
               type="profile"
               name={user.fullName}

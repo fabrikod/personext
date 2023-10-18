@@ -3,7 +3,8 @@ type: halftext
 title: Özel Günler ve Tüketicinin Robot Olduğu Sanrısı
 description: ''
 slug: ozel-gunler-ve-tuketicinin-robot-oldugu-sanrisi
-image: ''
+image: >-
+  https://www.abdullahonden.com/wp-content/uploads/iyiki-dogdun-sevgili-hediyesi.jpg
 tags:
   - key: akademik
     name: Akademik
