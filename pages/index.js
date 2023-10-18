@@ -74,17 +74,6 @@ export default function Home({ user, blogs, meta, errors }) {
           {errors && (
             <p className="text-red-600">{errors.map(error => error)}</p>
           )}
-          {/* <div className='grid gap-y-10'>
-            {
-              heroBlogs &&
-              heroBlogs.map((blog, index) =>
-                <Card
-                  {...blog}
-                  key={index}
-                />
-              )
-            }
-          </div> */}
 
           <div className="card-list">
             {blogs.map((blog, index) => (

@@ -117,6 +117,8 @@ function HalfTextCard({
       const doc = new DOMParser().parseFromString(content, 'text/html')
       return doc.body.textContent || ''
     }
+
+    return ''
   }, [content])
 
   return (
