@@ -29,6 +29,10 @@ body {
   @apply !p-6
 }
 
+#blog #blog-content a{
+  @apply hover:underline text-blue-500;
+}
+
 #blog #blog-content .content-img-full{
   @apply mx-auto w-full
 }
