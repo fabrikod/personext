@@ -77,7 +77,7 @@ function ProfileCard({ description, name, job, tags, image, socials }) {
 function FullTextCard({ description, title, tags, slug }) {
   return (
     <div className="min-h-[190px]">
-      <h3 className="text-4xl font-bold text-primary-2">
+      <h3 className="text-3xl font-bold text-primary-2">
         <Link href={slug}>{title}</Link>
       </h3>
       <p className="mt-6 font-semibold text-primary-3">
@@ -144,7 +144,7 @@ function HalfTextCard({
         </div>
       )}
       <div className="flex flex-1 flex-col justify-between">
-        <h3 className="text-4xl font-bold text-primary-2">
+        <h3 className="text-3xl font-bold text-primary-2">
           <Link href={slug}>{title}</Link>
         </h3>
         <p className="mt-4 font-semibold text-primary-3">
