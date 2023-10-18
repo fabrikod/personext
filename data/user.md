@@ -7,12 +7,10 @@ email: 'abdullah.onden@fabrikod.com'
 image: '/img/profile.jpg'
 socials:
   - name: Twitter
-    url: https://twitter.com/johndoe
+    url: http://twitter.com/abdullahonden
   - name: Instagram
-    url: https://www.instagram.com/johndoe
+    url: http://instagram.com/abdullahonden
   - name: LinkedIn
-    url: https://www.linkedin.com/in/johndoe
-  - name: Behance
-    url: https://www.behance.net/johndoe
-  - name: Dribbble
-    url: https://www.dribbble.com/johndoe
+    url: http://www.linkedin.com/in/abdullahonden
+  - name: Github
+    url: https://github.com/abdullahonden
