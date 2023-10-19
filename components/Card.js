@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { CardType, DESCRIPTION_MAX_LENGTH } from '../constrait'
 import Image from 'next/image'
 import Chip from './Chip'
@@ -118,14 +118,14 @@ function HalfTextCard({
   slug,
   imageClassName,
 }) {
-  const memoizedContent = useMemo(() => {
+  const [contentState, setContentState] = useState(content)
+
+  useEffect(() => {
     if (process.browser) {
       const doc = new DOMParser().parseFromString(content, 'text/html')
-      return doc.body.textContent || ''
+      setContentState(doc.body.textContent || content)
     }
-
-    return ''
-  }, [content])
+  }, [])
 
   return (
     <div className="flex h-full min-h-[190px] flex-wrap items-start gap-10">
@@ -156,9 +156,9 @@ function HalfTextCard({
             </span>
           ) : (
             <span>
-              {memoizedContent.length > DESCRIPTION_MAX_LENGTH
-                ? `${memoizedContent.substring(0, DESCRIPTION_MAX_LENGTH)}...`
-                : memoizedContent}
+              {contentState.length > DESCRIPTION_MAX_LENGTH
+                ? `${contentState.substring(0, DESCRIPTION_MAX_LENGTH)}...`
+                : contentState}
             </span>
           )}
         </p>
