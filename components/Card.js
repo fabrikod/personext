@@ -39,13 +39,15 @@ const CardTypeComponent = {
 function ProfileCard({ description, name, job, tags, image, socials }) {
   return (
     <div>
-      <Image
-        src={image}
-        width={152}
-        height={152}
-        className="rounded-full"
-        alt="Picture of the author"
-      />
+      <Link href="/">
+        <Image
+          src={image}
+          width={152}
+          height={152}
+          className="rounded-full"
+          alt="Picture of the author"
+        />
+      </Link>
 
       <Link href="/">
         <h1 className="mt-7 text-5xl font-bold">{name}</h1>
