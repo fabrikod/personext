@@ -62,7 +62,7 @@ export default function BlogPage({ blog, user }) {
                 id="blog-content"
                 className="pt-10"
                 dangerouslySetInnerHTML={{
-                  __html: blog.content.replace(/\n/g, '<br/>'),
+                  __html: blog.content.replace(/\n{2,}/g, '<br/>'),
                 }}
               />
               <div>
