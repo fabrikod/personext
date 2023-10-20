@@ -5,7 +5,6 @@ import ReactPaginate from 'react-paginate'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import apiClient from '@/utils/axios'
-import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 const PERPAGE = 10
