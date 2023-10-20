@@ -18,19 +18,18 @@ export async function getServerSideProps({ query, locale }) {
     page: page || 1,
     tag: tag,
   })
-  const blogs = data.map(({ attributes }) => attributes)
 
   return {
     props: {
-      user: user || {},
-      blogs: blogs || [],
-      meta: meta || {},
+      user: user,
+      blogs: data,
+      meta: meta,
       ...(await serverSideTranslations(locale ?? 'en', ['common'])),
     },
   }
 }
 
-export default function Home({ user, blogs, meta, errors }) {
+export default function Home({ user = {}, blogs = [], meta = {}, errors }) {
   const router = useRouter()
   const [firstUse, setFirstUse] = useState(false)
 

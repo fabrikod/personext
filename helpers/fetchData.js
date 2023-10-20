@@ -11,9 +11,9 @@ export const getBlogsFilesData = async jsonBlogArray => {
     if (path.extname(file) === '.md') {
       const mdFilePath = path.join(BLOG_FOLDER_PATH, file)
       const content = await fs.readFile(mdFilePath, 'utf8')
-
+      const slug = file.split('.')[0]
       blogs.push({
-        slug: decodeURIComponent(file.split('.')[0]),
+        slug: slug,
         attributes: content,
       })
     }
@@ -60,8 +60,9 @@ export const getBlogFileJsonData = async ({ perpage, page, queryTag }) => {
     )
   }
 
-  const startIndex = (page - 1) * perpage
-  const endIndex = startIndex + perpage
+  const PERPAGE = perpage || jsonData.length
+  const startIndex = (page - 1) * PERPAGE
+  const endIndex = startIndex + PERPAGE
   const jsonBlogArray = jsonData.slice(startIndex, endIndex)
   var blogs = await getBlogsFilesData(jsonBlogArray)
 
@@ -69,8 +70,8 @@ export const getBlogFileJsonData = async ({ perpage, page, queryTag }) => {
     data: blogs,
     meta: {
       total: jsonData.length,
-      perpage,
-      pageCount: Math.ceil(jsonData.length / perpage),
+      perpage: PERPAGE,
+      pageCount: Math.ceil(jsonData.length / PERPAGE),
       page,
     },
   }

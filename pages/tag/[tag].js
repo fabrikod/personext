@@ -1,36 +1,33 @@
-import Card from '@/components/Card/Card'
 import AppLayout from 'layouts/AppLayout'
-import { getUserService, getBlogJsonService } from '@/services/md.services'
+import { getBlogJsonService } from '@/services/md.services'
 import ReactPaginate from 'react-paginate'
 import { useRouter } from 'next/router'
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useState } from 'react'
 import apiClient from '@/utils/axios'
-import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import CardList from '@/components/Card/CardList'
+import ErrorPage from 'next/error'
 
 const PERPAGE = 10
 
 export async function getServerSideProps({ query, locale, params }) {
   const { page } = query
-  const user = await getUserService()
   const { data, meta } = await getBlogJsonService({
     perpage: PERPAGE,
     page: page || 1,
     tag: params.tag,
   })
-  const blogs = data.map(({ attributes }) => attributes)
 
   return {
     props: {
-      user: user || {},
-      blogs: blogs || [],
-      meta: meta || {},
+      blogs: data,
+      meta: meta,
       ...(await serverSideTranslations(locale ?? 'en', ['common'])),
     },
   }
 }
 
-export default function Tag({ user, blogs, meta, errors }) {
+export default function Tag({ blogs = [], meta = {}, errors }) {
   const router = useRouter()
   const [firstUse, setFirstUse] = useState(false)
 
@@ -54,6 +51,10 @@ export default function Tag({ user, blogs, meta, errors }) {
     setFirstUse(true)
   }, [router.query])
 
+  if (!blogs.length) {
+    return <ErrorPage statusCode={404} />
+  }
+
   return (
     <AppLayout>
       <div className="">
@@ -76,15 +77,7 @@ export default function Tag({ user, blogs, meta, errors }) {
           )}
 
           <div className="card-list">
-            {blogs.map((blog, index) => (
-              <Card
-                {...blog}
-                key={index}
-                imageClassName={
-                  blog.type === 'halftext' ? 'w-full h-72 lg:h-auto' : ''
-                }
-              />
-            ))}
+            <CardList data={blogs} />
           </div>
         </section>
       </div>

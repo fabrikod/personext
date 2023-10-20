@@ -22,6 +22,7 @@ const getMetaDataBySortBlog = async () => {
 
       blogMetaDataArray.push({
         file: file,
+        title: json.title,
         createdAt: fileStats.birthtime,
         publishedAt: new Date(json.publishedAt),
         listVisible: json.listVisible,

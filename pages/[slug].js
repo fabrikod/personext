@@ -11,8 +11,7 @@ import { ArrowLeft } from '@/components/Icons'
 import ErrorPage from 'next/error'
 import Link from 'next/link'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { useEffect, useState } from 'react'
-import { Router, useRouter } from 'next/router'
+import { useRouter } from 'next/router'
 
 export default function BlogPage({ blog, user }) {
   const router = useRouter()

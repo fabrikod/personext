@@ -134,18 +134,16 @@ function HalfTextCard({
       {image && (
         <div
           className={
-            'relative aspect-square min-h-[190px] w-full sm:aspect-auto sm:h-auto ' +
+            'relative aspect-square min-h-[190px] w-full sm:aspect-[2] sm:h-auto ' +
             imageClassName
           }
         >
-          {image && (
-            <Image
-              src={image}
-              fill
-              className="rounded-[20px] object-cover"
-              alt="Picture of the author"
-            />
-          )}
+          <Image
+            src={image}
+            fill
+            className="rounded-[20px] object-cover"
+            alt="Picture of the author"
+          />
         </div>
       )}
       <div className="mt-10 flex flex-1 flex-col justify-between">

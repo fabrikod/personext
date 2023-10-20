@@ -48,7 +48,7 @@ const xmlToJson = path => {
             type: 'halftext',
             title: blog.title.trim(),
             description: blog.description,
-            slug: blog['wp:post_name'],
+            slug: `/${blog['wp:post_name']}`,
             image: isimage ? elementsWithClass.attr('src') : '',
             tags: Array.isArray(blog.category)
               ? blog.category.map(tag => ({
