@@ -10,13 +10,13 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 const PERPAGE = 10
 
-export async function getServerSideProps({ query, locale }) {
-  const { page, tag } = query
+export async function getServerSideProps({ query, locale, params }) {
+  const { page } = query
   const user = await getUserService()
   const { data, meta } = await getBlogJsonService({
     perpage: PERPAGE,
     page: page || 1,
-    tag: tag,
+    tag: params.tag,
   })
   const blogs = data.map(({ attributes }) => attributes)
 
@@ -30,7 +30,7 @@ export async function getServerSideProps({ query, locale }) {
   }
 }
 
-export default function Home({ user, blogs, meta, errors }) {
+export default function Tag({ user, blogs, meta, errors }) {
   const router = useRouter()
   const [firstUse, setFirstUse] = useState(false)
 
@@ -57,7 +57,7 @@ export default function Home({ user, blogs, meta, errors }) {
   return (
     <AppLayout>
       <div className="flex flex-col gap-12 lg:flex-row">
-        <section id="profile" className="flex-auto lg:w-2/5">
+        {/* <section id="profile" className="flex-auto lg:w-2/5">
           <Card
             type="profile"
             name={user.fullName}
@@ -66,8 +66,8 @@ export default function Home({ user, blogs, meta, errors }) {
             socials={user.socials}
             image={user.image}
           />
-        </section>
-        <section id="blogs" className="grid gap-y-10 lg:w-3/5">
+        </section> */}
+        <section id="blogs" className="grid gap-y-10 ">
           {errors && (
             <p className="text-red-600">{errors.map(error => error)}</p>
           )}

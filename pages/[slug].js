@@ -11,7 +11,7 @@ import { ArrowLeft } from '@/components/Icons'
 import ErrorPage from 'next/error'
 import Link from 'next/link'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Router, useRouter } from 'next/router'
 
 export default function BlogPage({ blog, user }) {
@@ -61,7 +61,9 @@ export default function BlogPage({ blog, user }) {
               <div
                 id="blog-content"
                 className="pt-10"
-                dangerouslySetInnerHTML={{ __html: blog.content }}
+                dangerouslySetInnerHTML={{
+                  __html: blog.content.replace(/\n/g, '<br/>'),
+                }}
               />
               <div>
                 <div className="mt-9 flex flex-wrap gap-3 ">
@@ -82,6 +84,14 @@ export default function BlogPage({ blog, user }) {
                       </Link>
                     ))}
                 </div>
+              </div>
+
+              <div className="text-primary-5 mt-8 text-center text-primary-3">
+                {new Date(blog.publishedAt).toLocaleDateString('tr-TR', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: '2-digit',
+                })}
               </div>
             </Card>
           </section>

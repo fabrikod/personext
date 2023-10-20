@@ -16,6 +16,15 @@ const nextConfig = {
     ],
   },
   i18n,
+  rewrites() {
+    return [
+      {
+        source: '/tr/etiket/:path*',
+        destination: '/tag/:path*',
+        locale: false,
+      },
+    ]
+  },
 }
 
 module.exports = nextConfig

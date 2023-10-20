@@ -42,7 +42,7 @@ const xmlToJson = path => {
             elementsWithClass = $('.wp-post-image')
             isimage = Boolean(elementsWithClass.length)
           }
-          console.log(blog.link, isimage)
+
           const blogData = {
             publishedAt: blog['wp:post_date'],
             type: 'halftext',
