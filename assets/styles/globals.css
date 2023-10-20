@@ -56,5 +56,5 @@ body {
 }
 
 .card-list .card {
-  @apply min-w-[350px] md:min-w-[200px];
+  @apply sm:min-w-[350px] md:min-w-[200px];
 }

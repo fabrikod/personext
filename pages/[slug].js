@@ -1,4 +1,4 @@
-import Card from '@/components/Card'
+import Card from '@/components/Card/Card'
 import AppLayout from 'layouts/AppLayout'
 import Image from 'next/image'
 import Chip from '@/components/Chip'

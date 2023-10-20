@@ -1,4 +1,4 @@
-import Card from '@/components/Card'
+import Card from '@/components/Card/Card'
 import AppLayout from 'layouts/AppLayout'
 import { getUserService, getBlogJsonService } from '@/services/md.services'
 import ReactPaginate from 'react-paginate'
@@ -6,6 +6,7 @@ import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import apiClient from '@/utils/axios'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import CardList from '@/components/Card/CardList'
 
 const PERPAGE = 10
 
@@ -72,15 +73,7 @@ export default function Home({ user, blogs, meta, errors }) {
           )}
 
           <div className="card-list">
-            {blogs.map((blog, index) => (
-              <Card
-                {...blog}
-                key={index}
-                imageClassName={
-                  blog.type === 'halftext' ? 'w-full h-72 lg:h-auto' : ''
-                }
-              />
-            ))}
+            <CardList data={blogs} />
           </div>
         </section>
       </div>

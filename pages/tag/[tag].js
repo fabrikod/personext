@@ -1,9 +1,9 @@
-import Card from '@/components/Card'
+import Card from '@/components/Card/Card'
 import AppLayout from 'layouts/AppLayout'
 import { getUserService, getBlogJsonService } from '@/services/md.services'
 import ReactPaginate from 'react-paginate'
 import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import apiClient from '@/utils/axios'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
@@ -56,7 +56,7 @@ export default function Tag({ user, blogs, meta, errors }) {
 
   return (
     <AppLayout>
-      <div className="flex flex-col gap-12 lg:flex-row">
+      <div className="">
         {/* <section id="profile" className="flex-auto lg:w-2/5">
           <Card
             type="profile"
@@ -67,6 +67,9 @@ export default function Tag({ user, blogs, meta, errors }) {
             image={user.image}
           />
         </section> */}
+        <div className="mb-16 text-center text-6xl capitalize">
+          Etiket: {router.query.tag}
+        </div>
         <section id="blogs" className="grid gap-y-10 ">
           {errors && (
             <p className="text-red-600">{errors.map(error => error)}</p>

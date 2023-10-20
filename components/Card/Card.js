@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { CardType, DESCRIPTION_MAX_LENGTH } from '../constrait'
+import { CardType, DESCRIPTION_MAX_LENGTH } from '../../constrait'
 import Image from 'next/image'
-import Chip from './Chip'
-import * as Icons from './Icons'
-import SvgPublish from './Icons/Publish'
+import Chip from '../Chip'
+import * as Icons from '../Icons'
+import SvgPublish from '../Icons/Publish'
 import Link from 'next/link'
 import classNames from 'classnames'
 
@@ -130,22 +130,25 @@ function HalfTextCard({
   }, [])
 
   return (
-    <div className="flex h-full min-h-[190px] flex-wrap items-start gap-10">
+    <div>
       {image && (
         <div
-          className={'relative min-h-[190px] min-w-[200px] ' + imageClassName}
+          className={
+            'relative aspect-square min-h-[190px] w-full sm:aspect-auto sm:h-auto ' +
+            imageClassName
+          }
         >
           {image && (
             <Image
               src={image}
               fill
-              className="h-full w-full rounded-[20px] object-cover "
+              className="rounded-[20px] object-cover"
               alt="Picture of the author"
             />
           )}
         </div>
       )}
-      <div className="flex flex-1 flex-col justify-between">
+      <div className="mt-10 flex flex-1 flex-col justify-between">
         <h3 className="text-3xl font-bold text-primary-2">
           <Link href={slug}>{title}</Link>
         </h3>
@@ -170,7 +173,7 @@ function HalfTextCard({
             {tags.map((tag, index) => (
               <Link
                 href={{
-                  pathname: '/',
+                  pathname: '/tag/[tag]',
                   query: {
                     tag: tag.key,
                   },
