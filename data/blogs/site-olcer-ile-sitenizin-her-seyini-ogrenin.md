@@ -2,7 +2,7 @@ publishedAt: '2009-02-20 09:34:55'
 type: halftext
 title: Site Ölçer ile sitenizin her şeyini öğrenin!
 description: ''
-slug: site-olcer-ile-sitenizin-her-seyini-ogrenin
+slug: /site-olcer-ile-sitenizin-her-seyini-ogrenin
 image: ''
 tags:
   - key: alexa
@@ -17,4 +17,4 @@ tags:
     name: PHP
   - key: site-olcer
     name: Site Ölçer
-content: "Dün bulduğum boş bir vaktimde her zaman aklımda olan orada burada dolaşmadan sitelerimin bilgilerini toparlayabileceğim bir site ölçüm cihazı yazdım. Belki işinize yarar diye sunuyorum. Bir de Alexa Türkiye sırasını ekleyeceğim bunu bana unutturmayın. Eğer bu fonksiyonunu ben yazdım diyorsanız lütfen paylaşın. Zira bu scripti hafif geliştirip sunmayı düşünüyorum.\r\n\r\nŞuradan inceleyebilirsiniz:\r\n\r\n<a href=\"http://www.abdullahonden.com/siteolcer\" target=\"_blank\">http://www.abdullahonden.com/siteolcer</a>"
+content: "\n\t\t\t\tDün bulduğum boş bir vaktimde her zaman aklımda olan orada burada dolaşmadan sitelerimin bilgilerini toparlayabileceğim bir site ölçüm cihazı yazdım. Belki işinize yarar diye sunuyorum. Bir de Alexa Türkiye sırasını ekleyeceğim bunu bana unutturmayın. Eğer bu fonksiyonunu ben yazdım diyorsanız lütfen paylaşın. Zira bu scripti hafif geliştirip sunmayı düşünüyorum.\r\n\r\nŞuradan inceleyebilirsiniz:\r\n\r\n<a href=\"http://www.abdullahonden.com/siteolcer\" target=\"_blank\">http://www.abdullahonden.com/siteolcer</a>\t\t"

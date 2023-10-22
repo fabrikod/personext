@@ -2,7 +2,7 @@ publishedAt: '2007-12-01 23:26:15'
 type: halftext
 title: PHP ve MySql ile İnternet Programlamaya Giriş
 description: ''
-slug: php-ve-mysql-ile-internet-programlamaya-giris
+slug: /php-ve-mysql-ile-internet-programlamaya-giris
 image: ''
 tags:
   - key: ajax
@@ -21,4 +21,4 @@ tags:
     name: PHP
   - key: programlama
     name: Programlama
-content: "<div class=\"postbody\">\r\n\r\n<a href=\"http://abdullahonden.com/makalat/php-ve-mysql-ile-internet-programlamaya-giris\">Buraya tıklayarak </a> internet programlama, php ve mysql hakkında yazdığım oldukça doyurucu bir makaleye ulaşabilirsiniz.</div>"
+content: "\n\t\t\t\t<div class=\"postbody\">\r\n\r\n<a href=\"http://abdullahonden.com/makalat/php-ve-mysql-ile-internet-programlamaya-giris\">Buraya tıklayarak </a> internet programlama, php ve mysql hakkında yazdığım oldukça doyurucu bir makaleye ulaşabilirsiniz.</div>\t\t"

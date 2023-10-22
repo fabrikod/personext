@@ -2,7 +2,7 @@ publishedAt: '2009-02-10 17:17:39'
 type: halftext
 title: Php Sözlük Scripti Hakkında
 description: ''
-slug: php-sozluk-scripti-hakkinda
+slug: /php-sozluk-scripti-hakkinda
 image: ''
 tags:
   - key: eksi-sozluk-scripti
@@ -15,4 +15,4 @@ tags:
     name: php sözlük
   - key: sozluk-scripti
     name: sözlük scripti
-content: "Israrla sözlük başvuruları gelmeye devam ediyor, ücreti duyulduğunda \"vay canına çok pahalı deniyor\". Oysa ki biz bu sözlüğü yıllık bir ücretle değil, tek seferlik bir ücretle sunuyoruz. Yani bir kuruyoruz, sizin oluyor. Sözlük elli yıl ayakta kalsın, yine destek olmaya çalışıyoruz.\r\n\r\nHadi bakalım.\r\n\r\nDetay:\r\n<a href=\"http://bilgisayarim.org/\" target=\"_blank\">http://bilgisayarim.org/</a>\r\n\r\nSözlük Demo: (demo - demo)\r\n<a href=\"http://bilgisayarim.org/sozluk\" target=\"_blank\">http://bilgisayarim.org/sozluk</a>"
+content: "\n\t\t\t\tIsrarla sözlük başvuruları gelmeye devam ediyor, ücreti duyulduğunda \"vay canına çok pahalı deniyor\". Oysa ki biz bu sözlüğü yıllık bir ücretle değil, tek seferlik bir ücretle sunuyoruz. Yani bir kuruyoruz, sizin oluyor. Sözlük elli yıl ayakta kalsın, yine destek olmaya çalışıyoruz.\r\n\r\nHadi bakalım.\r\n\r\nDetay:\r\n<a href=\"http://bilgisayarim.org/\" target=\"_blank\">http://bilgisayarim.org/</a>\r\n\r\nSözlük Demo: (demo - demo)\r\n<a href=\"http://bilgisayarim.org/sozluk\" target=\"_blank\">http://bilgisayarim.org/sozluk</a>\t\t"
