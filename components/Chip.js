@@ -1,3 +1,4 @@
+import classNames from 'classnames'
 import React from 'react'
 
 export default function Chip({ children, className, onClick }) {
@@ -8,20 +9,20 @@ export default function Chip({ children, className, onClick }) {
   return (
     <div
       onClick={handleClick}
-      className={`
-      inline-flex 
-      cursor-pointer 
-      flex-wrap 
-      gap-7 
-      rounded-[30px] 
-      bg-base-3 
-      px-4 
-      py-4 
-      text-sm
-      ${className}
-      duration-500
-      hover:bg-gray-200
-    `}
+      className={classNames(
+        'inline-flex',
+        'cursor-pointer',
+        'flex-wrap',
+        'gap-7',
+        'rounded-[30px]',
+        'bg-base-3',
+        'px-4',
+        'py-4',
+        'text-sm',
+        className,
+        'duration-500',
+        'hover:bg-gray-200'
+      )}
     >
       {children}
     </div>

@@ -37,7 +37,7 @@ const CardTypeComponent = {
   [CardType.FullImage]: FullImageCard,
 }
 
-function ProfileCard({ description, name, job, tags, image, socials }) {
+function ProfileCard({ description, name, job, image, socials }) {
   return (
     <div>
       <Link href="/">
@@ -135,10 +135,10 @@ function HalfTextCard({
     <div>
       {image && (
         <div
-          className={
-            'relative aspect-square min-h-[190px] w-full sm:aspect-[2] sm:h-auto ' +
+          className={classNames(
+            'relative aspect-square min-h-[190px] w-full sm:aspect-[2] sm:h-auto',
             imageClassName
-          }
+          )}
         >
           <Image
             src={image}
@@ -197,7 +197,7 @@ function HalfTextCard({
   )
 }
 
-function FullImageCard({ image, tags, slug, setColumnClass }) {
+function FullImageCard({ slug, setColumnClass }) {
   useEffect(() => {
     setColumnClass('!p-5')
   }, [])
