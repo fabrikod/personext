@@ -6,7 +6,7 @@ import * as Icons from '../Icons'
 import SvgPublish from '../Icons/Publish'
 import Link from 'next/link'
 import classNames from 'classnames'
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'next-i18next'
 
 export default function Card(props) {
   const { type, children } = props
@@ -40,7 +40,7 @@ const CardTypeComponent = {
 function ProfileCard({ description, name, job, image, socials }) {
   return (
     <div>
-      <Link href="/">
+      <Link href="/" className="inline-block">
         <Image
           src={image}
           width={152}
@@ -122,7 +122,7 @@ function HalfTextCard({
   imageClassName,
 }) {
   const [contentState, setContentState] = useState(content)
-  const { t } = useTranslation('common')
+  const { t } = useTranslation()
 
   useEffect(() => {
     if (process.browser) {
@@ -178,7 +178,7 @@ function HalfTextCard({
             {tags.map((tag, index) => (
               <Link
                 href={{
-                  pathname: t('/tag/[tag]'),
+                  pathname: t('link:/tag/[tag]'),
                   query: {
                     tag: tag.key,
                   },

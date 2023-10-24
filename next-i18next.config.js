@@ -7,7 +7,7 @@ module.exports = {
   localePath:
     typeof window === 'undefined'
       ? require('path').join(process.cwd(), '/lang')
-      : './lang',
+      : 'lang',
 
   // reloadOnPrerender: process.env.NODE_ENV === 'development',
 }

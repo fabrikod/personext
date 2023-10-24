@@ -24,7 +24,7 @@ export async function getServerSideProps({ query, locale }) {
       user: user,
       blogs: data,
       meta: meta,
-      ...(await serverSideTranslations(locale ?? 'en', ['common'])),
+      ...(await serverSideTranslations(locale ?? 'en')),
     },
   }
 }
