@@ -1202,6 +1202,14 @@
     ]
   },
   {
+    "file": "abdullah-onden.md",
+    "title": "Kimim?",
+    "createdAt": "2023-10-24T09:52:26.113Z",
+    "publishedAt": "2007-11-07T01:24:19.000Z",
+    "listVisible": false,
+    "tags": []
+  },
+  {
     "file": "ajax-ve-sahane-ajax-ornekleri.md",
     "title": "AJAX ve Şahane Ajax Örnekleri",
     "createdAt": "2023-10-22T08:19:16.117Z",
@@ -1236,6 +1244,22 @@
         "name": "Web 2.0"
       }
     ]
+  },
+  {
+    "file": "basinda.md",
+    "title": "Basında",
+    "createdAt": "2023-10-24T09:53:51.668Z",
+    "publishedAt": "2007-11-07T01:24:19.000Z",
+    "listVisible": false,
+    "tags": []
+  },
+  {
+    "file": "utf-duyurulari.md",
+    "title": "UTF",
+    "createdAt": "2023-10-24T09:52:57.724Z",
+    "publishedAt": "2007-11-07T01:24:19.000Z",
+    "listVisible": false,
+    "tags": []
   },
   {
     "file": "acik-kaynagin-gucu-tekelin-zorbaligi-ve-aradan-siyrilan-web-20.md",

@@ -61,9 +61,10 @@ export default function BlogPage({ blog, user }) {
                 id="blog-content"
                 className="pt-10"
                 dangerouslySetInnerHTML={{
-                  __html: blog.content.replace(/\n{2,}/g, '<br/>'),
+                  __html: blog.content.replace(/\n{1,}/g, '<br/>'),
                 }}
               />
+
               <div>
                 <div className="mt-9 flex flex-wrap gap-3 ">
                   {blog.tags &&
