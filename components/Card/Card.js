@@ -148,7 +148,12 @@ function HalfTextCard({
           />
         </div>
       )}
-      <div className="mt-10 flex flex-1 flex-col justify-between">
+      <div
+        className={classNames(
+          'flex flex-1 flex-col justify-between',
+          image && 'mt-10'
+        )}
+      >
         <h3 className="text-3xl font-bold text-primary-2">
           <Link href={slug}>{title}</Link>
         </h3>
