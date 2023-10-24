@@ -1,3 +1,4 @@
 {
-  "ddd": "Test"
+  "ddd": "Test",
+  "/tag/[tag]": "/tag/[tag]"
 }

@@ -1,3 +1,4 @@
 {
-  "ddd": "Deneme"
+  "ddd": "Deneme",
+  "/tag/[tag]": "/etiket/[tag]"
 }

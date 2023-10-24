@@ -6,6 +6,7 @@ import * as Icons from '../Icons'
 import SvgPublish from '../Icons/Publish'
 import Link from 'next/link'
 import classNames from 'classnames'
+import { useTranslation } from 'react-i18next'
 
 export default function Card(props) {
   const { type, children } = props
@@ -121,6 +122,7 @@ function HalfTextCard({
   imageClassName,
 }) {
   const [contentState, setContentState] = useState(content)
+  const { t } = useTranslation('common')
 
   useEffect(() => {
     if (process.browser) {
@@ -171,7 +173,7 @@ function HalfTextCard({
             {tags.map((tag, index) => (
               <Link
                 href={{
-                  pathname: '/tag/[tag]',
+                  pathname: t('/tag/[tag]'),
                   query: {
                     tag: tag.key,
                   },
