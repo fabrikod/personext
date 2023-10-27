@@ -86,7 +86,7 @@ export default function Home({ user = {}, blogs = [], meta = {}, errors }) {
         pageCount={meta.pageCount}
         previousLabel="<"
         renderOnZeroPageCount={null}
-        className="pagination mt-10 flex justify-center gap-5"
+        className="pagination mt-10 flex justify-center gap-4"
       />
     </AppLayout>
   )

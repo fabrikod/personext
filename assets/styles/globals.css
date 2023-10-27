@@ -58,3 +58,11 @@ body {
 .card-list .card {
   @apply sm:min-w-[350px] md:min-w-[200px];
 }
+
+.pagination li a{
+  @apply px-3 py-2 shadow-card rounded-md duration-300 hover:bg-gray-200;
+}
+
+.pagination li.selected a{
+  @apply bg-gray-200;
+}
