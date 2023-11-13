@@ -11,7 +11,6 @@ export async function getServerSideProps({ query, locale }) {
 
   const user = await getUserService()
   const pablicationsData = await getPablicationsData()
-  console.log('pablicationsDatapablicationsData', pablicationsData)
 
   return {
     props: {
