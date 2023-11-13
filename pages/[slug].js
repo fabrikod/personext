@@ -12,6 +12,7 @@ import ErrorPage from 'next/error'
 import Link from 'next/link'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useRouter } from 'next/router'
+import Nav from '@/components/Common/Nav'
 
 export default function BlogPage({ blog, user }) {
   const router = useRouter()
@@ -30,14 +31,7 @@ export default function BlogPage({ blog, user }) {
             >
               <ArrowLeft width={70} className="stroke-primary-1" />
             </div>
-            <Card
-              type="profile"
-              name={user.fullName}
-              job={user.job}
-              description={user.description}
-              socials={user.socials}
-              image={user.image}
-            />
+            <Nav user={user} />
           </section>
           <section id="blog" className="lg:w-3/5">
             <Card>
@@ -52,7 +46,7 @@ export default function BlogPage({ blog, user }) {
                 </div>
               )}
 
-              <div className="pt-10">
+              <div className={blog.image && 'pt-10'}>
                 <h3 className="text-4xl font-bold text-primary-2">
                   {blog.title}
                 </h3>

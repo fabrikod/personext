@@ -7,11 +7,13 @@ import { useEffect, useState } from 'react'
 import apiClient from '@/utils/axios'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import CardList from '@/components/Card/CardList'
+import Nav from '@/components/Common/Nav'
 
 const PERPAGE = 10
 
 export async function getServerSideProps({ query, locale }) {
   const { page, tag } = query
+
   const user = await getUserService()
   const { data, meta } = await getBlogJsonService({
     perpage: PERPAGE,
@@ -57,14 +59,7 @@ export default function Home({ user = {}, blogs = [], meta = {}, errors }) {
     <AppLayout>
       <div className="flex flex-col gap-12 lg:flex-row">
         <section id="profile" className="flex-auto lg:w-2/5">
-          <Card
-            type="profile"
-            name={user.fullName}
-            job={user.job}
-            description={user.description}
-            socials={user.socials}
-            image={user.image}
-          />
+          <Nav user={user} />
         </section>
         <section id="blogs" className="grid gap-y-10 lg:w-3/5">
           {errors && (

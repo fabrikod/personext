@@ -8,16 +8,33 @@ import Link from 'next/link'
 import classNames from 'classnames'
 import { useTranslation } from 'next-i18next'
 
-export default function Card(props) {
-  const { type, children } = props
+export default function Card({ as, type, children, className, ...props }) {
   const CardComponent = CardTypeComponent[type]
   const [customClass, setColumnClass] = useState()
+
+  // return React.createElement(
+  //   as,
+  //   {
+  //     className: classNames(
+  //       'rounded-[30px] bg-base-2 p-9 shadow-card',
+  //       customClass,
+  //       className,
+  //       type !== 'profile' ? 'card' : ''
+  //     ),
+  //   },
+  //   children ? (
+  //     children
+  //   ) : (
+  //     <CardComponent {...props} setColumnClass={setColumnClass} />
+  //   )
+  // )
 
   return (
     <div
       className={classNames(
         'rounded-[30px] bg-base-2 p-9 shadow-card',
         customClass,
+        className,
         type !== 'profile' ? 'card' : ''
       )}
     >

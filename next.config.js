@@ -19,9 +19,13 @@ const nextConfig = {
   rewrites() {
     return [
       {
-        source: '/tr/etiket/:path*',
-        destination: '/tag/:path*',
+        source: '/tr/etiket/:tag',
+        destination: '/',
         locale: false,
+      },
+      {
+        source: '/tag/:tag',
+        destination: '/',
       },
     ]
   },
