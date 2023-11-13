@@ -6,4 +6,5 @@ export {
   getBlogBySlugData,
   getBlogFileJsonData,
   readJsonFileData,
+  getPulicationsFileData,
 } from './fetchData'

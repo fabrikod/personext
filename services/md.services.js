@@ -5,6 +5,7 @@ import {
   yaml,
   getBlogFileJsonData,
   readJsonFileData,
+  getPulicationsFileData,
 } from '@/helpers'
 
 export const getBlogService = async () => {
@@ -86,4 +87,11 @@ export const getArchives = async () => {
   }
 
   return goodGruppedData.reverse()
+}
+
+export const getPablicationsData = async () => {
+  const publications = await getPulicationsFileData()
+  const jsonPublications = yaml(publications)
+
+  return jsonPublications
 }

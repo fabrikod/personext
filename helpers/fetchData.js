@@ -35,6 +35,12 @@ export const getUserFileData = async () => {
   return userData
 }
 
+export const getPulicationsFileData = async () => {
+  //return publications data
+  const publicationsData = getFileData('publications.md')
+  return publicationsData
+}
+
 export const getBlogBySlugData = async slug => {
   //return file content based on slug name
   const blogData = getFileData(`${slug}.md`, 'data/blogs')

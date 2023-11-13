@@ -12,7 +12,8 @@ module.exports = {
         'primary-1': '#444444;',
         'primary-2': '#000000;',
         'primary-3': '#737373;',
-        'primary-4': '#373737;'
+        'primary-4': '#373737;',
+        'primary-5': '#F9F9F9;',
       },
       backgroundColor: {
         'base-1': '#F9F9F9;',
@@ -23,11 +24,11 @@ module.exports = {
         'primary-1': '#444444;',
       },
       boxShadow: {
-        'card': '0px 0px 5px rgba(0, 0, 0, 0.1)'
+        card: '0px 0px 5px rgba(0, 0, 0, 0.1)',
       },
       fontFamily: {
-        'proxima-nova': 'Proxima Nova'
-      }
+        'proxima-nova': 'Proxima Nova',
+      },
     },
   },
   important: false,
