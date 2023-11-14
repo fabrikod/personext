@@ -80,7 +80,7 @@ export default function BlogPage({ blog, user }) {
                 </div>
               </div>
 
-              <div className="text-primary-5 mt-8 text-center text-primary-3">
+              <div className="mt-8 text-center text-primary-3">
                 {new Date(blog.publishedAt).toLocaleDateString('tr-TR', {
                   year: 'numeric',
                   month: 'long',

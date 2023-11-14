@@ -12,23 +12,6 @@ export default function Card({ as, type, children, className, ...props }) {
   const CardComponent = CardTypeComponent[type]
   const [customClass, setColumnClass] = useState()
 
-  // return React.createElement(
-  //   as,
-  //   {
-  //     className: classNames(
-  //       'rounded-[30px] bg-base-2 p-9 shadow-card',
-  //       customClass,
-  //       className,
-  //       type !== 'profile' ? 'card' : ''
-  //     ),
-  //   },
-  //   children ? (
-  //     children
-  //   ) : (
-  //     <CardComponent {...props} setColumnClass={setColumnClass} />
-  //   )
-  // )
-
   return (
     <div
       className={classNames(
@@ -76,7 +59,7 @@ function ProfileCard({ description, name, job, image, socials }) {
       </p>
 
       {socials && (
-        <Chip>
+        <Chip className="cursor-default">
           {socials.map((social, index) => {
             const ComponentName = Icons[social.name]
             if (!ComponentName) {

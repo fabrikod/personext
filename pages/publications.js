@@ -1,8 +1,10 @@
 import Card from '@/components/Card/Card'
 import Nav from '@/components/Common/Nav'
+import { ArrowLeft } from '@/components/Icons'
 import AppLayout from '@/layouts/AppLayout'
 import { getUserService, getPablicationsData } from '@/services/md.services'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { useRouter } from 'next/router'
 
 const PERPAGE = 10
 
@@ -22,10 +24,18 @@ export async function getServerSideProps({ query, locale }) {
 }
 
 export default function Publications({ user, data }) {
+  const router = useRouter()
+
   return (
     <AppLayout>
       <div className="flex flex-col gap-12 lg:flex-row">
-        <section id="profile" className="flex-auto lg:w-2/5">
+        <section id="profile" className="relative flex-auto lg:w-2/5">
+          <div
+            className="absolute -top-20 cursor-pointer"
+            onClick={() => router.back()}
+          >
+            <ArrowLeft width={70} className="stroke-primary-1" />
+          </div>
           <Nav user={user} />
         </section>
 
