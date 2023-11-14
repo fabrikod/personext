@@ -51,10 +51,10 @@ function ProfileCard({ description, name, job, image, socials }) {
       </Link>
 
       <Link href="/">
-        <h1 className="mt-7 text-5xl font-bold">{name}</h1>
+        <h1 className="mt-7 text-3xl font-bold sm:text-5xl">{name}</h1>
       </Link>
       <h2 className="mt-3 text-base font-semibold text-primary-1">{job}</h2>
-      <p className="mb-7 mt-5 text-2xl font-normal text-primary-3">
+      <p className="mb-7 mt-5 text-xl font-normal text-primary-3 sm:text-2xl">
         {description}
       </p>
 
@@ -80,7 +80,7 @@ function ProfileCard({ description, name, job, image, socials }) {
 function FullTextCard({ description, title, tags, slug }) {
   return (
     <div className="min-h-[190px]">
-      <h3 className="text-3xl font-bold text-primary-2">
+      <h3 className="text-xl font-bold text-primary-2 sm:text-3xl">
         <Link href={slug}>{title}</Link>
       </h3>
       <p className="mt-6 font-semibold text-primary-3">
@@ -154,10 +154,10 @@ function HalfTextCard({
           image && 'mt-10'
         )}
       >
-        <h3 className="text-3xl font-bold text-primary-2">
+        <h3 className="text-xl font-bold text-primary-2 sm:text-3xl">
           <Link href={slug}>{title}</Link>
         </h3>
-        <p className="mt-4 font-semibold text-primary-3">
+        <p className="mt-4 text-sm font-semibold text-primary-3 sm:text-base">
           {description ? (
             <span>
               {description.length > DESCRIPTION_MAX_LENGTH

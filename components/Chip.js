@@ -18,7 +18,8 @@ export default function Chip({ children, className, onClick }) {
         'bg-base-3',
         'px-4',
         'py-4',
-        'text-sm',
+        'sm:text-sm',
+        'text-xs',
         className,
         'duration-500',
         'hover:bg-gray-200'

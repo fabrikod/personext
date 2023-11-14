@@ -15,14 +15,14 @@ function Nav({ user }) {
         image={user.image}
       />
 
-      <div className="mt-10 flex items-center justify-between">
-        <Card className="flex gap-7 px-10 py-4">
+      <div className="mt-10 flex flex-col items-center justify-between gap-10 sm:flex-row">
+        <Card className="flex w-full justify-center gap-7 px-10 py-4 sm:w-auto">
           <Personal />
           <Edit />
           <Setting />
         </Card>
-        <Link href="publications">
-          <Card className="flex min-w-[14rem] justify-center gap-5 px-10 py-3.5">
+        <Link href="publications" className="w-full sm:w-auto">
+          <Card className="flex w-full justify-center gap-5 px-10 py-3.5 sm:min-w-[14rem] ">
             <Document />
             <span className="font-semibold">Publications</span>
           </Card>
