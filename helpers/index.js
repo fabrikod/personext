@@ -1,4 +1,4 @@
-export { slug, yaml, getSettings, xmlToJson } from './converters'
+export { slug, yaml, getSettings } from './converters'
 
 export {
   getBlogsFilesData,
