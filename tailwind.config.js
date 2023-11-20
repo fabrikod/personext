@@ -14,11 +14,14 @@ module.exports = {
         'primary-3': '#737373;',
         'primary-4': '#373737;',
         'primary-5': '#F9F9F9;',
+        'primary-6': '#656874',
       },
       backgroundColor: {
         'base-1': '#F9F9F9;',
         'base-2': '#FFFFFF;',
         'base-3': '#F7F7F7;',
+        'base-4': '#F7F9FF',
+        'base-5': '#EBECF0',
       },
       stroke: {
         'primary-1': '#444444;',
@@ -26,8 +29,12 @@ module.exports = {
       boxShadow: {
         card: '0px 0px 5px rgba(0, 0, 0, 0.1)',
       },
+      borderColor: {
+        'primary-1': '#EAECF0',
+      },
       fontFamily: {
         'proxima-nova': 'Proxima Nova',
+        'ibm-plex-sans': 'IBM Plex Sans',
       },
     },
   },

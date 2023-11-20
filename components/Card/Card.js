@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { CardType, DESCRIPTION_MAX_LENGTH } from '../../constrait'
 import Image from 'next/image'
-import Chip from '../Chip'
+import Chip from '../Common/Chip'
 import * as Icons from '../Icons'
 import SvgPublish from '../Icons/Publish'
 import Link from 'next/link'

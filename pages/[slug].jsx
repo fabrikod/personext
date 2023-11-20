@@ -1,7 +1,7 @@
 import Card from '@/components/Card/Card'
 import AppLayout from 'layouts/AppLayout'
 import Image from 'next/image'
-import Chip from '@/components/Chip'
+import Chip from '@/components/Common/Chip'
 import {
   getUserService,
   getBlogBySlugService,
