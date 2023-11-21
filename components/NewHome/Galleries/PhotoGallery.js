@@ -73,7 +73,7 @@ export default function PhotoGallery({ className }) {
               <div
                 key={index}
                 className={classNames(
-                  'bg-base-6 text-primary-7 absolute bottom-6 left-6 rounded-2xl px-4 py-1 text-sm duration-500',
+                  'bg-base-6 text-primary-7 max-xs:bottom-14 absolute bottom-6 left-6 rounded-2xl px-4 py-1 text-sm duration-500',
                   selectedPhoto === index ? 'opacity-100' : 'opacity-0'
                 )}
               >

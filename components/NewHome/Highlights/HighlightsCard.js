@@ -6,11 +6,16 @@ import React from 'react'
 
 export default function HighlightsCard() {
   return (
-    <NewCard className="flex min-h-[124px] overflow-hidden p-0">
-      <div className="relative w-[74px]">
-        <Image fill src="/img/highlights-card-1.png" alt="" />
+    <NewCard className="flex min-h-[124px] overflow-hidden !p-0 max-sm:flex-col">
+      <div className="relative w-[74px] max-sm:mb-4 max-sm:h-32 max-sm:w-full">
+        <Image
+          fill
+          src="/img/highlights-card-1.png"
+          className="rounded-l-xl max-sm:rounded-l-none max-sm:rounded-t-xl"
+          alt=""
+        />
       </div>
-      <div className="flex items-center gap-5 px-6">
+      <div className="flex items-center gap-5 px-6 max-sm:flex-col max-sm:pb-5">
         <div>
           <h3 className="text-base font-semibold ">Highlights</h3>
           <p className="mt-2 text-sm font-normal text-primary-6">

@@ -23,7 +23,7 @@ export default function Profile() {
         generation.
       </p>
 
-      <div className="gap2.5 mt-10 flex justify-between">
+      <div className="max-xs:flex-col mt-10  flex items-start justify-between gap-2.5">
         <div className="flex gap-2.5">
           <NewChip
             as="a"
@@ -41,7 +41,7 @@ export default function Profile() {
         <NewChip
           as="a"
           href="#"
-          className="flex items-center px-5 text-primary-6"
+          className="inline-flex items-center px-5 text-primary-6"
         >
           Not available for projects
         </NewChip>

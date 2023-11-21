@@ -9,7 +9,7 @@ export default function index() {
         Featured projects, templates and visual experiments
       </p>
 
-      <div className="mt-10 flex justify-between gap-2.5">
+      <div className="mt-10 flex flex-wrap gap-2.5 sm:justify-between">
         <SocialCard />
         <SocialCard />
         <SocialCard />

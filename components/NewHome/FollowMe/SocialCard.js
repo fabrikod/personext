@@ -7,7 +7,7 @@ export default function SocialCard({ className }) {
     <NewChip
       as="a"
       className={classNames(
-        'flex h-24 w-24 items-center justify-center rounded-[10px]',
+        'flex h-24 w-24 items-center justify-center !rounded-[10px]',
         className
       )}
     >
