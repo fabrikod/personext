@@ -36,6 +36,9 @@ module.exports = {
         'proxima-nova': 'Proxima Nova',
         'ibm-plex-sans': 'IBM Plex Sans',
       },
+      fontSize: {
+        '2xs': '0.625rem',
+      },
     },
   },
   important: false,
