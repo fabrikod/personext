@@ -49,7 +49,7 @@ export default function NewAppLayout({ children }) {
           </div>
         </div>
       </header>
-      <main className="h-screen bg-base-4 font-ibm-plex-sans">{children}</main>
+      <main className="bg-base-4 font-ibm-plex-sans">{children}</main>
     </>
   )
 }

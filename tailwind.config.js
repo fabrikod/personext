@@ -15,6 +15,7 @@ module.exports = {
         'primary-4': '#373737;',
         'primary-5': '#F9F9F9;',
         'primary-6': '#656874',
+        'primary-7': '#F7F9FF',
       },
       backgroundColor: {
         'base-1': '#F9F9F9;',
@@ -22,6 +23,8 @@ module.exports = {
         'base-3': '#F7F7F7;',
         'base-4': '#F7F9FF',
         'base-5': '#EBECF0',
+        'base-6': '#2C2C2D',
+        'base-7': '#D9D9D9',
       },
       stroke: {
         'primary-1': '#444444;',

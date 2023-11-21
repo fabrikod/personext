@@ -1,10 +1,15 @@
 import Highlights from '@/components/NewHome/Highlights'
 import Publications from '@/components/NewHome/Publications'
-import Stack from '@/components/NewHome/Stack'
+import Stacks from '@/components/NewHome/Stacks'
+import Gallery from '@/components/NewHome/Galleries'
+import Experience from '@/components/NewHome/Experiences'
+import FollowMe from '@/components/NewHome/FollowMe'
 import Profile from '@/components/NewHome/Profile'
 import NewAppLayout from '@/layouts/NewAppLayout'
 import { getUserService, getBlogJsonService } from '@/services/md.services'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import SelectedProjects from '@/components/NewHome/SelectedProjects'
+import Blogs from '@/components/NewHome/Blogs'
 
 const PERPAGE = 10
 
@@ -38,7 +43,7 @@ export default function NewDesign({
     <NewAppLayout>
       <section
         id="container"
-        className="mx-auto flex max-w-[611px] flex-col gap-9 pt-9"
+        className="mx-auto flex max-w-[611px] flex-col gap-9 pb-24 pt-9"
       >
         <Profile />
 
@@ -46,7 +51,17 @@ export default function NewDesign({
 
         <Publications />
 
-        <Stack />
+        <Stacks />
+
+        <Gallery />
+
+        <Experience />
+
+        <SelectedProjects />
+
+        <Blogs />
+
+        <FollowMe />
       </section>
     </NewAppLayout>
   )

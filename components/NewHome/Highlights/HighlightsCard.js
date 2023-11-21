@@ -8,7 +8,7 @@ export default function HighlightsCard() {
   return (
     <NewCard className="flex min-h-[124px] overflow-hidden p-0">
       <div className="relative w-[74px]">
-        <Image fill src="/img/highlights-card-1.png" />
+        <Image fill src="/img/highlights-card-1.png" alt="" />
       </div>
       <div className="flex items-center gap-5 px-6">
         <div>

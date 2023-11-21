@@ -66,3 +66,7 @@ body {
 .pagination li.selected a{
   @apply bg-gray-200;
 }
+
+.photo-gallery:hover .photo-arrow {
+  @apply opacity-100 visible
+}

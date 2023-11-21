@@ -9,7 +9,7 @@ export default function Profile() {
     <NewCard>
       <NewChip as="a" href="#" className={'inline-block'}>
         <div className="relative h-24 w-24">
-          <Image fill src="/img/profile.jpg" className="rounded-full" />
+          <Image fill src="/img/profile.jpg" className="rounded-full" alt="" />
         </div>
       </NewChip>
 
