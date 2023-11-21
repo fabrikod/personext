@@ -5,7 +5,7 @@ import PhotoGallery from './PhotoGallery'
 
 export default function Galleries() {
   return (
-    <NewCard className="overflow-hidden px-0 pb-0">
+    <NewCard className="overflow-hidden px-0 pb-0" id="gallery">
       <div className="flex items-start justify-between gap-3 px-9 max-sm:flex-col sm:items-center">
         <div className="">
           <h2 className="text-lg font-semibold ">Gallery</h2>

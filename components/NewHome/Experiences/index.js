@@ -5,7 +5,7 @@ import ExperienceCard from './ExperiencesCard'
 
 export default function Experiences() {
   return (
-    <NewCard className="px-0">
+    <NewCard className="px-0" id="experience">
       <div className="px-9">
         <h2 className="text-lg font-semibold ">Experience</h2>
         <p className="mt-2 text-sm font-normal text-primary-6">

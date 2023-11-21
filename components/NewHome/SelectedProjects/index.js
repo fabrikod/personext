@@ -5,7 +5,7 @@ import SelectedProjectsCard from './SelectedProjectsCard'
 
 export default function SelectedProjects() {
   return (
-    <NewCard className="px-0">
+    <NewCard className="px-0" id="selected-project">
       <div className="px-9">
         <h2 className="text-lg font-semibold ">Selected Projects</h2>
         <p className="mt-2 text-sm font-normal text-primary-6">

@@ -34,10 +34,6 @@ export default function NewAppLayout({ children }) {
     setMobileMenu(prev => !prev)
   }
 
-  useEffect(() => {
-    console.log('isMobileMenuisMobileMenu', isMobileMenu)
-  }, [isMobileMenu])
-
   return (
     <>
       <header className="flex h-20 items-center justify-center bg-base-2 font-ibm-plex-sans">
@@ -91,8 +87,8 @@ export default function NewAppLayout({ children }) {
 
         <div
           className={classNames(
-            'absolute top-0 -z-10 h-full w-full duration-300',
-            isMobileMenu && 'translate-y-[70px]'
+            'absolute top-[3px] -z-10 h-full w-full duration-300',
+            isMobileMenu && 'translate-y-[75px]'
           )}
         >
           <MobileMenu />

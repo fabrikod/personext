@@ -17,6 +17,11 @@
   }
 }
 
+html {
+  transition: scroll-behavior 0.3s ease-in-out;
+  scroll-behavior: smooth;
+}
+
 * {
   @apply !box-border;
 }

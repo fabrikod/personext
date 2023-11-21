@@ -12,7 +12,7 @@ export default function SocialCard({ className }) {
       )}
     >
       <div className="relative h-6 w-6">
-        <Image src="/img/socials/facebook.png" fill />
+        <Image src="/img/socials/facebook.png" fill alt="" />
       </div>
     </NewChip>
   )

@@ -3,7 +3,7 @@ import SocialCard from './SocialCard'
 
 export default function index() {
   return (
-    <NewCard>
+    <NewCard id="follow-me">
       <h2 className="text-lg font-semibold ">Follow Me</h2>
       <p className="mt-2 text-sm font-normal text-primary-6">
         Featured projects, templates and visual experiments

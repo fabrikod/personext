@@ -10,7 +10,7 @@ export default function MobileMenu() {
       <NewChip
         as="a"
         href="#"
-        className="inline-block !py-1 px-4 text-primary-6"
+        className="inline-block !py-1 px-4 text-sm text-primary-6"
       >
         Connect
       </NewChip>

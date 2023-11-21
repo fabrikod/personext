@@ -4,7 +4,7 @@ import HighlightsCard from './HighlightsCard'
 
 export default function Highlights() {
   return (
-    <NewCard>
+    <NewCard id="highlight">
       <h2 className="text-lg font-semibold ">Highlights</h2>
       <p className="mt-2 text-sm font-normal text-primary-6">
         Software and resources I use on a regular basis.

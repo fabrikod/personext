@@ -6,7 +6,7 @@ import { Mail } from '../Icons'
 
 export default function Profile() {
   return (
-    <NewCard>
+    <NewCard id="profile">
       <NewChip as="a" href="#" className={'inline-block'}>
         <div className="relative h-24 w-24">
           <Image fill src="/img/profile.jpg" className="rounded-full" alt="" />

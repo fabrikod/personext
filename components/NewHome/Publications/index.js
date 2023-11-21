@@ -5,7 +5,7 @@ import NewChip from '@/components/Common/NewChip'
 
 export default function Publications() {
   return (
-    <NewCard className="px-0">
+    <NewCard className="px-0" id="publication">
       <div className="px-9">
         <h2 className="text-lg font-semibold ">Publications</h2>
         <p className="mt-2 text-sm font-normal text-primary-6">
