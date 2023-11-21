@@ -12,12 +12,12 @@ const MENUS = [
   { text: 'Contact', href: '/new-design/#contact' },
 ]
 
-export default function NewNav() {
+export default function NewNav({ className }) {
   const router = useRouter()
 
   return (
     <nav>
-      <ul className="flex gap-2 text-primary-6">
+      <ul className={classNames('flex gap-2 text-primary-6', className)}>
         {MENUS.map((menu, index) => (
           <li key={index}>
             <Link

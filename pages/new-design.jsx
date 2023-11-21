@@ -43,7 +43,7 @@ export default function NewDesign({
     <NewAppLayout>
       <section
         id="container"
-        className="mx-auto flex max-w-[611px] flex-col gap-9 pb-24 pt-9"
+        className="mx-auto flex max-w-[611.14px] flex-col gap-9 pb-24 pt-9"
       >
         <Profile />
 
