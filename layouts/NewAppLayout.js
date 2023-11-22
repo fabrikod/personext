@@ -36,8 +36,8 @@ export default function NewAppLayout({ children }) {
 
   return (
     <>
-      <header className="flex h-20 items-center justify-center bg-base-2 font-ibm-plex-sans">
-        <div className="flex gap-x-14">
+      <header className="flex h-20 items-center justify-center bg-base-2 font-ibm-plex-sans max-sm:hidden">
+        <div className="flex max-w-[620px] gap-x-14">
           <NewNav />
           <div className="flex gap-3">
             <NewChip as="a" href="#" className="flex items-center">
@@ -52,7 +52,7 @@ export default function NewAppLayout({ children }) {
       </header>
       <header
         className={classNames(
-          'fixed -top-16 left-1/2 z-30 w-full max-w-[611.14px] -translate-x-1/2 duration-300',
+          'fixed -top-16 left-1/2 z-30 w-full max-w-[620px] -translate-x-1/2 duration-300 max-sm:translate-y-20 max-sm:px-5',
           scrolled && 'translate-y-20'
         )}
       >
@@ -87,8 +87,8 @@ export default function NewAppLayout({ children }) {
 
         <div
           className={classNames(
-            'absolute top-[3px] -z-10 h-full w-full duration-300',
-            isMobileMenu && 'translate-y-[75px]'
+            'absolute left-0 top-[3px] -z-10 h-full w-full duration-300 max-sm:-translate-y-80 max-sm:px-5',
+            isMobileMenu && '!translate-y-[75px]'
           )}
         >
           <MobileMenu />

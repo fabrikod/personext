@@ -44,7 +44,7 @@ export default function NewNav({ className }) {
             <Link
               className={classNames(
                 'block rounded-full px-4 py-2 text-xs font-medium -tracking-wide',
-                router.pathname === menu.href && 'bg-base-5'
+                router.asPath === menu.href && 'bg-base-5'
               )}
               href={menu.href}
             >
