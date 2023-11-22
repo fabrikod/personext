@@ -2,13 +2,16 @@ import MobileMenu from '@/components/Common/MobileMenu'
 import NewChip from '@/components/Common/NewChip'
 import NewNav from '@/components/Common/NewNav'
 import { HamburgerMenu, Mail, Theme } from '@/components/Icons'
+import { MENUS } from '@/constrait'
 import classNames from 'classnames'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 
 export default function NewAppLayout({ children }) {
   const [scrolled, setScrolled] = useState(false)
   const [isMobileMenu, setMobileMenu] = useState(false)
+  const router = useRouter()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,6 +32,12 @@ export default function NewAppLayout({ children }) {
       window.removeEventListener('scroll', handleScroll)
     }
   }, [])
+
+  useEffect(() => {
+    if (MENUS.find(menu => menu.href === router.asPath)) {
+      setMobileMenu(false)
+    }
+  }, [router])
 
   const handleMobileMenu = () => {
     setMobileMenu(prev => !prev)

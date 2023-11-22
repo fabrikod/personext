@@ -1,16 +1,8 @@
+import { MENUS } from '@/constrait'
 import classNames from 'classnames'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useEffect } from 'react'
-
-const MENUS = [
-  { text: 'Home', href: '/new-design' },
-  { text: 'About', href: '/new-design#about' },
-  { text: 'Publications', href: '/new-design#publications' },
-  { text: 'Stacks', href: '/new-design#stacks' },
-  { text: 'Projects', href: '/new-design#projects' },
-  { text: 'Contact', href: '/new-design#contact' },
-]
 
 const menuToElement = {
   '/new-design#about': 'highlight',
