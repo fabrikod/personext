@@ -2,15 +2,16 @@ import NewCard from '@/components/Card/NewCard'
 import React from 'react'
 import StacksCard from './StacksCard'
 import NewChip from '@/components/Common/NewChip'
+import ComponentHeader from '../ComponentHeader'
 
 export default function Stacks() {
   return (
     <NewCard className="px-0" id="stack">
       <div className="px-9">
-        <h2 className="text-lg font-semibold ">Stack</h2>
-        <p className="mt-2 text-sm font-normal text-primary-6">
-          Software and resources I use on a regular basis.
-        </p>
+        <ComponentHeader
+          title="Stack"
+          description="Software and resources I use on a regular basis."
+        />
       </div>
 
       <div className="gap- mt-10 flex flex-col ">

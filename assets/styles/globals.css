@@ -23,7 +23,7 @@ html {
 }
 
 * {
-  @apply !box-border;
+  @apply !box-border duration-500;
 }
 
 body {

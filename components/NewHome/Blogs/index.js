@@ -2,15 +2,16 @@ import NewCard from '@/components/Card/NewCard'
 import NewChip from '@/components/Common/NewChip'
 import React from 'react'
 import BlogsCard from './BlogsCard'
+import ComponentHeader from '../ComponentHeader'
 
 export default function Blogs() {
   return (
     <NewCard className="px-0" id="blogs">
       <div className="px-9">
-        <h2 className="text-lg font-semibold ">Blog</h2>
-        <p className="mt-2 text-sm font-normal text-primary-6">
-          Take a look at the latest articles from.
-        </p>
+        <ComponentHeader
+          title="Blog"
+          description="Take a look at the latest articles from."
+        />
       </div>
 
       <div className="mt-10 flex flex-col">

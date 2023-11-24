@@ -2,15 +2,16 @@ import NewCard from '@/components/Card/NewCard'
 import NewChip from '@/components/Common/NewChip'
 import React from 'react'
 import ExperienceCard from './ExperiencesCard'
+import ComponentHeader from '../ComponentHeader'
 
 export default function Experiences() {
   return (
     <NewCard className="px-0" id="experience">
       <div className="px-9">
-        <h2 className="text-lg font-semibold ">Experience</h2>
-        <p className="mt-2 text-sm font-normal text-primary-6">
-          Coordination, and problem-solving abilities
-        </p>
+        <ComponentHeader
+          title="Experience"
+          description="Coordination, and problem-solving abilities"
+        />
       </div>
 
       <div className="mt-10 flex flex-col">

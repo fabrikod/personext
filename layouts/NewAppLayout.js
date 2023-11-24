@@ -6,7 +6,7 @@ import { MENUS } from '@/constrait'
 import classNames from 'classnames'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useLayoutEffect, useState } from 'react'
 
 export default function NewAppLayout({ children }) {
   const [scrolled, setScrolled] = useState(false)
@@ -43,9 +43,23 @@ export default function NewAppLayout({ children }) {
     setMobileMenu(prev => !prev)
   }
 
+  const changeTheme = () => {
+    document.documentElement.classList.toggle('dark')
+    localStorage.setItem(
+      'theme',
+      localStorage.getItem('theme') === 'light' ? 'dark' : 'light'
+    )
+  }
+
+  useLayoutEffect(() => {
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.classList.add('dark')
+    }
+  }, [])
+
   return (
     <>
-      <header className="flex h-20 items-center justify-center bg-base-2 font-ibm-plex-sans max-sm:hidden">
+      <header className="dark:bg-darkmode-base-1 dark:border-darkmode-border flex h-20 items-center justify-center bg-base-2 font-ibm-plex-sans dark:border-b max-sm:hidden">
         <div className="flex max-w-[620px] gap-x-14">
           <NewNav />
           <div className="flex gap-3">
@@ -53,7 +67,7 @@ export default function NewAppLayout({ children }) {
               <Mail />
             </NewChip>
 
-            <NewChip as="button">
+            <NewChip as="button" onClick={changeTheme}>
               <Theme />
             </NewChip>
           </div>
@@ -61,8 +75,8 @@ export default function NewAppLayout({ children }) {
       </header>
       <header
         className={classNames(
-          'fixed -top-16 left-1/2 z-30 w-full max-w-[620px] -translate-x-1/2 duration-300 max-sm:translate-y-20 max-sm:px-5',
-          scrolled && 'translate-y-20'
+          'fixed -top-20 left-1/2 z-30 w-full max-w-[620px] -translate-x-1/2 duration-300 max-sm:translate-y-24 max-sm:px-5',
+          scrolled && 'translate-y-24'
         )}
       >
         <div className="mx-auto flex items-center rounded-full border border-primary-1 bg-base-2 py-1 pl-1 pr-2.5">
@@ -103,7 +117,9 @@ export default function NewAppLayout({ children }) {
           <MobileMenu />
         </div>
       </header>
-      <main className="bg-base-4 px-5 font-ibm-plex-sans">{children}</main>
+      <main className="dark:bg-darkmode-base-1 bg-base-4 px-5 font-ibm-plex-sans">
+        {children}
+      </main>
     </>
   )
 }

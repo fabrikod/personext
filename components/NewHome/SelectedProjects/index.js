@@ -2,15 +2,16 @@ import NewCard from '@/components/Card/NewCard'
 import NewChip from '@/components/Common/NewChip'
 import React from 'react'
 import SelectedProjectsCard from './SelectedProjectsCard'
+import ComponentHeader from '../ComponentHeader'
 
 export default function SelectedProjects() {
   return (
     <NewCard className="px-0" id="selected-project">
       <div className="px-9">
-        <h2 className="text-lg font-semibold ">Selected Projects</h2>
-        <p className="mt-2 text-sm font-normal text-primary-6">
-          Featured projects, templates and visual experiments
-        </p>
+        <ComponentHeader
+          title="Selected Projects"
+          description="Featured projects, templates and visual experiments"
+        />
       </div>
 
       <div className="mt-10 flex flex-col gap-9 px-9">

@@ -2,15 +2,16 @@ import NewCard from '@/components/Card/NewCard'
 import React from 'react'
 import PublicationsCard from './PublicationsCard'
 import NewChip from '@/components/Common/NewChip'
+import ComponentHeader from '../ComponentHeader'
 
 export default function Publications() {
   return (
     <NewCard className="px-0" id="publication">
       <div className="px-9">
-        <h2 className="text-lg font-semibold ">Publications</h2>
-        <p className="mt-2 text-sm font-normal text-primary-6">
-          Take a look at the latest articles from.
-        </p>
+        <ComponentHeader
+          title="Publications"
+          description="Take a look at the latest articles from."
+        />
       </div>
 
       <div className="mt-10 flex flex-col">

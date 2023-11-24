@@ -6,6 +6,7 @@ module.exports = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
     './layouts/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
@@ -13,11 +14,13 @@ module.exports = {
         'primary-2': '#000000;',
         'primary-3': '#737373;',
         'primary-4': '#373737;',
-        'primary-5': '#F9F9F9;',
         'primary-6': '#656874',
         'primary-7': '#F7F9FF',
-      },
-      backgroundColor: {
+        'darkmode-base-1': '#121212',
+        'darkmode-base-2': '#1A1A1A',
+        'darkmode-border': '#333333',
+        'darkmode-title': '#F2F2F2',
+        'darkmode-text': '#BFBFBF',
         'base-1': '#F9F9F9;',
         'base-2': '#FFFFFF;',
         'base-3': '#F7F7F7;',
