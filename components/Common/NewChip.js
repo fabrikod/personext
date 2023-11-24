@@ -29,7 +29,7 @@ export default function NewChip({
         ...prev,
       }))
     }
-  }, [])
+  }, [className])
 
   return React.createElement(as, propsList, children)
 }

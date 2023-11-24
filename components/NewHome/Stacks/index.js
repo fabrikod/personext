@@ -6,7 +6,7 @@ import ComponentHeader from '../ComponentHeader'
 
 export default function Stacks() {
   return (
-    <NewCard className="px-0" id="stack">
+    <NewCard className="px-0" id="stacks">
       <div className="px-9">
         <ComponentHeader
           title="Stack"

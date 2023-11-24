@@ -6,7 +6,7 @@ import ComponentHeader from '../ComponentHeader'
 
 export default function SelectedProjects() {
   return (
-    <NewCard className="px-0" id="selected-project">
+    <NewCard className="px-0" id="selected-projects">
       <div className="px-9">
         <ComponentHeader
           title="Selected Projects"

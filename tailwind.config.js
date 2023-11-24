@@ -21,6 +21,8 @@ module.exports = {
         'darkmode-title': '#F2F2F2',
         'darkmode-text': '#888895',
         'darkmode-chip': '#BFBFBF',
+        'circle-red': '#D04D4D',
+        'circle-green': '#42BE65',
         'base-1': '#F9F9F9;',
         'base-2': '#FFFFFF;',
         'base-3': '#F7F7F7;',

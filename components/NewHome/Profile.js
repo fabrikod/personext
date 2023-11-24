@@ -3,6 +3,7 @@ import NewCard from '../Card/NewCard'
 import NewChip from '../Common/NewChip'
 import Image from 'next/image'
 import { Mail } from '../Icons'
+import Circle from '../Icons/Circle'
 
 export default function Profile() {
   return (
@@ -30,8 +31,9 @@ export default function Profile() {
           <NewChip
             as="a"
             href="#"
-            className={'inline-block px-4 text-primary-6'}
+            className={'flex items-center gap-1 px-4 text-primary-6'}
           >
+            <div className="text-2xl leading-3">+</div>
             Connect
           </NewChip>
 
@@ -43,9 +45,10 @@ export default function Profile() {
         <NewChip
           as="a"
           href="#"
-          className="inline-flex items-center px-5 text-primary-6"
+          className="inline-flex items-center gap-2 px-5 text-primary-6"
         >
-          Not available for projects
+          <Circle className="fill-circle-red dark:fill-circle-green" /> Not
+          available for projects
         </NewChip>
       </div>
     </NewCard>

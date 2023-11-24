@@ -2,30 +2,51 @@ import { MENUS } from '@/constrait'
 import classNames from 'classnames'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import React, { useEffect } from 'react'
-
-const menuToElement = {
-  '/new-design#about': 'highlight',
-  '/new-design#publications': 'publication',
-  '/new-design#stacks': 'stack',
-  '/new-design#projects': 'selected-project',
-  '/new-design#contact': 'follow-me',
-}
+import React, { useEffect, useState } from 'react'
 
 export default function NewNav({ className }) {
   const router = useRouter()
+  const [activeMenu, setActiveMenu] = useState()
 
   useEffect(() => {
-    if (menuToElement[router.asPath]) {
-      const targetElement = document.getElementById(
-        menuToElement[router.asPath]
-      )
-      document.querySelector('html').scroll({
-        top: targetElement.offsetTop - 90,
-        behavior: 'smooth',
+    setActiveMenu(router.asPath)
+  }, [router])
+
+  useEffect(() => {
+    const sections = document.querySelectorAll(
+      '#stacks,#highlights,#publications,#selected-projects,#follow-me,#web-header'
+    )
+
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY
+
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop
+        const sectionHeight = section.clientHeight
+
+        if (
+          scrollPosition >= sectionTop &&
+          scrollPosition < sectionTop + sectionHeight
+        ) {
+          const id = section.getAttribute('id')
+          setActiveMenu(
+            id !== 'web-header' ? `${router.pathname}#${id}` : '/new-design'
+          )
+          window.history.replaceState(
+            null,
+            null,
+            id !== 'web-header' ? `#${id}` : '/new-design'
+          )
+        }
       })
     }
-  }, [router])
+
+    window.addEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
 
   return (
     <nav id="nav-menu">
@@ -35,7 +56,7 @@ export default function NewNav({ className }) {
             <Link
               className={classNames(
                 'dark:text-darkmode-text block rounded-full border border-transparent px-4 py-2 text-xs font-medium -tracking-wide',
-                router.asPath === menu.href &&
+                activeMenu === menu.href &&
                   'dark:bg-lineer-nav-link dark:border-darkmode-border dark:bg-darkmode-base-1 bg-base-5'
               )}
               href={menu.href}

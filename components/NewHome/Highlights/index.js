@@ -5,7 +5,7 @@ import ComponentHeader from '../ComponentHeader'
 
 export default function Highlights() {
   return (
-    <NewCard id="highlight">
+    <NewCard id="highlights">
       <ComponentHeader
         title="Highlights"
         description="Software and resources I use on a regular basis."

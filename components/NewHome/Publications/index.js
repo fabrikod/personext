@@ -6,7 +6,7 @@ import ComponentHeader from '../ComponentHeader'
 
 export default function Publications() {
   return (
-    <NewCard className="px-0" id="publication">
+    <NewCard className="px-0" id="publications">
       <div className="px-9">
         <ComponentHeader
           title="Publications"

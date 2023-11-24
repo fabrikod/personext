@@ -16,11 +16,11 @@ const BLOG_FOLDER_PATH = `${MAIN_MD_FILE_PATH}/blogs`
 
 const MENUS = [
   { text: 'Home', href: '/new-design' },
-  { text: 'About', href: '/new-design#about' },
+  { text: 'About', href: '/new-design#highlights' },
   { text: 'Publications', href: '/new-design#publications' },
   { text: 'Stacks', href: '/new-design#stacks' },
-  { text: 'Projects', href: '/new-design#projects' },
-  { text: 'Contact', href: '/new-design#contact' },
+  { text: 'Projects', href: '/new-design#selected-projects' },
+  { text: 'Contact', href: '/new-design#follow-me' },
 ]
 
 export {

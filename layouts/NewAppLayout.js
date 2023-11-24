@@ -6,7 +6,7 @@ import { MENUS } from '@/constrait'
 import classNames from 'classnames'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
-import React, { useEffect, useLayoutEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 export default function NewAppLayout({ children }) {
   const [scrolled, setScrolled] = useState(false)
@@ -51,7 +51,7 @@ export default function NewAppLayout({ children }) {
     )
   }
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (localStorage.getItem('theme') === 'dark') {
       document.documentElement.classList.add('dark')
     }
@@ -59,7 +59,10 @@ export default function NewAppLayout({ children }) {
 
   return (
     <>
-      <header className="dark:bg-darkmode-base-1 dark:border-darkmode-border flex h-20 items-center justify-center bg-base-2 font-ibm-plex-sans dark:border-b max-sm:hidden">
+      <header
+        id="web-header"
+        className="dark:bg-darkmode-base-1 dark:border-darkmode-border flex h-20 items-center justify-center bg-base-2 font-ibm-plex-sans dark:border-b max-sm:hidden"
+      >
         <div className="flex max-w-[620px] gap-x-14">
           <NewNav />
           <div className="flex gap-3">
