@@ -79,7 +79,7 @@ export default function NewAppLayout({ children }) {
           scrolled && 'translate-y-24'
         )}
       >
-        <div className="mx-auto flex items-center rounded-full border border-primary-1 bg-base-2 py-1 pl-1 pr-2.5">
+        <div className="dark:border-darkmode-border dark:bg-darkmode-base-1 mx-auto flex items-center rounded-full border border-primary-1 bg-base-2 py-1 pl-1 pr-2.5">
           <div className="flex w-full items-center gap-2">
             <NewChip as="a" href="#" className={'inline-block p-1'}>
               <div className="relative h-10 w-10">
@@ -92,8 +92,10 @@ export default function NewAppLayout({ children }) {
               </div>
             </NewChip>
             <div>
-              <h1 className="text-sm font-semibold">Abdullah Önden</h1>
-              <p className="text-2xs font-normal text-primary-6">
+              <h1 className="dark:text-darkmode-title text-sm font-semibold">
+                Abdullah Önden
+              </h1>
+              <p className="dark:text-darkmode-text text-2xs font-normal text-primary-6">
                 Academician Dr. Faculty Member
               </p>
             </div>

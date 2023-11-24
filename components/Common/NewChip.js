@@ -17,7 +17,7 @@ export default function NewChip({
   useEffect(() => {
     setPropsList({
       className: classNames(
-        'rounded-full border-[1px] border-solid border-primary-1 p-2',
+        'rounded-full border-[1px] border-solid border-primary-1 p-2 dark:border-darkmode-border dark:text-darkmode-chip',
         className
       ),
       ...props,

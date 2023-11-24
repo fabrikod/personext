@@ -20,7 +20,7 @@ export default function SelectedProjects() {
         <SelectedProjectsCard />
       </div>
 
-      <hr className="mt-9 border-primary-1" />
+      <hr className="dark:border-darkmode-border mt-9 border-primary-1" />
 
       <NewChip
         as="button"

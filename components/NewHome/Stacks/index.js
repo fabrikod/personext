@@ -15,12 +15,12 @@ export default function Stacks() {
       </div>
 
       <div className="gap- mt-10 flex flex-col ">
-        <div className="border- flex flex-wrap justify-between gap-5 border-t border-primary-1 px-9 py-9">
+        <div className="border- dark:border-darkmode-border flex flex-wrap justify-between gap-5 border-t border-primary-1 px-9 py-9">
           <StacksCard />
           <StacksCard />
           <StacksCard />
         </div>
-        <div className="border- flex flex-wrap justify-between gap-5 border-b border-t border-primary-1 px-9 py-9">
+        <div className="border- dark:border-darkmode-border flex flex-wrap justify-between gap-5 border-b border-t border-primary-1 px-9 py-9">
           <StacksCard />
           <StacksCard />
           <StacksCard />

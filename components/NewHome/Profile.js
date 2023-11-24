@@ -13,17 +13,19 @@ export default function Profile() {
         </div>
       </NewChip>
 
-      <h1 className="mt-5 text-lg font-semibold ">Abdullah Önden</h1>
-      <span className="mt-1 inline-block font-normal text-primary-6">
+      <h1 className="dark:text-darkmode-title mt-5 text-lg font-semibold">
+        Abdullah Önden
+      </h1>
+      <span className="dark:text-darkmode-text mt-1 inline-block font-normal text-primary-6">
         Academician Dr. Faculty Member
       </span>
-      <p className="mt-4 text-sm font-normal text-primary-6">
+      <p className="dark:text-darkmode-text mt-4 text-sm font-normal text-primary-6">
         Hey, I’m @abdullahonden Assistant Profesor at Yalova University and
         Founder of Fabrikod. Developing new technologies, teaching to next
         generation.
       </p>
 
-      <div className="max-xs:flex-col mt-10  flex items-start justify-between gap-2.5">
+      <div className="mt-10 flex  items-start justify-between gap-2.5 max-xs:flex-col">
         <div className="flex gap-2.5">
           <NewChip
             as="a"

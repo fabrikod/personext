@@ -17,8 +17,10 @@ export default function HighlightsCard() {
       </div>
       <div className="flex items-center gap-5 px-6 max-sm:flex-col max-sm:pb-5">
         <div>
-          <h3 className="text-base font-semibold ">Highlights</h3>
-          <p className="mt-2 text-sm font-normal text-primary-6">
+          <h3 className="dark:text-darkmode-title text-base font-semibold">
+            Highlights
+          </h3>
+          <p className="dark:text-darkmode-text mt-2 text-sm font-normal text-primary-6">
             Software and resources I use on a regular basis.
           </p>
         </div>

@@ -20,7 +20,6 @@ export default function NewNav({ className }) {
       const targetElement = document.getElementById(
         menuToElement[router.asPath]
       )
-
       document.querySelector('html').scroll({
         top: targetElement.offsetTop - 90,
         behavior: 'smooth',
@@ -29,14 +28,15 @@ export default function NewNav({ className }) {
   }, [router])
 
   return (
-    <nav>
+    <nav id="nav-menu">
       <ul className={classNames('flex gap-2 text-primary-6', className)}>
         {MENUS.map((menu, index) => (
           <li key={index}>
             <Link
               className={classNames(
-                'block rounded-full px-4 py-2 text-xs font-medium -tracking-wide',
-                router.asPath === menu.href && 'bg-base-5'
+                'dark:text-darkmode-text block rounded-full border border-transparent px-4 py-2 text-xs font-medium -tracking-wide',
+                router.asPath === menu.href &&
+                  'dark:bg-lineer-nav-link dark:border-darkmode-border dark:bg-darkmode-base-1 bg-base-5'
               )}
               href={menu.href}
             >

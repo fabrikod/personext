@@ -6,13 +6,15 @@ export default function ExperiencesCard({ className }) {
   return (
     <div
       className={classNames(
-        'border-t border-solid border-primary-1 px-9 py-4',
+        'dark:border-darkmode-border border-t border-solid border-primary-1 px-9 py-4',
         className
       )}
     >
-      <h3 className="text-base font-semibold ">Fabrikod</h3>
+      <h3 className="dark:text-darkmode-title text-base font-semibold">
+        Fabrikod
+      </h3>
 
-      <p className="mt-2 text-sm font-normal text-primary-6">
+      <p className="dark:text-darkmode-text mt-2 text-sm font-normal text-primary-6">
         List of investors with a focus on revenue, featured by Abdullah Önden
       </p>
 

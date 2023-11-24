@@ -9,8 +9,10 @@ export default function StackCard() {
       </div>
 
       <div className="ml-2">
-        <h3 className="text-base font-semibold">Stack</h3>
-        <span className="-mt-0.5 block text-xs font-normal text-primary-6">
+        <h3 className="dark:text-darkmode-title text-base font-semibold">
+          Stack
+        </h3>
+        <span className="dark:text-darkmode-text -mt-0.5 block text-xs font-normal text-primary-6">
           Design Tool
         </span>
       </div>
