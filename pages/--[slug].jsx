@@ -7,16 +7,12 @@ import {
   getBlogBySlugService,
   getReadJsonFileService,
 } from '@/services/md.services'
-import { ArrowLeft, HandLike, HeartFavorite } from '@/components/Icons'
+import { ArrowLeft } from '@/components/Icons'
 import ErrorPage from 'next/error'
 import Link from 'next/link'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useRouter } from 'next/router'
 import Nav from '@/components/Common/Nav'
-import NewAppLayout from '@/layouts/NewAppLayout'
-import NewCard from '@/components/Card/NewCard'
-import NewChip from '@/components/Common/NewChip'
-import ArrowRight from '@/components/Icons/ArrowRight'
 
 export default function BlogPage({ blog, user }) {
   const router = useRouter()
@@ -25,92 +21,8 @@ export default function BlogPage({ blog, user }) {
   }
 
   return (
-    <NewAppLayout>
-      <section
-        id="blog-post"
-        className="mx-auto flex max-w-[620px] flex-col gap-9 pb-24 pt-9 max-sm:pt-28"
-      >
-        <NewCard>
-          <div className="flex justify-between">
-            <NewChip
-              className="inline-block rotate-180 px-3 py-3"
-              as="button"
-              onClick={() => router.back()}
-            >
-              <ArrowRight className="bg-primary-6" height="18" width="18" />
-            </NewChip>
-
-            <div className="flex gap-3">
-              <div className="flex items-center gap-2">
-                <span className="text-sm text-primary-6">12</span>
-                <NewChip className="flex h-9 w-9 items-center justify-center">
-                  <HandLike />
-                </NewChip>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="text-sm text-primary-6">12</span>
-                <NewChip className="flex h-9 w-9 items-center justify-center">
-                  <HeartFavorite />
-                </NewChip>
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-5">
-            <h3 className="text-4xl font-semibold text-primary-2">
-              {blog.title}
-            </h3>
-          </div>
-
-          <div className="mt-5 text-sm text-primary-6">
-            {new Date(blog.publishedAt).toLocaleDateString('tr-TR', {
-              year: 'numeric',
-              month: 'long',
-              day: '2-digit',
-            })}
-          </div>
-
-          {blog.image && (
-            <div className="relative mt-5 h-60 sm:h-80">
-              <Image
-                src={blog.image}
-                fill
-                alt=""
-                className="w-full rounded-[20px] object-cover"
-              />
-            </div>
-          )}
-
-          <div
-            id="new-blog-content"
-            dangerouslySetInnerHTML={{
-              __html: blog.content.replace(/\n{1,}/g, '<br/>'),
-            }}
-          />
-
-          <div>
-            <div className="mt-9 flex flex-wrap gap-3 ">
-              {blog.tags &&
-                blog.tags.map((tag, index) => (
-                  <Link
-                    href={{
-                      pathname: '/',
-                      query: {
-                        tag: tag.key,
-                      },
-                    }}
-                    key={index}
-                  >
-                    <NewChip className="px-5 text-sm text-primary-6">
-                      {tag.name}
-                    </NewChip>
-                  </Link>
-                ))}
-            </div>
-          </div>
-        </NewCard>
-      </section>
-      {/* {blog && (
+    <AppLayout>
+      {blog && (
         <div className="flex flex-col gap-12 lg:flex-row">
           <section id="profile" className="relative flex-auto lg:w-2/5">
             <div
@@ -178,8 +90,8 @@ export default function BlogPage({ blog, user }) {
             </Card>
           </section>
         </div>
-      )} */}
-    </NewAppLayout>
+      )}
+    </AppLayout>
   )
 }
 

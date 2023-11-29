@@ -39,6 +39,16 @@ export const getBlogJsonService = async ({ perpage, page, tag }) => {
   })
 
   data.data = data.data.map(({ attributes }) => yaml(attributes))
+
+  data.data = data.data.map(blog => ({
+    ...blog,
+    content: !blog.description
+      ? blog.content.length > 500
+        ? `${blog.content.substring(0, 500)}...`
+        : blog.content
+      : '',
+  }))
+
   return data
 }
 

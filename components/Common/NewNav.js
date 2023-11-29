@@ -29,13 +29,11 @@ export default function NewNav({ className }) {
           scrollPosition < sectionTop + sectionHeight
         ) {
           const id = section.getAttribute('id')
-          setActiveMenu(
-            id !== 'web-header' ? `${router.pathname}#${id}` : '/new-design'
-          )
+          setActiveMenu(id !== 'web-header' ? `#${id}` : '/')
           window.history.replaceState(
             null,
             null,
-            id !== 'web-header' ? `#${id}` : '/new-design'
+            id !== 'web-header' ? `#${id}` : '/'
           )
         }
       })
@@ -55,9 +53,9 @@ export default function NewNav({ className }) {
           <li key={index}>
             <Link
               className={classNames(
-                'dark:text-darkmode-text block rounded-full border border-transparent px-4 py-2 text-xs font-medium -tracking-wide',
+                'block rounded-full border border-transparent px-4 py-2 text-xs font-medium -tracking-wide dark:text-darkmode-text',
                 activeMenu === menu.href &&
-                  'dark:bg-lineer-nav-link dark:border-darkmode-border dark:bg-darkmode-base-1 bg-base-5'
+                  'bg-base-5 dark:border-darkmode-border dark:bg-darkmode-base-1 dark:bg-lineer-nav-link'
               )}
               href={menu.href}
             >

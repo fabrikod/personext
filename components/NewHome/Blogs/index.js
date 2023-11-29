@@ -3,8 +3,9 @@ import NewChip from '@/components/Common/NewChip'
 import React from 'react'
 import BlogsCard from './BlogsCard'
 import ComponentHeader from '../ComponentHeader'
+import PropTypes from 'prop-types'
 
-export default function Blogs() {
+export default function Blogs({ data }) {
   return (
     <NewCard className="px-0" id="blogs">
       <div className="px-9">
@@ -15,10 +16,13 @@ export default function Blogs() {
       </div>
 
       <div className="mt-10 flex flex-col">
-        <BlogsCard />
-        <BlogsCard />
-        <BlogsCard />
-        <BlogsCard className="border-b" />
+        {data.map((blog, index) => (
+          <BlogsCard
+            key={index}
+            data={blog}
+            className={index === data.length - 1 && 'border-b'}
+          />
+        ))}
       </div>
 
       <NewChip
@@ -29,4 +33,8 @@ export default function Blogs() {
       </NewChip>
     </NewCard>
   )
+}
+
+Blogs.propTypes = {
+  data: PropTypes.array.isRequired,
 }

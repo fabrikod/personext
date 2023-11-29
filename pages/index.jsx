@@ -1,15 +1,17 @@
-import Card from '@/components/Card/Card'
-import AppLayout from 'layouts/AppLayout'
+import Highlights from '@/components/NewHome/Highlights'
+import Publications from '@/components/NewHome/Publications'
+import Stacks from '@/components/NewHome/Stacks'
+import Gallery from '@/components/NewHome/Galleries'
+import Experience from '@/components/NewHome/Experiences'
+import FollowMe from '@/components/NewHome/FollowMe'
+import Profile from '@/components/NewHome/Profile'
+import NewAppLayout from '@/layouts/NewAppLayout'
 import { getUserService, getBlogJsonService } from '@/services/md.services'
-import ReactPaginate from 'react-paginate'
-import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
-import apiClient from '@/utils/axios'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import CardList from '@/components/Card/CardList'
-import Nav from '@/components/Common/Nav'
+import SelectedProjects from '@/components/NewHome/SelectedProjects'
+import Blogs from '@/components/NewHome/Blogs'
 
-const PERPAGE = 10
+const PERPAGE = 5
 
 export async function getServerSideProps({ query, locale }) {
   const { page, tag } = query
@@ -31,58 +33,36 @@ export async function getServerSideProps({ query, locale }) {
   }
 }
 
-export default function Home({ user = {}, blogs = [], meta = {}, errors }) {
-  const router = useRouter()
-  const [firstUse, setFirstUse] = useState(false)
-
-  const pageChanged = event => {
-    router.push({
-      query: {
-        ...router.query,
-        page: event.selected + 1,
-      },
-    })
-  }
-
-  useEffect(() => {
-    if (firstUse) {
-      async function fetchBlog() {
-        blogs = await apiClient.get('/blog')
-      }
-      fetchBlog()
-    }
-
-    setFirstUse(true)
-  }, [router.query])
-
+export default function NewDesign({
+  user = {},
+  blogs = [],
+  meta = {},
+  errors,
+}) {
   return (
-    <AppLayout>
-      <div className="flex flex-col gap-12 lg:flex-row">
-        <section id="profile" className="flex-auto lg:w-2/5">
-          <Nav user={user} />
-        </section>
-        <section id="blogs" className="grid gap-y-10 lg:w-3/5">
-          {errors && (
-            <p className="text-red-600">{errors.map(error => error)}</p>
-          )}
+    <NewAppLayout>
+      <section
+        id="container"
+        className="mx-auto flex max-w-[620px] flex-col gap-9 pb-24 pt-9 max-sm:pt-28"
+      >
+        <Profile />
 
-          <div className="card-list">
-            <CardList data={blogs} />
-          </div>
-        </section>
-      </div>
+        <Highlights />
 
-      <ReactPaginate
-        onPageChange={pageChanged}
-        breakLabel="..."
-        forcePage={meta.page - 1}
-        nextLabel=">"
-        pageRangeDisplayed={10}
-        pageCount={meta.pageCount}
-        previousLabel="<"
-        renderOnZeroPageCount={null}
-        className="pagination mt-10 flex flex-wrap justify-center gap-4 gap-y-7"
-      />
-    </AppLayout>
+        <Publications />
+
+        <Stacks />
+
+        <Gallery />
+
+        <Experience />
+
+        <SelectedProjects />
+
+        <Blogs data={blogs} />
+
+        <FollowMe />
+      </section>
+    </NewAppLayout>
   )
 }
