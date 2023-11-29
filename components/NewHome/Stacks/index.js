@@ -43,6 +43,10 @@ const STACKS = [
 ]
 
 export default function Stacks() {
+  const getAllData = () => {
+    setStack(STACKS)
+  }
+
   const [stack, setStack] = useState(STACKS.filter((data, index) => index < 2))
   return (
     <NewCard className="px-0" id="stacks">
@@ -62,7 +66,7 @@ export default function Stacks() {
             >
               {stackGroup.map((stack, index) => (
                 <StacksCard
-                  className=" justify-self-center border-primary-1 dark:border-darkmode-border max-sm:justify-self-start"
+                  className="justify-self-start border-primary-1 dark:border-darkmode-border max-sm:justify-self-start"
                   key={index}
                   data={stack}
                 />
@@ -74,6 +78,7 @@ export default function Stacks() {
 
       <NewChip
         as="button"
+        onClick={getAllData}
         className="ml-11 mt-9  px-4 py-1 text-sm text-primary-6"
       >
         View All Stack
