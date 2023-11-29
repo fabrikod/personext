@@ -1,20 +1,26 @@
+import classNames from 'classnames'
 import Image from 'next/image'
 import React from 'react'
 
-export default function StackCard() {
+export default function StackCard({ data, className }) {
   return (
-    <div className="inline-flex">
+    <div className={classNames('inline-flex', className)}>
       <div className="relative h-10 w-10">
-        <Image src="/img/app-1.png" fill alt="" />
+        <Image
+          src={data.image}
+          fill
+          alt=""
+          className="rounded-lg object-cover"
+        />
       </div>
 
-      <div className="ml-2">
-        <h3 className="dark:text-darkmode-title text-base font-semibold">
-          Stack
+      <div className="ml-2 flex items-center">
+        <h3 className="text-base font-semibold dark:text-darkmode-title">
+          {data.name}
         </h3>
-        <span className="dark:text-darkmode-text -mt-0.5 block text-xs font-normal text-primary-6">
+        {/* <span className="-mt-0.5 block text-xs font-normal text-primary-6 dark:text-darkmode-text">
           Design Tool
-        </span>
+        </span> */}
       </div>
     </div>
   )

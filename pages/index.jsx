@@ -45,7 +45,7 @@ export default function NewDesign({
         id="container"
         className="mx-auto flex max-w-[620px] flex-col gap-9 pb-24 pt-9 max-sm:pt-28"
       >
-        <Profile />
+        <Profile data={user} />
 
         <Highlights />
 
@@ -61,7 +61,7 @@ export default function NewDesign({
 
         <Blogs data={blogs} />
 
-        <FollowMe />
+        <FollowMe data={user.socials} />
       </section>
     </NewAppLayout>
   )

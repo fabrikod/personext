@@ -36,7 +36,7 @@ body {
 }
 
 #blog-post #new-blog-content p{
-  @apply text-primary-8
+  @apply text-primary-8 dark:text-darkmode-text
 }
 
 #blog #blog-content a{

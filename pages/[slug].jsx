@@ -57,12 +57,12 @@ export default function BlogPage({ blog, user }) {
           </div>
 
           <div className="mt-5">
-            <h3 className="text-4xl font-semibold text-primary-2">
+            <h3 className="text-3xl font-semibold text-primary-2 dark:text-darkmode-title">
               {blog.title}
             </h3>
           </div>
 
-          <div className="mt-5 text-sm text-primary-6">
+          <div className="mt-5 text-sm text-primary-6 dark:text-darkmode-title">
             {new Date(blog.publishedAt).toLocaleDateString('tr-TR', {
               year: 'numeric',
               month: 'long',
@@ -83,6 +83,7 @@ export default function BlogPage({ blog, user }) {
 
           <div
             id="new-blog-content"
+            className="dark:text-darkmode-title"
             dangerouslySetInnerHTML={{
               __html: blog.content.replace(/\n{1,}/g, '<br/>'),
             }}
