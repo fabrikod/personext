@@ -3,6 +3,7 @@ import NewChip from '@/components/Common/NewChip'
 import NewNav from '@/components/Common/NewNav'
 import { HamburgerMenu, Mail, Theme } from '@/components/Icons'
 import { MENUS } from '@/constrait'
+import { throttle } from '@/helpers/dom'
 import classNames from 'classnames'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
@@ -27,9 +28,13 @@ export default function NewAppLayout({ children, user }) {
       }
     }
 
-    window.addEventListener('scroll', handleScroll)
+    const throttledScroll = throttle(() => {
+      handleScroll()
+    }, 100)
+
+    window.addEventListener('scroll', throttledScroll)
     return () => {
-      window.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('scroll', throttledScroll)
     }
   }, [])
 
