@@ -35,7 +35,7 @@ export default function Profile({ data }) {
         <div className="flex gap-2.5">
           <NewChip
             as="a"
-            href="#"
+            href={data.connectLink}
             className={'flex items-center gap-1 px-4 text-primary-6'}
           >
             <div className="text-2xl leading-3">+</div>
@@ -51,13 +51,9 @@ export default function Profile({ data }) {
           </NewChip>
         </div>
 
-        <NewChip
-          as="a"
-          href="#"
-          className="inline-flex items-center gap-2 px-5 text-primary-6"
-        >
-          <Circle className="fill-circle-red dark:fill-circle-green" /> Not
-          available for projects
+        <NewChip className="inline-flex items-center gap-2 px-5 text-primary-6">
+          <Circle className="fill-circle-red " />
+          {data.available_for_projects && 'Not'} available for projects
         </NewChip>
       </div>
     </NewCard>

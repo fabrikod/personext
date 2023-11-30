@@ -8,36 +8,40 @@ import classNames from 'classnames'
 const STACKS = [
   [
     {
-      name: 'Kindertrack',
-      image: '/img/stacks/kindertrack.webp',
+      name: 'C#',
+      image: '/img/stacks/csharp-original.svg',
     },
     {
-      name: 'Kinderway',
-      image: '/img/stacks/kinderway.webp',
+      name: 'DotNet',
+      image: '/img/stacks/dot-net-original-wordmark.svg',
     },
     {
-      name: 'The Open Quran',
-      image: '/img/stacks/open-quran.webp',
-    },
-  ],
-  [
-    {
-      name: 'Sleepy Baby',
-      image: '/img/stacks/sleppy-baby.webp',
-    },
-    {
-      name: 'White Sound',
-      image: '/img/stacks/white-sound.webp',
-    },
-    {
-      name: 'Quran Mubin',
-      image: '/img/stacks/mubin.webp',
+      name: 'Javascript',
+      image: '/img/stacks/javascript-original.svg',
     },
   ],
   [
     {
-      name: 'Prayer Times Light',
-      image: '/img/stacks/prayer.webp',
+      name: 'Linux',
+      image: '/img/stacks/linux-original.svg',
+    },
+    {
+      name: 'Mysql',
+      image: '/img/stacks/mysql-original-wordmark.svg',
+    },
+    {
+      name: 'Php',
+      image: '/img/stacks/php-original.svg',
+    },
+  ],
+  [
+    {
+      name: 'Phyton',
+      image: '/img/stacks/python-original.svg',
+    },
+    {
+      name: 'Redis',
+      image: '/img/stacks/redis-original-wordmark.svg',
     },
   ],
 ]

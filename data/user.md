@@ -5,6 +5,8 @@ job: 👋 Hey, I’m @abdullahonden Assistant Profesor at Yalova University and 
 description: Developing new technologies, teaching to next generation.
 email: 'abdullah.onden@fabrikod.com'
 image: '/img/profile.jpg'
+available_for_projects: 1
+connectLink: http://www.linkedin.com/in/abdullahonden
 socials:
   - name: Twitter
     icon: /img/icons/x.svg

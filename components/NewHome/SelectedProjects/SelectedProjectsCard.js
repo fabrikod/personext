@@ -7,12 +7,7 @@ export default function SelectedProjectsCard({ data }) {
   return (
     <div className="overflow-hidden rounded-xl border border-primary-1 dark:border-darkmode-border">
       <div className="relative h-44">
-        <Image
-          src="/img/selected-project-1.png"
-          alt=""
-          fill
-          className="object-cover"
-        />
+        <Image src={data.image} alt="" fill className="object-cover" />
       </div>
 
       <div className="flex items-center gap-7 px-9 py-8 max-xs:flex-col">

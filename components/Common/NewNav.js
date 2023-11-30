@@ -40,7 +40,7 @@ export default function NewNav({ className }) {
         })
       }
 
-      window.addEventListener('scroll', handleScroll)
+      // window.addEventListener('scroll', handleScroll)
 
       return () => {
         window.removeEventListener('scroll', handleScroll)

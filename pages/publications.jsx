@@ -1,11 +1,9 @@
-import NewCard from '@/components/Card/NewCard'
 import Articles from '@/components/Publications/Articles'
 import Books from '@/components/Publications/Books'
 import Papers from '@/components/Publications/Papers'
 import NewAppLayout from '@/layouts/NewAppLayout'
 import { getUserService, getPablicationsData } from '@/services/md.services'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { useRouter } from 'next/router'
 
 const PERPAGE = 10
 
@@ -25,8 +23,6 @@ export async function getServerSideProps({ query, locale }) {
 }
 
 export default function Publications({ user, data }) {
-  const router = useRouter()
-
   return (
     <NewAppLayout>
       <section

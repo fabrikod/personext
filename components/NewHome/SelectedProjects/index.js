@@ -6,33 +6,71 @@ import ComponentHeader from '../ComponentHeader'
 
 const SELECTEDPROJECTS = [
   {
-    title: 'HEADLESS CONTENT MANAGEMENT SYSTEM',
-    image: '',
+    title: 'Kindertrack',
+    image: '/img/selected-projects/kindertrack.webp',
     description: '',
   },
   {
-    title: 'SAAS KLİNİK YÖNETİM SİSTEMİ',
-    image: '',
+    title: 'Kinderway',
+    image: '/img/selected-projects/kinderway.webp',
     description: '',
   },
   {
-    title: 'SAAS NGO ERP SYSTEM',
-    image: '',
+    title: 'The Open Quran',
+    image: '/img/selected-projects/open-quran.webp',
     description: '',
   },
   {
-    title:
-      'STK ERP SİSTEMİ - Sivil Toplum Kuruluşları İçin Kurumsal Kaynak Planlama Sistemi',
-    image: '',
+    title: 'Sleepy Baby',
+    image: '/img/selected-projects/sleppy-baby.webp',
     description: '',
   },
   {
-    title:
-      'T.C. Sanayi ve Teknoloji Bakanlığı Milli Teknoloji Hamlesi ve Stratejik Dönüşüm Programı Strateji Geliştirme ve Uygulama Danışmanlığı Projesi - Esenler Belediyesi Akıllı Şehir E-Platform Fizibilite Raporu',
-    image: '',
+    title: 'White Sound',
+    image: '/img/selected-projects/white-sound.webp',
+    description: '',
+  },
+  {
+    title: 'Quran Mubin',
+    image: '/img/selected-projects/mubin.webp',
+    description: '',
+  },
+  {
+    title: 'Prayer Times Light',
+    image: '/img/selected-projects/prayer.webp',
     description: '',
   },
 ]
+
+// const SELECTEDPROJECTS = [
+//   {
+//     title: 'HEADLESS CONTENT MANAGEMENT SYSTEM',
+//     image: '',
+//     description: '',
+//   },
+//   {
+//     title: 'SAAS KLİNİK YÖNETİM SİSTEMİ',
+//     image: '',
+//     description: '',
+//   },
+//   {
+//     title: 'SAAS NGO ERP SYSTEM',
+//     image: '',
+//     description: '',
+//   },
+//   {
+//     title:
+//       'STK ERP SİSTEMİ - Sivil Toplum Kuruluşları İçin Kurumsal Kaynak Planlama Sistemi',
+//     image: '',
+//     description: '',
+//   },
+//   {
+//     title:
+//       'T.C. Sanayi ve Teknoloji Bakanlığı Milli Teknoloji Hamlesi ve Stratejik Dönüşüm Programı Strateji Geliştirme ve Uygulama Danışmanlığı Projesi - Esenler Belediyesi Akıllı Şehir E-Platform Fizibilite Raporu',
+//     image: '',
+//     description: '',
+//   },
+// ]
 
 export default function SelectedProjects() {
   return (

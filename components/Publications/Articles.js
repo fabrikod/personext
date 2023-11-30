@@ -1,8 +1,11 @@
+import { useRouter } from 'next/router'
 import NewCard from '../Card/NewCard'
 import NewChip from '../Common/NewChip'
 import ArrowRight from '../Icons/ArrowRight'
 
 export default function Articles({ title, data }) {
+  const router = useRouter()
+
   return (
     <NewCard>
       <div className="">

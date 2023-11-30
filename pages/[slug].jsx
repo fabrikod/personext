@@ -20,6 +20,11 @@ import ArrowRight from '@/components/Icons/ArrowRight'
 
 export default function BlogPage({ blog, user }) {
   const router = useRouter()
+
+  const backToPage = () => {
+    router.back()
+  }
+
   if (!blog) {
     return <ErrorPage statusCode={404} />
   }
@@ -35,7 +40,7 @@ export default function BlogPage({ blog, user }) {
             <NewChip
               className="inline-block rotate-180 px-3 py-3"
               as="button"
-              onClick={() => router.back()}
+              onClick={backToPage}
             >
               <ArrowRight className="bg-primary-6" height="18" width="18" />
             </NewChip>
