@@ -16,6 +16,7 @@ import SelectedProjects from '@/components/NewHome/SelectedProjects'
 import Blogs from '@/components/NewHome/Blogs'
 import apiClient from '@/utils/axios'
 import { useEffect, useState } from 'react'
+import { useUser } from '@/context/user'
 
 const PERPAGE = 7
 
@@ -49,6 +50,12 @@ export default function NewDesign({
   errors,
 }) {
   const [blogState, setBlogState] = useState(blogs)
+
+  const { updateUser } = useUser()
+
+  useEffect(() => {
+    updateUser(user)
+  }, [])
 
   const getMoreBlogData = async () => {
     const newBlogs = await apiClient.get('/blog', {

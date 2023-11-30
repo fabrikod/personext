@@ -8,7 +8,7 @@ import Image from 'next/image'
 import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 
-export default function NewAppLayout({ children }) {
+export default function NewAppLayout({ children, user }) {
   const [scrolled, setScrolled] = useState(false)
   const [isMobileMenu, setMobileMenu] = useState(false)
   const router = useRouter()
