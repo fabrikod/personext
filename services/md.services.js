@@ -99,9 +99,16 @@ export const getArchives = async () => {
   return goodGruppedData.reverse()
 }
 
-export const getPablicationsData = async () => {
+export const getPablicationsData = async ({ name }) => {
   const publications = await getPulicationsFileData()
   const jsonPublications = yaml(publications)
+
+  if (name && jsonPublications[name]?.length > 0) {
+    const data = name ? jsonPublications[name] : jsonPublications
+    data.length = 5
+
+    return data
+  }
 
   return jsonPublications
 }

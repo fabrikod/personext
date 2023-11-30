@@ -1,7 +1,8 @@
-import Card from '@/components/Card/Card'
-import Nav from '@/components/Common/Nav'
-import { ArrowLeft } from '@/components/Icons'
-import AppLayout from '@/layouts/AppLayout'
+import NewCard from '@/components/Card/NewCard'
+import Articles from '@/components/Publications/Articles'
+import Books from '@/components/Publications/Books'
+import Papers from '@/components/Publications/Papers'
+import NewAppLayout from '@/layouts/NewAppLayout'
 import { getUserService, getPablicationsData } from '@/services/md.services'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useRouter } from 'next/router'
@@ -27,107 +28,17 @@ export default function Publications({ user, data }) {
   const router = useRouter()
 
   return (
-    <AppLayout>
-      <div className="flex flex-col gap-12 lg:flex-row">
-        <section id="profile" className="relative flex-auto lg:w-2/5">
-          <div
-            className="absolute -top-20 cursor-pointer"
-            onClick={() => router.back()}
-          >
-            <ArrowLeft width={70} className="stroke-primary-1" />
-          </div>
-          <Nav user={user} />
+    <NewAppLayout>
+      <section
+        id="container"
+        className="mx-auto flex max-w-[620px] flex-col gap-9 pb-24 pt-9 max-sm:pt-28"
+      >
+        <section id="publications" className="grid gap-y-10">
+          <Articles title={Object.keys(data)[0]} data={data.articles} />
+          <Papers title={Object.keys(data)[1]} data={data.papers} />
+          <Books title={Object.keys(data)[2]} data={data.books} />
         </section>
-
-        <section id="publications" className="grid gap-y-10 lg:w-3/5">
-          <Card>
-            <h3 className="text-center text-4xl font-bold capitalize text-primary-2">
-              {Object.keys(data)[0]}
-            </h3>
-
-            <div className="mt-10">
-              {data.articles.map((publication, index) => (
-                <div key={index} className="mb-10">
-                  <h4 className="text-xl font-bold">{publication.title}</h4>
-
-                  <div className="mt-3 font-medium">
-                    {publication.authors.join(', ')} ({publication.date})
-                  </div>
-
-                  <div className="mt-3 text-sm font-light text-primary-3">
-                    <span className="capitalize">{publication.magazine}</span>,{' '}
-                    {publication.volumeNumber}, {publication.pageNumber}{' '}
-                    {publication.DOI && `Doi: ${publication.DOI}`}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </Card>
-
-          <Card>
-            <h3 className="text-center text-4xl font-bold capitalize text-primary-2">
-              {Object.keys(data)[1]}
-            </h3>
-
-            <div className="mt-10">
-              {data.papers.map((publication, index) => (
-                <div key={index} className="mb-10">
-                  <h4 className="text-xl font-bold">{publication.title}</h4>
-
-                  <div className="mt-3 font-medium">
-                    {publication.authors.join(', ')} ({publication.date})
-                  </div>
-
-                  <div className="mt-3 text-sm font-light text-primary-3">
-                    <span className="capitalize">{publication.conference}</span>
-                    {publication.volumeNumber &&
-                      `${publication.volumeNumber}, `}
-                    {publication.pageNumber && `${publication.pageNumber}, `}
-                    {publication.DOI && `Doi: ${publication.DOI}, `}
-                    {publication.type}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </Card>
-
-          <Card>
-            <h3 className="text-center text-4xl font-bold capitalize text-primary-2">
-              {Object.keys(data)[2]}
-            </h3>
-
-            <div className="mt-10">
-              {data.books.map((publication, index) => (
-                <div key={index} className="mb-10">
-                  <h4 className="text-2xl font-bold">{publication.bookName}</h4>
-
-                  <div className="mt-3">
-                    Editors: {publication.editors.join(', ')} - Authors:{' '}
-                    {publication.authors.join(', ')} ({publication.date})
-                  </div>
-
-                  <div className="mt-3 text-sm font-light text-primary-3">
-                    {publication.sectionName && (
-                      <span className="capitalize">
-                        Section: {publication.sectionName},{' '}
-                      </span>
-                    )}
-                    {publication.volumeNumber &&
-                      `${publication.volumeNumber}, `}
-                    {publication.pageNumber && `${publication.pageNumber}, `}
-                    {publication.DOI && `Doi: ${publication.DOI}, `}
-                    {publication.type}
-                    <br />
-                    Number Of Editions: {publication.numberOfEditions} -
-                    Publisher: {publication.publisher} - ISBN:{' '}
-                    {publication.ISBN} - Language: {publication.language}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </Card>
-        </section>
-      </div>
-    </AppLayout>
+      </section>
+    </NewAppLayout>
   )
 }

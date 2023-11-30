@@ -5,7 +5,7 @@ import BlogsCard from './BlogsCard'
 import ComponentHeader from '../ComponentHeader'
 import PropTypes from 'prop-types'
 
-export default function Blogs({ data }) {
+export default function Blogs({ data, getMoreBlogData }) {
   return (
     <NewCard className="px-0" id="blogs">
       <div className="px-9">
@@ -27,6 +27,7 @@ export default function Blogs({ data }) {
 
       <NewChip
         as="button"
+        onClick={getMoreBlogData}
         className="ml-11 mt-9 px-4 py-1 text-sm text-primary-6"
       >
         View All Posts

@@ -19,5 +19,5 @@ socials:
     icon: /img/icons/facebook.svg
     url: https://facebook.com/abdullahonden
   - name: Github
-    icon: /img/icons/apple.svg
+    icon: /img/icons/github.svg
     url: https://apple.com/abdullahonden

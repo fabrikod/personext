@@ -13,36 +13,38 @@ export default function NewNav({ className }) {
   }, [router])
 
   useEffect(() => {
-    const sections = document.querySelectorAll(
-      '#stacks,#highlights,#publications,#selected-projects,#follow-me,#web-header'
-    )
+    if (router.pathname === '/') {
+      const sections = document.querySelectorAll(
+        '#stacks,#highlights,#publications,#selected-projects,#follow-me,#web-header'
+      )
 
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY
+      const handleScroll = () => {
+        const scrollPosition = window.scrollY
 
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop
-        const sectionHeight = section.clientHeight
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop
+          const sectionHeight = section.clientHeight
 
-        if (
-          scrollPosition >= sectionTop &&
-          scrollPosition < sectionTop + sectionHeight
-        ) {
-          const id = section.getAttribute('id')
-          setActiveMenu(id !== 'web-header' ? `#${id}` : '/')
-          window.history.replaceState(
-            null,
-            null,
-            id !== 'web-header' ? `#${id}` : '/'
-          )
-        }
-      })
-    }
+          if (
+            scrollPosition >= sectionTop &&
+            scrollPosition < sectionTop + sectionHeight
+          ) {
+            const id = section.getAttribute('id')
+            setActiveMenu(id !== 'web-header' ? `#${id}` : '/')
+            window.history.replaceState(
+              null,
+              null,
+              id !== 'web-header' ? `#${id}` : '/'
+            )
+          }
+        })
+      }
 
-    window.addEventListener('scroll', handleScroll)
+      window.addEventListener('scroll', handleScroll)
 
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
+      return () => {
+        window.removeEventListener('scroll', handleScroll)
+      }
     }
   }, [])
 
