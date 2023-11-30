@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import React, { useEffect, useMemo, useState } from 'react'
+import React from 'react'
 
 export default function NewChip({
   as = 'div',
@@ -8,28 +8,20 @@ export default function NewChip({
   onClick,
   ...props
 }) {
-  const [propsList, setPropsList] = useState({})
-
   const handleOnClick = () => {
     onClick()
   }
 
-  useEffect(() => {
-    setPropsList({
+  return React.createElement(
+    as,
+    {
       className: classNames(
         'rounded-full border-[1px] border-solid border-primary-1 p-2 dark:border-darkmode-border dark:text-darkmode-chip',
         className
       ),
+      onClick: onClick ? handleOnClick : null,
       ...props,
-    })
-
-    if (onClick) {
-      setPropsList(prev => ({
-        onClick: handleOnClick,
-        ...prev,
-      }))
-    }
-  }, [className, props])
-
-  return React.createElement(as, propsList, children)
+    },
+    children
+  )
 }
