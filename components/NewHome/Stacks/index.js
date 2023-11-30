@@ -53,7 +53,7 @@ export default function Stacks() {
 
   const [stack, setStack] = useState(STACKS.filter((data, index) => index < 2))
   return (
-    <NewCard className="px-0" id="stacks">
+    <NewCard className="px-0" id="stacks" data-name="Stacks">
       <div className="px-9">
         <ComponentHeader
           title="Stack"

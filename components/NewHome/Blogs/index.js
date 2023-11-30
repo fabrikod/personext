@@ -7,7 +7,7 @@ import PropTypes from 'prop-types'
 
 export default function Blogs({ data, getMoreBlogData }) {
   return (
-    <NewCard className="px-0" id="blogs">
+    <NewCard className="px-0" id="blogs" data-name="Blogs">
       <div className="px-9">
         <ComponentHeader
           title="Blog"

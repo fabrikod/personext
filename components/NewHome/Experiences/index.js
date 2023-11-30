@@ -24,7 +24,7 @@ const EXPERIENCES = [
 
 export default function Experiences() {
   return (
-    <NewCard className="px-0" id="experience">
+    <NewCard className="px-0" id="experiences" data-name="Experience">
       <div className="px-9">
         <ComponentHeader
           title="Experience"

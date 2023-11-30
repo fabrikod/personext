@@ -4,7 +4,7 @@ import ComponentHeader from '../ComponentHeader'
 
 export default function index({ data }) {
   return (
-    <NewCard id="follow-me">
+    <NewCard id="follow-me" data-name="Contact">
       <ComponentHeader
         title="Follow Me"
         description="Featured projects, templates and visual experiments"

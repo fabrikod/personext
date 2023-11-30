@@ -32,9 +32,9 @@ export default function NewAppLayout({ children, user }) {
       handleScroll()
     }, 100)
 
-    window.addEventListener('scroll', throttledScroll)
+    window.addEventListener('scroll', handleScroll)
     return () => {
-      window.removeEventListener('scroll', throttledScroll)
+      window.removeEventListener('scroll', handleScroll)
     }
   }, [])
 
@@ -68,7 +68,7 @@ export default function NewAppLayout({ children, user }) {
         id="web-header"
         className="flex h-20 items-center justify-center bg-base-2 font-ibm-plex-sans dark:border-b dark:border-darkmode-border dark:bg-darkmode-base-1 max-sm:hidden"
       >
-        <div className="flex max-w-[620px] gap-x-14">
+        <div className="flex min-w-[620px] justify-between gap-x-14">
           <NewNav />
           <div className="flex gap-3">
             <NewChip as="a" href="#" className="flex items-center">

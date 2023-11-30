@@ -1,7 +1,5 @@
-import Highlights from '@/components/NewHome/Highlights'
 import Publications from '@/components/NewHome/Publications'
 import Stacks from '@/components/NewHome/Stacks'
-import Gallery from '@/components/NewHome/Galleries'
 import Experience from '@/components/NewHome/Experiences'
 import FollowMe from '@/components/NewHome/FollowMe'
 import Profile from '@/components/NewHome/Profile'

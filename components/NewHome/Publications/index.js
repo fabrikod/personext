@@ -7,7 +7,7 @@ import classNames from 'classnames'
 
 export default function Publications({ data }) {
   return (
-    <NewCard className="px-0" id="publications">
+    <NewCard className="px-0" id="publications" data-name="Publications">
       <div className="px-9">
         <ComponentHeader
           title="Publications"

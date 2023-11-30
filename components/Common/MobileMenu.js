@@ -14,7 +14,7 @@ export default function MobileMenu() {
         <NewChip
           as="a"
           href={user.connectLink}
-          className="inline-block !py-1 px-4 text-sm text-primary-6"
+          className="ml-3 mt-2 inline-block !py-1 px-4 text-sm text-primary-6"
         >
           Connect
         </NewChip>
