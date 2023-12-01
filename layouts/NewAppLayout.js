@@ -38,11 +38,11 @@ export default function NewAppLayout({ children, user }) {
     }
   }, [])
 
-  useEffect(() => {
-    if (MENUS.find(menu => menu.href === router.asPath)) {
-      setMobileMenu(false)
-    }
-  }, [router])
+  // useEffect(() => {
+  //   if (MENUS.find(menu => menu.href === router.asPath)) {
+  //     setMobileMenu(false)
+  //   }
+  // }, [router])
 
   const handleMobileMenu = () => {
     setMobileMenu(prev => !prev)

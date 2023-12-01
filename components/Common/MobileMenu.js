@@ -10,11 +10,11 @@ export default function MobileMenu() {
     <div className="flex min-h-[60px] items-center justify-between rounded-[28px] border border-primary-1 bg-base-2 px-2 dark:border-darkmode-border dark:bg-darkmode-base-1 max-sm:flex-col max-sm:items-start max-sm:py-3 sm:rounded-full">
       <NewNav className="max-sm:flex-col max-sm:items-start" />
 
-      <div className="">
+      <div>
         <NewChip
           as="a"
           href={user.connectLink}
-          className="ml-3 mt-2 inline-block !py-1 px-4 text-sm text-primary-6"
+          className="inline-block !py-1 px-4 text-sm text-primary-6 max-sm:mt-3"
         >
           Connect
         </NewChip>

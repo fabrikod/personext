@@ -17,6 +17,7 @@ module.exports = {
         'primary-6': '#656874',
         'primary-7': '#F7F9FF',
         'primary-8': '#1E1E1E',
+        'active-menu': '#0E1B3D',
         'darkmode-base-1': '#08080E',
         'darkmode-border': '#222229',
         'darkmode-title': '#F2F2F2',
