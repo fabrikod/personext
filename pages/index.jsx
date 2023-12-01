@@ -83,9 +83,17 @@ export default function NewDesign({
         <title>{user.fullName}</title>
         <meta name="description" content={user.description} />
         <meta name="robots" content="index, follow" />
+        <meta property="og:url" content={domain} />
+        <meta property="og:type" content="website" />
         <meta property="og:title" content={user.fullName} />
         <meta property="og:description" content={user.description} />
         <meta property="og:image" content={`${domain}${user.image}`} />
+        <meta property="twitter:url" content={domain} />
+        <meta property="twitter:domain" content={domain} />
+        <meta property="twitter:title" content={user.fullName} />
+        <meta property="twitter:description" content={user.description} />
+        <meta property="twitter:image" content={`${domain}${user.image}`} />
+        <meta name="twitter:card" content={`${domain}${user.image}`} />
       </Head>
       <section
         id="container"

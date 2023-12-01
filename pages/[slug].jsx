@@ -39,9 +39,24 @@ export default function BlogPage({ blog, user, domain }) {
           </title>
           <meta name="description" content={blog.description} />
           <meta name="robots" content="index, follow" />
+          <meta property="og:url" content={`${domain}${blog.slug}`} />
+          <meta property="og:type" content="website" />
           <meta property="og:title" content={blog.title} />
-          <meta property="og:description" content={blog.description} />
+          <meta
+            property="og:description"
+            content={blog.description || user.description}
+          />
           <meta property="og:image" content={`${domain}${blog.image}`} />
+
+          <meta property="twitter:url" content={`${domain}${blog.slug}`} />
+          <meta property="twitter:domain" content={domain} />
+          <meta property="twitter:title" content={blog.title} />
+          <meta
+            property="twitter:description"
+            content={blog.description || user.description}
+          />
+          <meta property="twitter:image" content={`${domain}${blog.image}`} />
+          <meta name="twitter:card" content={`${domain}${blog.image}`} />
         </Head>
         <NewCard>
           <div className="flex justify-between">
