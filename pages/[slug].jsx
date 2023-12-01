@@ -41,7 +41,7 @@ export default function BlogPage({ blog, user, domain }) {
           <meta name="robots" content="index, follow" />
           <meta property="og:title" content={blog.title} />
           <meta property="og:description" content={blog.description} />
-          <meta property="og:image" content={`${domain}/${blog.image}`} />
+          <meta property="og:image" content={`${domain}${blog.image}`} />
         </Head>
         <NewCard>
           <div className="flex justify-between">

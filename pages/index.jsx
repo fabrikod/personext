@@ -85,7 +85,7 @@ export default function NewDesign({
         <meta name="robots" content="index, follow" />
         <meta property="og:title" content={user.fullName} />
         <meta property="og:description" content={user.description} />
-        <meta property="og:image" content={`${domain}/${user.image}`} />
+        <meta property="og:image" content={`${domain}${user.image}`} />
       </Head>
       <section
         id="container"
