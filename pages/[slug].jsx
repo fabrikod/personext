@@ -3,6 +3,7 @@ import {
   getUserService,
   getBlogBySlugService,
   getReadJsonFileService,
+  getSetting,
 } from '@/services/md.services'
 import { HandLike, HeartFavorite } from '@/components/Icons'
 import ErrorPage from 'next/error'
