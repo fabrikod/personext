@@ -116,7 +116,7 @@ export default function NewAppLayout({ children, user }) {
 
         <div
           className={classNames(
-            'absolute left-0 top-[3px] -z-10 h-full w-full duration-300 max-sm:-translate-y-80 max-sm:px-5',
+            'absolute left-0 top-[3px] -z-10 h-full w-full duration-300 max-sm:-translate-y-[600px] max-sm:px-5',
             isMobileMenu && '!translate-y-[75px]'
           )}
         >
