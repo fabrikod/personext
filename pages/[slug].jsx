@@ -1,24 +1,21 @@
-import Card from '@/components/Card/Card'
-import AppLayout from 'layouts/AppLayout'
 import Image from 'next/image'
-import Chip from '@/components/Common/Chip'
 import {
   getUserService,
   getBlogBySlugService,
   getReadJsonFileService,
 } from '@/services/md.services'
-import { ArrowLeft, HandLike, HeartFavorite } from '@/components/Icons'
+import { HandLike, HeartFavorite } from '@/components/Icons'
 import ErrorPage from 'next/error'
 import Link from 'next/link'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useRouter } from 'next/router'
-import Nav from '@/components/Common/Nav'
 import NewAppLayout from '@/layouts/NewAppLayout'
 import NewCard from '@/components/Card/NewCard'
 import NewChip from '@/components/Common/NewChip'
 import ArrowRight from '@/components/Icons/ArrowRight'
+import Head from 'next/head'
 
-export default function BlogPage({ blog, user }) {
+export default function BlogPage({ blog, user, domain }) {
   const router = useRouter()
 
   const backToPage = () => {
@@ -35,6 +32,16 @@ export default function BlogPage({ blog, user }) {
         id="blog-post"
         className="mx-auto flex max-w-[620px] flex-col gap-9 pb-24 pt-9 max-sm:pt-28"
       >
+        <Head>
+          <title>
+            {user.fullName} | {blog.title}
+          </title>
+          <meta name="description" content={blog.description} />
+          <meta name="robots" content="index, follow" />
+          <meta property="og:title" content={blog.title} />
+          <meta property="og:description" content={blog.description} />
+          <meta property="og:image" content={`${domain}/${blog.image}`} />
+        </Head>
         <NewCard>
           <div className="flex justify-between">
             <NewChip
@@ -204,11 +211,13 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params, locale }) {
   const blog = await getBlogBySlugService(params.slug)
   const user = await getUserService()
+  const domain = await getSetting({ settingName: 'domain' })
 
   return {
     props: {
       blog: blog || [],
       user: user || {},
+      domain: domain || '',
       ...(await serverSideTranslations(locale, ['common'])),
     },
   }

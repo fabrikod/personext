@@ -71,10 +71,6 @@ export default function NewAppLayout({ children, user }) {
         <div className="flex min-w-[620px] justify-between gap-x-14">
           <NewNav />
           <div className="flex gap-3">
-            <NewChip as="a" href="#" className="flex items-center">
-              <Mail />
-            </NewChip>
-
             <NewChip as="button" onClick={changeTheme}>
               <Theme />
             </NewChip>

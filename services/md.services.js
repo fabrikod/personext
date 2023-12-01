@@ -6,6 +6,7 @@ import {
   getBlogFileJsonData,
   readJsonFileData,
   getPulicationsFileData,
+  getSettings,
 } from '@/helpers'
 
 export const getBlogService = async () => {
@@ -112,4 +113,8 @@ export const getPablicationsData = async fields => {
   }
 
   return jsonPublications
+}
+
+export const getSetting = ({ settingName }) => {
+  return getSettings(settingName)
 }

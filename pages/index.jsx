@@ -8,6 +8,7 @@ import {
   getUserService,
   getBlogJsonService,
   getPablicationsData,
+  getSetting,
 } from '@/services/md.services'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import SelectedProjects from '@/components/NewHome/SelectedProjects'
@@ -15,6 +16,7 @@ import Blogs from '@/components/NewHome/Blogs'
 import apiClient from '@/utils/axios'
 import { useEffect, useState } from 'react'
 import { useUser } from '@/context/user'
+import Head from 'next/head'
 
 const PERPAGE = 7
 
@@ -23,6 +25,7 @@ export async function getServerSideProps({ query, locale }) {
 
   const articles = await getPablicationsData({ name: 'articles' })
   const user = await getUserService()
+  const domain = await getSetting({ settingName: 'domain' })
   const { data, meta } = await getBlogJsonService({
     perpage: PERPAGE,
     page: page || 1,
@@ -34,6 +37,7 @@ export async function getServerSideProps({ query, locale }) {
       user: user,
       blogs: data,
       articles,
+      domain: domain,
       meta: meta,
       ...(await serverSideTranslations(locale ?? 'en')),
     },
@@ -42,6 +46,7 @@ export async function getServerSideProps({ query, locale }) {
 
 export default function NewDesign({
   user = {},
+  domain = '',
   blogs = [],
   articles = [],
   meta = {},
@@ -74,6 +79,14 @@ export default function NewDesign({
 
   return (
     <NewAppLayout>
+      <Head>
+        <title>{user.fullName}</title>
+        <meta name="description" content={user.description} />
+        <meta name="robots" content="index, follow" />
+        <meta property="og:title" content={user.fullName} />
+        <meta property="og:description" content={user.description} />
+        <meta property="og:image" content={`${domain}/${user.image}`} />
+      </Head>
       <section
         id="container"
         className="mx-auto flex max-w-[620px] flex-col gap-9 pb-24 pt-9 max-sm:pt-28"

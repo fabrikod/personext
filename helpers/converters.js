@@ -15,7 +15,7 @@ const yaml = content => {
 
 const getConvertSettings = (settings, settingName) => {
   const jsonData = yaml(settings)
-  return settingName ? jsonData[settingName] : yamlData
+  return settingName ? jsonData[settingName] : jsonData
 }
 
 const getFileContent = path => {
