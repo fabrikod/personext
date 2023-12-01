@@ -9,7 +9,7 @@ export default function Profile({ data }) {
   return (
     <NewCard id="profile" data-name="Profile">
       {data.image && (
-        <NewChip as="a" href="#" className={'mb-5 inline-block'}>
+        <NewChip as="a" href="/" className={'mb-5 inline-block'}>
           <div className="relative h-24 w-24">
             <Image
               fill
