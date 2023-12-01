@@ -105,8 +105,8 @@ export default function NewNav({ className }) {
             as="button"
             onClick={handleMoreMenuBlock}
             className={classNames(
-              'flex h-[34px] items-center gap-1 px-3 max-sm:ml-3.5',
-              isMoreMenu && 'bg-base-5'
+              'flex h-[34px] items-center gap-1 px-3 dark:bg-darkmode-base-1 max-sm:ml-3.5',
+              isMoreMenu && 'bg-base-5 dark:bg-lineer-nav-link'
             )}
           >
             {Array.from({ length: 3 }, (value, index) => (

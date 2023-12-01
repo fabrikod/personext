@@ -56,6 +56,19 @@ module.exports = {
       screens: {
         xs: '480px',
       },
+      animation: {
+        loading: 'spin 1s linear infinite',
+        'fade-in-out': 'fade-in-out 1s linear 1',
+      },
+      keyframes: {
+        'fade-in-out': {
+          from: { opacity: '0' },
+          to: { opacity: '1' },
+        },
+        spin: {
+          to: { transform: 'rotate(360deg)' },
+        },
+      },
     },
   },
   important: false,

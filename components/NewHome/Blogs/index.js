@@ -40,7 +40,10 @@ export default function Blogs({
           <BlogsCard
             key={index}
             data={blog}
-            className={index === data.length - 1 && 'border-b'}
+            className={classNames(
+              'animate-fade-in-out',
+              index === data.length - 1 && 'border-b'
+            )}
           />
         ))}
       </div>

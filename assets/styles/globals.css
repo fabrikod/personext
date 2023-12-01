@@ -81,14 +81,6 @@ body {
   @apply opacity-100 visible
 }
 
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 .loading {
-  animation: spin 1s linear infinite;
-
-  @apply border-2 border-base-2 border-t-primary-6 rounded-full w-5 h-5 
+  @apply border-2 border-base-2 border-t-primary-6 rounded-full w-5 h-5 animate-loading
 }
