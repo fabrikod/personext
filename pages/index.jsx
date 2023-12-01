@@ -48,6 +48,8 @@ export default function NewDesign({
   errors,
 }) {
   const [blogState, setBlogState] = useState(blogs)
+  const [isBlogLoading, setIsBlogLoading] = useState(false)
+  const [blogMeta, setBlogMeta] = useState({ page: 1 })
 
   const { updateUser } = useUser()
 
@@ -56,14 +58,18 @@ export default function NewDesign({
   }, [])
 
   const getMoreBlogData = async () => {
-    const newBlogs = await apiClient.get('/blog', {
-      params: {
-        page: meta.page + 1,
-        perpage: PERPAGE,
-      },
-    })
-
-    setBlogState(prev => [...prev, ...newBlogs.data])
+    setIsBlogLoading(true)
+    setTimeout(async () => {
+      const newBlogs = await apiClient.get('/blog', {
+        params: {
+          page: blogMeta.page + 1,
+          perpage: PERPAGE,
+        },
+      })
+      setIsBlogLoading(false)
+      setBlogMeta(newBlogs.meta)
+      setBlogState(prev => [...prev, ...newBlogs.data])
+    }, 100)
   }
 
   return (
@@ -86,7 +92,12 @@ export default function NewDesign({
 
         <SelectedProjects />
 
-        <Blogs data={blogState} getMoreBlogData={getMoreBlogData} />
+        <Blogs
+          data={blogState}
+          getMoreBlogData={getMoreBlogData}
+          isBlogLoading={isBlogLoading}
+          blogMeta={blogMeta}
+        />
 
         <FollowMe data={user.socials} />
       </section>
