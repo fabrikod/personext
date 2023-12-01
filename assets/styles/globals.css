@@ -39,6 +39,10 @@ body {
   @apply text-primary-8 dark:text-darkmode-text
 }
 
+#blog-post #new-blog-content a{
+  @apply hover:underline !text-blue-500;
+}
+
 #blog #blog-content a{
   @apply hover:underline text-blue-500;
 }
