@@ -31,7 +31,7 @@ export default function Profile({ data }) {
         {data.job}
       </p>
 
-      <div className="mt-10 flex  items-start justify-between gap-2.5 max-xs:flex-col">
+      <div className="mt-10 flex  items-start justify-between gap-2.5 max-sm:flex-col">
         <div className="flex gap-2.5">
           <NewChip
             as="a"
