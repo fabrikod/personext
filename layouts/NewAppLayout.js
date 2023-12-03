@@ -2,7 +2,6 @@ import MobileMenu from '@/components/Common/MobileMenu'
 import NewChip from '@/components/Common/NewChip'
 import NewNav from '@/components/Common/NewNav'
 import { HamburgerMenu, Theme } from '@/components/Icons'
-import { MENUS } from '@/constrait'
 import { throttle } from '@/helpers/dom'
 import classNames from 'classnames'
 import Image from 'next/image'
@@ -40,6 +39,10 @@ export default function NewAppLayout({ children, user }) {
 
   useEffect(() => {
     if (router.pathname === '/') {
+      const element = document.getElementById(router.asPath.split('#')[1])
+      if (element) {
+        window.scrollTo(0, element.offsetTop - 100)
+      }
       setMobileMenu(false)
     }
   }, [router])

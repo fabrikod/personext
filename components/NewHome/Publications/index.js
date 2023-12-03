@@ -4,6 +4,7 @@ import PublicationsCard from './PublicationsCard'
 import NewChip from '@/components/Common/NewChip'
 import ComponentHeader from '../ComponentHeader'
 import classNames from 'classnames'
+import Link from 'next/link'
 
 export default function Publications({ data }) {
   return (
@@ -25,13 +26,11 @@ export default function Publications({ data }) {
         ))}
       </div>
 
-      <NewChip
-        as="a"
-        href="/publications"
-        className="ml-11 mt-9 inline-block px-4 py-1 text-sm text-primary-6"
-      >
-        View All Publications
-      </NewChip>
+      <Link href="/publications">
+        <NewChip className="ml-11 mt-9 inline-block px-4 py-1 text-sm text-primary-6">
+          View All Publications
+        </NewChip>
+      </Link>
     </NewCard>
   )
 }
