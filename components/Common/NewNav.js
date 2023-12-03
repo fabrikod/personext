@@ -75,9 +75,9 @@ export default function NewNav({ className }) {
             className={classNames(
               'block rounded-full border border-transparent px-4 py-2 text-xs font-medium -tracking-wide text-primary-6 dark:text-darkmode-text',
               activeMenu === '/' &&
-                ' text-active-menu bg-base-5 dark:border-darkmode-border dark:bg-darkmode-base-1 dark:bg-lineer-nav-link'
+                ' bg-base-5 text-active-menu dark:border-darkmode-border dark:bg-darkmode-base-1 dark:bg-lineer-nav-link'
             )}
-            href="/"
+            href="#"
           >
             Home
           </Link>
@@ -91,7 +91,7 @@ export default function NewNav({ className }) {
               className={classNames(
                 'block rounded-full border border-transparent px-4 py-2 text-xs font-medium -tracking-wide text-primary-6 dark:text-darkmode-text',
                 activeMenu === menu.href &&
-                  'text-active-menu bg-base-5 dark:border-darkmode-border dark:bg-darkmode-base-1 dark:bg-lineer-nav-link'
+                  'bg-base-5 text-active-menu dark:border-darkmode-border dark:bg-darkmode-base-1 dark:bg-lineer-nav-link'
               )}
               href={menu.href}
             >
@@ -137,7 +137,7 @@ export default function NewNav({ className }) {
                     className={classNames(
                       'block rounded-full border border-transparent px-4 py-2 text-xs font-medium -tracking-wide text-primary-6 dark:text-darkmode-text',
                       activeMenu === menu.href &&
-                        'text-active-menu bg-base-5 dark:border-darkmode-border dark:bg-darkmode-base-1 dark:bg-lineer-nav-link'
+                        'bg-base-5 text-active-menu dark:border-darkmode-border dark:bg-darkmode-base-1 dark:bg-lineer-nav-link'
                     )}
                     href={menu.href}
                   >

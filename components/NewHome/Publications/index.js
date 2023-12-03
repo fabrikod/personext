@@ -30,7 +30,7 @@ export default function Publications({ data }) {
         href="/publications"
         className="ml-11 mt-9 inline-block px-4 py-1 text-sm text-primary-6"
       >
-        View All Articles
+        View All Publications
       </NewChip>
     </NewCard>
   )

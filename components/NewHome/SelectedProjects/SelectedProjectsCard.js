@@ -1,6 +1,7 @@
 import NewChip from '@/components/Common/NewChip'
 import ArrowRight from '@/components/Icons/ArrowRight'
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 
 export default function SelectedProjectsCard({ data }) {
@@ -12,18 +13,23 @@ export default function SelectedProjectsCard({ data }) {
 
       <div className="flex items-center gap-7 px-9 py-8 max-xs:flex-col">
         <div>
-          <h3 className="font-medium capitalize dark:text-darkmode-title">
+          <Link
+            href="#"
+            className="font-medium capitalize dark:text-darkmode-title"
+          >
             {data.title}
-          </h3>
+          </Link>
           <p className="mt-1 text-sm text-primary-6 dark:text-darkmode-text">
             Resolve issues instantly, increase team efficiency, and make
             customers happier with AI-powered chatbots and automations.
           </p>
         </div>
 
-        <NewChip as="button" className="flex items-center px-2">
-          <ArrowRight />
-        </NewChip>
+        <Link href="#">
+          <NewChip className="flex items-center px-2">
+            <ArrowRight />
+          </NewChip>
+        </Link>
       </div>
     </div>
   )

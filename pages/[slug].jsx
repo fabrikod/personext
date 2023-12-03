@@ -26,7 +26,7 @@ export default function BlogPage({ blog, user, domain }) {
   if (!blog) {
     return <ErrorPage statusCode={404} />
   }
-
+  console.log('blog.tags', blog.tags)
   return (
     <NewAppLayout>
       <section
@@ -118,9 +118,9 @@ export default function BlogPage({ blog, user, domain }) {
           />
 
           <div>
-            <div className="mt-9 flex flex-wrap gap-3 ">
-              {blog.tags &&
-                blog.tags.map((tag, index) => (
+            {blog.tags.length > 0 && (
+              <div className="mt-9 flex flex-wrap gap-3 ">
+                {blog.tags.map((tag, index) => (
                   <Link
                     href={{
                       pathname: '/',
@@ -135,7 +135,8 @@ export default function BlogPage({ blog, user, domain }) {
                     </NewChip>
                   </Link>
                 ))}
-            </div>
+              </div>
+            )}
           </div>
         </NewCard>
       </section>

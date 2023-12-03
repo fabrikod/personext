@@ -4,21 +4,24 @@ import NewChip from '../Common/NewChip'
 import Image from 'next/image'
 import { Mail } from '../Icons'
 import Circle from '../Icons/Circle'
+import Link from 'next/link'
 
 export default function Profile({ data }) {
   return (
     <NewCard id="profile" data-name="Profile">
       {data.image && (
-        <NewChip as="a" href="/" className={'mb-5 inline-block'}>
-          <div className="relative h-24 w-24">
-            <Image
-              fill
-              src={data.image}
-              className="rounded-full object-cover"
-              alt=""
-            />
-          </div>
-        </NewChip>
+        <Link href="#">
+          <NewChip className={'mb-5 inline-block'}>
+            <div className="relative h-24 w-24">
+              <Image
+                fill
+                src={data.image}
+                className="rounded-full object-cover"
+                alt=""
+              />
+            </div>
+          </NewChip>
+        </Link>
       )}
 
       <h1 className="text-lg font-semibold dark:text-darkmode-title">

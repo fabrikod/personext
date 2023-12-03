@@ -6,6 +6,7 @@ import { MENUS } from '@/constrait'
 import { throttle } from '@/helpers/dom'
 import classNames from 'classnames'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 
@@ -18,13 +19,12 @@ export default function NewAppLayout({ children, user }) {
     const handleScroll = () => {
       const scrollHeight = window.scrollY || document.documentElement.scrollTop
 
-      const threshold = 120
+      const threshold = 250
 
       if (scrollHeight > threshold) {
         setScrolled(true)
       } else {
         setScrolled(false)
-        setMobileMenu(false)
       }
     }
 
@@ -32,17 +32,17 @@ export default function NewAppLayout({ children, user }) {
       handleScroll()
     }, 100)
 
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', throttledScroll)
     return () => {
-      window.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('scroll', throttledScroll)
     }
   }, [])
 
-  // useEffect(() => {
-  //   if (MENUS.find(menu => menu.href === router.asPath)) {
-  //     setMobileMenu(false)
-  //   }
-  // }, [router])
+  useEffect(() => {
+    if (router.pathname === '/') {
+      setMobileMenu(false)
+    }
+  }, [router])
 
   const handleMobileMenu = () => {
     setMobileMenu(prev => !prev)
@@ -64,10 +64,7 @@ export default function NewAppLayout({ children, user }) {
 
   return (
     <>
-      <header
-        id="web-header"
-        className="flex h-20 items-center justify-center bg-base-2 font-ibm-plex-sans dark:border-b dark:border-darkmode-border dark:bg-darkmode-base-1 max-sm:hidden"
-      >
+      <header className="flex h-20 items-center justify-center bg-base-2 font-ibm-plex-sans dark:border-b dark:border-darkmode-border dark:bg-darkmode-base-1 max-sm:hidden">
         <div className="flex min-w-[620px] justify-between gap-x-14">
           <NewNav />
           <div className="flex gap-3">
@@ -83,19 +80,28 @@ export default function NewAppLayout({ children, user }) {
           scrolled && 'translate-y-24'
         )}
       >
-        <div className="mx-auto flex items-center rounded-full border border-primary-1 bg-base-2 py-1 pl-1 pr-2.5 dark:border-darkmode-border dark:bg-darkmode-base-1">
+        <div className="mx-auto flex min-h-[4.7rem] items-center rounded-full border border-primary-1 bg-base-2 py-1 pl-1 pr-2.5 dark:border-darkmode-border dark:bg-darkmode-base-1">
           <div className="flex w-full items-center gap-2">
-            <NewChip as="a" href="#" className={'inline-block p-1'}>
-              <div className="relative h-10 w-10">
-                <Image
-                  fill
-                  src="/img/profile.jpg"
-                  className="rounded-full"
-                  alt=""
-                />
-              </div>
-            </NewChip>
-            <div>
+            <div
+              className={classNames(
+                'w-[4.3rem] overflow-hidden',
+                !scrolled && router.pathname === '/' && '!w-0'
+              )}
+            >
+              <Link href="#">
+                <NewChip href="#" className="inline-flex p-1">
+                  <div className="relative h-12 w-12">
+                    <Image
+                      fill
+                      src="/img/profile.jpg"
+                      className="rounded-full"
+                      alt=""
+                    />
+                  </div>
+                </NewChip>
+              </Link>
+            </div>
+            <div className={classNames(!scrolled && 'ml-2')}>
               <h1 className="text-sm font-semibold dark:text-darkmode-title">
                 Abdullah Önden
               </h1>
@@ -117,7 +123,7 @@ export default function NewAppLayout({ children, user }) {
         <div
           className={classNames(
             'absolute left-0 top-[3px] -z-10 h-full w-full duration-300 max-sm:-translate-y-[600px] max-sm:px-5',
-            isMobileMenu && '!translate-y-[75px]'
+            isMobileMenu && '!translate-y-[5.1rem]'
           )}
         >
           <MobileMenu />
