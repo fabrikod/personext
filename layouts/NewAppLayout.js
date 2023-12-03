@@ -8,7 +8,7 @@ import classNames from 'classnames'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 
 export default function NewAppLayout({ children, user }) {
   const [scrolled, setScrolled] = useState(false)
@@ -62,6 +62,11 @@ export default function NewAppLayout({ children, user }) {
     }
   }, [])
 
+  const imageMemo = useMemo(
+    () => !scrolled && router.pathname === '/',
+    [router, scrolled]
+  )
+
   return (
     <>
       <header className="flex h-20 items-center justify-center bg-base-2 font-ibm-plex-sans dark:border-b dark:border-darkmode-border dark:bg-darkmode-base-1 max-sm:hidden">
@@ -85,7 +90,7 @@ export default function NewAppLayout({ children, user }) {
             <div
               className={classNames(
                 'w-[4.3rem] overflow-hidden',
-                !scrolled && router.pathname === '/' && '!w-0'
+                imageMemo && '!w-0'
               )}
             >
               <Link href="#">
@@ -101,7 +106,7 @@ export default function NewAppLayout({ children, user }) {
                 </NewChip>
               </Link>
             </div>
-            <div className={classNames(!scrolled && 'ml-2')}>
+            <div className={classNames(imageMemo && 'ml-2')}>
               <h1 className="text-sm font-semibold dark:text-darkmode-title">
                 Abdullah Önden
               </h1>

@@ -26,7 +26,6 @@ export default function BlogPage({ blog, user, domain }) {
   if (!blog) {
     return <ErrorPage statusCode={404} />
   }
-  console.log('blog.tags', blog.tags)
   return (
     <NewAppLayout>
       <section
@@ -111,7 +110,7 @@ export default function BlogPage({ blog, user, domain }) {
 
           <div
             id="new-blog-content"
-            className="dark:text-darkmode-title"
+            className="break-words dark:text-darkmode-title"
             dangerouslySetInnerHTML={{
               __html: blog.content.replace(/\n{1,}/g, '<br/>'),
             }}

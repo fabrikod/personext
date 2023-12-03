@@ -19,7 +19,7 @@ const MENUS = [
   { text: 'About', href: '/#highlights' },
   { text: 'Publications', href: '/#publications' },
   { text: 'Stacks', href: '/#stacks' },
-  { text: 'Projects', href: '/#selected-projects' },
+  { text: 'Projects', href: '/#projects' },
   { text: 'Contact', href: '/#follow-me' },
 ]
 

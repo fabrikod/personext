@@ -114,7 +114,7 @@ export default function NewNav({ className }) {
                 key={index}
                 className={classNames(
                   'h-1.5 w-1.5 rounded-full border border-primary-1',
-                  isMoreMenu && 'border-active-menu'
+                  isMoreMenu && '!border-active-menu'
                 )}
               ></div>
             ))}
