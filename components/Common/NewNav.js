@@ -60,6 +60,8 @@ export default function NewNav({ className }) {
       return () => {
         // window.removeEventListener('scroll', handleScroll)
       }
+    } else {
+      setMenuList(MENUS)
     }
   }, [])
 

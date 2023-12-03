@@ -15,11 +15,12 @@ const JSON_BLOG_PATH = `${MAIN_MD_FILE_PATH}/blogs.json`
 const BLOG_FOLDER_PATH = `${MAIN_MD_FILE_PATH}/blogs`
 
 const MENUS = [
-  { text: 'Home', href: '/' },
-  { text: 'About', href: '/#highlights' },
+  { text: 'About', href: '/#profile' },
   { text: 'Publications', href: '/#publications' },
   { text: 'Stacks', href: '/#stacks' },
+  { text: 'Experiences', href: '/#experiences' },
   { text: 'Projects', href: '/#projects' },
+  { text: 'Blogs', href: '/#blogs' },
   { text: 'Contact', href: '/#follow-me' },
 ]
 

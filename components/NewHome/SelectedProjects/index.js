@@ -74,7 +74,7 @@ const SELECTEDPROJECTS = [
 
 export default function SelectedProjects() {
   return (
-    <NewCard className="px-0" id="selected" data-name="Projects">
+    <NewCard className="px-0" id="projects" data-name="Projects">
       <div className="px-9">
         <ComponentHeader
           title="Selected Projects"

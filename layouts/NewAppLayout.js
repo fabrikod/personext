@@ -1,7 +1,7 @@
 import MobileMenu from '@/components/Common/MobileMenu'
 import NewChip from '@/components/Common/NewChip'
 import NewNav from '@/components/Common/NewNav'
-import { HamburgerMenu, Mail, Theme } from '@/components/Icons'
+import { HamburgerMenu, Theme } from '@/components/Icons'
 import { MENUS } from '@/constrait'
 import { throttle } from '@/helpers/dom'
 import classNames from 'classnames'
