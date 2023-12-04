@@ -96,8 +96,8 @@ export default function NewAppLayout({ children, user }) {
                 imageMemo && '!w-0'
               )}
             >
-              <Link href="#">
-                <NewChip href="#" className="inline-flex p-1">
+              <Link href="/#">
+                <NewChip className="inline-flex p-1">
                   <div className="relative h-12 w-12">
                     <Image
                       fill
