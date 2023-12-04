@@ -29,7 +29,7 @@ export default function NewAppLayout({ children, user }) {
 
     const throttledScroll = throttle(() => {
       handleScroll()
-    }, 100)
+    }, 30)
 
     window.addEventListener('scroll', throttledScroll)
     return () => {

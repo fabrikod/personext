@@ -14,28 +14,6 @@ import Head from 'next/head'
 
 const PERPAGE = 7
 
-// export async function getServerSideProps({ query, locale }) {
-//   const { page, tag } = query
-
-//   const user = await getUserService()
-//   const domain = await getSetting({ settingName: 'domain' })
-//   const { data, meta } = await getBlogJsonService({
-//     perpage: PERPAGE,
-//     page: page || 1,
-//     tag: tag,
-//   })
-
-//   return {
-//     props: {
-//       user: user,
-//       blogs: data,
-//       domain: domain,
-//       meta: meta,
-//       ...(await serverSideTranslations(locale ?? 'en')),
-//     },
-//   }
-// }
-
 export default function Tags({
   user = {},
   domain = '',
@@ -72,7 +50,7 @@ export default function Tags({
   return (
     <NewAppLayout>
       <Head>
-        <title>{user.fullName}</title>
+        <title>{user.fullName} | Tags</title>
         <meta name="description" content={user.description} />
         <meta name="robots" content="index, follow" />
         <meta property="og:url" content={domain} />
