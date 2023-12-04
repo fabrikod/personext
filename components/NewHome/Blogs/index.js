@@ -11,6 +11,8 @@ export default function Blogs({
   getMoreBlogData,
   isBlogLoading,
   blogMeta,
+  title,
+  description,
 }) {
   const [currentIndex, setCurrentIndex] = useState(0)
 
@@ -29,10 +31,7 @@ export default function Blogs({
   return (
     <NewCard className="px-0" id="blogs" data-name="Blogs">
       <div className="px-9">
-        <ComponentHeader
-          title="Blog"
-          description="Take a look at the latest articles from."
-        />
+        <ComponentHeader title={title} description={description} />
       </div>
 
       <div className="mt-10 flex flex-col">

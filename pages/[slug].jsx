@@ -122,10 +122,8 @@ export default function BlogPage({ blog, user, domain }) {
                 {blog.tags.map((tag, index) => (
                   <Link
                     href={{
-                      pathname: '/',
-                      query: {
-                        tag: tag.key,
-                      },
+                      pathname: '/tags/[tag]',
+                      query: { tag: tag.key },
                     }}
                     key={index}
                   >

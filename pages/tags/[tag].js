@@ -1,17 +1,11 @@
-import Publications from '@/components/NewHome/Publications'
-import Stacks from '@/components/NewHome/Stacks'
-import Experience from '@/components/NewHome/Experiences'
-import FollowMe from '@/components/NewHome/FollowMe'
-import Profile from '@/components/NewHome/Profile'
 import NewAppLayout from '@/layouts/NewAppLayout'
 import {
   getUserService,
   getBlogJsonService,
-  getPablicationsData,
   getSetting,
+  getReadJsonFileService,
 } from '@/services/md.services'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import SelectedProjects from '@/components/NewHome/SelectedProjects'
 import Blogs from '@/components/NewHome/Blogs'
 import apiClient from '@/utils/axios'
 import { useEffect, useState } from 'react'
@@ -20,35 +14,33 @@ import Head from 'next/head'
 
 const PERPAGE = 7
 
-export async function getServerSideProps({ query, locale }) {
-  const { page, tag } = query
+// export async function getServerSideProps({ query, locale }) {
+//   const { page, tag } = query
 
-  const articles = await getPablicationsData({ name: 'articles' })
-  const user = await getUserService()
-  const domain = await getSetting({ settingName: 'domain' })
-  const { data, meta } = await getBlogJsonService({
-    perpage: PERPAGE,
-    page: page || 1,
-    tag: tag,
-  })
+//   const user = await getUserService()
+//   const domain = await getSetting({ settingName: 'domain' })
+//   const { data, meta } = await getBlogJsonService({
+//     perpage: PERPAGE,
+//     page: page || 1,
+//     tag: tag,
+//   })
 
-  return {
-    props: {
-      user: user,
-      blogs: data,
-      articles,
-      domain: domain,
-      meta: meta,
-      ...(await serverSideTranslations(locale ?? 'en')),
-    },
-  }
-}
+//   return {
+//     props: {
+//       user: user,
+//       blogs: data,
+//       domain: domain,
+//       meta: meta,
+//       ...(await serverSideTranslations(locale ?? 'en')),
+//     },
+//   }
+// }
 
-export default function Index({
+export default function Tags({
   user = {},
   domain = '',
   blogs = [],
-  articles = [],
+  tag = '',
   meta = {},
   errors,
 }) {
@@ -99,29 +91,54 @@ export default function Index({
         id="container"
         className="mx-auto flex max-w-[620px] flex-col gap-9 pb-24 pt-9 max-sm:pt-28"
       >
-        <Profile data={user} />
-
-        {/* <Highlights /> */}
-
-        <Publications data={articles} />
-
-        <Stacks />
-
-        {/* <Gallery /> */}
-
-        <Experience />
-
-        <SelectedProjects />
-
         <Blogs
+          title="Tags"
+          description={tag}
           data={blogState}
           getMoreBlogData={getMoreBlogData}
           isBlogLoading={isBlogLoading}
           blogMeta={blogMeta}
         />
-
-        <FollowMe data={user.socials} />
       </section>
     </NewAppLayout>
   )
+}
+
+export async function getStaticPaths() {
+  const blogs = await getReadJsonFileService()
+  const tagList = []
+  blogs.forEach(({ tags }) => {
+    tags.forEach(({ key }) => {
+      tagList.push(key)
+    })
+  })
+
+  const paths = [...new Set(tagList)].map(key => ({
+    params: { tag: decodeURIComponent(key) },
+  }))
+
+  return {
+    paths,
+    fallback: true,
+  }
+}
+
+export async function getStaticProps({ params, locale }) {
+  const { data, meta } = await getBlogJsonService({
+    perpage: PERPAGE,
+    page: 1,
+    tag: params.tag,
+  })
+  const user = await getUserService()
+  const domain = await getSetting({ settingName: 'domain' })
+
+  return {
+    props: {
+      blogs: data || [],
+      user: user || {},
+      domain: domain || '',
+      tag: params.tag,
+      ...(await serverSideTranslations(locale, ['common'])),
+    },
+  }
 }
