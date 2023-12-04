@@ -39,6 +39,7 @@ export default function Tags({
         params: {
           page: blogMeta.page + 1,
           perpage: PERPAGE,
+          tag: tag,
         },
       })
       setIsBlogLoading(false)
