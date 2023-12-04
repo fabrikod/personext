@@ -1,9 +1,11 @@
 /* Proxima Nova */
-@font-face {
+/* @font-face {
   font-family: 'Proxima Nova';
   src: url('../fonts/proximanova/Fontspring-DEMO-proximanova-light.otf') format('opentype');
   font-weight: 300;
   font-style: normal;
+  font-display: swap;
+  
 }
 
 @font-face {
@@ -11,6 +13,7 @@
   src: url('../fonts/proximanova/Fontspring-DEMO-proximanova-regular.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -18,6 +21,8 @@
   src: url('../fonts/proximanova/Fontspring-DEMO-proximanova-semibold.otf') format('opentype');
   font-weight: 600;
   font-style: normal;
+  font-display: swap;
+
 }
 
 @font-face {
@@ -25,6 +30,8 @@
   src: url('../fonts/proximanova/Fontspring-DEMO-proximanova-bold.otf') format('opentype');
   font-weight: 700;
   font-style: normal;
+  font-display: swap;
+
 }
 
 @font-face {
@@ -32,7 +39,9 @@
   src: url('../fonts/proximanova/Fontspring-DEMO-proximanova-extrabold.otf') format('opentype');
   font-weight: 800;
   font-style: normal;
-}
+  font-display: swap;
+
+} */
 
 /* IBM Plex Sans */
 
@@ -42,6 +51,7 @@
   src: url('../fonts/ibmplexsans/IBMPlexSans-Bold.ttf') format('opentype');
   font-weight: 700;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -49,6 +59,7 @@
   src: url('../fonts/ibmplexsans/IBMPlexSans-SemiBold.ttf') format('opentype');
   font-weight: 600;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -56,6 +67,7 @@
   src: url('../fonts/ibmplexsans/IBMPlexSans-Medium.ttf') format('opentype');
   font-weight: 500;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -63,6 +75,7 @@
   src: url('../fonts/ibmplexsans/IBMPlexSans-Regular.ttf') format('opentype');
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -70,4 +83,5 @@
   src: url('../fonts/ibmplexsans/IBMPlexSans-Light.ttf') format('opentype');
   font-weight: 300;
   font-style: normal;
+  font-display: swap;
 }
