@@ -1,4 +1,8 @@
-import dynamic from 'next/dynamic'
+import Publications from '@/components/NewHome/Publications'
+import Stacks from '@/components/NewHome/Stacks'
+import Experience from '@/components/NewHome/Experiences'
+import FollowMe from '@/components/NewHome/FollowMe'
+import Profile from '@/components/NewHome/Profile'
 import NewAppLayout from '@/layouts/NewAppLayout'
 import {
   getUserService,
@@ -8,30 +12,11 @@ import {
 } from '@/services/md.services'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import SelectedProjects from '@/components/NewHome/SelectedProjects'
+import Blogs from '@/components/NewHome/Blogs'
 import apiClient from '@/utils/axios'
 import { useEffect, useState } from 'react'
 import { useUser } from '@/context/user'
 import Head from 'next/head'
-
-const Publications = dynamic(
-  () => import('@/components/NewHome/Publications'),
-  { ssr: false }
-)
-const Stacks = dynamic(() => import('@/components/NewHome/Stacks'), {
-  ssr: false,
-})
-const Experience = dynamic(() => import('@/components/NewHome/Experiences'), {
-  ssr: false,
-})
-const FollowMe = dynamic(() => import('@/components/NewHome/FollowMe'), {
-  ssr: false,
-})
-const Profile = dynamic(() => import('@/components/NewHome/Profile'), {
-  ssr: false,
-})
-const Blogs = dynamic(() => import('@/components/NewHome/Blogs'), {
-  ssr: false,
-})
 
 const PERPAGE = 7
 
