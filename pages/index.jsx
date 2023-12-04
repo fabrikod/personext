@@ -15,22 +15,22 @@ import Head from 'next/head'
 
 const Publications = dynamic(
   () => import('@/components/NewHome/Publications'),
-  { ssr: true }
+  { ssr: false }
 )
 const Stacks = dynamic(() => import('@/components/NewHome/Stacks'), {
-  ssr: true,
+  ssr: false,
 })
 const Experience = dynamic(() => import('@/components/NewHome/Experiences'), {
-  ssr: true,
+  ssr: false,
 })
 const FollowMe = dynamic(() => import('@/components/NewHome/FollowMe'), {
-  ssr: true,
+  ssr: false,
 })
 const Profile = dynamic(() => import('@/components/NewHome/Profile'), {
-  ssr: true,
+  ssr: false,
 })
 const Blogs = dynamic(() => import('@/components/NewHome/Blogs'), {
-  ssr: true,
+  ssr: false,
 })
 
 const PERPAGE = 7
