@@ -114,6 +114,8 @@ export default function Index({
         <SelectedProjects />
 
         <Blogs
+          title="Blogs"
+          description="Take a look at the latest articles from."
           data={blogState}
           getMoreBlogData={getMoreBlogData}
           isBlogLoading={isBlogLoading}

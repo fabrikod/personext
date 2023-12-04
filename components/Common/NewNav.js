@@ -79,7 +79,7 @@ export default function NewNav({ className }) {
               activeMenu === '/' &&
                 ' bg-base-5 text-active-menu dark:border-darkmode-border dark:bg-darkmode-base-1 dark:bg-lineer-nav-link'
             )}
-            href="#"
+            href="/#"
           >
             Home
           </Link>

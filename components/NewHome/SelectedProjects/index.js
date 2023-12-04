@@ -77,7 +77,7 @@ export default function SelectedProjects() {
     <NewCard className="px-0" id="projects" data-name="Projects">
       <div className="px-9">
         <ComponentHeader
-          title="Selected Projects"
+          title="Projects"
           description="Featured projects, templates and visual experiments"
         />
       </div>
