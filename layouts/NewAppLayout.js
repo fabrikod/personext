@@ -13,6 +13,7 @@ export default function NewAppLayout({ children, user }) {
   const [scrolled, setScrolled] = useState(false)
   const [isMobileMenu, setMobileMenu] = useState(false)
   const router = useRouter()
+  const [isChangeHomePage, setIsChangeHomePage] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,10 +41,11 @@ export default function NewAppLayout({ children, user }) {
   useEffect(() => {
     if (router.pathname === '/') {
       const element = document.getElementById(router.asPath.split('#')[1])
-      if (element) {
+      if (element && !isChangeHomePage) {
         window.scrollTo(0, element.offsetTop - 100)
       }
       setMobileMenu(false)
+      setIsChangeHomePage(true)
     }
   }, [router])
 
