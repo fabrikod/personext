@@ -51,10 +51,12 @@ export default function NewNav({ className }) {
 
       const sectionList = document.querySelectorAll('#container > div')
       setMenuList(
-        [...sectionList].map(element => ({
-          href: `/#${element.getAttribute('id')}`,
-          text: element.getAttribute('data-name'),
-        }))
+        [...sectionList]
+          .filter(element => element.getAttribute('id') !== 'profile')
+          .map(element => ({
+            href: `/#${element.getAttribute('id')}`,
+            text: element.getAttribute('data-name'),
+          }))
       )
 
       return () => {
