@@ -6,6 +6,7 @@ export const authOptions = {
     GitHubProvider({
       clientId: process.env.GITHUB_ID,
       clientSecret: process.env.GITHUB_SECRET,
+      callbackUrl: 'https://www.abdullahonden.com/api/auth/callback/github',
     }),
   ],
   secret: process.env.SECRET,
