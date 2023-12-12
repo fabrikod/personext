@@ -1,1 +1,1 @@
-domain: https://yusufayhan.vercel.app
+domain: https://abdullahonden.com
