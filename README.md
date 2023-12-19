@@ -125,6 +125,6 @@ This repository is released under the [MIT license](LICENSE.md). You can use the
 
 ## About Fabrikod
 
-We are a company that creates cutting-edge digital experiences for savvy customers, and we like how simple Flutter simplifies that process.
+We are a company that creates cutting-edge digital experiences for savvy customers.
 Please [visit our website](https://fabrikod.com) to discover more about what we do.
 Please get in touch with us! 
