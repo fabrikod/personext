@@ -1,4 +1,10 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# [Personext] -  Personal Blog Boilerplate
+
+Welcome to Personext, your personal blog boilerplate. This project, written in JavaScript using Node.js, helps you create your own blog with ease.
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/abdullahonden/personext/)
+
+[![Room GPT](./public/screenshot.png)](https://roomGPT.io)
 
 ## Getting Started
 
