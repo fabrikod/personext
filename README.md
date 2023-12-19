@@ -4,7 +4,6 @@ Welcome to Personext, your personal blog boilerplate. This project, written in J
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/abdullahonden/personext/)
 
-[![Room GPT](./public/screenshot.png)](https://roomGPT.io)
 
 ## Getting Started
 
