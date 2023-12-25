@@ -81,9 +81,9 @@ export default function Stacks() {
       </div>
 
       <NewChip
+        className="button ml-11 mt-9 inline-block px-4 py-1 text-xs text-primary-6 dark:bg-lineer-nav-link"
         as="button"
         onClick={getAllData}
-        className="ml-11 mt-9  px-4 py-1 text-sm text-primary-6"
       >
         View All Stack
       </NewChip>

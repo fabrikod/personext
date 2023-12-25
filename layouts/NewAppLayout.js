@@ -3,6 +3,7 @@ import NewChip from '@/components/Common/NewChip'
 import NewNav from '@/components/Common/NewNav'
 import { HamburgerMenu, Theme } from '@/components/Icons'
 import { throttle } from '@/helpers/dom'
+import { changeThemeMode } from '@/helpers/theme'
 import classNames from 'classnames'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -25,6 +26,7 @@ export default function NewAppLayout({ children, user }) {
         setScrolled(true)
       } else {
         setScrolled(false)
+        setMobileMenu(false)
       }
     }
 
@@ -54,11 +56,7 @@ export default function NewAppLayout({ children, user }) {
   }
 
   const changeTheme = () => {
-    document.documentElement.classList.toggle('dark')
-    localStorage.setItem(
-      'theme',
-      localStorage.getItem('theme') === 'light' ? 'dark' : 'light'
-    )
+    changeThemeMode()
   }
 
   useEffect(() => {
@@ -75,9 +73,9 @@ export default function NewAppLayout({ children, user }) {
   return (
     <>
       <header className="flex h-20 items-center justify-center bg-base-2 font-ibm-plex-sans dark:border-b dark:border-darkmode-border dark:bg-darkmode-base-1 max-sm:hidden">
-        <div className="flex min-w-[620px] justify-between gap-x-14">
+        <div className="flex min-w-[620px] justify-between ">
           <NewNav />
-          <div className="flex gap-3">
+          <div>
             <NewChip as="button" onClick={changeTheme}>
               <Theme />
             </NewChip>

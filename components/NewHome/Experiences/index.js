@@ -45,7 +45,7 @@ export default function Experiences() {
       <NewChip
         as="a"
         href="/abdullah-onden-cv.pdf"
-        className="ml-11 mt-9 inline-block px-4 py-1 text-sm text-primary-6"
+        className="button ml-11 mt-9 inline-block px-4 py-1 text-xs text-primary-6 dark:bg-lineer-nav-link"
       >
         Download Resume
       </NewChip>

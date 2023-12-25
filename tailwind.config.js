@@ -6,7 +6,7 @@ module.exports = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
     './layouts/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-  darkMode: 'class',
+  darkMode: ['class'],
   theme: {
     extend: {
       colors: {
@@ -32,10 +32,14 @@ module.exports = {
         'base-5': '#EBECF0',
         'base-6': '#2C2C2D',
         'base-7': '#D9D9D9',
+        'button-press': '#E4E5EA',
+        'button-hover': '#F6F6F6',
       },
       backgroundImage: {
         'lineer-card': 'linear-gradient(180deg, #08080E 0%, #0C0C11 100%)',
         'lineer-nav-link': 'linear-gradient(180deg, #08080E 0%, #12121D 100%)',
+        'hover-lineer': 'linear-gradient(180deg, #08080E 0%, #21212F 100%)',
+        'active-lineer': 'linear-gradient(180deg, #10101B 0%, #2A2A3A 100%)',
       },
       stroke: {
         'primary-1': '#444444;',

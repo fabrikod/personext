@@ -40,7 +40,7 @@ export default function Blogs({
             key={index}
             data={blog}
             className={classNames(
-              'animate-fade-in-out',
+              'button dark:dark-button animate-fade-in-out dark:bg-darkmode-base-1',
               index === data.length - 1 && 'border-b'
             )}
           />
@@ -52,7 +52,7 @@ export default function Blogs({
         disabled={blogMeta.pageCount <= blogMeta.page}
         onClick={getMoreBlogData}
         className={classNames(
-          'relative ml-11 mt-9 flex gap-2 px-4 py-1 text-sm text-primary-6 disabled:opacity-50',
+          'button relative ml-11 mt-9 flex gap-2 px-4 py-1 text-xs text-primary-6 disabled:opacity-50 dark:bg-lineer-nav-link',
           isBlogLoading && 'pr-9'
         )}
       >

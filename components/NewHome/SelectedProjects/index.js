@@ -92,7 +92,7 @@ export default function SelectedProjects() {
 
       <NewChip
         as="button"
-        className="ml-11 mt-9 px-4 py-1 text-sm text-primary-6"
+        className="button ml-11 mt-9 px-4 py-1 text-xs text-primary-6 dark:bg-lineer-nav-link"
       >
         View All Projects
       </NewChip>

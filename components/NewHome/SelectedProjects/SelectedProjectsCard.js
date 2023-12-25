@@ -6,8 +6,8 @@ import React from 'react'
 
 export default function SelectedProjectsCard({ data }) {
   return (
-    <div className="overflow-hidden rounded-xl border border-primary-1 dark:border-darkmode-border">
-      <div className="relative h-44">
+    <div className="button overflow-hidden rounded-xl border border-primary-1 dark:border-darkmode-border dark:bg-lineer-nav-link">
+      <div className="relative h-[19rem]">
         <Image src={data.image} alt="" fill className="object-cover" />
       </div>
 
@@ -19,7 +19,7 @@ export default function SelectedProjectsCard({ data }) {
           >
             {data.title}
           </Link>
-          <p className="mt-1 text-sm text-primary-6 dark:text-darkmode-text">
+          <p className="mt-1 text-xs text-primary-6 dark:text-darkmode-text">
             Resolve issues instantly, increase team efficiency, and make
             customers happier with AI-powered chatbots and automations.
           </p>

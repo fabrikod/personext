@@ -24,7 +24,7 @@ html {
 }
 
 * {
-  @apply !box-border duration-500;
+  @apply !box-border duration-150 ease-in-out;
 }
 
 body {
@@ -87,4 +87,8 @@ body {
 
 .loading {
   @apply border-2 border-base-2 border-t-primary-6 rounded-full w-5 h-5 animate-loading
+}
+
+.button {
+  @apply duration-300 active:translate-y-[1.5px] hover:bg-button-hover active:bg-button-press dark:hover:bg-hover-lineer dark:active:bg-active-lineer
 }

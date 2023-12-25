@@ -27,7 +27,7 @@ export default function Publications({ data }) {
       </div>
 
       <Link href="/publications">
-        <NewChip className="ml-11 mt-9 inline-block px-4 py-1 text-sm text-primary-6">
+        <NewChip className="button ml-11 mt-9 inline-block px-4 py-1 text-xs text-primary-6 dark:bg-lineer-nav-link">
           View All Publications
         </NewChip>
       </Link>

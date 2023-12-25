@@ -12,7 +12,7 @@ export default function Profile({ data }) {
       {data.image && (
         <Link href="#">
           <NewChip className={'mb-5 inline-block'}>
-            <div className="relative h-24 w-24">
+            <div className="relative h-[4.9rem] w-[4.9rem]">
               <Image
                 fill
                 src={data.image}
@@ -27,10 +27,10 @@ export default function Profile({ data }) {
       <h1 className="text-lg font-semibold dark:text-darkmode-title">
         {data.fullName}
       </h1>
-      <span className="mt-1 inline-block font-normal text-primary-6 dark:text-darkmode-text">
+      <span className="mt-1 inline-block text-sm font-normal text-primary-6 dark:text-darkmode-text">
         {data.description}
       </span>
-      <p className="mt-4 text-sm font-normal text-primary-6 dark:text-darkmode-text">
+      <p className="mt-4 text-xs font-normal text-primary-6 dark:text-darkmode-text">
         {data.job}
       </p>
 
@@ -39,7 +39,7 @@ export default function Profile({ data }) {
           <NewChip
             as="a"
             href={data.connectLink}
-            className={'flex items-center gap-1 px-4 text-primary-6'}
+            className={'flex items-center gap-1 px-4 text-xs text-primary-6'}
           >
             <div className="text-2xl leading-3">+</div>
             Connect
@@ -54,7 +54,7 @@ export default function Profile({ data }) {
           </NewChip>
         </div>
 
-        <NewChip className="inline-flex items-center gap-2 px-5 text-primary-6">
+        <NewChip className="inline-flex items-center gap-2 px-5 text-xs text-primary-6">
           <Circle className="fill-circle-red " />
           {data.available_for_projects && 'Not'} available for projects
         </NewChip>

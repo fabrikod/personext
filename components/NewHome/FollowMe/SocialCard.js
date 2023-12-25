@@ -8,7 +8,7 @@ export default function SocialCard({ data, className }) {
       as="a"
       href={data.url}
       className={classNames(
-        'flex h-24 w-24 items-center justify-center !rounded-[10px]',
+        'button flex h-24 w-24 items-center justify-center !rounded-[10px] dark:bg-lineer-nav-link',
         className
       )}
     >
