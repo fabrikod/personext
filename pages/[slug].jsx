@@ -60,7 +60,7 @@ export default function BlogPage({ blog, user, domain }) {
         <NewCard>
           <div className="flex justify-between">
             <NewChip
-              className="button inline-block rotate-180 px-3 py-3"
+              className="button inline-block rotate-180 px-3 py-3 dark:bg-lineer-nav-link"
               as="button"
               onClick={backToPage}
             >

@@ -10,7 +10,7 @@ export default function Articles({ title, data }) {
     <NewCard>
       <div className="">
         <NewChip
-          className="button inline-block rotate-180 px-3 py-3"
+          className="button inline-block rotate-180 px-3 py-3 dark:bg-lineer-nav-link"
           as="button"
           onClick={() => router.back()}
         >
