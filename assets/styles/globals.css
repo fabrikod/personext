@@ -24,7 +24,7 @@ html {
 }
 
 * {
-  @apply !box-border duration-150 ease-in-out;
+  @apply !box-border duration-150 ease-in-out font-ibm-plex-sans;
 }
 
 body {

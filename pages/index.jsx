@@ -5,16 +5,14 @@ import FollowMe from '@/components/NewHome/FollowMe'
 import Profile from '@/components/NewHome/Profile'
 import NewAppLayout from '@/layouts/NewAppLayout'
 import {
-  getUserService,
   getBlogJsonService,
-  getPablicationsData,
-  getSetting,
+  getPablicationsService,
 } from '@/services/md.services'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import SelectedProjects from '@/components/NewHome/SelectedProjects'
 import Blogs from '@/components/NewHome/Blogs'
 import apiClient from '@/utils/axios'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useUser } from '@/context/user'
 import Head from 'next/head'
 
@@ -23,9 +21,7 @@ const PERPAGE = 7
 export async function getServerSideProps({ query, locale }) {
   const { page, tag } = query
 
-  const articles = await getPablicationsData({ name: 'articles' })
-  const user = await getUserService()
-  const domain = await getSetting({ settingName: 'domain' })
+  const articles = await getPablicationsService({ name: 'articles' })
   const { data, meta } = await getBlogJsonService({
     perpage: PERPAGE,
     page: page || 1,
@@ -34,10 +30,8 @@ export async function getServerSideProps({ query, locale }) {
 
   return {
     props: {
-      user: user,
       blogs: data,
       articles,
-      domain: domain,
       meta: meta,
       ...(await serverSideTranslations(locale ?? 'en')),
     },
@@ -45,22 +39,16 @@ export async function getServerSideProps({ query, locale }) {
 }
 
 export default function Index({
-  user = {},
-  domain = '',
   blogs = [],
   articles = [],
-  meta = {},
-  errors,
+  // meta = {},
+  // errors,
 }) {
   const [blogState, setBlogState] = useState(blogs)
   const [isBlogLoading, setIsBlogLoading] = useState(false)
   const [blogMeta, setBlogMeta] = useState({ page: 1 })
 
-  const { updateUser } = useUser()
-
-  useEffect(() => {
-    updateUser(user)
-  }, [])
+  const { user, settings } = useUser()
 
   const getMoreBlogData = async () => {
     setIsBlogLoading(true)
@@ -83,17 +71,20 @@ export default function Index({
         <title>{user.fullName}</title>
         <meta name="description" content={user.description} />
         <meta name="robots" content="index, follow" />
-        <meta property="og:url" content={domain} />
+        <meta property="og:url" content={settings.domain} />
         <meta property="og:type" content="website" />
         <meta property="og:title" content={user.fullName} />
         <meta property="og:description" content={user.description} />
-        <meta property="og:image" content={`${domain}${user.image}`} />
-        <meta property="twitter:url" content={domain} />
-        <meta property="twitter:domain" content={domain} />
+        <meta property="og:image" content={`${settings.domain}${user.image}`} />
+        <meta property="twitter:url" content={settings.domain} />
+        <meta property="twitter:domain" content={settings.domain} />
         <meta property="twitter:title" content={user.fullName} />
         <meta property="twitter:description" content={user.description} />
-        <meta property="twitter:image" content={`${domain}${user.image}`} />
-        <meta name="twitter:card" content={`${domain}${user.image}`} />
+        <meta
+          property="twitter:image"
+          content={`${settings.domain}${user.image}`}
+        />
+        <meta name="twitter:card" content={`${settings.domain}${user.image}`} />
       </Head>
       <section
         id="container"
@@ -122,7 +113,7 @@ export default function Index({
           blogMeta={blogMeta}
         />
 
-        <FollowMe data={user.socials} />
+        <FollowMe data={user.socials || []} />
       </section>
     </NewAppLayout>
   )

@@ -1,9 +1,7 @@
 import Image from 'next/image'
 import {
-  getUserService,
   getBlogBySlugService,
   getReadJsonFileService,
-  getSetting,
 } from '@/services/md.services'
 import { HandLike, HeartFavorite } from '@/components/Icons'
 import ErrorPage from 'next/error'
@@ -15,9 +13,11 @@ import NewCard from '@/components/Card/NewCard'
 import NewChip from '@/components/Common/NewChip'
 import ArrowRight from '@/components/Icons/ArrowRight'
 import Head from 'next/head'
+import { useUser } from '@/context/user'
 
-export default function BlogPage({ blog, user, domain }) {
+export default function BlogPage({ blog }) {
   const router = useRouter()
+  const { user, settings } = useUser()
 
   const backToPage = () => {
     router.back()
@@ -38,24 +38,36 @@ export default function BlogPage({ blog, user, domain }) {
           </title>
           <meta name="description" content={blog.description} />
           <meta name="robots" content="index, follow" />
-          <meta property="og:url" content={`${domain}${blog.slug}`} />
+          <meta property="og:url" content={`${settings.domain}${blog.slug}`} />
           <meta property="og:type" content="website" />
           <meta property="og:title" content={blog.title} />
           <meta
             property="og:description"
             content={blog.description || user.description}
           />
-          <meta property="og:image" content={`${domain}${blog.image}`} />
+          <meta
+            property="og:image"
+            content={`${settings.domain}${blog.image}`}
+          />
 
-          <meta property="twitter:url" content={`${domain}${blog.slug}`} />
-          <meta property="twitter:domain" content={domain} />
+          <meta
+            property="twitter:url"
+            content={`${settings.domain}${blog.slug}`}
+          />
+          <meta property="twitter:domain" content={settings.domain} />
           <meta property="twitter:title" content={blog.title} />
           <meta
             property="twitter:description"
             content={blog.description || user.description}
           />
-          <meta property="twitter:image" content={`${domain}${blog.image}`} />
-          <meta name="twitter:card" content={`${domain}${blog.image}`} />
+          <meta
+            property="twitter:image"
+            content={`${settings.domain}${blog.image}`}
+          />
+          <meta
+            name="twitter:card"
+            content={`${settings.domain}${blog.image}`}
+          />
         </Head>
         <NewCard>
           <div className="flex justify-between">
@@ -224,14 +236,10 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params, locale }) {
   const blog = await getBlogBySlugService(params.slug)
-  const user = await getUserService()
-  const domain = await getSetting({ settingName: 'domain' })
 
   return {
     props: {
       blog: blog || [],
-      user: user || {},
-      domain: domain || '',
       ...(await serverSideTranslations(locale, ['common'])),
     },
   }

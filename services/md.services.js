@@ -6,7 +6,7 @@ import {
   getBlogFileJsonData,
   readJsonFileData,
   getPulicationsFileData,
-  getSettings,
+  getSettingsFileData,
 } from '@/helpers'
 
 export const getBlogService = async () => {
@@ -100,7 +100,7 @@ export const getArchives = async () => {
   return goodGruppedData.reverse()
 }
 
-export const getPablicationsData = async fields => {
+export const getPablicationsService = async fields => {
   const publications = await getPulicationsFileData()
   const jsonPublications = yaml(publications)
 
@@ -115,6 +115,8 @@ export const getPablicationsData = async fields => {
   return jsonPublications
 }
 
-export const getSetting = ({ settingName }) => {
-  return getSettings(settingName)
+export const getSettingsService = async settingName => {
+  const settings = await getSettingsFileData()
+  const settingsJson = yaml(settings)
+  return settingName ? settingsJson[settingName] : settingsJson
 }

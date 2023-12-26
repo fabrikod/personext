@@ -34,8 +34,10 @@ module.exports = {
         'base-7': '#D9D9D9',
         'button-press': '#E4E5EA',
         'button-hover': '#F6F6F6',
+        input: '#B1B1B1',
       },
       backgroundImage: {
+        'lineer-light': 'linear-gradient(180deg, #FFF 0%, #FCFBFB 100%)',
         'lineer-card': 'linear-gradient(180deg, #08080E 0%, #0C0C11 100%)',
         'lineer-nav-link': 'linear-gradient(180deg, #08080E 0%, #12121D 100%)',
         'hover-lineer': 'linear-gradient(180deg, #08080E 0%, #21212F 100%)',

@@ -82,3 +82,8 @@ export const getBlogFileJsonData = async ({ perpage, page, queryTag }) => {
     },
   }
 }
+
+export const getSettingsFileData = async () => {
+  const settingData = await getFileData('settings.md')
+  return settingData
+}

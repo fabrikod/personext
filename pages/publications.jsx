@@ -1,28 +1,25 @@
 import Articles from '@/components/Publications/Articles'
 import Books from '@/components/Publications/Books'
 import Papers from '@/components/Publications/Papers'
+import { useUser } from '@/context/user'
 import NewAppLayout from '@/layouts/NewAppLayout'
-import { getUserService, getPablicationsData } from '@/services/md.services'
+import { getPablicationsService } from '@/services/md.services'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
-const PERPAGE = 10
-
 export async function getServerSideProps({ query, locale }) {
-  const { page, tag } = query
-
-  const user = await getUserService()
-  const pablicationsData = await getPablicationsData()
+  const pablicationsData = await getPablicationsService()
 
   return {
     props: {
-      user: user,
       data: pablicationsData,
       ...(await serverSideTranslations(locale ?? 'en')),
     },
   }
 }
 
-export default function Publications({ user, data }) {
+export default function Publications({ data }) {
+  const { user, settings } = useUser()
+
   return (
     <NewAppLayout>
       <section
