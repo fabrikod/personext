@@ -1,13 +1,31 @@
 import NewCard from '@/components/Card/NewCard'
 import NewChip from '@/components/Common/NewChip'
+import ProfilePhoto from '@/components/Common/ProfilePhoto'
 import { Github, RedHeart } from '@/components/Icons'
 import { useUser } from '@/context/user'
 import classNames from 'classnames'
+import { signIn } from 'next-auth/react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useState } from 'react'
 
 export default function SignIn() {
   const { user, settings } = useUser()
+  const [userName, setUserName] = useState('')
+  const [userPassword, setPassword] = useState('')
+
+  const handleLogin = async e => {
+    e.preventDefault()
+    // signIn({ user, account, profile, email, credentials })
+    const result = await signIn('credentials', {
+      // kullanıcı adı ve şifreyi gönderin
+      username: userName,
+      password: userPassword,
+      // hata olursa geri döneceğiniz sayfayı belirleyin
+      redirect: true,
+      callbackUrl: '/panel',
+    })
+  }
 
   return (
     <div className="flex h-screen items-center justify-center bg-base-4">
@@ -22,16 +40,8 @@ export default function SignIn() {
         <div className="mt-10">
           <NewCard className="flex justify-center">
             <div className="flex w-full flex-col items-center">
-              <NewChip className={'mb-4 inline-block'}>
-                <div className="relative h-[4.9rem] w-[4.9rem]">
-                  <Image
-                    fill
-                    src={user.image}
-                    className="rounded-full object-cover"
-                    alt=""
-                  />
-                </div>
-              </NewChip>
+              <ProfilePhoto src={user.image} />
+
               <h2 className="text-lg font-semibold">{user.fullName}</h2>
 
               <NewChip
@@ -54,39 +64,44 @@ export default function SignIn() {
                 <div className="w-full border-t border-primary-1" />
               </div>
 
-              <div className="mt-8 w-full">
-                <input
-                  type="text"
-                  className="text-input placeholder:text-input h-14 w-full rounded-[0.625rem] border border-primary-1 pl-3 text-sm font-medium text-primary-1 outline-none placeholder:text-xs"
-                  placeholder="Username"
-                />
+              <form onSubmit={handleLogin}>
+                <div className="mt-8 w-full">
+                  <input
+                    type="text"
+                    className="h-14 w-full rounded-[0.625rem] border border-primary-1 pl-3 text-sm font-medium text-input text-primary-1 outline-none placeholder:text-xs placeholder:text-input"
+                    placeholder="Username"
+                    onChange={e => setUserName(e.target.value)}
+                  />
 
-                <input
-                  type="password"
-                  className="text-input placeholder:text-input mt-4 h-14 w-full rounded-[0.625rem] border border-primary-1 pl-3 text-sm font-medium text-primary-1 outline-none placeholder:text-xs"
-                  placeholder="Password"
-                />
+                  <input
+                    type="password"
+                    className="mt-4 h-14 w-full rounded-[0.625rem] border border-primary-1 pl-3 text-sm font-medium text-input text-primary-1 outline-none placeholder:text-xs placeholder:text-input"
+                    placeholder="Password"
+                    onChange={e => setPassword(e.target.value)}
+                  />
 
-                <Link
-                  href="#"
-                  className="mt-4 inline-block text-xs text-[#0366D6]"
-                >
-                  Forgot your password?
-                </Link>
+                  <Link
+                    href="#"
+                    className="mt-4 inline-block text-xs text-[#0366D6]"
+                  >
+                    Forgot your password?
+                  </Link>
 
-                <NewChip
-                  as="button"
-                  className={classNames(
-                    'bg-black',
-                    'flex w-full justify-center',
-                    '!rounded-[0.625rem]',
-                    'mt-6 px-5 py-4',
-                    'text-sm font-medium text-white'
-                  )}
-                >
-                  Continue
-                </NewChip>
-              </div>
+                  <NewChip
+                    as="button"
+                    type="submit"
+                    className={classNames(
+                      'bg-black',
+                      'flex w-full justify-center',
+                      '!rounded-[0.625rem]',
+                      'mt-6 px-5 py-4',
+                      'text-sm font-medium text-white'
+                    )}
+                  >
+                    Continue
+                  </NewChip>
+                </div>
+              </form>
             </div>
           </NewCard>
 

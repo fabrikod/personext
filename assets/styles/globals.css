@@ -92,3 +92,11 @@ body {
 .button {
   @apply duration-300 active:translate-y-[1.5px] hover:bg-button-hover active:bg-button-press dark:hover:bg-hover-lineer dark:active:bg-active-lineer
 }
+
+.ql-container.ql-snow{
+  @apply !h-[20rem] !rounded-b-md !border-primary-1
+}
+
+.ql-toolbar.ql-snow{
+  @apply !rounded-t-md !border-primary-1
+}
