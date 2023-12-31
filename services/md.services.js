@@ -2,12 +2,13 @@ import {
   getBlogsFilesData,
   getUserFileData,
   getBlogBySlugData,
-  yaml,
   getBlogFileJsonData,
   readJsonFileData,
   getPulicationsFileData,
   getSettingsFileData,
-} from '@/helpers'
+} from '@/dataAccess/mdFileAccess'
+
+import { yaml } from '@/helpers'
 
 export const getBlogService = async () => {
   const blogs = await getBlogsFilesData()

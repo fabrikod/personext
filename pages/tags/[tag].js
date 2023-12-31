@@ -6,7 +6,7 @@ import {
   getReadJsonFileService,
 } from '@/services/md.services'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import Blogs from '@/components/NewHome/Blogs'
+import Blogs from '@/components/Pages/NewHome/Blogs'
 import apiClient from '@/utils/axios'
 import { useEffect, useState } from 'react'
 import { useUser } from '@/context/user'

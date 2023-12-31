@@ -1,6 +1,6 @@
 import NewCard from '@/components/Card/NewCard'
 import React from 'react'
-import PublicationsCard from './PublicationsCard'
+import PublicationsCard from '@/components/Pages/NewHome/Publications/PublicationsCard'
 import NewChip from '@/components/Common/NewChip'
 import ComponentHeader from '../ComponentHeader'
 import classNames from 'classnames'

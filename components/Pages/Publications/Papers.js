@@ -1,4 +1,4 @@
-import NewCard from '../Card/NewCard'
+import NewCard from '@/components/Card/NewCard'
 
 export default function Papers({ title, data }) {
   return (

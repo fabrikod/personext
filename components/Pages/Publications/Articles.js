@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
-import NewCard from '../Card/NewCard'
-import NewChip from '../Common/NewChip'
-import ArrowRight from '../Icons/ArrowRight'
+import NewCard from '@/components/Card/NewCard'
+import NewChip from '@/components/Common/NewChip'
+import ArrowRight from '@/components/Icons/ArrowRight'
 
 export default function Articles({ title, data }) {
   const router = useRouter()

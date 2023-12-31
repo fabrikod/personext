@@ -1,16 +1,16 @@
-import Publications from '@/components/NewHome/Publications'
-import Stacks from '@/components/NewHome/Stacks'
-import Experience from '@/components/NewHome/Experiences'
-import FollowMe from '@/components/NewHome/FollowMe'
-import Profile from '@/components/NewHome/Profile'
+import Publications from '@/components/Pages/NewHome/Publications'
+import Stacks from '@/components/Pages/NewHome/Stacks'
+import Experience from '@/components/Pages/NewHome/Experiences'
+import FollowMe from '@/components/Pages/NewHome/FollowMe'
+import Profile from '@/components/Pages/NewHome/Profile'
 import NewAppLayout from '@/layouts/NewAppLayout'
 import {
   getBlogJsonService,
   getPablicationsService,
 } from '@/services/md.services'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import SelectedProjects from '@/components/NewHome/SelectedProjects'
-import Blogs from '@/components/NewHome/Blogs'
+import SelectedProjects from '@/components/Pages/NewHome/SelectedProjects'
+import Blogs from '@/components/Pages/NewHome/Blogs'
 import apiClient from '@/utils/axios'
 import { useState } from 'react'
 import { useUser } from '@/context/user'

@@ -1,10 +1,10 @@
 import React from 'react'
-import NewCard from '../Card/NewCard'
-import NewChip from '../Common/NewChip'
+import NewCard from '@/components/Card/NewCard'
+import NewChip from '@/components/Common/NewChip'
 import Image from 'next/image'
-import { Mail } from '../Icons'
-import Circle from '../Icons/Circle'
 import Link from 'next/link'
+import { Mail } from '@/components/Icons'
+import Circle from '@/components/Icons/Circle'
 
 export default function Profile({ data }) {
   return (

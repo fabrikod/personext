@@ -1,7 +1,7 @@
 import React from 'react'
-import NewCard from '../../Card/NewCard'
 import HighlightsCard from './HighlightsCard'
 import ComponentHeader from '../ComponentHeader'
+import NewCard from '@/components/Card/NewCard'
 
 export default function Highlights() {
   return (
