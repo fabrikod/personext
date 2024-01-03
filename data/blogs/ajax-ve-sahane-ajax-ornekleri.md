@@ -1,3 +1,4 @@
+id: 477b4236-870d-4917-a04f-41d30778ae79
 publishedAt: '2007-11-07 03:24:19'
 type: halftext
 title: AJAX ve Şahane Ajax Örnekleri

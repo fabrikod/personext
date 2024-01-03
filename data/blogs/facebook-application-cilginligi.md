@@ -1,3 +1,4 @@
+id: 4f006e02-2a48-4ca6-b5d6-524548be71f8
 publishedAt: '2008-09-03 10:26:32'
 type: halftext
 title: Facebook Application Çılgınlığı

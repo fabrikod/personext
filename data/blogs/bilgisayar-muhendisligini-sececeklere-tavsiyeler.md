@@ -1,3 +1,4 @@
+id: 4af4984b-4fd8-41b1-b543-564689de2466
 publishedAt: '2007-07-28 12:48:19'
 type: halftext
 title: Bilgisayar Mühendisliğini Seçeceklere Tavsiyeler

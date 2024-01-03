@@ -1,3 +1,4 @@
+id: 098f8bb8-2433-488e-b2c3-3f9735d841e4
 publishedAt: '2009-06-16 23:22:11'
 type: halftext
 title: İnternetteki ben ben ben ve egoizm sıçraması

@@ -3,9 +3,11 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.getSettingsService = exports.getPablicationsService = exports.getArchives = exports.getReadJsonFileService = exports.getBlogJsonService = exports.getBlogBySlugService = exports.getUserService = exports.getBlogService = void 0;
+exports.getSettingsService = exports.getPablicationsService = exports.getArchives = exports.getReadJsonFileService = exports.getBlogJsonService = exports.getBlogByIdService = exports.getBlogBySlugService = exports.getUserService = exports.getBlogService = void 0;
 
 var _mdFileAccess = require("@/dataAccess/mdFileAccess");
+
+var _mdFileAccess2 = require("@/dataAccess/mdFileAccess/mdFileAccess");
 
 var _helpers = require("@/helpers");
 
@@ -126,14 +128,60 @@ var getBlogBySlugService = function getBlogBySlugService(slug) {
 
 exports.getBlogBySlugService = getBlogBySlugService;
 
-var getBlogJsonService = function getBlogJsonService(_ref3) {
-  var perpage, page, tag, data;
-  return regeneratorRuntime.async(function getBlogJsonService$(_context4) {
+var getBlogByIdService = function getBlogByIdService(id) {
+  var isBlog, blog, jsonBlog;
+  return regeneratorRuntime.async(function getBlogByIdService$(_context4) {
     while (1) {
       switch (_context4.prev = _context4.next) {
         case 0:
+          _context4.next = 2;
+          return regeneratorRuntime.awrap((0, _mdFileAccess.readJsonFileData)());
+
+        case 2:
+          _context4.t0 = function (blog) {
+            return !Boolean(blog.deletedAt);
+          };
+
+          _context4.t1 = function (blog) {
+            return blog.id === id;
+          };
+
+          isBlog = _context4.sent.filter(_context4.t0).find(_context4.t1);
+
+          if (Boolean(isBlog)) {
+            _context4.next = 7;
+            break;
+          }
+
+          return _context4.abrupt("return", null);
+
+        case 7:
+          _context4.next = 9;
+          return regeneratorRuntime.awrap((0, _mdFileAccess2.getBlogByFileNameData)(isBlog.file));
+
+        case 9:
+          blog = _context4.sent;
+          jsonBlog = (0, _helpers.toObject)(blog);
+          return _context4.abrupt("return", jsonBlog);
+
+        case 12:
+        case "end":
+          return _context4.stop();
+      }
+    }
+  });
+};
+
+exports.getBlogByIdService = getBlogByIdService;
+
+var getBlogJsonService = function getBlogJsonService(_ref3) {
+  var perpage, page, tag, data;
+  return regeneratorRuntime.async(function getBlogJsonService$(_context5) {
+    while (1) {
+      switch (_context5.prev = _context5.next) {
+        case 0:
           perpage = _ref3.perpage, page = _ref3.page, tag = _ref3.tag;
-          _context4.next = 3;
+          _context5.next = 3;
           return regeneratorRuntime.awrap((0, _mdFileAccess.getBlogFileJsonData)({
             perpage: Number(perpage) || 4,
             page: Number(page) || 1,
@@ -141,7 +189,7 @@ var getBlogJsonService = function getBlogJsonService(_ref3) {
           }));
 
         case 3:
-          data = _context4.sent;
+          data = _context5.sent;
           data.data = data.data.map(function (_ref4) {
             var attributes = _ref4.attributes;
             return (0, _helpers.toObject)(attributes);
@@ -151,11 +199,11 @@ var getBlogJsonService = function getBlogJsonService(_ref3) {
               content: !Boolean(blog.description) ? blog.content.length > 500 ? blog.content.substring(0, 500) : blog.content : blog.description
             });
           });
-          return _context4.abrupt("return", data);
+          return _context5.abrupt("return", data);
 
         case 7:
         case "end":
-          return _context4.stop();
+          return _context5.stop();
       }
     }
   });
@@ -165,20 +213,20 @@ exports.getBlogJsonService = getBlogJsonService;
 
 var getReadJsonFileService = function getReadJsonFileService() {
   var blog;
-  return regeneratorRuntime.async(function getReadJsonFileService$(_context5) {
+  return regeneratorRuntime.async(function getReadJsonFileService$(_context6) {
     while (1) {
-      switch (_context5.prev = _context5.next) {
+      switch (_context6.prev = _context6.next) {
         case 0:
-          _context5.next = 2;
+          _context6.next = 2;
           return regeneratorRuntime.awrap((0, _mdFileAccess.readJsonFileData)());
 
         case 2:
-          blog = _context5.sent;
-          return _context5.abrupt("return", blog);
+          blog = _context6.sent;
+          return _context6.abrupt("return", blog);
 
         case 4:
         case "end":
-          return _context5.stop();
+          return _context6.stop();
       }
     }
   });
@@ -189,15 +237,15 @@ exports.getReadJsonFileService = getReadJsonFileService;
 var getArchives = function getArchives() {
   var archives, groupedData, goodGruppedData, _i, _Object$entries, _Object$entries$_i, key, monthList;
 
-  return regeneratorRuntime.async(function getArchives$(_context6) {
+  return regeneratorRuntime.async(function getArchives$(_context7) {
     while (1) {
-      switch (_context6.prev = _context6.next) {
+      switch (_context7.prev = _context7.next) {
         case 0:
-          _context6.next = 2;
+          _context7.next = 2;
           return regeneratorRuntime.awrap((0, _mdFileAccess.readJsonFileData)());
 
         case 2:
-          archives = _context6.sent;
+          archives = _context7.sent;
           groupedData = {};
           archives.forEach(function (item) {
             var publishedAt = new Date(item.publishedAt);
@@ -240,11 +288,11 @@ var getArchives = function getArchives() {
             });
           }
 
-          return _context6.abrupt("return", goodGruppedData.reverse());
+          return _context7.abrupt("return", goodGruppedData.reverse());
 
         case 8:
         case "end":
-          return _context6.stop();
+          return _context7.stop();
       }
     }
   });
@@ -254,33 +302,33 @@ exports.getArchives = getArchives;
 
 var getPablicationsService = function getPablicationsService(fields) {
   var publications, jsonPublications, name, data;
-  return regeneratorRuntime.async(function getPablicationsService$(_context7) {
+  return regeneratorRuntime.async(function getPablicationsService$(_context8) {
     while (1) {
-      switch (_context7.prev = _context7.next) {
+      switch (_context8.prev = _context8.next) {
         case 0:
-          _context7.next = 2;
+          _context8.next = 2;
           return regeneratorRuntime.awrap((0, _mdFileAccess.getPulicationsFileData)());
 
         case 2:
-          publications = _context7.sent;
+          publications = _context8.sent;
           jsonPublications = (0, _helpers.toObject)(publications);
 
           if (!fields) {
-            _context7.next = 9;
+            _context8.next = 9;
             break;
           }
 
           name = fields.name;
           data = name ? jsonPublications[name] : jsonPublications;
           data.length = 5;
-          return _context7.abrupt("return", data);
+          return _context8.abrupt("return", data);
 
         case 9:
-          return _context7.abrupt("return", jsonPublications);
+          return _context8.abrupt("return", jsonPublications);
 
         case 10:
         case "end":
-          return _context7.stop();
+          return _context8.stop();
       }
     }
   });
@@ -290,21 +338,21 @@ exports.getPablicationsService = getPablicationsService;
 
 var getSettingsService = function getSettingsService(settingName) {
   var settings, settingsJson;
-  return regeneratorRuntime.async(function getSettingsService$(_context8) {
+  return regeneratorRuntime.async(function getSettingsService$(_context9) {
     while (1) {
-      switch (_context8.prev = _context8.next) {
+      switch (_context9.prev = _context9.next) {
         case 0:
-          _context8.next = 2;
+          _context9.next = 2;
           return regeneratorRuntime.awrap((0, _mdFileAccess.getSettingsFileData)());
 
         case 2:
-          settings = _context8.sent;
+          settings = _context9.sent;
           settingsJson = (0, _helpers.toObject)(settings);
-          return _context8.abrupt("return", settingName ? settingsJson[settingName] : settingsJson);
+          return _context9.abrupt("return", settingName ? settingsJson[settingName] : settingsJson);
 
         case 5:
         case "end":
-          return _context8.stop();
+          return _context9.stop();
       }
     }
   });

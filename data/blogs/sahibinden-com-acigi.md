@@ -1,3 +1,4 @@
+id: fedb31e2-c99b-4dda-9c4d-ca354dfb709a
 publishedAt: '2011-07-25 12:42:02'
 type: halftext
 title: Sahibinden.com Açığı

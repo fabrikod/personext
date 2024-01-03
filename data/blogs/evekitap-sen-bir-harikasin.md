@@ -1,3 +1,4 @@
+id: 2cd4ce28-4f10-4bee-817d-5f298f4db4fd
 deletedAt: '2024-01-03T05:45:36.740Z'
 publishedAt: '2012-05-09 17:19:55'
 type: halftext

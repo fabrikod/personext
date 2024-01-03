@@ -1,3 +1,4 @@
+id: 30df50e1-2ab5-45f1-8d81-49f301e364b3
 publishedAt: '2009-03-05 11:02:07'
 type: halftext
 title: RDA ile Mobil Cihazlar Üzerinde Uygulama Geliştirme

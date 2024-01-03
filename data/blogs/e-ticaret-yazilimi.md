@@ -1,3 +1,4 @@
+id: 11939246-6bbf-422d-a628-03ac2aec225a
 publishedAt: '2011-05-26 22:29:39'
 type: halftext
 title: E-Ticaret Yazılımı

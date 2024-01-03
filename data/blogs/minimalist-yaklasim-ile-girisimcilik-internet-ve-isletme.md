@@ -1,3 +1,4 @@
+id: feeeb6b5-b357-43ac-be62-49f3efc8bb0c
 publishedAt: '2013-01-23 00:52:23'
 type: halftext
 title: Minimalist Yaklaşım ile Girişimcilik, İnternet ve İşletme

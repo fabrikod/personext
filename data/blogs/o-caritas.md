@@ -1,3 +1,4 @@
+id: c98c90da-d79e-4311-a24f-67f5a6ed2256
 publishedAt: '2009-05-15 09:15:23'
 type: halftext
 title: O Caritas

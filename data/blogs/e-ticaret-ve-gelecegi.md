@@ -1,3 +1,4 @@
+id: 52d7c51e-54ba-4e00-94f6-e13078a6e3eb
 publishedAt: '2011-05-26 22:00:21'
 type: halftext
 title: E-Ticaret ve Geleceği

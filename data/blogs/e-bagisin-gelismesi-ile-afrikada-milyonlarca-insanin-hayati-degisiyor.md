@@ -1,3 +1,4 @@
+id: 670a78eb-ede0-429a-a7d9-e1a2f957e5a8
 deletedAt: '2024-01-03T11:18:42.647Z'
 publishedAt: '2019-08-23 08:40:22'
 type: halftext

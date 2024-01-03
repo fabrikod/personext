@@ -1,3 +1,4 @@
+id: 89f1a6c7-9760-43c1-add6-9454e44aa97a
 publishedAt: '2008-01-19 23:31:50'
 type: halftext
 title: Bilgisayar Mühendisliği Rehberi

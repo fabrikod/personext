@@ -1,3 +1,4 @@
+id: 60a8212f-c229-46ca-afd7-c83c59f61f75
 publishedAt: '2011-05-26 10:09:37'
 type: halftext
 title: Fabrikod

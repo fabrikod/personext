@@ -1,3 +1,4 @@
+id: 66ddac3a-c07d-40db-9338-f9a8ca9879ea
 publishedAt: '2009-02-10 17:17:39'
 type: halftext
 title: Php Sözlük Scripti Hakkında

@@ -1,3 +1,4 @@
+id: e4f5847e-e1cd-4e02-a627-e8cb7752001b
 publishedAt: '2007-10-29 01:21:32'
 type: halftext
 title: Açık kaynağın gücü, tekelin zorbalığı ve aradan sıyrılan Web 2.0!

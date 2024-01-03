@@ -1,3 +1,4 @@
+id: c901e76b-7627-45e5-8240-e498cf0e3454
 publishedAt: '2008-05-12 09:58:20'
 type: halftext
 title: İnternet Sitesi Yaptırmak?

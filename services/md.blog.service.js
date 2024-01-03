@@ -1,7 +1,10 @@
+import { BLOG } from '@/constrait/columns'
 import {
   deletedBlogFile,
   readJsonFileData,
+  updateBlogFile,
 } from '@/dataAccess/mdFileAccess/mdFileAccess'
+import { blogValid } from '@/helpers/valid'
 
 export const deletedBlogService = async slug => {
   const jsonBlogs = await readJsonFileData()
@@ -17,4 +20,16 @@ export const deletedBlogService = async slug => {
   await deletedBlogFile(jsonBlogs)
 
   return slug
+}
+
+export const getBlogUpdate = async blogData => {
+  const isValid = blogValid(BLOG, Object.keys(blogData.data))
+
+  if (!isValid) {
+    throw Error('incorrect column')
+  }
+
+  const updateBlog = await updateBlogFile(blogData.data)
+
+  return updateBlog
 }

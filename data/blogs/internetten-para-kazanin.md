@@ -1,3 +1,4 @@
+id: 7c60455e-4489-4dbb-9aa9-652c7e34783f
 publishedAt: '2008-12-05 17:11:33'
 type: halftext
 title: İnternetten Para Kazanın

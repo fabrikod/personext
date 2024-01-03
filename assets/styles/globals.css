@@ -94,7 +94,7 @@ body {
 }
 
 .ql-container.ql-snow{
-  @apply !h-[20rem] !rounded-b-md !border-primary-1
+  @apply !h-[30rem] !rounded-b-md !border-primary-1
 }
 
 .ql-toolbar.ql-snow{

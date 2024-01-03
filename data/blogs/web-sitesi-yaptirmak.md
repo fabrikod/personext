@@ -1,3 +1,4 @@
+id: 79b8f4e6-9e0d-4ca5-ba03-cf5745fe3d7c
 publishedAt: '2008-12-27 23:09:51'
 type: halftext
 title: Web Sitesi Yaptırmak!

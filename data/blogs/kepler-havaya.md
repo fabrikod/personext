@@ -1,3 +1,4 @@
+id: a865f5a2-57ff-4c79-99e6-1517203aecd6
 publishedAt: '2008-06-30 10:41:16'
 type: halftext
 title: Kepler Havaya

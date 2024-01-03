@@ -1,3 +1,4 @@
+id: 09ae689e-ca79-4fa7-bc65-4524717d14f0
 publishedAt: '2007-04-05 20:24:08'
 type: halftext
 title: Staj

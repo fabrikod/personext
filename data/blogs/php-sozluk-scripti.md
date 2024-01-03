@@ -1,3 +1,4 @@
+id: 0bf5711c-bcac-4775-84e8-d4ec65612bbc
 publishedAt: '2007-12-04 18:28:51'
 type: halftext
 title: Php Sözlük Scripti

@@ -1,3 +1,4 @@
+id: 801651b4-c7f4-4bb7-a6e2-2240c129e438
 publishedAt: '2007-08-20 14:55:17'
 type: halftext
 title: Anlaşılamayan Gençlik

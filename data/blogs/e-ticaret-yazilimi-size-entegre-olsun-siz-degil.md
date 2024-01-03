@@ -1,3 +1,4 @@
+id: 440172bb-4220-466b-ac45-2327a776f197
 publishedAt: '2011-09-17 18:52:41'
 type: halftext
 title: E-Ticaret Yazılımı Size Entegre Olsun, Siz Yazılıma Değil

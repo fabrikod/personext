@@ -1,3 +1,4 @@
+id: 032e6d48-5bc2-49c2-8793-efdcdb3ee5f8
 publishedAt: '2013-01-18 20:17:15'
 type: halftext
 title: 'E-Ticaret''in Karanlık Sokağı: Tek Ürün Siteleri'

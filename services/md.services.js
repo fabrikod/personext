@@ -7,6 +7,7 @@ import {
   getPulicationsFileData,
   getSettingsFileData,
 } from '@/dataAccess/mdFileAccess'
+import { getBlogByFileNameData } from '@/dataAccess/mdFileAccess/mdFileAccess'
 
 import { toObject } from '@/helpers'
 
@@ -37,6 +38,20 @@ export const getBlogBySlugService = async slug => {
   }
 
   const blog = await getBlogBySlugData(slug)
+  const jsonBlog = toObject(blog)
+  return jsonBlog
+}
+
+export const getBlogByIdService = async id => {
+  const isBlog = (await readJsonFileData())
+    .filter(blog => !Boolean(blog.deletedAt))
+    .find(blog => blog.id === id)
+
+  if (!Boolean(isBlog)) {
+    return null
+  }
+
+  const blog = await getBlogByFileNameData(isBlog.file)
   const jsonBlog = toObject(blog)
   return jsonBlog
 }

@@ -1,3 +1,4 @@
+id: e4913c7e-68b9-407d-a2d5-e04559aa0d11
 publishedAt: '2009-11-20 14:23:47'
 type: halftext
 title: İnternet ve Sanat

@@ -21,6 +21,7 @@ const getMetaDataBySortBlog = async () => {
       const json = yaml(content)
 
       blogMetaDataArray.push({
+        id: json.id,
         file: file,
         title: json.title,
         createdAt: fileStats.birthtime,

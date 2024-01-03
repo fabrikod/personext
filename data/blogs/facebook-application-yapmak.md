@@ -1,3 +1,4 @@
+id: 742abb96-6d27-4863-b515-3542bc94e993
 publishedAt: '2007-10-19 23:16:39'
 type: halftext
 title: Facebook Application Yapmak?

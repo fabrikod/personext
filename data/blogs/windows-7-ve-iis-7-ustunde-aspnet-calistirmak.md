@@ -1,3 +1,4 @@
+id: d5077ca7-6673-4ec1-813c-7ac1cf0e9f2d
 publishedAt: '2010-04-04 12:00:30'
 type: halftext
 title: Windows 7 ve IIS 7 üstünde ASP.NET çalıştırmak

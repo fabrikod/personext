@@ -8,23 +8,27 @@ export default function Create({
   children,
   actionButtonText,
   cancelButtonText,
+  updateAndReturnButtonText,
   formData,
   fetchData,
-  cancelUrl,
-  detailUrl,
-  unicData,
+  url,
+  id,
   type,
 }) {
   const handleOnSubmit = async e => {
     e.preventDefault()
-
-    console.log('formDataformData', formData)
+    const blogs = await apiClient.post(`/admin/${url}/update`, {
+      data: {
+        id: id,
+        ...formData,
+      },
+    })
   }
 
   const fetchDataDetail = async () => {
-    const blogs = await apiClient.get(detailUrl, {
+    const blogs = await apiClient.get(`/admin/${url}/detail`, {
       params: {
-        unicData: unicData.split('/')[1],
+        id: id,
       },
     })
 
@@ -33,11 +37,13 @@ export default function Create({
     }
   }
 
+  const handleUpdateAndReturnSubmit = () => {}
+
   useEffect(() => {
-    if (type === 'update' && Boolean(unicData)) {
+    if (type === 'update' && Boolean(id)) {
       fetchDataDetail()
     }
-  }, [type, unicData])
+  }, [type, id])
 
   return (
     <NewCard className="!w-full px-5 py-6">
@@ -45,16 +51,26 @@ export default function Create({
         {children}
 
         <div className="mt-7 flex justify-end gap-3">
+          {updateAndReturnButtonText && (
+            <NewChip
+              as="button"
+              onClick={handleUpdateAndReturnSubmit}
+              className="inline-flex items-center gap-2 rounded-md bg-lineer-light px-3 text-sm"
+            >
+              {updateAndReturnButtonText}
+            </NewChip>
+          )}
+
           <NewChip
             as="link"
-            href={cancelUrl}
-            className="inline-flex items-center gap-2 rounded-md bg-lineer-light px-3"
+            href={`/panel/${url}`}
+            className="inline-flex items-center gap-2 rounded-md bg-lineer-light px-3 text-sm"
           >
             {cancelButtonText}
           </NewChip>
           <NewChip
             as="button"
-            className="inline-flex items-center gap-2 rounded-md bg-lineer-light px-3"
+            className="inline-flex items-center gap-2 rounded-md bg-lineer-light px-3 text-sm"
           >
             <Save /> {actionButtonText}
           </NewChip>

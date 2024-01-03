@@ -1,3 +1,4 @@
+id: ba4634f0-a66c-46de-8e2f-f00628387ea8
 publishedAt: '2012-03-02 01:20:20'
 type: halftext
 title: Metro Style Application Geliştirmek

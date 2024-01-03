@@ -1,3 +1,4 @@
+id: 5bdf1cf6-d2dc-44bb-946d-c767a20a78d2
 publishedAt: '2009-04-21 08:58:33'
 type: halftext
 title: Söyledim gitti

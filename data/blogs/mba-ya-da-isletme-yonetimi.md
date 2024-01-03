@@ -1,3 +1,4 @@
+id: f696ece6-a24e-40ac-8c8c-0dd4986d2a8b
 publishedAt: '2010-05-14 11:27:22'
 type: halftext
 title: MBA ya da İşletme Yönetimi

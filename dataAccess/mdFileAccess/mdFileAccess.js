@@ -47,6 +47,12 @@ export const getBlogBySlugData = async slug => {
   return blogData
 }
 
+export const getBlogByFileNameData = async slug => {
+  //return file content based on slug name
+  const blogData = getFileData(slug, 'data/blogs')
+  return blogData
+}
+
 export const readJsonFileData = async () => {
   //return blogs.json
   // const data = require(JSON_BLOG_PATH)
@@ -115,3 +121,5 @@ export const deletedBlogFile = async jsonBlogs => {
     }
   )
 }
+
+export const updateBlogFile = async () => {}

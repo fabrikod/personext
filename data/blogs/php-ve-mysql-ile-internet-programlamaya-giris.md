@@ -1,3 +1,4 @@
+id: 07f1bc2d-8449-4c31-a031-d6e57597668a
 publishedAt: '2007-12-01 23:26:15'
 type: halftext
 title: PHP ve MySql ile İnternet Programlamaya Giriş

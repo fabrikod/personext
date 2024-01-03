@@ -1,3 +1,4 @@
+id: 52832d15-1bc0-479a-8209-1136e881017b
 publishedAt: '2011-11-01 10:39:56'
 type: halftext
 title: E-Ticaret İle İnternetten Para Kazanma Rehberi

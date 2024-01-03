@@ -1,3 +1,4 @@
+id: 343546a6-9ed5-4027-9105-190c02e4f3e2
 publishedAt: '2012-07-10 13:07:31'
 type: halftext
 title: Burası İskoçya Değil, İstanbul

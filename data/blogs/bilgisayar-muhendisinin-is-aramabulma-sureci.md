@@ -1,3 +1,4 @@
+id: eaf0c21e-cca9-48de-a10e-1b90ed1342f4
 publishedAt: '2008-01-28 23:33:48'
 type: halftext
 title: Bilgisayar Mühendisinin İş Arama&Bulma Süreci

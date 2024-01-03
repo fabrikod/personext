@@ -3,9 +3,13 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.deletedBlogService = void 0;
+exports.getBlogUpdate = exports.deletedBlogService = void 0;
+
+var _columns = require("@/constrait/columns");
 
 var _mdFileAccess = require("@/dataAccess/mdFileAccess/mdFileAccess");
+
+var _valid = require("@/helpers/valid");
 
 var deletedBlogService = function deletedBlogService(slug) {
   var jsonBlogs, blogIndex;
@@ -46,3 +50,36 @@ var deletedBlogService = function deletedBlogService(slug) {
 };
 
 exports.deletedBlogService = deletedBlogService;
+
+var getBlogUpdate = function getBlogUpdate(blogData) {
+  var isValid, updateBlog;
+  return regeneratorRuntime.async(function getBlogUpdate$(_context2) {
+    while (1) {
+      switch (_context2.prev = _context2.next) {
+        case 0:
+          isValid = (0, _valid.blogValid)(_columns.BLOG, Object.keys(blogData.data));
+
+          if (isValid) {
+            _context2.next = 3;
+            break;
+          }
+
+          throw Error('incorrect column');
+
+        case 3:
+          _context2.next = 5;
+          return regeneratorRuntime.awrap((0, _mdFileAccess.updateBlogFile)(blogData.data));
+
+        case 5:
+          updateBlog = _context2.sent;
+          return _context2.abrupt("return", updateBlog);
+
+        case 7:
+        case "end":
+          return _context2.stop();
+      }
+    }
+  });
+};
+
+exports.getBlogUpdate = getBlogUpdate;

@@ -1,3 +1,4 @@
+id: 409c2d7a-9641-417a-8415-40ad043d053e
 publishedAt: '2011-10-16 23:37:34'
 type: halftext
 title: Firsaturunu.com - Mükemmel ve Berbat E-Ticaret

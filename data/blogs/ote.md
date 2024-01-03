@@ -1,3 +1,4 @@
+id: 6e60d4a7-266f-4a10-9834-8511ea94bc82
 publishedAt: '2008-12-01 23:55:14'
 type: halftext
 title: Öte

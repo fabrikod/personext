@@ -20,7 +20,7 @@ export default function Side() {
         <ul className="w-f">
           <li>
             <Link
-              href="/panel/blogs"
+              href="/panel/blog"
               className="block rounded-md bg-panel-menu px-2 py-2 text-sm text-black"
             >
               Blogs

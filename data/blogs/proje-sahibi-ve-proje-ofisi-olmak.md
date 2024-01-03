@@ -1,3 +1,4 @@
+id: bb5911a9-6316-4751-925f-6f202e41ef3c
 publishedAt: '2011-12-02 01:35:06'
 type: halftext
 title: Proje Sahibi ve Proje Ofisi Olmak

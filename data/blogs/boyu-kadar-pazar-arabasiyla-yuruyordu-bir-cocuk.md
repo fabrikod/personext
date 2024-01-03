@@ -1,3 +1,4 @@
+id: 32d78d75-383c-47a0-bdf2-05cf31e91270
 publishedAt: '2012-12-24 17:18:21'
 type: halftext
 title: Boyu Kadar Pazar Arabasıyla Yürüyordu Bir Çocuk

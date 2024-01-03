@@ -1,3 +1,4 @@
+id: d17d695d-9cda-48d8-9431-e3a667059926
 publishedAt: '2012-06-15 17:48:04'
 type: halftext
 title: Facebook Sayfası Efsanesi Bitti

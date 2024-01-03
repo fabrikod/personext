@@ -1,3 +1,4 @@
+id: 051d47e8-4202-4e2d-97b3-466855330178
 publishedAt: '2007-05-30 10:54:02'
 type: halftext
 title: Bilgisayar Mühendisi Adayı Olmak

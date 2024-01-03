@@ -1,3 +1,4 @@
+id: d5af6697-581d-495c-a601-0758e35a44c7
 deletedAt: '2024-01-03T11:18:52.397Z'
 publishedAt: '2013-04-08 12:37:15'
 type: halftext

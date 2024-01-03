@@ -1,3 +1,4 @@
+id: 9770ae11-fb16-4076-acdd-8d754024e571
 publishedAt: '2009-05-21 10:31:04'
 type: halftext
 title: 'Yazılımdaki en büyük sır: İstersen her şeyi yapabilirsin!'

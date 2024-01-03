@@ -14,7 +14,7 @@ function handler(req, res) {
       switch (_context.prev = _context.next) {
         case 0:
           _context.next = 2;
-          return regeneratorRuntime.awrap((0, _md.getBlogBySlugService)(req.query.unicData));
+          return regeneratorRuntime.awrap((0, _md.getBlogByIdService)(req.query.id));
 
         case 2:
           blog = _context.sent;

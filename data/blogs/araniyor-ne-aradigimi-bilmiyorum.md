@@ -1,3 +1,4 @@
+id: ccf9665e-0dbb-49ca-a2ef-f9e78a2b5049
 publishedAt: '2010-03-17 13:40:29'
 type: halftext
 title: 'Aranıyor: Ne aradığımı bilmiyorum?'

@@ -105,8 +105,8 @@ export default function List({ title }) {
               </div>
               <Link
                 href={{
-                  pathname: '/panel/blogs/[slug]/edit',
-                  query: { slug: data.slug },
+                  pathname: '/panel/blog/[id]/edit',
+                  query: { id: data.id },
                 }}
               >
                 <div className="cursor-pointer rounded-md border border-primary-1 bg-lineer-light px-1 py-1">

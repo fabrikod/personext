@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.deletedBlogFile = exports.getSettingsFileData = exports.getBlogFileJsonData = exports.readJsonFileDataBySlug = exports.readJsonFileData = exports.getBlogBySlugData = exports.getPulicationsFileData = exports.getUserFileData = exports.getFileData = exports.getBlogsFilesData = void 0;
+exports.updateBlogFile = exports.deletedBlogFile = exports.getSettingsFileData = exports.getBlogFileJsonData = exports.readJsonFileDataBySlug = exports.readJsonFileData = exports.getBlogByFileNameData = exports.getBlogBySlugData = exports.getPulicationsFileData = exports.getUserFileData = exports.getFileData = exports.getBlogsFilesData = void 0;
 
 var _constrait = require("@/constrait");
 
@@ -189,20 +189,15 @@ var getBlogBySlugData = function getBlogBySlugData(slug) {
 
 exports.getBlogBySlugData = getBlogBySlugData;
 
-var readJsonFileData = function readJsonFileData() {
-  var fileContents;
-  return regeneratorRuntime.async(function readJsonFileData$(_context6) {
+var getBlogByFileNameData = function getBlogByFileNameData(slug) {
+  var blogData;
+  return regeneratorRuntime.async(function getBlogByFileNameData$(_context6) {
     while (1) {
       switch (_context6.prev = _context6.next) {
         case 0:
-          //return blogs.json
-          // const data = require(JSON_BLOG_PATH)
-          // console.log('datadata', data)
-          // const fileContents = await fs.readFile(JSON_BLOG_PATH, 'utf8')
-          // const jsonData = JSON.parse(fileContents)
-          // return jsonData
-          fileContents = require('@/data/blogs.json');
-          return _context6.abrupt("return", fileContents);
+          //return file content based on slug name
+          blogData = getFileData(slug, 'data/blogs');
+          return _context6.abrupt("return", blogData);
 
         case 2:
         case "end":
@@ -212,28 +207,53 @@ var readJsonFileData = function readJsonFileData() {
   });
 };
 
+exports.getBlogByFileNameData = getBlogByFileNameData;
+
+var readJsonFileData = function readJsonFileData() {
+  var fileContents;
+  return regeneratorRuntime.async(function readJsonFileData$(_context7) {
+    while (1) {
+      switch (_context7.prev = _context7.next) {
+        case 0:
+          //return blogs.json
+          // const data = require(JSON_BLOG_PATH)
+          // console.log('datadata', data)
+          // const fileContents = await fs.readFile(JSON_BLOG_PATH, 'utf8')
+          // const jsonData = JSON.parse(fileContents)
+          // return jsonData
+          fileContents = require('@/data/blogs.json');
+          return _context7.abrupt("return", fileContents);
+
+        case 2:
+        case "end":
+          return _context7.stop();
+      }
+    }
+  });
+};
+
 exports.readJsonFileData = readJsonFileData;
 
 var readJsonFileDataBySlug = function readJsonFileDataBySlug(slug) {
   var jsonData, findJsonData;
-  return regeneratorRuntime.async(function readJsonFileDataBySlug$(_context7) {
+  return regeneratorRuntime.async(function readJsonFileDataBySlug$(_context8) {
     while (1) {
-      switch (_context7.prev = _context7.next) {
+      switch (_context8.prev = _context8.next) {
         case 0:
-          _context7.next = 2;
+          _context8.next = 2;
           return regeneratorRuntime.awrap(readJsonFileData());
 
         case 2:
-          jsonData = _context7.sent;
+          jsonData = _context8.sent;
           findJsonData = jsonData.find(function (_ref) {
             var file = _ref.file;
             return file.split('.')[0] === slug.split('/')[1];
           });
-          return _context7.abrupt("return", findJsonData);
+          return _context8.abrupt("return", findJsonData);
 
         case 5:
         case "end":
-          return _context7.stop();
+          return _context8.stop();
       }
     }
   });
@@ -243,16 +263,16 @@ exports.readJsonFileDataBySlug = readJsonFileDataBySlug;
 
 var getBlogFileJsonData = function getBlogFileJsonData(_ref2) {
   var perpage, page, queryTag, jsonData, PERPAGE, startIndex, endIndex, jsonBlogArray, blogs;
-  return regeneratorRuntime.async(function getBlogFileJsonData$(_context8) {
+  return regeneratorRuntime.async(function getBlogFileJsonData$(_context9) {
     while (1) {
-      switch (_context8.prev = _context8.next) {
+      switch (_context9.prev = _context9.next) {
         case 0:
           perpage = _ref2.perpage, page = _ref2.page, queryTag = _ref2.queryTag;
-          _context8.next = 3;
+          _context9.next = 3;
           return regeneratorRuntime.awrap(readJsonFileData());
 
         case 3:
-          jsonData = _context8.sent;
+          jsonData = _context9.sent;
           jsonData = jsonData.filter(function (data) {
             return data.listVisible !== false && !Boolean(data.deletedAt);
           });
@@ -269,12 +289,12 @@ var getBlogFileJsonData = function getBlogFileJsonData(_ref2) {
           startIndex = (page - 1) * PERPAGE;
           endIndex = startIndex + PERPAGE;
           jsonBlogArray = jsonData.slice(startIndex, endIndex);
-          _context8.next = 12;
+          _context9.next = 12;
           return regeneratorRuntime.awrap(getBlogsFilesData(jsonBlogArray));
 
         case 12:
-          blogs = _context8.sent;
-          return _context8.abrupt("return", {
+          blogs = _context9.sent;
+          return _context9.abrupt("return", {
             data: blogs,
             meta: {
               total: jsonData.length,
@@ -286,7 +306,7 @@ var getBlogFileJsonData = function getBlogFileJsonData(_ref2) {
 
         case 14:
         case "end":
-          return _context8.stop();
+          return _context9.stop();
       }
     }
   });
@@ -296,20 +316,20 @@ exports.getBlogFileJsonData = getBlogFileJsonData;
 
 var getSettingsFileData = function getSettingsFileData() {
   var settingData;
-  return regeneratorRuntime.async(function getSettingsFileData$(_context9) {
+  return regeneratorRuntime.async(function getSettingsFileData$(_context10) {
     while (1) {
-      switch (_context9.prev = _context9.next) {
+      switch (_context10.prev = _context10.next) {
         case 0:
-          _context9.next = 2;
+          _context10.next = 2;
           return regeneratorRuntime.awrap(getFileData('settings.md'));
 
         case 2:
-          settingData = _context9.sent;
-          return _context9.abrupt("return", settingData);
+          settingData = _context10.sent;
+          return _context10.abrupt("return", settingData);
 
         case 4:
         case "end":
-          return _context9.stop();
+          return _context10.stop();
       }
     }
   });
@@ -318,11 +338,11 @@ var getSettingsFileData = function getSettingsFileData() {
 exports.getSettingsFileData = getSettingsFileData;
 
 var deletedBlogFile = function deletedBlogFile(jsonBlogs) {
-  return regeneratorRuntime.async(function deletedBlogFile$(_context10) {
+  return regeneratorRuntime.async(function deletedBlogFile$(_context11) {
     while (1) {
-      switch (_context10.prev = _context10.next) {
+      switch (_context11.prev = _context11.next) {
         case 0:
-          _context10.next = 2;
+          _context11.next = 2;
           return regeneratorRuntime.awrap(fs.writeFile(path.join(_constrait.JSON_BLOG_PATH), JSON.stringify(jsonBlogs), function (err) {
             if (err) {
               console.error('JSON file write error:', err);
@@ -332,10 +352,24 @@ var deletedBlogFile = function deletedBlogFile(jsonBlogs) {
 
         case 2:
         case "end":
-          return _context10.stop();
+          return _context11.stop();
       }
     }
   });
 };
 
 exports.deletedBlogFile = deletedBlogFile;
+
+var updateBlogFile = function updateBlogFile() {
+  return regeneratorRuntime.async(function updateBlogFile$(_context12) {
+    while (1) {
+      switch (_context12.prev = _context12.next) {
+        case 0:
+        case "end":
+          return _context12.stop();
+      }
+    }
+  });
+};
+
+exports.updateBlogFile = updateBlogFile;

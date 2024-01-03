@@ -1,3 +1,4 @@
+id: 0801a1da-8fe2-4a23-87f4-8022f91c0628
 publishedAt: '2011-07-25 13:19:49'
 type: halftext
 title: E-Ticarette Yeni Trend Tek Ürüne Odaklanmak

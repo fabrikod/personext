@@ -1,3 +1,4 @@
+id: bcbe813f-f623-48ef-b210-0f0e1e14ca27
 publishedAt: '2008-05-28 17:30:10'
 type: halftext
 title: Öss, En Büyük Yanılgılar, Tavsiyeler

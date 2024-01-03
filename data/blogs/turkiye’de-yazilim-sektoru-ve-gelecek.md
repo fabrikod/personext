@@ -1,3 +1,4 @@
+id: d560dd5a-7a1b-45df-b5bb-b1b74ebcd2c9
 publishedAt: '2008-10-21 12:58:39'
 type: halftext
 title: Türkiye’de Yazılım Sektörü ve Gelecek

@@ -3,6 +3,7 @@ import AdminCreate from '@/components/Layout/Admin/Create'
 import FileInput from '@/components/Layout/Admin/Inputs/FileInput'
 import RichText from '@/components/Layout/Admin/Inputs/RichText'
 import TextInput from '@/components/Layout/Admin/Inputs/TextInput'
+import { parseSlug } from '@/helpers/client.converter'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { useReducer } from 'react'
@@ -27,24 +28,29 @@ const formReducer = (state, action) => {
 export default function Form({
   actionButtonText,
   cancelButtonText,
+  updateAndReturnButtonText,
   type,
   url,
 }) {
+  const router = useRouter()
+
   const [formState, dispatch] = useReducer(formReducer, {
     title: '',
     description: '',
     content: '',
     image: '',
+    slug: '',
   })
 
   const handleInputChange = (field, value) => {
     dispatch({ type: 'UPDATE_INPUT', field, value })
   }
 
-  const router = useRouter()
+  useEffect(() => {
+    handleInputChange('slug', `/${parseSlug(formState.title)}`)
+  }, [formState.title])
 
   const fetchData = data => {
-    console.log('dadads', data)
     dispatch({
       type: 'UPDATE_ALL_INPUT',
       value: {
@@ -52,6 +58,7 @@ export default function Form({
         description: data.description,
         content: data.content,
         image: data.image,
+        slug: data.slug,
       },
     })
   }
@@ -60,10 +67,12 @@ export default function Form({
     <AdminCreate
       actionButtonText={actionButtonText || 'Save'}
       cancelButtonText={cancelButtonText || 'Cancel'}
+      updateAndReturnButtonText={
+        updateAndReturnButtonText || 'Update and Return'
+      }
       formData={formState}
-      cancelUrl={'/panel/blogs'}
-      detailUrl="/admin/blog/detail"
-      unicData={router.query.slug}
+      url={'blog'}
+      id={router.query.id}
       type="update"
       fetchData={fetchData}
     >
@@ -71,6 +80,16 @@ export default function Form({
         label={'Title'}
         onChange={e => handleInputChange('title', e.target.value)}
         value={formState.title}
+        placeholder={
+          '100 Days of Drawing — Learnings From an Artist Who Never Commits'
+        }
+      />
+      <Spacer className="h-5" />
+
+      <TextInput
+        label={'Slug'}
+        onChange={e => handleInputChange('slug', e.target.value)}
+        value={formState.slug}
         placeholder={
           '100 Days of Drawing — Learnings From an Artist Who Never Commits'
         }

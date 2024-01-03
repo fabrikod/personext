@@ -1,3 +1,4 @@
+id: 1460980c-ad5f-4b58-96f9-4f1712871064
 publishedAt: '2008-03-11 23:36:13'
 type: halftext
 title: İnternet, Web 2.0, Ajax, .Net, Framework, Intellisense vs. vs. ve Gelecek
