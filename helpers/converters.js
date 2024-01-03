@@ -9,12 +9,16 @@ const slug = url => {
     .trim()
 }
 
-const yaml = content => {
+const toObject = content => {
   return jsyaml.load(content)
+}
+
+const toYaml = content => {
+  return jsyaml.dump(content)
 }
 
 const getFileContent = path => {
   return fs.readFileSync(`${process.cwd()}/data/${path}`, 'utf-8')
 }
 
-export { slug, yaml }
+export { slug, toObject, toYaml }

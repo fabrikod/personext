@@ -25,6 +25,7 @@ const getMetaDataBySortBlog = async () => {
         title: json.title,
         createdAt: fileStats.birthtime,
         publishedAt: new Date(json.publishedAt),
+        // deletedAt: json.deletedAt || '',
         listVisible: json.listVisible,
         tags: json.tags || [],
       })

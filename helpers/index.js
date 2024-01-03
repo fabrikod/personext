@@ -1,1 +1,1 @@
-export { slug, yaml } from './converters'
+export { slug, toYaml, toObject } from './converters'

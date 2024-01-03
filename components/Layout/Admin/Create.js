@@ -2,11 +2,11 @@ import NewCard from '@/components/Card/NewCard'
 import NewChip from '@/components/Common/NewChip'
 import { Save } from '@/components/Icons'
 
-export default function Create({ children, actionButtonText, formData }) {
-  const handleOnSubmit = e => {
+export default function Create({ children, actionButtonText, formData, url }) {
+  const handleOnSubmit = async e => {
     e.preventDefault()
-    console.log(e.target)
-    console.log('formDataformData', formData())
+
+    console.log('formDataformData', formData)
   }
 
   return (

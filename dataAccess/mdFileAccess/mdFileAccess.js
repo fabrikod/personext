@@ -54,6 +54,14 @@ export const readJsonFileData = async () => {
   return jsonData
 }
 
+export const readJsonFileDataBySlug = async slug => {
+  var jsonData = await readJsonFileData()
+  const findJsonData = jsonData.find(
+    ({ file }) => file.split('.')[0] === slug.split('/')[1]
+  )
+  return findJsonData
+}
+
 export const getBlogFileJsonData = async ({ perpage, page, queryTag }) => {
   //return paging blog data
   var jsonData = await readJsonFileData()
@@ -86,4 +94,19 @@ export const getBlogFileJsonData = async ({ perpage, page, queryTag }) => {
 export const getSettingsFileData = async () => {
   const settingData = await getFileData('settings.md')
   return settingData
+}
+
+export const deletedBlogFile = async (deletedBlogYamlData, slug) => {
+  console.log(path.join(BLOG_FOLDER_PATH, `${slug}.md`))
+  await fs.writeFile(
+    path.join(BLOG_FOLDER_PATH, `${slug}.md`),
+    deletedBlogYamlData,
+    'utf8',
+    err => {
+      if (err) {
+        console.error('JSON file write error:', err)
+        return
+      }
+    }
+  )
 }

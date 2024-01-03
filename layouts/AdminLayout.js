@@ -1,6 +1,9 @@
 import Side from '@/components/Layout/Admin/Side'
+import { signOut, useSession } from 'next-auth/react'
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
 
-export default function AdminLayout({ children, title }) {
+export default function AdminLayout({ children }) {
   return (
     <div className="flex bg-base-4">
       <div className="w-full max-w-[15rem]">
@@ -8,8 +11,8 @@ export default function AdminLayout({ children, title }) {
       </div>
 
       <div className="w-full max-w-3xl p-7 pt-12">
-        <h1 className="text-4xl font-bold">{title}</h1>
-        <div className="mt-7">{children}</div>
+        <button onClick={() => signOut()}>cikis yap</button>
+        <div>{children}</div>
       </div>
     </div>
   )

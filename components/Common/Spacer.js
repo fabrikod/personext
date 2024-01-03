@@ -1,3 +1,3 @@
-export default function Spacer({ size = 1 }) {
-  return <div className={`h-${size}`} />
+export default function Spacer({ className }) {
+  return <div className={className} />
 }

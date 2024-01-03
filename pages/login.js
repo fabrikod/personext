@@ -16,12 +16,9 @@ export default function SignIn() {
 
   const handleLogin = async e => {
     e.preventDefault()
-    // signIn({ user, account, profile, email, credentials })
     const result = await signIn('credentials', {
-      // kullanıcı adı ve şifreyi gönderin
       username: userName,
       password: userPassword,
-      // hata olursa geri döneceğiniz sayfayı belirleyin
       redirect: true,
       callbackUrl: '/panel',
     })

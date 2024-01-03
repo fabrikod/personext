@@ -49,5 +49,9 @@ export default NextAuth({
       session.accessToken = token.accessToken
       return session
     },
+    authorized({ req, token }) {
+      console.log('222222222')
+      if (token) return true // If there is a token, the user is authenticated
+    },
   },
 })

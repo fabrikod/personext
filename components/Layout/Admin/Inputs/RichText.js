@@ -92,7 +92,7 @@ export default function RichText({ value, id, name, label }) {
           'link',
           'image',
         ]}
-        onChange={value}
+        onChange={e => value(e)}
         theme="snow"
       />
     </>

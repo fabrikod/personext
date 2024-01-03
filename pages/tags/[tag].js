@@ -2,7 +2,7 @@ import NewAppLayout from '@/layouts/NewAppLayout'
 import {
   getUserService,
   getBlogJsonService,
-  getSetting,
+  getSettingsService,
   getReadJsonFileService,
 } from '@/services/md.services'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
@@ -109,7 +109,7 @@ export async function getStaticProps({ params, locale }) {
     tag: params.tag,
   })
   const user = await getUserService()
-  const domain = await getSetting({ settingName: 'domain' })
+  const domain = await getSettingsService({ settingName: 'domain' })
 
   return {
     props: {
