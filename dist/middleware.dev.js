@@ -9,18 +9,19 @@ exports.config = void 0;
 var _server = require("next/server");
 
 function middleware(request) {
+  var token;
   return regeneratorRuntime.async(function middleware$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
-          console.log('request.cookiesrequest.cookies', request.cookies);
+          token = process.env.NODE_ENV === 'production' ? request.cookies.get('__Secure-next-auth.session-token') : request.cookies.get('next-auth.session-token');
 
           if (!request.nextUrl.pathname.startsWith('/panel')) {
             _context.next = 5;
             break;
           }
 
-          if (!!request.cookies.get('next-auth.session-token')) {
+          if (!!token) {
             _context.next = 4;
             break;
           }
@@ -36,7 +37,7 @@ function middleware(request) {
             break;
           }
 
-          if (!!request.cookies.get('next-auth.session-token')) {
+          if (!!token) {
             _context.next = 8;
             break;
           }
@@ -54,7 +55,7 @@ function middleware(request) {
             break;
           }
 
-          if (!request.cookies.get('next-auth.session-token')) {
+          if (!token) {
             _context.next = 12;
             break;
           }

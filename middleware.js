@@ -1,23 +1,27 @@
 import { NextResponse } from 'next/server'
 
 export async function middleware(request) {
-  console.log('request.cookiesrequest.cookies', request.cookies)
+  const token =
+    process.env.NODE_ENV === 'production'
+      ? request.cookies.get('__Secure-next-auth.session-token')
+      : request.cookies.get('next-auth.session-token')
+
   if (request.nextUrl.pathname.startsWith('/panel')) {
-    if (!!!request.cookies.get('next-auth.session-token')) {
+    if (!!!token) {
       return NextResponse.redirect(new URL('/login', request.url))
     }
     return NextResponse.next()
   }
 
   if (request.nextUrl.pathname.startsWith('/api/admin')) {
-    if (!!!request.cookies.get('next-auth.session-token')) {
+    if (!!!token) {
       return new NextResponse('Unauthorized', { status: 401 })
     }
     return NextResponse.next()
   }
 
   if (request.nextUrl.pathname.startsWith('/login')) {
-    if (!!request.cookies.get('next-auth.session-token')) {
+    if (!!token) {
       return NextResponse.redirect(new URL('/panel', request.url))
     }
     return NextResponse.next()
