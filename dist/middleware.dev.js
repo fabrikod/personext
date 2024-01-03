@@ -13,29 +13,31 @@ function middleware(request) {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
+          console.log('request.cookiesrequest.cookies', request.cookies);
+
           if (!request.nextUrl.pathname.startsWith('/panel')) {
-            _context.next = 4;
+            _context.next = 5;
             break;
           }
 
           if (!!request.cookies.get('next-auth.session-token')) {
-            _context.next = 3;
+            _context.next = 4;
             break;
           }
 
           return _context.abrupt("return", _server.NextResponse.redirect(new URL('/login', request.url)));
 
-        case 3:
+        case 4:
           return _context.abrupt("return", _server.NextResponse.next());
 
-        case 4:
+        case 5:
           if (!request.nextUrl.pathname.startsWith('/api/admin')) {
-            _context.next = 8;
+            _context.next = 9;
             break;
           }
 
           if (!!request.cookies.get('next-auth.session-token')) {
-            _context.next = 7;
+            _context.next = 8;
             break;
           }
 
@@ -43,26 +45,26 @@ function middleware(request) {
             status: 401
           }));
 
-        case 7:
+        case 8:
           return _context.abrupt("return", _server.NextResponse.next());
 
-        case 8:
+        case 9:
           if (!request.nextUrl.pathname.startsWith('/login')) {
-            _context.next = 12;
+            _context.next = 13;
             break;
           }
 
           if (!request.cookies.get('next-auth.session-token')) {
-            _context.next = 11;
+            _context.next = 12;
             break;
           }
 
           return _context.abrupt("return", _server.NextResponse.redirect(new URL('/panel', request.url)));
 
-        case 11:
+        case 12:
           return _context.abrupt("return", _server.NextResponse.next());
 
-        case 12:
+        case 13:
         case "end":
           return _context.stop();
       }
