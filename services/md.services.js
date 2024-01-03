@@ -28,6 +28,14 @@ export const getUserService = async () => {
 }
 
 export const getBlogBySlugService = async slug => {
+  const isBlog = (await readJsonFileData())
+    .filter(blog => !Boolean(blog.deletedAt))
+    .findIndex(({ file }) => file.split('.md')[0] === slug)
+
+  if (isBlog === -1) {
+    return null
+  }
+
   const blog = await getBlogBySlugData(slug)
   const jsonBlog = toObject(blog)
   return jsonBlog

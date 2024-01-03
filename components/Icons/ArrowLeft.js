@@ -1,5 +1,3 @@
-import React from 'react'
-
 export default function ArrowLeft({ width = 20, height = 20, className }) {
   return (
     <svg width={width} height={height} viewBox="0 0 24 24">

@@ -1,9 +1,8 @@
 import NewCard from '@/components/Card/NewCard'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import StacksCard from './StacksCard'
 import NewChip from '@/components/Common/NewChip'
 import ComponentHeader from '../ComponentHeader'
-import classNames from 'classnames'
 
 const STACKS = [
   [

@@ -26,6 +26,7 @@ export default function BlogPage({ blog }) {
   if (!blog) {
     return <ErrorPage statusCode={404} />
   }
+
   return (
     <NewAppLayout>
       <section
@@ -149,75 +150,6 @@ export default function BlogPage({ blog }) {
           </div>
         </NewCard>
       </section>
-      {/* {blog && (
-        <div className="flex flex-col gap-12 lg:flex-row">
-          <section id="profile" className="relative flex-auto lg:w-2/5">
-            <div
-              className="absolute -top-20 cursor-pointer"
-              onClick={() => router.back()}
-            >
-              <ArrowLeft width={70} className="stroke-primary-1" />
-            </div>
-            <Nav user={user} />
-          </section>
-          <section id="blog" className="lg:w-3/5">
-            <Card>
-              {blog.image && (
-                <div className="relative h-60 sm:h-80">
-                  <Image
-                    src={blog.image}
-                    fill
-                    alt=""
-                    className="w-full rounded-[20px] object-cover"
-                  />
-                </div>
-              )}
-
-              <div className={blog.image && 'pt-10'}>
-                <h3 className="text-4xl font-bold text-primary-2">
-                  {blog.title}
-                </h3>
-              </div>
-              <div
-                id="blog-content"
-                className="pt-10"
-                dangerouslySetInnerHTML={{
-                  __html: blog.content.replace(/\n{1,}/g, '<br/>'),
-                }}
-              />
-
-              <div>
-                <div className="mt-9 flex flex-wrap gap-3 ">
-                  {blog.tags &&
-                    blog.tags.map((tag, index) => (
-                      <Link
-                        href={{
-                          pathname: '/',
-                          query: {
-                            tag: tag.key,
-                          },
-                        }}
-                        key={index}
-                      >
-                        <Chip className="self-start !rounded-[15px] !py-3 text-primary-1">
-                          {tag.name}
-                        </Chip>
-                      </Link>
-                    ))}
-                </div>
-              </div>
-
-              <div className="mt-8 text-center text-primary-3">
-                {new Date(blog.publishedAt).toLocaleDateString('tr-TR', {
-                  year: 'numeric',
-                  month: 'long',
-                  day: '2-digit',
-                })}
-              </div>
-            </Card>
-          </section>
-        </div>
-      )} */}
     </NewAppLayout>
   )
 }
@@ -235,11 +167,16 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params, locale }) {
-  const blog = await getBlogBySlugService(params.slug)
+  let blog = null
+  try {
+    blog = await getBlogBySlugService(params.slug)
+  } catch (error) {
+    console.log('Not Found')
+  }
 
   return {
     props: {
-      blog: blog || [],
+      blog: blog,
       ...(await serverSideTranslations(locale, ['common'])),
     },
   }

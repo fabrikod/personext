@@ -1,5 +1,3 @@
-import React from 'react'
-
 export default function Theme() {
   return (
     <svg width="17" height="17" viewBox="0 0 17 17" fill="none">

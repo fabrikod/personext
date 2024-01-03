@@ -1,3 +1,4 @@
+deletedAt: '2024-01-03T11:18:42.647Z'
 publishedAt: '2019-08-23 08:40:22'
 type: halftext
 title: E-Bağış'ın Gelişmesi ile Afrika'da Milyonlarca İnsanın Hayatı Değişiyor

@@ -1,5 +1,3 @@
-import React from 'react'
-
 export default function Circle({ className }) {
   return (
     <svg width="11" height="11" viewBox="0 0 11 11" fill="none">

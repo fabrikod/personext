@@ -4,7 +4,7 @@ import React, { useCallback } from 'react'
 import 'react-quill/dist/quill.snow.css'
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false })
 
-export default function RichText({ value, id, name, label }) {
+export default function RichText({ value, id, name, label, onChange }) {
   const imageHandler = useCallback(function () {
     const input = document.createElement('input')
     input.setAttribute('type', 'file')
@@ -28,7 +28,6 @@ export default function RichText({ value, id, name, label }) {
 
       // Resmi Quill editörüne ekleyin
       const range = this.quill.getSelection()
-      console.log('rangerangerange', range)
       this.quill.insertEmbed(
         range.index,
         'image',
@@ -92,7 +91,8 @@ export default function RichText({ value, id, name, label }) {
           'link',
           'image',
         ]}
-        onChange={e => value(e)}
+        onChange={e => onChange(e)}
+        value={value}
         theme="snow"
       />
     </>

@@ -49,9 +49,14 @@ export const getBlogBySlugData = async slug => {
 
 export const readJsonFileData = async () => {
   //return blogs.json
-  const fileContents = await fs.readFile(JSON_BLOG_PATH, 'utf8')
-  const jsonData = JSON.parse(fileContents)
-  return jsonData
+  // const data = require(JSON_BLOG_PATH)
+  // console.log('datadata', data)
+  // const fileContents = await fs.readFile(JSON_BLOG_PATH, 'utf8')
+  // const jsonData = JSON.parse(fileContents)
+  // return jsonData
+
+  const fileContents = require('@/data/blogs.json')
+  return fileContents
 }
 
 export const readJsonFileDataBySlug = async slug => {
@@ -66,7 +71,9 @@ export const getBlogFileJsonData = async ({ perpage, page, queryTag }) => {
   //return paging blog data
   var jsonData = await readJsonFileData()
 
-  jsonData = jsonData.filter(data => data.listVisible !== false)
+  jsonData = jsonData.filter(
+    data => data.listVisible !== false && !Boolean(data.deletedAt)
+  )
 
   if (queryTag) {
     jsonData = jsonData.filter(data =>
@@ -96,12 +103,10 @@ export const getSettingsFileData = async () => {
   return settingData
 }
 
-export const deletedBlogFile = async (deletedBlogYamlData, slug) => {
-  console.log(path.join(BLOG_FOLDER_PATH, `${slug}.md`))
+export const deletedBlogFile = async jsonBlogs => {
   await fs.writeFile(
-    path.join(BLOG_FOLDER_PATH, `${slug}.md`),
-    deletedBlogYamlData,
-    'utf8',
+    path.join(JSON_BLOG_PATH),
+    JSON.stringify(jsonBlogs),
     err => {
       if (err) {
         console.error('JSON file write error:', err)

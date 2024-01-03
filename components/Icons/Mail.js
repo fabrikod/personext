@@ -1,5 +1,3 @@
-import React from 'react'
-
 export default function Main() {
   return (
     <svg width="18" height="14" viewBox="0 0 18 14" fill="none">

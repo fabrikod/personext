@@ -1,3 +1,4 @@
+deletedAt: '2024-01-03T11:17:00.995Z'
 publishedAt: '2020-04-06 18:38:19'
 type: halftext
 title: Kod Yazabilen Ticaret Uzmanları Yetiştirmeye Çalışıyoruz

@@ -1,5 +1,3 @@
-import React from 'react'
-
 export default function ArrowRight({
   fill = '#656874',
   width = '12',

@@ -1,5 +1,3 @@
-import React from 'react'
-
 export default function PanelEdit() {
   return (
     <svg width="15" height="15" viewBox="0 0 24 24" fill="none">

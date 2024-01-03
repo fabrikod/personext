@@ -1,3 +1,4 @@
+deletedAt: '2024-01-03T11:17:42.281Z'
 publishedAt: '2019-01-08 19:04:32'
 type: halftext
 title: 'Sosyal Medyada Marka Krizleri: Duygu Analizi İle Yöntemi Vaka İncelemesi'

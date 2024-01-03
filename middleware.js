@@ -14,8 +14,15 @@ export async function middleware(request) {
     }
     return NextResponse.next()
   }
+
+  if (request.nextUrl.pathname.startsWith('/login')) {
+    if (!!request.cookies.get('next-auth.session-token')) {
+      return NextResponse.redirect(new URL('/panel', request.url))
+    }
+    return NextResponse.next()
+  }
 }
 
 export const config = {
-  matcher: ['/panel/:path*', '/api/admin/:path*'],
+  matcher: ['/panel/:path*', '/api/admin/:path*', '/login'],
 }

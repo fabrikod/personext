@@ -1,3 +1,4 @@
+deletedAt: '2024-01-03T11:18:54.021Z'
 publishedAt: '2013-03-06 22:38:49'
 type: halftext
 title: Özel Günler ve Tüketicinin Robot Olduğu Sanrısı

@@ -1,7 +1,6 @@
 import React from 'react'
 import NewNav from './NewNav'
 import NewChip from './NewChip'
-import { useUser } from '@/context/user'
 import { changeThemeMode } from '@/helpers/theme'
 import { Theme } from '../Icons'
 

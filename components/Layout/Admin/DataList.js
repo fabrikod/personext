@@ -1,9 +1,6 @@
 import NewCard from '@/components/Card/NewCard'
 import { PanelDelete, PanelEdit } from '@/components/Icons'
 import classNames from 'classnames'
-import Image from 'next/image'
-import Link from 'next/link'
-import { object } from 'prop-types'
 
 export default function DataList({
   url,

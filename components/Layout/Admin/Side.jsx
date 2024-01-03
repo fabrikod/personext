@@ -1,4 +1,3 @@
-import NewChip from '@/components/Common/NewChip'
 import ProfilePhoto from '@/components/Common/ProfilePhoto'
 import { World } from '@/components/Icons'
 import { useUser } from '@/context/user'
@@ -22,7 +21,7 @@ export default function Side() {
           <li>
             <Link
               href="/panel/blogs"
-              className="bg-panel-menu block rounded-md px-2 py-2 text-sm text-black"
+              className="block rounded-md bg-panel-menu px-2 py-2 text-sm text-black"
             >
               Blogs
             </Link>

@@ -7,21 +7,31 @@ import classNames from 'classnames'
 import { signIn } from 'next-auth/react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { useState } from 'react'
 
 export default function SignIn() {
   const { user, settings } = useUser()
   const [userName, setUserName] = useState('')
   const [userPassword, setPassword] = useState('')
+  const [error, setError] = useState('')
+  const router = useRouter()
 
   const handleLogin = async e => {
     e.preventDefault()
+    setError('')
     const result = await signIn('credentials', {
       username: userName,
       password: userPassword,
-      redirect: true,
-      callbackUrl: '/panel',
+      redirect: false,
+      // callbackUrl: '/login',
     })
+
+    if (result.ok) {
+      router.push('/panel')
+    } else {
+      setError('incorrect username or password')
+    }
   }
 
   return (
@@ -84,6 +94,10 @@ export default function SignIn() {
                     Forgot your password?
                   </Link>
 
+                  {error && (
+                    <div className="mt-4 text-xs text-red-400">{error}</div>
+                  )}
+
                   <NewChip
                     as="button"
                     type="submit"
@@ -91,7 +105,7 @@ export default function SignIn() {
                       'bg-black',
                       'flex w-full justify-center',
                       '!rounded-[0.625rem]',
-                      'mt-6 px-5 py-4',
+                      'mt-3 px-5 py-4',
                       'text-sm font-medium text-white'
                     )}
                   >

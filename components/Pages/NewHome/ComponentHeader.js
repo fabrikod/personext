@@ -1,5 +1,3 @@
-import React from 'react'
-
 export default function ComponentHeader({ title, description }) {
   return (
     <div>

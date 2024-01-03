@@ -3,8 +3,9 @@ import AdminDataList from '@/components/Layout/Admin/DataList'
 import apiClient from '@/utils/axios'
 import classNames from 'classnames'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import ReactPaginate from 'react-paginate'
 
 const PERPAGE = 10
@@ -14,29 +15,29 @@ export default function List({ title }) {
   const [blogs, setBlogs] = useState([])
   const router = useRouter()
 
-  useEffect(() => {
-    async function fetchBlog() {
-      const blogs = await apiClient.get('/admin/blog', {
-        params: {
-          page: router.query.page || 1,
-          perpage: PERPAGE,
-        },
+  const fetchBlog = async () => {
+    const blogs = await apiClient.get('/admin/blog', {
+      params: {
+        page: router.query.page || 1,
+        perpage: PERPAGE,
+      },
+    })
+    setBlogs(
+      blogs.data.map(blog => {
+        const doc = new DOMParser().parseFromString(blog.content, 'text/html')
+        return {
+          ...blog,
+          content:
+            doc.body.textContent.length > 150
+              ? `${doc.body.textContent.substring(0, 150)}...`
+              : doc.body.textContent,
+        }
       })
-      setBlogs(
-        blogs.data.map(blog => {
-          const doc = new DOMParser().parseFromString(blog.content, 'text/html')
-          return {
-            ...blog,
-            content:
-              doc.body.textContent.length > 150
-                ? `${doc.body.textContent.substring(0, 150)}...`
-                : doc.body.textContent,
-          }
-        })
-      )
-      setMeta(blogs.meta)
-    }
+    )
+    setMeta(blogs.meta)
+  }
 
+  useEffect(() => {
     fetchBlog()
   }, [router.query])
 
@@ -50,14 +51,16 @@ export default function List({ title }) {
   }
 
   const handleDelete = async slug => {
-    const blogs = await apiClient.delete('/admin/blog', {
+    const blogs = await apiClient.delete('/admin/blog/delete', {
       data: {
         slug: slug,
       },
     })
-  }
 
-  const handleEdit = () => {}
+    if (blogs.data) {
+      fetchBlog()
+    }
+  }
 
   return (
     <>
@@ -70,7 +73,7 @@ export default function List({ title }) {
           <div
             key={index}
             className={classNames(
-              'flex items-center gap-6 border-t border-solid border-primary-1 px-9 py-4 first:border-t-0 dark:border-darkmode-border max-xs:flex-col'
+              'flex items-center justify-between gap-6 border-t border-solid border-primary-1 px-9 py-4 first:border-t-0 dark:border-darkmode-border max-xs:flex-col'
             )}
           >
             {data.image && (
@@ -100,12 +103,16 @@ export default function List({ title }) {
               >
                 <PanelDelete />
               </div>
-              <div
-                className="cursor-pointer rounded-md border border-primary-1 bg-lineer-light px-1 py-1"
-                onClick={handleEdit}
+              <Link
+                href={{
+                  pathname: '/panel/blogs/[slug]/edit',
+                  query: { slug: data.slug },
+                }}
               >
-                <PanelEdit />
-              </div>
+                <div className="cursor-pointer rounded-md border border-primary-1 bg-lineer-light px-1 py-1">
+                  <PanelEdit />
+                </div>
+              </Link>
             </div>
           </div>
         ))}
@@ -114,7 +121,6 @@ export default function List({ title }) {
         <ReactPaginate
           onPageChange={pageChanged}
           breakLabel="..."
-          initialPage={router.query.page || 1}
           nextLabel=">"
           pageRangeDisplayed={10}
           pageCount={meta.pageCount}

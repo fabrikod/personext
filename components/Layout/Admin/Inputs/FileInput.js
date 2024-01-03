@@ -1,9 +1,9 @@
-import { Edit, PanelDelete, PanelEdit } from '@/components/Icons'
+import { PanelDelete, PanelEdit } from '@/components/Icons'
 import classNames from 'classnames'
 import PropTypes from 'prop-types'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
-function FileInput({ type, label, id, name, value }) {
+function FileInput({ type, label, id, name, onChange, value }) {
   const imageRef = useRef(null)
   const fileInputRef = useRef(null)
   const [showImage, setShowImage] = useState(false)
@@ -16,13 +16,19 @@ function FileInput({ type, label, id, name, value }) {
 
         fileReader.onloadend = function () {
           imageRef.current.setAttribute('src', fileReader.result)
-          value(file)
+          onChange(file)
           setShowImage(true)
         }
         fileReader.readAsDataURL(file)
       }
     }
   }
+
+  useEffect(() => {
+    if (value) {
+      setShowImage(true)
+    }
+  }, [value])
 
   const handleEditImage = () => {
     fileInputRef.current.click()
@@ -32,7 +38,7 @@ function FileInput({ type, label, id, name, value }) {
     fileInputRef.current.target = null
     imageRef.current.setAttribute('src', '')
     setShowImage(false)
-    value(null)
+    onChange(null)
   }
 
   return (
@@ -71,19 +77,20 @@ function FileInput({ type, label, id, name, value }) {
         )}
       >
         <img
+          src={value}
           ref={imageRef}
           alt="Hero Image"
           className="h-96 w-full rounded-md object-cover"
         />
         <div className="absolute bottom-3 right-3 z-20 flex gap-2">
           <div
-            className="cursor-pointer rounded-md border border-primary-1 bg-lineer-light px-2 font-bold"
+            className="cursor-pointer rounded-md border border-primary-1 bg-lineer-light px-2 py-2 font-bold"
             onClick={handleDeleteImage}
           >
             <PanelDelete />
           </div>
           <div
-            className="cursor-pointer rounded-md border border-primary-1 bg-lineer-light px-2"
+            className="cursor-pointer rounded-md border border-primary-1 bg-lineer-light px-2 py-2"
             onClick={handleEditImage}
           >
             <PanelEdit />
