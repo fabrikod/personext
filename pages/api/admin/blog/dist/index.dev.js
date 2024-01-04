@@ -5,8 +5,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports["default"] = handler;
 
-var _mdBlog = require("@/services/md.blog.service");
-
 var _md = require("@/services/md.services");
 
 function handler(req, res) {

@@ -50,10 +50,10 @@ export default function List({ title }) {
     })
   }
 
-  const handleDelete = async slug => {
+  const handleDelete = async id => {
     const blogs = await apiClient.delete('/admin/blog/delete', {
       data: {
-        slug: slug,
+        id: id,
       },
     })
 
@@ -99,7 +99,7 @@ export default function List({ title }) {
             <div className="flex h-full gap-2">
               <div
                 className="cursor-pointer rounded-md border border-primary-1 bg-lineer-light px-1 py-1 font-bold"
-                onClick={() => handleDelete(data.slug)}
+                onClick={() => handleDelete(data.id)}
               >
                 <PanelDelete />
               </div>

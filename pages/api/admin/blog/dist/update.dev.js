@@ -19,7 +19,7 @@ function handler(req, res) {
         case 2:
           blog = _context.sent;
           res.status(200).json({
-            data: 'blog'
+            data: blog
           });
 
         case 4:

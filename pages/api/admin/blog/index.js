@@ -1,4 +1,3 @@
-import { deletedBlogService } from '@/services/md.blog.service'
 import { getBlogJsonService } from '@/services/md.services'
 
 export default async function handler(req, res) {

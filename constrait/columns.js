@@ -10,3 +10,13 @@ export const BLOG = [
   'tags',
   'content',
 ]
+
+export const BLOGJSONFILE = [
+  'id',
+  'file',
+  'title',
+  'createdAt',
+  'publishedAt',
+  'listVisible',
+  'tags',
+]

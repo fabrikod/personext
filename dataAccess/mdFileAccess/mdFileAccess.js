@@ -1,4 +1,5 @@
 import { BLOG_FOLDER_PATH, JSON_BLOG_PATH } from '@/constrait'
+import { toYaml } from '@/helpers'
 
 const fs = require('fs').promises
 const path = require('path')
@@ -43,7 +44,10 @@ export const getPulicationsFileData = async () => {
 
 export const getBlogBySlugData = async slug => {
   //return file content based on slug name
-  const blogData = getFileData(`${slug}.md`, 'data/blogs')
+  const blogData = getFileData(
+    slug.includes('.md') ? slug : `${slug}.md`,
+    'data/blogs'
+  )
   return blogData
 }
 
@@ -109,10 +113,19 @@ export const getSettingsFileData = async () => {
   return settingData
 }
 
-export const deletedBlogFile = async jsonBlogs => {
+const writeJsonFile = async data => {
+  await fs.writeFile(path.join(JSON_BLOG_PATH), data, err => {
+    if (err) {
+      console.error('JSON file write error:', err)
+      return
+    }
+  })
+}
+
+const writeMdFile = async (fileName, data) => {
   await fs.writeFile(
-    path.join(JSON_BLOG_PATH),
-    JSON.stringify(jsonBlogs),
+    path.join(BLOG_FOLDER_PATH, fileName),
+    toYaml(data),
     err => {
       if (err) {
         console.error('JSON file write error:', err)
@@ -122,4 +135,33 @@ export const deletedBlogFile = async jsonBlogs => {
   )
 }
 
-export const updateBlogFile = async () => {}
+const renameMdFile = async (fileName, newFileName) => {
+  await fs.rename(
+    path.join(BLOG_FOLDER_PATH, fileName),
+    path.join(
+      BLOG_FOLDER_PATH,
+      newFileName.includes('.md')
+        ? newFileName.split('/')[1]
+        : `${newFileName.split('/')[1]}.md`
+    ),
+    error => {
+      if (hata) {
+        console.error('Error while changing filename:', hata)
+        return
+      }
+    }
+  )
+}
+
+export const deletedBlogFile = async jsonBlogs => {
+  await writeJsonFile(JSON.stringify(jsonBlogs))
+}
+
+export const updatedBlogFile = async jsonBlogs => {
+  await writeJsonFile(JSON.stringify(jsonBlogs))
+}
+
+export const updateBlogFile = async (fileName, data) => {
+  await writeMdFile(fileName, data)
+  await renameMdFile(fileName, data.slug)
+}

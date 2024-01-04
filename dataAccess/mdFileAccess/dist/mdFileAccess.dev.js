@@ -3,9 +3,11 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.updateBlogFile = exports.deletedBlogFile = exports.getSettingsFileData = exports.getBlogFileJsonData = exports.readJsonFileDataBySlug = exports.readJsonFileData = exports.getBlogByFileNameData = exports.getBlogBySlugData = exports.getPulicationsFileData = exports.getUserFileData = exports.getFileData = exports.getBlogsFilesData = void 0;
+exports.updateBlogFile = exports.updatedBlogFile = exports.deletedBlogFile = exports.getSettingsFileData = exports.getBlogFileJsonData = exports.readJsonFileDataBySlug = exports.readJsonFileData = exports.getBlogByFileNameData = exports.getBlogBySlugData = exports.getPulicationsFileData = exports.getUserFileData = exports.getFileData = exports.getBlogsFilesData = void 0;
 
 var _constrait = require("@/constrait");
+
+var _helpers = require("@/helpers");
 
 var fs = require('fs').promises;
 
@@ -176,7 +178,7 @@ var getBlogBySlugData = function getBlogBySlugData(slug) {
       switch (_context5.prev = _context5.next) {
         case 0:
           //return file content based on slug name
-          blogData = getFileData("".concat(slug, ".md"), 'data/blogs');
+          blogData = getFileData(slug.includes('.md') ? slug : "".concat(slug, ".md"), 'data/blogs');
           return _context5.abrupt("return", blogData);
 
         case 2:
@@ -337,13 +339,13 @@ var getSettingsFileData = function getSettingsFileData() {
 
 exports.getSettingsFileData = getSettingsFileData;
 
-var deletedBlogFile = function deletedBlogFile(jsonBlogs) {
-  return regeneratorRuntime.async(function deletedBlogFile$(_context11) {
+var writeJsonFile = function writeJsonFile(data) {
+  return regeneratorRuntime.async(function writeJsonFile$(_context11) {
     while (1) {
       switch (_context11.prev = _context11.next) {
         case 0:
           _context11.next = 2;
-          return regeneratorRuntime.awrap(fs.writeFile(path.join(_constrait.JSON_BLOG_PATH), JSON.stringify(jsonBlogs), function (err) {
+          return regeneratorRuntime.awrap(fs.writeFile(path.join(_constrait.JSON_BLOG_PATH), data, function (err) {
             if (err) {
               console.error('JSON file write error:', err);
               return;
@@ -358,15 +360,99 @@ var deletedBlogFile = function deletedBlogFile(jsonBlogs) {
   });
 };
 
-exports.deletedBlogFile = deletedBlogFile;
-
-var updateBlogFile = function updateBlogFile() {
-  return regeneratorRuntime.async(function updateBlogFile$(_context12) {
+var writeMdFile = function writeMdFile(fileName, data) {
+  return regeneratorRuntime.async(function writeMdFile$(_context12) {
     while (1) {
       switch (_context12.prev = _context12.next) {
         case 0:
+          _context12.next = 2;
+          return regeneratorRuntime.awrap(fs.writeFile(path.join(_constrait.BLOG_FOLDER_PATH, fileName), (0, _helpers.toYaml)(data), function (err) {
+            if (err) {
+              console.error('JSON file write error:', err);
+              return;
+            }
+          }));
+
+        case 2:
         case "end":
           return _context12.stop();
+      }
+    }
+  });
+};
+
+var renameMdFile = function renameMdFile(fileName, newFileName) {
+  return regeneratorRuntime.async(function renameMdFile$(_context13) {
+    while (1) {
+      switch (_context13.prev = _context13.next) {
+        case 0:
+          _context13.next = 2;
+          return regeneratorRuntime.awrap(fs.rename(path.join(_constrait.BLOG_FOLDER_PATH, fileName), path.join(_constrait.BLOG_FOLDER_PATH, newFileName.includes('.md') ? newFileName.split('/')[1] : "".concat(newFileName.split('/')[1], ".md")), function (error) {
+            if (hata) {
+              console.error('Error while changing filename:', hata);
+              return;
+            }
+          }));
+
+        case 2:
+        case "end":
+          return _context13.stop();
+      }
+    }
+  });
+};
+
+var deletedBlogFile = function deletedBlogFile(jsonBlogs) {
+  return regeneratorRuntime.async(function deletedBlogFile$(_context14) {
+    while (1) {
+      switch (_context14.prev = _context14.next) {
+        case 0:
+          _context14.next = 2;
+          return regeneratorRuntime.awrap(writeJsonFile(JSON.stringify(jsonBlogs)));
+
+        case 2:
+        case "end":
+          return _context14.stop();
+      }
+    }
+  });
+};
+
+exports.deletedBlogFile = deletedBlogFile;
+
+var updatedBlogFile = function updatedBlogFile(jsonBlogs) {
+  return regeneratorRuntime.async(function updatedBlogFile$(_context15) {
+    while (1) {
+      switch (_context15.prev = _context15.next) {
+        case 0:
+          _context15.next = 2;
+          return regeneratorRuntime.awrap(writeJsonFile(JSON.stringify(jsonBlogs)));
+
+        case 2:
+        case "end":
+          return _context15.stop();
+      }
+    }
+  });
+};
+
+exports.updatedBlogFile = updatedBlogFile;
+
+var updateBlogFile = function updateBlogFile(fileName, data) {
+  return regeneratorRuntime.async(function updateBlogFile$(_context16) {
+    while (1) {
+      switch (_context16.prev = _context16.next) {
+        case 0:
+          _context16.next = 2;
+          return regeneratorRuntime.awrap(writeMdFile(fileName, data));
+
+        case 2:
+          _context16.next = 4;
+          return regeneratorRuntime.awrap(renameMdFile(fileName, data.slug));
+
+        case 4:
+        case "end":
+          return _context16.stop();
       }
     }
   });
