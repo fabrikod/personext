@@ -39,7 +39,7 @@ export default function List({ title }) {
 
   useEffect(() => {
     fetchBlog()
-  }, [router.query])
+  }, [router.query.page])
 
   const pageChanged = event => {
     router.push({
@@ -64,11 +64,7 @@ export default function List({ title }) {
 
   return (
     <>
-      <div className="mb-7">
-        <div>{title && <h1 className="text-4xl font-bold">{title}</h1>}</div>
-      </div>
-
-      <AdminDataList className="!p-0">
+      <AdminDataList className="!p-0" title={'Blogs'} url="blog">
         {blogs.map((data, index) => (
           <div
             key={index}
@@ -119,10 +115,10 @@ export default function List({ title }) {
       </AdminDataList>
       <div>
         <ReactPaginate
-          onPageChange={pageChanged}
           breakLabel="..."
           nextLabel=">"
-          pageRangeDisplayed={10}
+          onPageChange={pageChanged}
+          pageRangeDisplayed={5}
           pageCount={meta.pageCount}
           previousLabel="<"
           renderOnZeroPageCount={null}

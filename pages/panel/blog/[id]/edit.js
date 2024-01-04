@@ -3,8 +3,12 @@ import AdminLayout from '@/layouts/AdminLayout'
 
 export default function edit() {
   return (
-    <AdminLayout title="Blogs">
-      <PanelBlogForm actionButtonText="Update" />
+    <AdminLayout>
+      <PanelBlogForm
+        type="update"
+        actionButtonText="Update"
+        actionAndReturnButtonText="Update and Return"
+      />
     </AdminLayout>
   )
 }

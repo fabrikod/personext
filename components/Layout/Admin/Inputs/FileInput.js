@@ -15,7 +15,6 @@ function FileInput({ type, label, id, name, onChange, value }) {
         const fileReader = new FileReader()
 
         fileReader.onloadend = function () {
-          imageRef.current.setAttribute('src', fileReader.result)
           onChange(file)
           setShowImage(true)
         }
@@ -36,9 +35,8 @@ function FileInput({ type, label, id, name, onChange, value }) {
 
   const handleDeleteImage = () => {
     fileInputRef.current.target = null
-    imageRef.current.setAttribute('src', '')
-    setShowImage(false)
     onChange(null)
+    setShowImage(false)
   }
 
   return (
@@ -77,8 +75,8 @@ function FileInput({ type, label, id, name, onChange, value }) {
         )}
       >
         <img
-          src={value}
           ref={imageRef}
+          src={value}
           alt="Hero Image"
           className="h-96 w-full rounded-md object-cover"
         />

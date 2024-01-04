@@ -153,15 +153,21 @@ const renameMdFile = async (fileName, newFileName) => {
   )
 }
 
-export const deletedBlogFile = async jsonBlogs => {
+export const deleteBlogFile = async jsonBlogs => {
   await writeJsonFile(JSON.stringify(jsonBlogs))
 }
 
-export const updatedBlogFile = async jsonBlogs => {
+export const updateBlogJsonFile = async jsonBlogs => {
   await writeJsonFile(JSON.stringify(jsonBlogs))
 }
 
-export const updateBlogFile = async (fileName, data) => {
+export const updateBlogMdFile = async (fileName, data) => {
   await writeMdFile(fileName, data)
   await renameMdFile(fileName, data.slug)
+}
+
+export const createBlogMdFile = async data => {
+  await writeMdFile(`${data.slug}.md`, data)
+
+  return data.id
 }

@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.updateBlogFile = exports.updatedBlogFile = exports.deletedBlogFile = exports.getSettingsFileData = exports.getBlogFileJsonData = exports.readJsonFileDataBySlug = exports.readJsonFileData = exports.getBlogByFileNameData = exports.getBlogBySlugData = exports.getPulicationsFileData = exports.getUserFileData = exports.getFileData = exports.getBlogsFilesData = void 0;
+exports.createBlogMdFile = exports.updateBlogMdFile = exports.updateBlogJsonFile = exports.deleteBlogFile = exports.getSettingsFileData = exports.getBlogFileJsonData = exports.readJsonFileDataBySlug = exports.readJsonFileData = exports.getBlogByFileNameData = exports.getBlogBySlugData = exports.getPulicationsFileData = exports.getUserFileData = exports.getFileData = exports.getBlogsFilesData = void 0;
 
 var _constrait = require("@/constrait");
 
@@ -402,8 +402,8 @@ var renameMdFile = function renameMdFile(fileName, newFileName) {
   });
 };
 
-var deletedBlogFile = function deletedBlogFile(jsonBlogs) {
-  return regeneratorRuntime.async(function deletedBlogFile$(_context14) {
+var deleteBlogFile = function deleteBlogFile(jsonBlogs) {
+  return regeneratorRuntime.async(function deleteBlogFile$(_context14) {
     while (1) {
       switch (_context14.prev = _context14.next) {
         case 0:
@@ -418,10 +418,10 @@ var deletedBlogFile = function deletedBlogFile(jsonBlogs) {
   });
 };
 
-exports.deletedBlogFile = deletedBlogFile;
+exports.deleteBlogFile = deleteBlogFile;
 
-var updatedBlogFile = function updatedBlogFile(jsonBlogs) {
-  return regeneratorRuntime.async(function updatedBlogFile$(_context15) {
+var updateBlogJsonFile = function updateBlogJsonFile(jsonBlogs) {
+  return regeneratorRuntime.async(function updateBlogJsonFile$(_context15) {
     while (1) {
       switch (_context15.prev = _context15.next) {
         case 0:
@@ -436,10 +436,10 @@ var updatedBlogFile = function updatedBlogFile(jsonBlogs) {
   });
 };
 
-exports.updatedBlogFile = updatedBlogFile;
+exports.updateBlogJsonFile = updateBlogJsonFile;
 
-var updateBlogFile = function updateBlogFile(fileName, data) {
-  return regeneratorRuntime.async(function updateBlogFile$(_context16) {
+var updateBlogMdFile = function updateBlogMdFile(fileName, data) {
+  return regeneratorRuntime.async(function updateBlogMdFile$(_context16) {
     while (1) {
       switch (_context16.prev = _context16.next) {
         case 0:
@@ -458,4 +458,25 @@ var updateBlogFile = function updateBlogFile(fileName, data) {
   });
 };
 
-exports.updateBlogFile = updateBlogFile;
+exports.updateBlogMdFile = updateBlogMdFile;
+
+var createBlogMdFile = function createBlogMdFile(data) {
+  return regeneratorRuntime.async(function createBlogMdFile$(_context17) {
+    while (1) {
+      switch (_context17.prev = _context17.next) {
+        case 0:
+          _context17.next = 2;
+          return regeneratorRuntime.awrap(writeMdFile("".concat(data.slug, ".md"), data));
+
+        case 2:
+          return _context17.abrupt("return", data.id);
+
+        case 3:
+        case "end":
+          return _context17.stop();
+      }
+    }
+  });
+};
+
+exports.createBlogMdFile = createBlogMdFile;

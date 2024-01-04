@@ -80,7 +80,7 @@ export default function BlogPage({ blog }) {
               <ArrowRight className="bg-primary-6" height="18" width="18" />
             </NewChip>
 
-            <div className="flex gap-3">
+            {/* <div className="flex gap-3">
               <div className="flex items-center gap-2">
                 <span className="text-sm text-primary-6">12</span>
                 <NewChip className="flex h-9 w-9 items-center justify-center">
@@ -93,7 +93,7 @@ export default function BlogPage({ blog }) {
                   <HeartFavorite />
                 </NewChip>
               </div>
-            </div>
+            </div> */}
           </div>
 
           <div className="mt-5">

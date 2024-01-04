@@ -2,6 +2,7 @@ import { getBlogJsonService } from '@/services/md.services'
 
 export default async function handler(req, res) {
   const { query } = req
+  console.log('aaaaaa', query)
   const newQuery = {
     page: query.page,
     perpage: query.perpage,

@@ -102,7 +102,7 @@ export default function Index({
 
         <Experience />
 
-        <SelectedProjects />
+        {/* <SelectedProjects /> */}
 
         <Blogs
           title="Blog"

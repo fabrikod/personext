@@ -28,7 +28,7 @@ const formReducer = (state, action) => {
 export default function Form({
   actionButtonText,
   cancelButtonText,
-  updateAndReturnButtonText,
+  actionAndReturnButtonText,
   type,
   url,
 }) {
@@ -65,15 +65,13 @@ export default function Form({
 
   return (
     <AdminCreate
-      actionButtonText={actionButtonText || 'Save'}
-      cancelButtonText={cancelButtonText || 'Cancel'}
-      updateAndReturnButtonText={
-        updateAndReturnButtonText || 'Update and Return'
-      }
+      actionButtonText={actionButtonText}
+      actionAndReturnButtonText={actionAndReturnButtonText}
       formData={formState}
       url={'blog'}
+      title={'Blogs'}
       id={router.query.id}
-      type="update"
+      type={type}
       fetchData={fetchData}
     >
       <TextInput

@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.getBlogUpdate = exports.deletedBlogService = void 0;
+exports.createBlogService = exports.updateBlogService = exports.deleteBlogService = void 0;
 
 var _columns = require("@/constrait/columns");
 
@@ -19,9 +19,12 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var deletedBlogService = function deletedBlogService(id) {
+var _require = require('uuid'),
+    uuidv4 = _require.v4;
+
+var deleteBlogService = function deleteBlogService(id) {
   var jsonBlogs, blogIndex;
-  return regeneratorRuntime.async(function deletedBlogService$(_context) {
+  return regeneratorRuntime.async(function deleteBlogService$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
@@ -44,7 +47,7 @@ var deletedBlogService = function deletedBlogService(id) {
         case 6:
           jsonBlogs[blogIndex].deletedAt = new Date().toISOString();
           _context.next = 9;
-          return regeneratorRuntime.awrap((0, _mdFileAccess.deletedBlogFile)(jsonBlogs));
+          return regeneratorRuntime.awrap((0, _mdFileAccess.deleteBlogFile)(jsonBlogs));
 
         case 9:
           return _context.abrupt("return", slug);
@@ -57,11 +60,11 @@ var deletedBlogService = function deletedBlogService(id) {
   });
 };
 
-exports.deletedBlogService = deletedBlogService;
+exports.deleteBlogService = deleteBlogService;
 
-var getBlogUpdate = function getBlogUpdate(blogData) {
+var updateBlogService = function updateBlogService(blogData) {
   var isValid, jsonBlogs, isBlogIndex, blogIndex, fileName, blog, jsonBlog, newJsonBlog, updateBlog;
-  return regeneratorRuntime.async(function getBlogUpdate$(_context2) {
+  return regeneratorRuntime.async(function updateBlogService$(_context2) {
     while (1) {
       switch (_context2.prev = _context2.next) {
         case 0:
@@ -81,7 +84,7 @@ var getBlogUpdate = function getBlogUpdate(blogData) {
         case 5:
           jsonBlogs = _context2.sent;
           isBlogIndex = jsonBlogs.findIndex(function (blog) {
-            return blog.file === "".concat(blogData.data.slug.split('/')[1], ".md");
+            return blog.file === "".concat(blogData.data.slug, ".md");
           });
 
           if (!(isBlogIndex !== -1)) {
@@ -98,30 +101,33 @@ var getBlogUpdate = function getBlogUpdate(blogData) {
           fileName = jsonBlogs[blogIndex].file;
           jsonBlogs[blogIndex] = _objectSpread({}, jsonBlogs[blogIndex], {
             title: blogData.data.title,
-            file: "".concat(blogData.data.slug.split('/')[1], ".md") // publishedAt: blogData.data.publishedAt,
+            file: "".concat(blogData.data.slug, ".md") // publishedAt: blogData.data.publishedAt,
             // listVisible: blogData.data.listVisible,
             // tags: blogData.data.tags
 
           });
           _context2.next = 14;
-          return regeneratorRuntime.awrap((0, _mdFileAccess.updatedBlogFile)(jsonBlogs));
-
-        case 14:
-          _context2.next = 16;
           return regeneratorRuntime.awrap((0, _mdFileAccess.getBlogBySlugData)(fileName));
 
-        case 16:
+        case 14:
           blog = _context2.sent;
           jsonBlog = (0, _helpers.toObject)(blog);
           newJsonBlog = Object.assign({}, jsonBlog, blogData.data);
-          _context2.next = 21;
-          return regeneratorRuntime.awrap((0, _mdFileAccess.updateBlogFile)(fileName, newJsonBlog));
+          _context2.next = 19;
+          return regeneratorRuntime.awrap((0, _mdFileAccess.updateBlogMdFile)(fileName, newJsonBlog));
 
-        case 21:
+        case 19:
           updateBlog = _context2.sent;
-          return _context2.abrupt("return", updateBlog);
+          jsonBlogs.sort(function (first, last) {
+            return new Date(last.publishedAt) - new Date(first.publishedAt);
+          });
+          _context2.next = 23;
+          return regeneratorRuntime.awrap((0, _mdFileAccess.updateBlogJsonFile)(jsonBlogs));
 
         case 23:
+          return _context2.abrupt("return", updateBlog);
+
+        case 24:
         case "end":
           return _context2.stop();
       }
@@ -129,4 +135,75 @@ var getBlogUpdate = function getBlogUpdate(blogData) {
   });
 };
 
-exports.getBlogUpdate = getBlogUpdate;
+exports.updateBlogService = updateBlogService;
+
+var createBlogService = function createBlogService(blogData) {
+  var isValid, jsonBlogs, isBlogIndex, id, newCreateBlog, createBlog;
+  return regeneratorRuntime.async(function createBlogService$(_context3) {
+    while (1) {
+      switch (_context3.prev = _context3.next) {
+        case 0:
+          isValid = (0, _valid.blogValid)(_columns.BLOG, Object.keys(blogData.data));
+
+          if (isValid) {
+            _context3.next = 3;
+            break;
+          }
+
+          throw Error('incorrect column');
+
+        case 3:
+          _context3.next = 5;
+          return regeneratorRuntime.awrap((0, _mdFileAccess.readJsonFileData)());
+
+        case 5:
+          jsonBlogs = _context3.sent;
+          isBlogIndex = jsonBlogs.findIndex(function (blog) {
+            return blog.file === "".concat(blogData.data.slug, ".md");
+          });
+
+          if (!(isBlogIndex !== -1)) {
+            _context3.next = 9;
+            break;
+          }
+
+          throw Error('slug value must be unic');
+
+        case 9:
+          id = uuidv4();
+          newCreateBlog = _objectSpread({
+            id: id,
+            createdAt: new Date().toISOString()
+          }, blogData.data);
+          _context3.next = 13;
+          return regeneratorRuntime.awrap((0, _mdFileAccess.createBlogMdFile)(newCreateBlog));
+
+        case 13:
+          createBlog = _context3.sent;
+          jsonBlogs.push({
+            id: id,
+            file: "".concat(blogData.data.slug, ".md"),
+            title: blogData.data.title,
+            createdAt: new Date().toISOString(),
+            publishedAt: blogData.data.publishedAt,
+            listVisible: blogData.data.listVisible || true,
+            tags: blogData.data.tags || []
+          });
+          jsonBlogs.sort(function (first, last) {
+            return new Date(last.publishedAt) - new Date(first.publishedAt);
+          });
+          _context3.next = 18;
+          return regeneratorRuntime.awrap((0, _mdFileAccess.updateBlogJsonFile)(jsonBlogs));
+
+        case 18:
+          return _context3.abrupt("return", createBlog);
+
+        case 19:
+        case "end":
+          return _context3.stop();
+      }
+    }
+  });
+};
+
+exports.createBlogService = createBlogService;

@@ -5,10 +5,11 @@ import apiClient from '@/utils/axios'
 import { useEffect } from 'react'
 
 export default function Create({
+  title,
   children,
-  actionButtonText,
-  cancelButtonText,
-  updateAndReturnButtonText,
+  actionButtonText = 'Save',
+  cancelButtonText = 'Cancel',
+  actionAndReturnButtonText = 'Save and Return',
   formData,
   fetchData,
   url,
@@ -17,9 +18,9 @@ export default function Create({
 }) {
   const handleOnSubmit = async e => {
     e.preventDefault()
-    const blogs = await apiClient.post(`/admin/${url}/update`, {
+    const blogs = await apiClient.post(`/admin/${url}/create`, {
       data: {
-        id: id,
+        slug: formData.slug.split('/')[1],
         ...formData,
       },
     })
@@ -37,7 +38,15 @@ export default function Create({
     }
   }
 
-  const handleUpdateAndReturnSubmit = () => {}
+  const handleUpdateAndReturnSubmit = async () => {
+    const blogs = await apiClient.post(`/admin/${url}/update`, {
+      data: {
+        id: id,
+        slug: formData.slug.split('/')[1],
+        ...formData,
+      },
+    })
+  }
 
   useEffect(() => {
     if (type === 'update' && Boolean(id)) {
@@ -46,36 +55,42 @@ export default function Create({
   }, [type, id])
 
   return (
-    <NewCard className="!w-full px-5 py-6">
-      <form onSubmit={handleOnSubmit}>
-        {children}
+    <>
+      <div className="mb-7">
+        <div>{title && <h1 className="text-4xl font-bold">{title}</h1>}</div>
+      </div>
+      <NewCard className="!w-full px-5 py-6">
+        <form onSubmit={handleOnSubmit}>
+          {children}
 
-        <div className="mt-7 flex justify-end gap-3">
-          {updateAndReturnButtonText && (
+          <div className="mt-7 flex justify-end gap-3">
             <NewChip
-              as="button"
-              onClick={handleUpdateAndReturnSubmit}
+              as="link"
+              href={`/panel/${url}`}
               className="inline-flex items-center gap-2 rounded-md bg-lineer-light px-3 text-sm"
             >
-              {updateAndReturnButtonText}
+              {cancelButtonText}
             </NewChip>
-          )}
+            {actionAndReturnButtonText && (
+              <NewChip
+                as="button"
+                onClick={handleUpdateAndReturnSubmit}
+                className="inline-flex items-center gap-2 rounded-md bg-lineer-light px-3 text-sm"
+              >
+                {actionAndReturnButtonText}
+              </NewChip>
+            )}
 
-          <NewChip
-            as="link"
-            href={`/panel/${url}`}
-            className="inline-flex items-center gap-2 rounded-md bg-lineer-light px-3 text-sm"
-          >
-            {cancelButtonText}
-          </NewChip>
-          <NewChip
-            as="button"
-            className="inline-flex items-center gap-2 rounded-md bg-lineer-light px-3 text-sm"
-          >
-            <Save /> {actionButtonText}
-          </NewChip>
-        </div>
-      </form>
-    </NewCard>
+            <NewChip
+              as="button"
+              className="inline-flex items-center gap-2 rounded-md bg-lineer-light px-3 text-sm"
+              type="submit"
+            >
+              <Save /> {actionButtonText}
+            </NewChip>
+          </div>
+        </form>
+      </NewCard>
+    </>
   )
 }

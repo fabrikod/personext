@@ -3,7 +3,7 @@ import AdminLayout from '@/layouts/AdminLayout'
 
 export default function create() {
   return (
-    <AdminLayout title="Blogs">
+    <AdminLayout>
       <PanelBlogForm />
     </AdminLayout>
   )

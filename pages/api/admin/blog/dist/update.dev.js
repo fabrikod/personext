@@ -14,7 +14,7 @@ function handler(req, res) {
       switch (_context.prev = _context.next) {
         case 0:
           _context.next = 2;
-          return regeneratorRuntime.awrap((0, _mdBlog.getBlogUpdate)(req.body));
+          return regeneratorRuntime.awrap((0, _mdBlog.updateBlogService)(req.body));
 
         case 2:
           blog = _context.sent;
