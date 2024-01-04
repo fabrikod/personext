@@ -1,10 +1,9 @@
 import { NextResponse } from 'next/server'
+import { getSession } from 'next-auth/react'
+import { getToken } from 'next-auth/jwt'
 
 export async function middleware(request) {
-  const token =
-    process.env.NODE_ENV === 'production'
-      ? request.cookies.get('__Secure-next-auth.session-token')
-      : request.cookies.get('next-auth.session-token')
+  const token = await getToken({ req: request, secret: process.env.SECRET })
 
   if (request.nextUrl.pathname.startsWith('/panel')) {
     if (!!!token) {

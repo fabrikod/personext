@@ -8,37 +8,48 @@ exports.config = void 0;
 
 var _server = require("next/server");
 
+var _react = require("next-auth/react");
+
+var _jwt = require("next-auth/jwt");
+
 function middleware(request) {
   var token;
   return regeneratorRuntime.async(function middleware$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
-          token = process.env.NODE_ENV === 'production' ? request.cookies.get('__Secure-next-auth.session-token') : request.cookies.get('next-auth.session-token');
+          _context.next = 2;
+          return regeneratorRuntime.awrap((0, _jwt.getToken)({
+            req: request,
+            secret: process.env.SECRET
+          }));
+
+        case 2:
+          token = _context.sent;
 
           if (!request.nextUrl.pathname.startsWith('/panel')) {
-            _context.next = 5;
+            _context.next = 7;
             break;
           }
 
           if (!!token) {
-            _context.next = 4;
+            _context.next = 6;
             break;
           }
 
           return _context.abrupt("return", _server.NextResponse.redirect(new URL('/login', request.url)));
 
-        case 4:
+        case 6:
           return _context.abrupt("return", _server.NextResponse.next());
 
-        case 5:
+        case 7:
           if (!request.nextUrl.pathname.startsWith('/api/admin')) {
-            _context.next = 9;
+            _context.next = 11;
             break;
           }
 
           if (!!token) {
-            _context.next = 8;
+            _context.next = 10;
             break;
           }
 
@@ -46,26 +57,26 @@ function middleware(request) {
             status: 401
           }));
 
-        case 8:
+        case 10:
           return _context.abrupt("return", _server.NextResponse.next());
 
-        case 9:
+        case 11:
           if (!request.nextUrl.pathname.startsWith('/login')) {
-            _context.next = 13;
+            _context.next = 15;
             break;
           }
 
           if (!token) {
-            _context.next = 12;
+            _context.next = 14;
             break;
           }
 
           return _context.abrupt("return", _server.NextResponse.redirect(new URL('/panel', request.url)));
 
-        case 12:
+        case 14:
           return _context.abrupt("return", _server.NextResponse.next());
 
-        case 13:
+        case 15:
         case "end":
           return _context.stop();
       }

@@ -27,10 +27,7 @@ export default function SignIn() {
       // callbackUrl: '/login',
     })
 
-    console.log('111111111111', result)
-
     if (result.ok) {
-      console.log('2222222222')
       router.push('/panel')
     } else {
       setError('incorrect username or password')

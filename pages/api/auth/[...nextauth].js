@@ -8,14 +8,11 @@ export default NextAuth({
     CredentialsProvider({
       async authorize(credentials) {
         const { username, password } = credentials
-        console.log('3333333333', { username, password })
 
         if (await login({ username, password })) {
-          console.log('4444444444')
           const user = await getUserService()
           return user
         }
-        console.log('5555555555')
         return null
       },
     }),
