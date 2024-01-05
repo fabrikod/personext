@@ -69,7 +69,7 @@ export default function List({ title }) {
           <div
             key={index}
             className={classNames(
-              'flex items-center justify-between gap-6 border-t border-solid border-primary-1 px-9 py-4 first:border-t-0 dark:border-darkmode-border max-xs:flex-col'
+              'flex items-center  justify-between gap-6 border-t border-solid border-primary-1 px-9 py-4 first:border-t-0 dark:border-darkmode-border max-xs:flex-col'
             )}
           >
             {data.image && (
