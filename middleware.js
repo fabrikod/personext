@@ -6,7 +6,6 @@ export async function middleware(request) {
   const token = await getToken({ req: request, secret: process.env.SECRET })
   console.log('22222222222', token)
   console.log('3333333333', process.env.SECRET)
-  console.log('444444444444', request)
 
   if (request.nextUrl.pathname.startsWith('/panel')) {
     if (!!!token) {

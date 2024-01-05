@@ -27,31 +27,30 @@ function middleware(request) {
           token = _context.sent;
           console.log('22222222222', token);
           console.log('3333333333', process.env.SECRET);
-          console.log('444444444444', request);
 
           if (!request.nextUrl.pathname.startsWith('/panel')) {
-            _context.next = 11;
+            _context.next = 10;
             break;
           }
 
           if (!!token) {
-            _context.next = 10;
+            _context.next = 9;
             break;
           }
 
           return _context.abrupt("return", _server.NextResponse.redirect(new URL('/login', request.url)));
 
-        case 10:
+        case 9:
           return _context.abrupt("return", _server.NextResponse.next());
 
-        case 11:
+        case 10:
           if (!request.nextUrl.pathname.startsWith('/api/admin')) {
-            _context.next = 15;
+            _context.next = 14;
             break;
           }
 
           if (!!token) {
-            _context.next = 14;
+            _context.next = 13;
             break;
           }
 
@@ -59,26 +58,26 @@ function middleware(request) {
             status: 401
           }));
 
-        case 14:
+        case 13:
           return _context.abrupt("return", _server.NextResponse.next());
 
-        case 15:
+        case 14:
           if (!request.nextUrl.pathname.startsWith('/login')) {
-            _context.next = 19;
+            _context.next = 18;
             break;
           }
 
           if (!token) {
-            _context.next = 18;
+            _context.next = 17;
             break;
           }
 
           return _context.abrupt("return", _server.NextResponse.redirect(new URL('/panel', request.url)));
 
-        case 18:
+        case 17:
           return _context.abrupt("return", _server.NextResponse.next());
 
-        case 19:
+        case 18:
         case "end":
           return _context.stop();
       }

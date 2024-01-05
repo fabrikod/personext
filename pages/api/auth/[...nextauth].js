@@ -4,8 +4,18 @@ import { getUserService } from '@/services/md.services'
 import { login } from '@/services/md.user.service'
 
 export default NextAuth({
+  session: {
+    strategy: 'jwt',
+    // Seconds - How long until an idle session expires and is no longer valid.
+    maxAge: 2 * 60 * 60, // 2 hours
+  },
   providers: [
     CredentialsProvider({
+      // set the type of provider
+      type: 'credentials',
+      // leave credentials object empty since we have our own login page
+      credentials: {},
+      // initialize authorize function
       async authorize(credentials) {
         const { username, password } = credentials
         console.log('555555555', { username, password })
