@@ -8,8 +8,6 @@ exports.config = void 0;
 
 var _server = require("next/server");
 
-var _react = require("next-auth/react");
-
 var _jwt = require("next-auth/jwt");
 
 function middleware(request) {
