@@ -21,13 +21,13 @@ function handler(req, res) {
 
         case 3:
           files = _context.sent;
-          console.log('222222222', files);
+          console.log('222222222', process.cwd(), files);
           _context.next = 7;
           return regeneratorRuntime.awrap(fs.readdir(path.join("".concat(process.cwd()), 'data')));
 
         case 7:
           files2 = _context.sent;
-          console.log('3333333333', files);
+          console.log('3333333333', path.join("".concat(process.cwd()), 'data'), files);
           res.status(200).json({
             data: 'test'
           });

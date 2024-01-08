@@ -6,10 +6,10 @@ export default async function handler(req, res) {
 
   const files = await fs.readdir(process.cwd())
 
-  console.log('222222222', files)
+  console.log('222222222', process.cwd(), files)
 
   const files2 = await fs.readdir(path.join(`${process.cwd()}`, 'data'))
-  console.log('3333333333', files)
+  console.log('3333333333', path.join(`${process.cwd()}`, 'data'), files)
 
   res.status(200).json({
     data: 'test',
