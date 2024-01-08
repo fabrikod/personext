@@ -67,10 +67,11 @@ export default function Form({
     <AdminCreate
       actionButtonText={actionButtonText}
       actionAndReturnButtonText={actionAndReturnButtonText}
-      formData={formState}
+      form={formState}
       url={'blog'}
       title={'Blogs'}
       id={router.query.id}
+      file={true}
       type={type}
       fetchData={fetchData}
     >

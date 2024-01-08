@@ -15,7 +15,6 @@ function handler(req, res) {
       switch (_context.prev = _context.next) {
         case 0:
           query = req.query;
-          console.log('aaaaaa', query);
           newQuery = {
             page: query.page,
             perpage: query.perpage
@@ -25,10 +24,10 @@ function handler(req, res) {
             newQuery.tag = query.tag;
           }
 
-          _context.next = 6;
+          _context.next = 5;
           return regeneratorRuntime.awrap((0, _md.getBlogJsonService)(newQuery));
 
-        case 6:
+        case 5:
           _ref = _context.sent;
           data = _ref.data;
           meta = _ref.meta;
@@ -37,7 +36,7 @@ function handler(req, res) {
             meta: meta
           });
 
-        case 10:
+        case 9:
         case "end":
           return _context.stop();
       }

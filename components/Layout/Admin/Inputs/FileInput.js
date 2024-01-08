@@ -25,6 +25,13 @@ function FileInput({ type, label, id, name, onChange, value }) {
 
   useEffect(() => {
     if (value) {
+      if (typeof value === 'object') {
+        const fileReader = new FileReader()
+        fileReader.onloadend = function () {
+          imageRef.current.setAttribute('src', fileReader.result)
+        }
+        fileReader.readAsDataURL(value)
+      }
       setShowImage(true)
     }
   }, [value])

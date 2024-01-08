@@ -10,7 +10,8 @@ export default function Create({
   actionButtonText = 'Save',
   cancelButtonText = 'Cancel',
   actionAndReturnButtonText = 'Save and Return',
-  formData,
+  file,
+  form,
   fetchData,
   url,
   id,
@@ -18,11 +19,32 @@ export default function Create({
 }) {
   const handleOnSubmit = async e => {
     e.preventDefault()
-    const blogs = await apiClient.post(`/admin/${url}/create`, {
-      data: {
-        slug: formData.slug.split('/')[1],
-        ...formData,
-      },
+    let data = null
+    if (!file) {
+      data = {
+        data: {
+          slug: form.slug.split('/')[1],
+          ...form,
+        },
+      }
+    } else {
+      const formData = new FormData()
+
+      for (const [key, value] of Object.entries(form)) {
+        formData.append(key, value)
+      }
+
+      data = formData
+    }
+
+    const headers = {
+      'Content-Type': file ? 'multipart/form-data' : 'application/json',
+    }
+
+    console.log('headers', headers, data)
+
+    const blogs = await apiClient.post(`/admin/${url}/create`, data, {
+      headers,
     })
   }
 
@@ -42,8 +64,8 @@ export default function Create({
     const blogs = await apiClient.post(`/admin/${url}/update`, {
       data: {
         id: id,
-        slug: formData.slug.split('/')[1],
-        ...formData,
+        slug: form.slug.split('/')[1],
+        ...form,
       },
     })
   }
