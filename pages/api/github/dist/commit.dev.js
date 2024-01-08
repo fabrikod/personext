@@ -7,6 +7,8 @@ exports["default"] = handler;
 
 var fs = require('fs').promises;
 
+var path = require('path');
+
 function handler(req, res) {
   var files, files2;
   return regeneratorRuntime.async(function handler$(_context) {
@@ -21,7 +23,7 @@ function handler(req, res) {
           files = _context.sent;
           console.log('222222222', files);
           _context.next = 7;
-          return regeneratorRuntime.awrap(fs.readdir("".concat(process.cwd(), "/../")));
+          return regeneratorRuntime.awrap(fs.readdir(path.join("".concat(process.cwd()), '/../../')));
 
         case 7:
           files2 = _context.sent;
