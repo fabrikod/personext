@@ -93,23 +93,23 @@ export const createBlogService = async blogData => {
     ...blogData.data,
   }
 
-  const createBlog = await createBlogMdFile(newCreateBlog)
+  // const createBlog = await createBlogMdFile(newCreateBlog)
 
-  jsonBlogs.push({
-    id: id,
-    file: `${blogData.data.slug}.md`,
-    title: blogData.data.title,
-    createdAt: new Date().toISOString(),
-    publishedAt: blogData.data.publishedAt,
-    listVisible: blogData.data.listVisible || true,
-    tags: blogData.data.tags || [],
-  })
+  // jsonBlogs.push({
+  //   id: id,
+  //   file: `${blogData.data.slug}.md`,
+  //   title: blogData.data.title,
+  //   createdAt: new Date().toISOString(),
+  //   publishedAt: blogData.data.publishedAt,
+  //   listVisible: blogData.data.listVisible || true,
+  //   tags: blogData.data.tags || [],
+  // })
 
-  jsonBlogs.sort(
-    (first, last) => new Date(last.publishedAt) - new Date(first.publishedAt)
-  )
+  // jsonBlogs.sort(
+  //   (first, last) => new Date(last.publishedAt) - new Date(first.publishedAt)
+  // )
 
-  await updateBlogJsonFile(jsonBlogs)
+  // await updateBlogJsonFile(jsonBlogs)
 
-  return createBlog
+  return true
 }

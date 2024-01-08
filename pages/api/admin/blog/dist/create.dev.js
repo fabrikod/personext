@@ -8,16 +8,21 @@ exports["default"] = handler;
 var _mdBlog = require("@/services/md.blog.service");
 
 function handler(req, res) {
+  var blog;
   return regeneratorRuntime.async(function handler$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
-          // const blog = await createBlogService(req.body)
+          _context.next = 2;
+          return regeneratorRuntime.awrap((0, _mdBlog.createBlogService)(req.body));
+
+        case 2:
+          blog = _context.sent;
           res.status(200).json({
             data: req.body
           });
 
-        case 1:
+        case 4:
         case "end":
           return _context.stop();
       }

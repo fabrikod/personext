@@ -5,43 +5,114 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports["default"] = handler;
 
-var fs = require('fs').promises;
-
-var path = require('path');
+var axios = require('axios');
 
 function handler(req, res) {
-  var files, files2, files3;
   return regeneratorRuntime.async(function handler$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
-          console.log('111111111', process.cwd());
-          _context.next = 3;
-          return regeneratorRuntime.awrap(fs.readdir(process.cwd()));
-
-        case 3:
-          files = _context.sent;
-          console.log('222222222', process.cwd(), files);
-          _context.next = 7;
-          return regeneratorRuntime.awrap(fs.readdir(path.join("".concat(process.cwd()), 'data')));
-
-        case 7:
-          files2 = _context.sent;
-          console.log('3333333333', path.join("".concat(process.cwd()), 'data'), files2);
-          _context.next = 11;
-          return regeneratorRuntime.awrap(fs.readdir(path.join("".concat(process.cwd()), '../../')));
-
-        case 11:
-          files3 = _context.sent;
-          console.log('44444444444', path.join("".concat(process.cwd()), 'data'), files3);
+          createGitHubFiles('abdullahonden', 'personext', 'main', files, 'Add multiple files', process.env.PERSONAL_ACCESS_TOKEN);
           res.status(200).json({
-            data: 'test'
+            data: 'test1'
           });
 
-        case 14:
+        case 2:
         case "end":
           return _context.stop();
       }
     }
   });
 }
+
+function createGitHubFiles(owner, repo, branch, files, message, token) {
+  var branchRes, latestCommitSha, commitRes, baseTreeSha, newTree, treeRes, newTreeSha, newCommit;
+  return regeneratorRuntime.async(function createGitHubFiles$(_context2) {
+    while (1) {
+      switch (_context2.prev = _context2.next) {
+        case 0:
+          _context2.next = 2;
+          return regeneratorRuntime.awrap(axios.get("https://api.github.com/repos/".concat(owner, "/").concat(repo, "/git/ref/heads/").concat(branch), {
+            headers: {
+              Authorization: "token ".concat(token)
+            }
+          }));
+
+        case 2:
+          branchRes = _context2.sent;
+          latestCommitSha = branchRes.data.object.sha; // Adım 2: Mevcut tree'nin SHA'sını al
+
+          _context2.next = 6;
+          return regeneratorRuntime.awrap(axios.get("https://api.github.com/repos/".concat(owner, "/").concat(repo, "/git/commits/").concat(latestCommitSha), {
+            headers: {
+              Authorization: "token ".concat(token)
+            }
+          }));
+
+        case 6:
+          commitRes = _context2.sent;
+          baseTreeSha = commitRes.data.tree.sha; // Adım 3: Yeni tree oluştur
+
+          newTree = files.map(function (file) {
+            return {
+              path: file.path,
+              mode: '100644',
+              type: 'blob',
+              content: file.content
+            };
+          });
+          _context2.next = 11;
+          return regeneratorRuntime.awrap(axios.post("https://api.github.com/repos/".concat(owner, "/").concat(repo, "/git/trees"), {
+            base_tree: baseTreeSha,
+            tree: newTree
+          }, {
+            headers: {
+              Authorization: "token ".concat(token)
+            }
+          }));
+
+        case 11:
+          treeRes = _context2.sent;
+          // Adım 4: Yeni commit oluştur
+          newTreeSha = treeRes.data.sha;
+          _context2.next = 15;
+          return regeneratorRuntime.awrap(axios.post("https://api.github.com/repos/".concat(owner, "/").concat(repo, "/git/commits"), {
+            message: message,
+            tree: newTreeSha,
+            parents: [latestCommitSha]
+          }, {
+            headers: {
+              Authorization: "token ".concat(token)
+            }
+          }));
+
+        case 15:
+          newCommit = _context2.sent;
+          _context2.next = 18;
+          return regeneratorRuntime.awrap(axios.patch("https://api.github.com/repos/".concat(owner, "/").concat(repo, "/git/refs/heads/").concat(branch), {
+            sha: newCommit.data.sha
+          }, {
+            headers: {
+              Authorization: "token ".concat(token)
+            }
+          }));
+
+        case 18:
+        case "end":
+          return _context2.stop();
+      }
+    }
+  });
+} // Örnek kullanım
+
+
+var files = [{
+  path: 'data/file1.txt',
+  content: 'Hello World 1'
+}, {
+  path: 'public/file2.txt',
+  content: 'Hello World 2'
+}, {
+  path: 'utils/file3.txt',
+  content: 'Hello World 3'
+}];

@@ -138,7 +138,7 @@ var updateBlogService = function updateBlogService(blogData) {
 exports.updateBlogService = updateBlogService;
 
 var createBlogService = function createBlogService(blogData) {
-  var isValid, jsonBlogs, isBlogIndex, id, newCreateBlog, createBlog;
+  var isValid, jsonBlogs, isBlogIndex, id, newCreateBlog;
   return regeneratorRuntime.async(function createBlogService$(_context3) {
     while (1) {
       switch (_context3.prev = _context3.next) {
@@ -174,31 +174,24 @@ var createBlogService = function createBlogService(blogData) {
           newCreateBlog = _objectSpread({
             id: id,
             createdAt: new Date().toISOString()
-          }, blogData.data);
-          _context3.next = 13;
-          return regeneratorRuntime.awrap((0, _mdFileAccess.createBlogMdFile)(newCreateBlog));
+          }, blogData.data); // const createBlog = await createBlogMdFile(newCreateBlog)
+          // jsonBlogs.push({
+          //   id: id,
+          //   file: `${blogData.data.slug}.md`,
+          //   title: blogData.data.title,
+          //   createdAt: new Date().toISOString(),
+          //   publishedAt: blogData.data.publishedAt,
+          //   listVisible: blogData.data.listVisible || true,
+          //   tags: blogData.data.tags || [],
+          // })
+          // jsonBlogs.sort(
+          //   (first, last) => new Date(last.publishedAt) - new Date(first.publishedAt)
+          // )
+          // await updateBlogJsonFile(jsonBlogs)
 
-        case 13:
-          createBlog = _context3.sent;
-          jsonBlogs.push({
-            id: id,
-            file: "".concat(blogData.data.slug, ".md"),
-            title: blogData.data.title,
-            createdAt: new Date().toISOString(),
-            publishedAt: blogData.data.publishedAt,
-            listVisible: blogData.data.listVisible || true,
-            tags: blogData.data.tags || []
-          });
-          jsonBlogs.sort(function (first, last) {
-            return new Date(last.publishedAt) - new Date(first.publishedAt);
-          });
-          _context3.next = 18;
-          return regeneratorRuntime.awrap((0, _mdFileAccess.updateBlogJsonFile)(jsonBlogs));
+          return _context3.abrupt("return", true);
 
-        case 18:
-          return _context3.abrupt("return", createBlog);
-
-        case 19:
+        case 12:
         case "end":
           return _context3.stop();
       }

@@ -21,4 +21,8 @@ const getFileContent = path => {
   return fs.readFileSync(`${process.cwd()}/data/${path}`, 'utf-8')
 }
 
-export { slug, toObject, toYaml }
+const toBase64 = text => {
+  return Buffer.from(text).toString('base64')
+}
+
+export { slug, toObject, toYaml, toBase64 }
