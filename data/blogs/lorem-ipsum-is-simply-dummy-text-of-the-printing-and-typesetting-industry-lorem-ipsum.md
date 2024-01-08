@@ -1,6 +1,6 @@
-id: 29ed3c64-2be0-4998-992b-d8023a7c5bff
-createdAt: '2024-01-08T17:44:32.867Z'
-publishedAt: '2024-01-08T17:44:32.867Z'
+id: 8b6394ce-964f-450f-803e-df492cfbff69
+createdAt: '2024-01-08T17:45:48.074Z'
+publishedAt: '2024-01-08T17:45:48.074Z'
 description: >-
   Lorem Ipsum is simply dummy text of the printing and typesetting industry.
   Lorem Ipsum Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -11,7 +11,7 @@ title: >-
 type: halftext
 slug: >-
   /lorem-ipsum-is-simply-dummy-text-of-the-printing-and-typesetting-industry-lorem-ipsum
-image: /img/blogs/ccf52297-ee61-4b5f-8944-b0297dfd4bb8-1704735872867.png
+image: /img/blogs/10114f16-5f94-4182-a8b9-de06f3ea8474-1704735948074.png
 tags: []
 content: >-
   <h2>What is Lorem Ipsum?</h2><p class="ql-align-justify"><strong>Lorem
