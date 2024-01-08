@@ -25,6 +25,8 @@ async function createGitHubFiles(owner, repo, branch, files, message, token) {
   )
   const latestCommitSha = branchRes.data.object.sha
 
+  console.log('latestCommitSha', latestCommitSha)
+
   // Adım 2: Mevcut tree'nin SHA'sını al
   const commitRes = await axios.get(
     `https://api.github.com/repos/${owner}/${repo}/git/commits/${latestCommitSha}`,

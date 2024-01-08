@@ -13,6 +13,10 @@ var _helpers = require("@/helpers");
 
 var _valid = require("@/helpers/valid");
 
+var _github = require("./github.service");
+
+var _constrait = require("@/constrait");
+
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -138,7 +142,7 @@ var updateBlogService = function updateBlogService(blogData) {
 exports.updateBlogService = updateBlogService;
 
 var createBlogService = function createBlogService(blogData) {
-  var isValid, jsonBlogs, isBlogIndex, id, newCreateBlog;
+  var isValid, jsonBlogs, isBlogIndex, id, heroImageName, newCreateBlog, files;
   return regeneratorRuntime.async(function createBlogService$(_context3) {
     while (1) {
       switch (_context3.prev = _context3.next) {
@@ -171,10 +175,29 @@ var createBlogService = function createBlogService(blogData) {
 
         case 9:
           id = uuidv4();
-          newCreateBlog = _objectSpread({
+          heroImageName = "".concat(uuidv4(), "-").concat(new Date().getTime(), ".").concat(blogData.data.image.mimetype);
+          newCreateBlog = {
             id: id,
-            createdAt: new Date().toISOString()
-          }, blogData.data); // const createBlog = await createBlogMdFile(newCreateBlog)
+            createdAt: new Date().toISOString(),
+            publishedAt: new Date().toISOString(),
+            description: blogData.data.description,
+            title: blogData.data.title,
+            type: 'halftext',
+            slug: blogData.data.slug,
+            image: "/img/blogs/".concat(heroImageName),
+            tags: [],
+            content: blogData.data.content
+          };
+          files = [{
+            path: 'data/blogs',
+            name: "".concat(newCreateBlog.slug, ".md"),
+            content: (0, _helpers.toYaml)(newCreateBlog)
+          }, {
+            path: 'public/img/blogs',
+            name: heroImageName,
+            content: newCreateBlog.image
+          }];
+          (0, _github.githubMultipleFileService)(files, 'create'); // const createBlog = await createBlogMdFile(newCreateBlog)
           // jsonBlogs.push({
           //   id: id,
           //   file: `${blogData.data.slug}.md`,
@@ -191,7 +214,7 @@ var createBlogService = function createBlogService(blogData) {
 
           return _context3.abrupt("return", true);
 
-        case 12:
+        case 15:
         case "end":
           return _context3.stop();
       }

@@ -2,10 +2,7 @@ import { NextResponse } from 'next/server'
 import { getToken } from 'next-auth/jwt'
 
 export async function middleware(request) {
-  console.log('11111111111')
   const token = await getToken({ req: request, secret: process.env.SECRET })
-  console.log('22222222222', token)
-  console.log('3333333333', process.env.SECRET)
 
   if (request.nextUrl.pathname.startsWith('/panel')) {
     if (!!!token) {

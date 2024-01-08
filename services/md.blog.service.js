@@ -2,15 +2,16 @@ import { BLOG } from '@/constrait/columns'
 const { v4: uuidv4 } = require('uuid')
 
 import {
-  createBlogMdFile,
   deleteBlogFile,
   getBlogBySlugData,
   readJsonFileData,
   updateBlogJsonFile,
   updateBlogMdFile,
 } from '@/dataAccess/mdFileAccess/mdFileAccess'
-import { toObject } from '@/helpers'
+import { toObject, toYaml } from '@/helpers'
 import { blogValid } from '@/helpers/valid'
+import { githubMultipleFileService } from './github.service'
+import { BLOG_FOLDER_PATH, BLOG_IMAGES } from '@/constrait'
 
 export const deleteBlogService = async id => {
   const jsonBlogs = await readJsonFileData()
@@ -86,12 +87,37 @@ export const createBlogService = async blogData => {
   }
 
   const id = uuidv4()
+  const heroImageName = `${uuidv4()}-${new Date().getTime()}.${
+    blogData.data.image.mimetype
+  }`
 
   const newCreateBlog = {
     id,
     createdAt: new Date().toISOString(),
-    ...blogData.data,
+    publishedAt: new Date().toISOString(),
+    description: blogData.data.description,
+    title: blogData.data.title,
+    type: 'halftext',
+    slug: blogData.data.slug,
+    image: `/img/blogs/${heroImageName}`,
+    tags: [],
+    content: blogData.data.content,
   }
+
+  const files = [
+    {
+      path: 'data/blogs',
+      name: `${newCreateBlog.slug}.md`,
+      content: toYaml(newCreateBlog),
+    },
+    {
+      path: 'public/img/blogs',
+      name: heroImageName,
+      content: newCreateBlog.image,
+    },
+  ]
+
+  githubMultipleFileService(files, 'create')
 
   // const createBlog = await createBlogMdFile(newCreateBlog)
 

@@ -40,16 +40,17 @@ function createGitHubFiles(owner, repo, branch, files, message, token) {
 
         case 2:
           branchRes = _context2.sent;
-          latestCommitSha = branchRes.data.object.sha; // Adım 2: Mevcut tree'nin SHA'sını al
+          latestCommitSha = branchRes.data.object.sha;
+          console.log('latestCommitSha', latestCommitSha); // Adım 2: Mevcut tree'nin SHA'sını al
 
-          _context2.next = 6;
+          _context2.next = 7;
           return regeneratorRuntime.awrap(axios.get("https://api.github.com/repos/".concat(owner, "/").concat(repo, "/git/commits/").concat(latestCommitSha), {
             headers: {
               Authorization: "token ".concat(token)
             }
           }));
 
-        case 6:
+        case 7:
           commitRes = _context2.sent;
           baseTreeSha = commitRes.data.tree.sha; // Adım 3: Yeni tree oluştur
 
@@ -61,7 +62,7 @@ function createGitHubFiles(owner, repo, branch, files, message, token) {
               content: file.content
             };
           });
-          _context2.next = 11;
+          _context2.next = 12;
           return regeneratorRuntime.awrap(axios.post("https://api.github.com/repos/".concat(owner, "/").concat(repo, "/git/trees"), {
             base_tree: baseTreeSha,
             tree: newTree
@@ -71,11 +72,11 @@ function createGitHubFiles(owner, repo, branch, files, message, token) {
             }
           }));
 
-        case 11:
+        case 12:
           treeRes = _context2.sent;
           // Adım 4: Yeni commit oluştur
           newTreeSha = treeRes.data.sha;
-          _context2.next = 15;
+          _context2.next = 16;
           return regeneratorRuntime.awrap(axios.post("https://api.github.com/repos/".concat(owner, "/").concat(repo, "/git/commits"), {
             message: message,
             tree: newTreeSha,
@@ -86,9 +87,9 @@ function createGitHubFiles(owner, repo, branch, files, message, token) {
             }
           }));
 
-        case 15:
+        case 16:
           newCommit = _context2.sent;
-          _context2.next = 18;
+          _context2.next = 19;
           return regeneratorRuntime.awrap(axios.patch("https://api.github.com/repos/".concat(owner, "/").concat(repo, "/git/refs/heads/").concat(branch), {
             sha: newCommit.data.sha
           }, {
@@ -97,7 +98,7 @@ function createGitHubFiles(owner, repo, branch, files, message, token) {
             }
           }));
 
-        case 18:
+        case 19:
         case "end":
           return _context2.stop();
       }
