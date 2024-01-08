@@ -10,7 +10,7 @@ var fs = require('fs').promises;
 var path = require('path');
 
 function handler(req, res) {
-  var files, files2;
+  var files, files2, files3;
   return regeneratorRuntime.async(function handler$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
@@ -27,12 +27,18 @@ function handler(req, res) {
 
         case 7:
           files2 = _context.sent;
-          console.log('3333333333', path.join("".concat(process.cwd()), 'data'), files);
+          console.log('3333333333', path.join("".concat(process.cwd()), 'data'), files2);
+          _context.next = 11;
+          return regeneratorRuntime.awrap(fs.readdir(path.join("".concat(process.cwd()), '../../')));
+
+        case 11:
+          files3 = _context.sent;
+          console.log('44444444444', path.join("".concat(process.cwd()), 'data'), files3);
           res.status(200).json({
             data: 'test'
           });
 
-        case 10:
+        case 14:
         case "end":
           return _context.stop();
       }
