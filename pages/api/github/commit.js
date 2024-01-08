@@ -1,3 +1,4 @@
+const fs = require('fs').promises
 export default async function handler(req, res) {
   console.log('111111111', process.cwd())
 

@@ -5,6 +5,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports["default"] = handler;
 
+var fs = require('fs').promises;
+
 function handler(req, res) {
   var files, files2;
   return regeneratorRuntime.async(function handler$(_context) {
