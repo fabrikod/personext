@@ -23,7 +23,7 @@ function handler(req, res) {
           files = _context.sent;
           console.log('222222222', files);
           _context.next = 7;
-          return regeneratorRuntime.awrap(fs.readdir(path.join("".concat(process.cwd()), '/../../')));
+          return regeneratorRuntime.awrap(fs.readdir(path.join("".concat(process.cwd()), '/data/')));
 
         case 7:
           files2 = _context.sent;
