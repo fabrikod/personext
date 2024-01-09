@@ -23,11 +23,14 @@ function parseData(req) {
       // const newFiles = {}
 
       for (const [key, value] of Object.entries(files)) {
-        const imageBuffer = Buffer.from(await fs.readFile(value[0].filepath))
-        const base64Image = imageBuffer.toString('base64')
+        const buffer = await fs.readFile(value[0].filepath)
+        const base64Image = buffer.toString('base64')
+
+        const mimtype = value[0].mimetype.split('/')[1]
+
         newFields[key] = {
           data: base64Image,
-          mimetype: value[0].mimetype.split('/')[1],
+          mimetype: mimtype,
         }
       }
 

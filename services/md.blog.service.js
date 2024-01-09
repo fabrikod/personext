@@ -113,11 +113,13 @@ export const createBlogService = async blogData => {
     {
       path: 'public/img/blogs',
       name: heroImageName,
-      content: newCreateBlog.image,
+      content: blogData.data.image.data,
     },
   ]
 
-  githubMultipleFileService(files, 'create')
+  const message = 'create ' + files.map(file => file.name).join(' ')
+
+  githubMultipleFileService(files, message)
 
   // const createBlog = await createBlogMdFile(newCreateBlog)
 

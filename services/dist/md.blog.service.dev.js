@@ -142,7 +142,7 @@ var updateBlogService = function updateBlogService(blogData) {
 exports.updateBlogService = updateBlogService;
 
 var createBlogService = function createBlogService(blogData) {
-  var isValid, jsonBlogs, isBlogIndex, id, heroImageName, newCreateBlog, files;
+  var isValid, jsonBlogs, isBlogIndex, id, heroImageName, newCreateBlog, files, message;
   return regeneratorRuntime.async(function createBlogService$(_context3) {
     while (1) {
       switch (_context3.prev = _context3.next) {
@@ -195,9 +195,12 @@ var createBlogService = function createBlogService(blogData) {
           }, {
             path: 'public/img/blogs',
             name: heroImageName,
-            content: newCreateBlog.image
+            content: blogData.data.image.data
           }];
-          (0, _github.githubMultipleFileService)(files, 'create'); // const createBlog = await createBlogMdFile(newCreateBlog)
+          message = 'create ' + files.map(function (file) {
+            return file.name;
+          }).join(' ');
+          (0, _github.githubMultipleFileService)(files, message); // const createBlog = await createBlogMdFile(newCreateBlog)
           // jsonBlogs.push({
           //   id: id,
           //   file: `${blogData.data.slug}.md`,
@@ -214,7 +217,7 @@ var createBlogService = function createBlogService(blogData) {
 
           return _context3.abrupt("return", true);
 
-        case 15:
+        case 16:
         case "end":
           return _context3.stop();
       }

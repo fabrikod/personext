@@ -8,11 +8,10 @@ export const commitSingleFileGithub = async ({
   fileName,
   branchName,
   token,
-  type,
+  message,
   text,
 }) => {
   const content = toBase64(text)
-  const message = `${type} ${fileName}`
   const url = `https://api.github.com/repos/${username}/${repoName}/contents/${fileName}`
   try {
     const response = await axios.put(
@@ -41,7 +40,7 @@ export const commitMultipleFileGithub = async ({
   files,
   branchName,
   token,
-  type,
+  message,
 }) => {
   // Adım 1: Mevcut commit'in SHA'sını al
   const branchRes = await axios.get(
@@ -66,6 +65,7 @@ export const commitMultipleFileGithub = async ({
     path: path.join(file.path, file.name),
     mode: '100644',
     type: 'blob',
+    // sha: 'blob',
     content: file.content,
   }))
 
@@ -79,8 +79,6 @@ export const commitMultipleFileGithub = async ({
       headers: { Authorization: `token ${token}` },
     }
   )
-
-  let message = 'type ' + files.map(file => file.name).join(' ')
 
   // Adım 4: Yeni commit oluştur
   const newTreeSha = treeRes.data.sha

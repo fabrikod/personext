@@ -18,10 +18,8 @@ export default NextAuth({
       // initialize authorize function
       async authorize(credentials) {
         const { username, password } = credentials
-        console.log('555555555', { username, password })
 
         if (await login({ username, password })) {
-          console.log('66666666666')
           const user = await getUserService()
           return user
         }

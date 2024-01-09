@@ -7,7 +7,7 @@ exports.githubMultipleFileService = void 0;
 
 var _githubAccess = require("@/dataAccess/githubAccess");
 
-var githubMultipleFileService = function githubMultipleFileService(files, type) {
+var githubMultipleFileService = function githubMultipleFileService(files, message) {
   return regeneratorRuntime.async(function githubMultipleFileService$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
@@ -19,7 +19,7 @@ var githubMultipleFileService = function githubMultipleFileService(files, type) 
             repoName: process.env.GITHUB_REPONAME,
             token: process.env.PERSONAL_ACCESS_TOKEN,
             files: files,
-            type: type
+            message: message
           }));
 
         case 2:

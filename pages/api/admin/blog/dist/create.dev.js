@@ -33,7 +33,7 @@ function parseData(req) {
       multiples: true
     });
     form.parse(req, function _callee(err, fields, files) {
-      var newFields, _i, _Object$entries, _Object$entries$_i, key, value, _i2, _Object$entries2, _Object$entries2$_i, _key, _value, imageBuffer, base64Image;
+      var newFields, _i, _Object$entries, _Object$entries$_i, key, value, _i2, _Object$entries2, _Object$entries2$_i, _key, _value, buffer, base64Image, mimtype;
 
       return regeneratorRuntime.async(function _callee$(_context) {
         while (1) {
@@ -54,36 +54,35 @@ function parseData(req) {
 
             case 4:
               if (!(_i2 < _Object$entries2.length)) {
-                _context.next = 16;
+                _context.next = 15;
                 break;
               }
 
               _Object$entries2$_i = _slicedToArray(_Object$entries2[_i2], 2), _key = _Object$entries2$_i[0], _value = _Object$entries2$_i[1];
-              _context.t0 = Buffer;
-              _context.next = 9;
+              _context.next = 8;
               return regeneratorRuntime.awrap(_fs.promises.readFile(_value[0].filepath));
 
-            case 9:
-              _context.t1 = _context.sent;
-              imageBuffer = _context.t0.from.call(_context.t0, _context.t1);
-              base64Image = imageBuffer.toString('base64');
+            case 8:
+              buffer = _context.sent;
+              base64Image = buffer.toString('base64');
+              mimtype = _value[0].mimetype.split('/')[1];
               newFields[_key] = {
                 data: base64Image,
-                mimetype: _value[0].mimetype.split('/')[1]
+                mimetype: mimtype
               };
 
-            case 13:
+            case 12:
               _i2++;
               _context.next = 4;
               break;
 
-            case 16:
+            case 15:
               resolve({
                 err: err,
                 data: newFields
               }); // resolve({ err, fields: newFields, files: newFiles })
 
-            case 17:
+            case 16:
             case "end":
               return _context.stop();
           }
