@@ -117,6 +117,8 @@ export const createBlogService = async blogData => {
     },
   ]
 
+  console.log('33333333333', files)
+
   const message = 'create ' + files.map(file => file.name).join(' ')
 
   githubMultipleFileService(files, message)

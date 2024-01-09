@@ -60,6 +60,8 @@ export const commitMultipleFileGithub = async ({
   )
   const baseTreeSha = commitRes.data.tree.sha
 
+  console.log('55555555555', baseTreeSha)
+
   // Adım 3: Yeni tree oluştur
   const newTree = files.map(file => ({
     path: path.join(file.path, file.name),
@@ -82,6 +84,8 @@ export const commitMultipleFileGithub = async ({
 
   // Adım 4: Yeni commit oluştur
   const newTreeSha = treeRes.data.sha
+  console.log('666666666', newTreeSha)
+
   const newCommit = await axios.post(
     `https://api.github.com/repos/${username}/${repoName}/git/commits`,
     {

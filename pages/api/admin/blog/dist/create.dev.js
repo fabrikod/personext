@@ -54,7 +54,7 @@ function parseData(req) {
 
             case 4:
               if (!(_i2 < _Object$entries2.length)) {
-                _context.next = 15;
+                _context.next = 17;
                 break;
               }
 
@@ -64,25 +64,27 @@ function parseData(req) {
 
             case 8:
               buffer = _context.sent;
+              console.log('11111111111', _value[0].filepath);
               base64Image = buffer.toString('base64');
+              console.log('2222222222', base64Image);
               mimtype = _value[0].mimetype.split('/')[1];
               newFields[_key] = {
                 data: base64Image,
                 mimetype: mimtype
               };
 
-            case 12:
+            case 14:
               _i2++;
               _context.next = 4;
               break;
 
-            case 15:
+            case 17:
               resolve({
                 err: err,
                 data: newFields
               }); // resolve({ err, fields: newFields, files: newFiles })
 
-            case 16:
+            case 18:
             case "end":
               return _context.stop();
           }

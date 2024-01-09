@@ -197,6 +197,7 @@ var createBlogService = function createBlogService(blogData) {
             name: heroImageName,
             content: blogData.data.image.data
           }];
+          console.log('33333333333', files);
           message = 'create ' + files.map(function (file) {
             return file.name;
           }).join(' ');
@@ -217,7 +218,7 @@ var createBlogService = function createBlogService(blogData) {
 
           return _context3.abrupt("return", true);
 
-        case 16:
+        case 17:
         case "end":
           return _context3.stop();
       }

@@ -80,7 +80,8 @@ var commitMultipleFileGithub = function commitMultipleFileGithub(_ref2) {
 
         case 7:
           commitRes = _context2.sent;
-          baseTreeSha = commitRes.data.tree.sha; // Adım 3: Yeni tree oluştur
+          baseTreeSha = commitRes.data.tree.sha;
+          console.log('55555555555', baseTreeSha); // Adım 3: Yeni tree oluştur
 
           newTree = files.map(function (file) {
             return {
@@ -91,7 +92,7 @@ var commitMultipleFileGithub = function commitMultipleFileGithub(_ref2) {
               content: file.content
             };
           });
-          _context2.next = 12;
+          _context2.next = 13;
           return regeneratorRuntime.awrap(axios.post("https://api.github.com/repos/".concat(username, "/").concat(repoName, "/git/trees"), {
             base_tree: baseTreeSha,
             tree: newTree
@@ -101,11 +102,12 @@ var commitMultipleFileGithub = function commitMultipleFileGithub(_ref2) {
             }
           }));
 
-        case 12:
+        case 13:
           treeRes = _context2.sent;
           // Adım 4: Yeni commit oluştur
           newTreeSha = treeRes.data.sha;
-          _context2.next = 16;
+          console.log('666666666', newTreeSha);
+          _context2.next = 18;
           return regeneratorRuntime.awrap(axios.post("https://api.github.com/repos/".concat(username, "/").concat(repoName, "/git/commits"), {
             message: message,
             tree: newTreeSha,
@@ -116,9 +118,9 @@ var commitMultipleFileGithub = function commitMultipleFileGithub(_ref2) {
             }
           }));
 
-        case 16:
+        case 18:
           newCommit = _context2.sent;
-          _context2.next = 19;
+          _context2.next = 21;
           return regeneratorRuntime.awrap(axios.patch("https://api.github.com/repos/".concat(username, "/").concat(repoName, "/git/refs/heads/").concat(branchName), {
             sha: newCommit.data.sha
           }, {
@@ -127,7 +129,7 @@ var commitMultipleFileGithub = function commitMultipleFileGithub(_ref2) {
             }
           }));
 
-        case 19:
+        case 21:
         case "end":
           return _context2.stop();
       }
