@@ -1,5 +1,4 @@
-import { toBase64 } from '@/helpers/converters'
-const axios = require('axios')
+import axios from 'axios'
 const path = require('path')
 
 export const commitSingleFileGithub = async ({
@@ -9,9 +8,8 @@ export const commitSingleFileGithub = async ({
   branchName,
   token,
   message,
-  text,
+  content,
 }) => {
-  const content = toBase64(text)
   const url = `https://api.github.com/repos/${username}/${repoName}/contents/${fileName}`
   try {
     const response = await axios.put(
@@ -27,8 +25,6 @@ export const commitSingleFileGithub = async ({
         },
       }
     )
-
-    console.log(response.data)
   } catch (error) {
     console.error('Error in GitHub commit:', error)
   }
@@ -60,16 +56,37 @@ export const commitMultipleFileGithub = async ({
   )
   const baseTreeSha = commitRes.data.tree.sha
 
-  console.log('55555555555', baseTreeSha)
-
   // Adım 3: Yeni tree oluştur
-  const newTree = files.map(file => ({
-    path: path.join(file.path, file.name),
-    mode: '100644',
-    type: 'blob',
-    // sha: 'blob',
-    content: file.content,
-  }))
+  const newTree = []
+  for (const file of files) {
+    const blob = await axios.post(
+      `https://api.github.com/repos/${username}/${repoName}/git/blobs`,
+      {
+        content: file.content,
+        encoding: 'base64',
+      },
+      {
+        headers: {
+          Authorization: `token ${token}`,
+          accept: 'application/vnd.github+json',
+        },
+      }
+    )
+    newTree.push({
+      path: path.join(file.path, file.name),
+      mode: '100644',
+      type: 'blob',
+      sha: blob.data.sha,
+    })
+  }
+
+  // const newTree = files.map(file => ({
+  //   path: path.join(file.path, file.name),
+  //   mode: '100644',
+  //   type: 'blob',
+  //   content:
+  //     '',
+  // }))
 
   const treeRes = await axios.post(
     `https://api.github.com/repos/${username}/${repoName}/git/trees`,
@@ -84,7 +101,6 @@ export const commitMultipleFileGithub = async ({
 
   // Adım 4: Yeni commit oluştur
   const newTreeSha = treeRes.data.sha
-  console.log('666666666', newTreeSha)
 
   const newCommit = await axios.post(
     `https://api.github.com/repos/${username}/${repoName}/git/commits`,

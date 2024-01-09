@@ -31,6 +31,10 @@ export default function Create({
       const formData = new FormData()
 
       for (const [key, value] of Object.entries(form)) {
+        if (key === 'slug') {
+          formData.append(key, value.split('/')[1])
+          continue
+        }
         formData.append(key, value)
       }
 
@@ -40,8 +44,6 @@ export default function Create({
     const headers = {
       'Content-Type': file ? 'multipart/form-data' : 'application/json',
     }
-
-    console.log('headers', headers, data)
 
     const blogs = await apiClient.post(`/admin/${url}/create`, data, {
       headers,

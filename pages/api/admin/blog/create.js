@@ -1,6 +1,7 @@
+import { fileToBase64 } from '@/helpers/converters'
+import { githubSingleFileService } from '@/services/github.service'
 import { createBlogService } from '@/services/md.blog.service'
 import { Formidable } from 'formidable'
-import { promises as fs } from 'fs'
 
 export const config = {
   api: {
@@ -23,11 +24,7 @@ function parseData(req) {
       // const newFiles = {}
 
       for (const [key, value] of Object.entries(files)) {
-        const buffer = await fs.readFile(value[0].filepath)
-        console.log('11111111111', value[0].filepath)
-        const base64Image = buffer.toString('base64')
-        console.log('2222222222', base64Image)
-
+        const base64Image = await fileToBase64(value[0].filepath)
         const mimtype = value[0].mimetype.split('/')[1]
 
         newFields[key] = {

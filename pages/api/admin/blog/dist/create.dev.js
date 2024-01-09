@@ -6,11 +6,13 @@ Object.defineProperty(exports, "__esModule", {
 exports["default"] = handler;
 exports.config = void 0;
 
+var _converters = require("@/helpers/converters");
+
+var _github = require("@/services/github.service");
+
 var _mdBlog = require("@/services/md.blog.service");
 
 var _formidable = require("formidable");
-
-var _fs = require("fs");
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
 
@@ -33,7 +35,7 @@ function parseData(req) {
       multiples: true
     });
     form.parse(req, function _callee(err, fields, files) {
-      var newFields, _i, _Object$entries, _Object$entries$_i, key, value, _i2, _Object$entries2, _Object$entries2$_i, _key, _value, buffer, base64Image, mimtype;
+      var newFields, _i, _Object$entries, _Object$entries$_i, key, value, _i2, _Object$entries2, _Object$entries2$_i, _key, _value, base64Image, mimtype;
 
       return regeneratorRuntime.async(function _callee$(_context) {
         while (1) {
@@ -54,37 +56,34 @@ function parseData(req) {
 
             case 4:
               if (!(_i2 < _Object$entries2.length)) {
-                _context.next = 17;
+                _context.next = 14;
                 break;
               }
 
               _Object$entries2$_i = _slicedToArray(_Object$entries2[_i2], 2), _key = _Object$entries2$_i[0], _value = _Object$entries2$_i[1];
               _context.next = 8;
-              return regeneratorRuntime.awrap(_fs.promises.readFile(_value[0].filepath));
+              return regeneratorRuntime.awrap((0, _converters.fileToBase64)(_value[0].filepath));
 
             case 8:
-              buffer = _context.sent;
-              console.log('11111111111', _value[0].filepath);
-              base64Image = buffer.toString('base64');
-              console.log('2222222222', base64Image);
+              base64Image = _context.sent;
               mimtype = _value[0].mimetype.split('/')[1];
               newFields[_key] = {
                 data: base64Image,
                 mimetype: mimtype
               };
 
-            case 14:
+            case 11:
               _i2++;
               _context.next = 4;
               break;
 
-            case 17:
+            case 14:
               resolve({
                 err: err,
                 data: newFields
               }); // resolve({ err, fields: newFields, files: newFiles })
 
-            case 18:
+            case 15:
             case "end":
               return _context.stop();
           }

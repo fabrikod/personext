@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.toBase64 = exports.toYaml = exports.toObject = exports.slug = void 0;
+exports.fileToBase64 = exports.textToBase64 = exports.toYaml = exports.toObject = exports.slug = void 0;
 
 var fs = require('fs');
 
@@ -31,8 +31,25 @@ var getFileContent = function getFileContent(path) {
   return fs.readFileSync("".concat(process.cwd(), "/data/").concat(path), 'utf-8');
 };
 
-var toBase64 = function toBase64(text) {
-  return Buffer.from(text).toString('base64');
+var textToBase64 = function textToBase64(content) {
+  return Buffer.from(content).toString('base64');
 };
 
-exports.toBase64 = toBase64;
+exports.textToBase64 = textToBase64;
+
+var fileToBase64 = function fileToBase64(file) {
+  return regeneratorRuntime.async(function fileToBase64$(_context) {
+    while (1) {
+      switch (_context.prev = _context.next) {
+        case 0:
+          return _context.abrupt("return", fs.readFileSync(file, 'base64'));
+
+        case 1:
+        case "end":
+          return _context.stop();
+      }
+    }
+  });
+};
+
+exports.fileToBase64 = fileToBase64;
