@@ -59,7 +59,7 @@ export default function Blogs({
         View All Posts
         <div
           className={classNames(
-            'loading visible absolute right-2 z-20 opacity-0',
+            'loading visible absolute right-2 z-20 border-base-2 border-t-primary-6 opacity-0',
             isBlogLoading && '!visible opacity-100'
           )}
         />

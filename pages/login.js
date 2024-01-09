@@ -12,12 +12,14 @@ import { useState } from 'react'
 
 export default function SignIn() {
   const { user, settings } = useUser()
+  const [loading, setLoading] = useState(false)
   const [userName, setUserName] = useState('')
   const [userPassword, setPassword] = useState('')
   const [error, setError] = useState('')
   const router = useRouter()
 
   const handleLogin = async e => {
+    setLoading(true)
     e.preventDefault()
     setError('')
     const result = await signIn('credentials', {
@@ -26,6 +28,7 @@ export default function SignIn() {
       redirect: false,
       // callbackUrl: '/login',
     })
+    setLoading(false)
 
     if (result.ok) {
       router.push('/panel')
@@ -35,7 +38,7 @@ export default function SignIn() {
   }
 
   return (
-    <div className="flex h-screen items-center justify-center bg-base-4">
+    <div className="mx-5 flex h-screen items-center justify-center bg-base-4">
       <div className="w-full max-w-[26rem]">
         <div className="flex flex-col items-center gap-2">
           <div className="relative h-16 w-16">
@@ -101,15 +104,23 @@ export default function SignIn() {
                   <NewChip
                     as="button"
                     type="submit"
+                    disabled={loading}
                     className={classNames(
                       'bg-black',
                       'flex w-full justify-center',
                       '!rounded-[0.625rem]',
                       'mt-3 px-5 py-4',
-                      'text-sm font-medium text-white'
+                      'text-sm font-medium text-white',
+                      loading && 'opacity-50'
                     )}
                   >
                     Continue
+                    <div
+                      className={classNames(
+                        'loading invisible right-2 z-20 border-base-2 border-t-primary-6 opacity-0 duration-500',
+                        loading && '!visible ml-3 opacity-100'
+                      )}
+                    />
                   </NewChip>
                 </div>
               </form>

@@ -86,7 +86,7 @@ body {
 }
 
 .loading {
-  @apply border-2 border-base-2 border-t-primary-6 rounded-full w-5 h-5 animate-loading
+  @apply border-2 rounded-full w-5 h-5 animate-loading
 }
 
 .button {
