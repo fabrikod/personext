@@ -1,0 +1,10 @@
+id: 43ea2c3d-39e5-4565-8912-fb76b7117e06
+createdAt: '2024-01-09T08:32:05.797Z'
+publishedAt: '2024-01-09T08:32:05.797Z'
+description: asdasdasd
+title: asdasda
+type: halftext
+slug: /asdasda
+image: /img/blogs/6b85e088-5796-4fb4-9276-c6c0e4fa3255-1704789125797.png
+tags: []
+content: <p>asdasd</p>
