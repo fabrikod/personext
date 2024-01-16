@@ -1,29 +1,23 @@
 import { PanelDelete, PanelEdit } from '@/components/Icons'
 import AdminDataList from '@/components/Layout/Admin/DataList'
-import apiClient from '@/utils/axios'
 import classNames from 'classnames'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
-import { useCallback, useEffect, useState } from 'react'
-import ReactPaginate from 'react-paginate'
+import { useRef, useState } from 'react'
 
 const PERPAGE = 10
 
 export default function List({ title }) {
-  const [meta, setMeta] = useState({})
   const [blogs, setBlogs] = useState([])
-  const router = useRouter()
+  const adminDataListRef = useRef()
 
-  const fetchBlog = async () => {
-    const blogs = await apiClient.get('/admin/blog', {
-      params: {
-        page: router.query.page || 1,
-        perpage: PERPAGE,
-      },
-    })
+  const handleDelete = async id => {
+    adminDataListRef.current.deleteData(id)
+  }
+
+  const getBlog = ({ data }) => {
     setBlogs(
-      blogs.data.map(blog => {
+      data.map(blog => {
         const doc = new DOMParser().parseFromString(blog.content, 'text/html')
         return {
           ...blog,
@@ -34,37 +28,19 @@ export default function List({ title }) {
         }
       })
     )
-    setMeta(blogs.meta)
-  }
-
-  useEffect(() => {
-    fetchBlog()
-  }, [router.query.page])
-
-  const pageChanged = event => {
-    router.push({
-      query: {
-        ...router.query,
-        page: Number(event.selected) + 1,
-      },
-    })
-  }
-
-  const handleDelete = async id => {
-    const blogs = await apiClient.delete('/admin/blog/delete', {
-      data: {
-        id: id,
-      },
-    })
-
-    if (blogs.data) {
-      fetchBlog()
-    }
   }
 
   return (
     <>
-      <AdminDataList className="!p-0" title={'Blogs'} url="blog">
+      <AdminDataList
+        className="!p-0"
+        title={'Blogs'}
+        url="blog"
+        perPage={PERPAGE}
+        getDataList={getBlog}
+        isPaginage={true}
+        ref={adminDataListRef}
+      >
         {blogs.map((data, index) => (
           <div
             key={index}
@@ -113,7 +89,7 @@ export default function List({ title }) {
           </div>
         ))}
       </AdminDataList>
-      <div>
+      {/* <div>
         <ReactPaginate
           breakLabel="..."
           nextLabel=">"
@@ -124,7 +100,7 @@ export default function List({ title }) {
           renderOnZeroPageCount={null}
           className="pagination mt-10 flex flex-wrap justify-center gap-4 gap-y-7"
         />
-      </div>
+      </div> */}
     </>
   )
 }

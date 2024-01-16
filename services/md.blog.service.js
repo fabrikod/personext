@@ -1,17 +1,12 @@
-import { BLOG } from '@/constrait/columns'
 const { v4: uuidv4 } = require('uuid')
 
 import {
   deleteBlogFile,
-  getBlogBySlugData,
   readJsonFileData,
-  updateBlogJsonFile,
-  updateBlogMdFile,
 } from '@/dataAccess/mdFileAccess/mdFileAccess'
-import { toObject, toYaml } from '@/helpers'
-import { blogValid } from '@/helpers/valid'
+import { toYaml } from '@/helpers'
 import { githubMultipleFileService } from './github.service'
-import { BLOG_FOLDER_PATH, BLOG_IMAGES } from '@/constrait'
+import { textToBase64 } from '@/helpers/converters'
 
 export const deleteBlogService = async id => {
   const jsonBlogs = await readJsonFileData()
@@ -29,54 +24,55 @@ export const deleteBlogService = async id => {
 }
 
 export const updateBlogService = async blogData => {
-  const isValid = blogValid(BLOG, Object.keys(blogData.data))
-
-  if (!isValid) {
-    throw Error('incorrect column')
-  }
-
   const jsonBlogs = await readJsonFileData()
+
   const isBlogIndex = jsonBlogs.findIndex(
-    blog => blog.file === `${blogData.data.slug}.md`
+    blog =>
+      blog.file === `${blogData.data.slug}.md` && blogData.data.id !== blog.id
   )
 
   if (isBlogIndex !== -1) {
     throw Error('slug value must be unic')
   }
 
-  const blogIndex = jsonBlogs.findIndex(blog => blog.id === blogData.data.id)
-
-  const fileName = jsonBlogs[blogIndex].file
-  jsonBlogs[blogIndex] = {
-    ...jsonBlogs[blogIndex],
+  const newUpdateBlog = {
+    ...jsonBlogs[isBlogIndex],
+    publishedAt: new Date(blogData.data.publishedAt).toISOString(),
+    description: blogData.data.description,
     title: blogData.data.title,
-    file: `${blogData.data.slug}.md`,
-    // publishedAt: blogData.data.publishedAt,
-    // listVisible: blogData.data.listVisible,
-    // tags: blogData.data.tags
+    type: 'halftext',
+    slug: blogData.data.slug,
+    tags: [],
+    content: blogData.data.content,
   }
 
-  const blog = await getBlogBySlugData(fileName)
-  const jsonBlog = toObject(blog)
-  const newJsonBlog = Object.assign({}, jsonBlog, blogData.data)
-  const updateBlog = await updateBlogMdFile(fileName, newJsonBlog)
+  const files = [
+    {
+      path: 'data/blogs',
+      name: `${newUpdateBlog.slug}.md`,
+      content: textToBase64(toYaml(newUpdateBlog)),
+    },
+  ]
 
-  jsonBlogs.sort(
-    (first, last) => new Date(last.publishedAt) - new Date(first.publishedAt)
-  )
+  if (blogData.data.image) {
+    const heroImageName = `${uuidv4()}-${new Date().getTime()}.${
+      blogData.data.image.mimetype
+    }`
+    newUpdateBlog.image = `/img/blogs/${heroImageName}`
 
-  await updateBlogJsonFile(jsonBlogs)
+    files.push({
+      path: 'public/img/blogs',
+      name: heroImageName,
+      content: blogData.data.image.data,
+    })
+  }
 
-  return updateBlog
+  const message = 'create ' + files.map(file => file.name).join(' ')
+
+  githubMultipleFileService(files, message)
 }
 
 export const createBlogService = async blogData => {
-  const isValid = blogValid(BLOG, Object.keys(blogData.data))
-
-  if (!isValid) {
-    throw Error('incorrect column')
-  }
-
   const jsonBlogs = await readJsonFileData()
   const isBlogIndex = jsonBlogs.findIndex(
     blog => blog.file === `${blogData.data.slug}.md`
@@ -86,20 +82,14 @@ export const createBlogService = async blogData => {
     throw Error('slug value must be unic')
   }
 
-  const id = uuidv4()
-  const heroImageName = `${uuidv4()}-${new Date().getTime()}.${
-    blogData.data.image.mimetype
-  }`
-
   const newCreateBlog = {
-    id,
+    id: uuidv4(),
     createdAt: new Date().toISOString(),
     publishedAt: new Date().toISOString(),
     description: blogData.data.description,
     title: blogData.data.title,
     type: 'halftext',
     slug: blogData.data.slug,
-    image: `/img/blogs/${heroImageName}`,
     tags: [],
     content: blogData.data.content,
   }
@@ -108,14 +98,22 @@ export const createBlogService = async blogData => {
     {
       path: 'data/blogs',
       name: `${newCreateBlog.slug}.md`,
-      content: toYaml(newCreateBlog),
+      content: textToBase64(toYaml(newCreateBlog)),
     },
-    {
+  ]
+
+  if (blogData.data.image) {
+    const heroImageName = `${uuidv4()}-${new Date().getTime()}.${
+      blogData.data.image.mimetype
+    }`
+    newCreateBlog.image = `/img/blogs/${heroImageName}`
+
+    files.push({
       path: 'public/img/blogs',
       name: heroImageName,
       content: blogData.data.image.data,
-    },
-  ]
+    })
+  }
 
   const message = 'create ' + files.map(file => file.name).join(' ')
 

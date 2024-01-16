@@ -5,17 +5,13 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.createBlogService = exports.updateBlogService = exports.deleteBlogService = void 0;
 
-var _columns = require("@/constrait/columns");
-
 var _mdFileAccess = require("@/dataAccess/mdFileAccess/mdFileAccess");
 
 var _helpers = require("@/helpers");
 
-var _valid = require("@/helpers/valid");
-
 var _github = require("./github.service");
 
-var _constrait = require("@/constrait");
+var _converters = require("@/helpers/converters");
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -67,71 +63,59 @@ var deleteBlogService = function deleteBlogService(id) {
 exports.deleteBlogService = deleteBlogService;
 
 var updateBlogService = function updateBlogService(blogData) {
-  var isValid, jsonBlogs, isBlogIndex, blogIndex, fileName, blog, jsonBlog, newJsonBlog, updateBlog;
+  var jsonBlogs, isBlogIndex, newUpdateBlog, files, heroImageName, message;
   return regeneratorRuntime.async(function updateBlogService$(_context2) {
     while (1) {
       switch (_context2.prev = _context2.next) {
         case 0:
-          isValid = (0, _valid.blogValid)(_columns.BLOG, Object.keys(blogData.data));
-
-          if (isValid) {
-            _context2.next = 3;
-            break;
-          }
-
-          throw Error('incorrect column');
-
-        case 3:
-          _context2.next = 5;
+          _context2.next = 2;
           return regeneratorRuntime.awrap((0, _mdFileAccess.readJsonFileData)());
 
-        case 5:
+        case 2:
           jsonBlogs = _context2.sent;
           isBlogIndex = jsonBlogs.findIndex(function (blog) {
-            return blog.file === "".concat(blogData.data.slug, ".md");
+            return blog.file === "".concat(blogData.data.slug, ".md") && blogData.data.id !== blog.id;
           });
 
           if (!(isBlogIndex !== -1)) {
-            _context2.next = 9;
+            _context2.next = 6;
             break;
           }
 
           throw Error('slug value must be unic');
 
-        case 9:
-          blogIndex = jsonBlogs.findIndex(function (blog) {
-            return blog.id === blogData.data.id;
-          });
-          fileName = jsonBlogs[blogIndex].file;
-          jsonBlogs[blogIndex] = _objectSpread({}, jsonBlogs[blogIndex], {
+        case 6:
+          newUpdateBlog = _objectSpread({}, jsonBlogs[isBlogIndex], {
+            publishedAt: new Date(blogData.data.publishedAt).toISOString(),
+            description: blogData.data.description,
             title: blogData.data.title,
-            file: "".concat(blogData.data.slug, ".md") // publishedAt: blogData.data.publishedAt,
-            // listVisible: blogData.data.listVisible,
-            // tags: blogData.data.tags
-
+            type: 'halftext',
+            slug: blogData.data.slug,
+            tags: [],
+            content: blogData.data.content
           });
-          _context2.next = 14;
-          return regeneratorRuntime.awrap((0, _mdFileAccess.getBlogBySlugData)(fileName));
+          files = [{
+            path: 'data/blogs',
+            name: "".concat(newUpdateBlog.slug, ".md"),
+            content: (0, _converters.textToBase64)((0, _helpers.toYaml)(newUpdateBlog))
+          }];
 
-        case 14:
-          blog = _context2.sent;
-          jsonBlog = (0, _helpers.toObject)(blog);
-          newJsonBlog = Object.assign({}, jsonBlog, blogData.data);
-          _context2.next = 19;
-          return regeneratorRuntime.awrap((0, _mdFileAccess.updateBlogMdFile)(fileName, newJsonBlog));
+          if (blogData.data.image) {
+            heroImageName = "".concat(uuidv4(), "-").concat(new Date().getTime(), ".").concat(blogData.data.image.mimetype);
+            newUpdateBlog.image = "/img/blogs/".concat(heroImageName);
+            files.push({
+              path: 'public/img/blogs',
+              name: heroImageName,
+              content: blogData.data.image.data
+            });
+          }
 
-        case 19:
-          updateBlog = _context2.sent;
-          jsonBlogs.sort(function (first, last) {
-            return new Date(last.publishedAt) - new Date(first.publishedAt);
-          });
-          _context2.next = 23;
-          return regeneratorRuntime.awrap((0, _mdFileAccess.updateBlogJsonFile)(jsonBlogs));
+          message = 'create ' + files.map(function (file) {
+            return file.name;
+          }).join(' ');
+          (0, _github.githubMultipleFileService)(files, message);
 
-        case 23:
-          return _context2.abrupt("return", updateBlog);
-
-        case 24:
+        case 11:
         case "end":
           return _context2.stop();
       }
@@ -142,61 +126,55 @@ var updateBlogService = function updateBlogService(blogData) {
 exports.updateBlogService = updateBlogService;
 
 var createBlogService = function createBlogService(blogData) {
-  var isValid, jsonBlogs, isBlogIndex, id, heroImageName, newCreateBlog, files, message;
+  var jsonBlogs, isBlogIndex, newCreateBlog, files, heroImageName, message;
   return regeneratorRuntime.async(function createBlogService$(_context3) {
     while (1) {
       switch (_context3.prev = _context3.next) {
         case 0:
-          isValid = (0, _valid.blogValid)(_columns.BLOG, Object.keys(blogData.data));
-
-          if (isValid) {
-            _context3.next = 3;
-            break;
-          }
-
-          throw Error('incorrect column');
-
-        case 3:
-          _context3.next = 5;
+          _context3.next = 2;
           return regeneratorRuntime.awrap((0, _mdFileAccess.readJsonFileData)());
 
-        case 5:
+        case 2:
           jsonBlogs = _context3.sent;
           isBlogIndex = jsonBlogs.findIndex(function (blog) {
             return blog.file === "".concat(blogData.data.slug, ".md");
           });
 
           if (!(isBlogIndex !== -1)) {
-            _context3.next = 9;
+            _context3.next = 6;
             break;
           }
 
           throw Error('slug value must be unic');
 
-        case 9:
-          id = uuidv4();
-          heroImageName = "".concat(uuidv4(), "-").concat(new Date().getTime(), ".").concat(blogData.data.image.mimetype);
+        case 6:
           newCreateBlog = {
-            id: id,
+            id: uuidv4(),
             createdAt: new Date().toISOString(),
             publishedAt: new Date().toISOString(),
             description: blogData.data.description,
             title: blogData.data.title,
             type: 'halftext',
             slug: blogData.data.slug,
-            image: "/img/blogs/".concat(heroImageName),
             tags: [],
             content: blogData.data.content
           };
           files = [{
             path: 'data/blogs',
             name: "".concat(newCreateBlog.slug, ".md"),
-            content: (0, _helpers.toYaml)(newCreateBlog)
-          }, {
-            path: 'public/img/blogs',
-            name: heroImageName,
-            content: blogData.data.image.data
+            content: (0, _converters.textToBase64)((0, _helpers.toYaml)(newCreateBlog))
           }];
+
+          if (blogData.data.image) {
+            heroImageName = "".concat(uuidv4(), "-").concat(new Date().getTime(), ".").concat(blogData.data.image.mimetype);
+            newCreateBlog.image = "/img/blogs/".concat(heroImageName);
+            files.push({
+              path: 'public/img/blogs',
+              name: heroImageName,
+              content: blogData.data.image.data
+            });
+          }
+
           message = 'create ' + files.map(function (file) {
             return file.name;
           }).join(' ');
@@ -217,7 +195,7 @@ var createBlogService = function createBlogService(blogData) {
 
           return _context3.abrupt("return", true);
 
-        case 16:
+        case 12:
         case "end":
           return _context3.stop();
       }

@@ -1,5 +1,6 @@
 import Spacer from '@/components/Common/Spacer'
 import AdminCreate from '@/components/Layout/Admin/Create'
+import DatePicker from '@/components/Layout/Admin/Inputs/DatePicker'
 import FileInput from '@/components/Layout/Admin/Inputs/FileInput'
 import RichText from '@/components/Layout/Admin/Inputs/RichText'
 import TextInput from '@/components/Layout/Admin/Inputs/TextInput'
@@ -40,11 +41,16 @@ export default function Form({
     content: '',
     image: '',
     slug: '',
+    publishedAt: '',
   })
 
   const handleInputChange = (field, value) => {
     dispatch({ type: 'UPDATE_INPUT', field, value })
   }
+
+  useEffect(() => {
+    console.log('asdasdformState', formState)
+  }, [formState])
 
   useEffect(() => {
     handleInputChange('slug', `/${parseSlug(formState.title)}`)
@@ -59,6 +65,7 @@ export default function Form({
         content: data.content,
         image: data.image,
         slug: data.slug,
+        publishedAt: new Date(data.publishedAt),
       },
     })
   }
@@ -84,7 +91,6 @@ export default function Form({
         }
       />
       <Spacer className="h-5" />
-
       <TextInput
         label={'Slug'}
         onChange={e => handleInputChange('slug', e.target.value)}
@@ -114,6 +120,17 @@ export default function Form({
         onChange={value => handleInputChange('image', value)}
         value={formState.image}
         type={'image/*'}
+      />
+      <Spacer className="h-5" />
+      <DatePicker
+        label="Published Date"
+        locale="pt-BR"
+        showTimeSelect
+        timeFormat="p"
+        timeIntervals={15}
+        dateFormat="Pp"
+        value={formState.publishedAt}
+        onChange={value => handleInputChange('publishedAt', value)}
       />
     </AdminCreate>
   )

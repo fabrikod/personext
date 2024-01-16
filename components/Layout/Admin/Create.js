@@ -18,7 +18,7 @@ export default function Create({
   type,
 }) {
   const handleOnSubmit = async e => {
-    e.preventDefault()
+    e?.preventDefault()
     let data = null
     if (!file) {
       data = {
@@ -45,9 +45,23 @@ export default function Create({
       'Content-Type': file ? 'multipart/form-data' : 'application/json',
     }
 
+    id ? update(data, headers) : create(data, headers)
+  }
+
+  const create = async (data, headers) => {
     const blogs = await apiClient.post(`/admin/${url}/create`, data, {
       headers,
     })
+  }
+
+  const update = async (data, headers) => {
+    const blogs = await apiClient.post(
+      `/admin/${url}/update`,
+      { id, ...data },
+      {
+        headers,
+      }
+    )
   }
 
   const fetchDataDetail = async () => {
@@ -63,13 +77,7 @@ export default function Create({
   }
 
   const handleUpdateAndReturnSubmit = async () => {
-    const blogs = await apiClient.post(`/admin/${url}/update`, {
-      data: {
-        id: id,
-        slug: form.slug.split('/')[1],
-        ...form,
-      },
-    })
+    handleOnSubmit()
   }
 
   useEffect(() => {
