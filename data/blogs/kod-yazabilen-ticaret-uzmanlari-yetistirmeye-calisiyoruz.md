@@ -1,3 +1,118 @@
-‰×ßï6ß–´ë^4õÖ»ëšÛV›q¾ZÛG+y«^tvÓn4×^“×uÓ}ášnnX¬…ç@·m6ÓN4é=yßÍ}ÓMuë®*mŠ‰íŠÙ^*‡Xk6›ŠW§N'­ëTÎf§•ªØzØ­Š¹Éæ¥ÊŠîÎÜ©z¥~×±¶Én‚JÉ¬Ún)^Øœj·­»9šV«‹'­ŠËb®g²yÆ¥ŠÈ²¢»³Šf {ø¦ƒöå¢?ÛÍ¹×m¼yî:ãºñ÷Ûéÿ7áŞüoı×½9ã^üë}Ş™àµ¨,r‰íz{izfši¦ši¦šhw«‘ë"×¥yú'•ªçjÆ«•×¢¶)¥z¸§¢ybê+µ©j÷«ŠWbŠ)^¶g¥z¸§z÷^©fjjzX§z­Š)è®f¥¶'­ëbé^’Úè)(®Ö¦jÖ§vÊÚv	åz¼šÊŠîÎ—¤‰»§º{^’z%¢8¤j¹¦V§Ùò¢¹®ÊìÓ™» ²×«é^®×¤‰h*jIrjÚæ½è¬¶(]jiçzFj¹ŞšX¨•Û®æâ®G³u¨Z¢»ZÉ©®Ü¨¯÷¦şšl¶º'†¥¢ö§Š÷«²+^²*%j¶¤S6¤µ©ÄŠØ¦ŠWŠ¢º'jø«²ÊŞr)İyè­Šgzö¦yØ²¢»³şËk¢x?¦’¨®‰Ú¾*ì²jÙ³i©ìÎx"®g¬Š)^n*åŠK^+Ş®È­zW«­éÜŠW«Šx§z+bšW«Šw^êâué–f¦jÈ¢¦Ú‚Ë^®,¨­†¥¢ö§Š÷«²+^²+^’z%¢8¤j[rj›"•æ²©İk,åz·­éÜŠx§n*Üjy]z»‘«ei¸¥v(¤jÙZ™¬šV«øz‰ÊÙZ®{(¶jx³•ìn)]Š)"µª]¢Iš›‰·¥êZÊV¦•ªçŸ&©•¦â•Ø¢½ç^½©mÉªej¸¥y¸«–)-z·§r)^­é¶Yœuêì¢»ZšÆ¥ÊŠÒŠË^š·§r+Ş­ëb›'¥z¸§Š{Z•êez¸¢»¥¶ë.Ö¬­é%Š¥ŠØ«ŠW«zGZ…ª)¶)®š÷¶H¥‰©fjË•©ò¢¿é¦Ëk¢x$¶+´V¤–×¬Š·§r)^®)¢Î)í‰Æ«Š×¤‰h)iæŠf«•ªè–f¬+-‹*+»?ì¶º'ƒúiNggÉ¬¤jÊdjû«jr¨®‰Ú¾*ì±©`)^n*åŠK^¢ë’ÚÜ‰×bjyZ™Ö¤®,Ş‚*Ş®G§µé'¢Z#ŠF¥·&©²wh®é.®¥jh«‘ëez¸§k&¤µ©•ÙŞ¶'­ëZ–Üš¦ÉÚ±¨b¦fšÍ©Z®x¬¶(]jf«¶«zI^¶*İŠ)â‚¼¨®ìØjZ/jx¯z»"µë"R[¬•ªÚ­«‰Æ«zÛŞ)ÚÉš¹f¢V«jJŞÈ¥z¸¦‹8§µé'¢Z#ŠF¥·&©•ªçéb¶*æzH¢÷«‰¸¥Šh¤¡ÙZ™«ŞzØœj·­uêì•êâ½êŞ­é2jYóq«^’z%¢8¤’éejy¥j¹àzX­Š¹’W¤jYšÊ–î²+-zi^®)í‰Æ«‰öš–,¶W«uç§¢›bšé«x–+b®)fzÈ§uç­’)ë¢V¥i¸¥™é^®)â…ç^~X²¢»³şšbš+sø¦ƒöå¢?’‡rk6›ŠW§¶'­ënÎf§•ªâÉëb²Ø«™ìq©b²,¨®ìÿq©å‰×«²™àşšl¶º'&yÇ¤ºYZ©İz)mzIè–ˆâÊ)(vV²j{bqªŞ¶ìæjyZ¯'­ŠØ«™é"²Ø²¢»³şËk¢x?¦™^¶g¥z·³š­Š¹²(¢Ÿ&©•©ízIè–ˆâ¦º#zW«Šw^É©gÍÆ¦…éİŠÉ^®)òz¶¥¦(­zÉb™ëfzÈ¢»¦šIİz)]Š´âqªâ}¦¥‹'­µæî–éÚ)^¶g¥z¸,¢µ©òjvî­§Z’+³™©åj·k‰ZÊÌ¥jG§v(¥z¸§ŠJ%k)Z¶¶œjK^’z%¢8¥z¸§méb®W§™ë"½æîV«¥ŠØ«ŠY²)İyëdŠzè–Œ§jf¥j¸­é&zK^v*ÅjF­¢ìÚ™©â•ëfzW«uì­©Z—«²‰Ş–W«Š{^’z%¢8¤n)`‰¸«ŠH¦•êâÉë^®X¨–fŠ)òk9f½ë^’z%¢8 zX­Š¹}¦¥‹'­•êâ×¨¦Ø¦ºjçIš²wZ²ŠîV«É¦§™©-iÚÓzIè–ˆâ‘©/y©`¢¸­™©Z­¸¥™ì)^¶gœŠW«­ëb•éé®ˆ+jiZ®{’Úâ•æÚu©švIZ®x+vI^®)İz·¯‹<¨+-zI^®)İy»¥ºyš’Ö¬¬¢»§k9¨•ªÚ‘¸³•êí‰Æ«Š×¤‰h+³™©åj¼¶+b­êŞ‘:ä‹'zH­zIè–ˆâvy§uéÎéè•§’·§r)^®)¢Î)İj¶H§®‰Z–f¥j¹ìjV¦k&¦j\¨®ìÿ¦˜¦‚ÊÜş) ı¹h‚Ïä¡ÜšÍ¦â•éí‰Æ«zÛ³™©åj¸²zØ¬¶*æ{'œjX¬‹*+»?İz»-zzgƒúi²Úè-‰Æ«zÛŞ(kiÆ­Š)çŠ×¥ŠIb»9šŸ'­ŠØ«™ìj\¨®ìÿ²Úèé¤ª+¢v¯Š»¶'­ëoy»§i¶¥–ˆâ²Ø¤z(kiÆ­‚&âu©ej¹çzh§‰¸«‘ìİj¨®Ö²jJ2vãŞ­©×¯z³™ëlzKkvêæjz$µ«'j¥Š¹»¬zKk•êâé^’Úè)(®Ö¦•ªİiöš–,¶-z·bŠx¯zx­zX¤–'¥zf§j¶’V«
-ò¢»³a©h½©â½êìŠ×¬Š‰Z­©.jwZ¥êÚ‘éİz'«ŠÈ§ué"åÈ¯j¹İj‰ZëbqªŞ¶)òjIàzWœzK^ÛI^­ìš’Všq©à­êŞ‘»§k)Ş–).Îf§Éëb¶*æy©åjiİi©fjV«›7^½©¶g¤µçb¯úi²Úèk6¥j¹¥©İzØœj·­k&¤µ«¶V«u®vj»`ÎL¨¯û-®‰àşšJ¢º'jø«²x"uêŞ“&²–f¬½ê^­©×¦i¬Ú•ªçÉ«ÚÉ«Ú‘ªZf¬ŠW›Š¹b’×¢•ëfzW«¢ybéšk6¥j¹Új¹d½êæ{'¯zk^®)^®)â²+^•êâ×§†,æzÖ¥™¬šÊy^Ø«™ìm©ZvV«J·­{7¥–)%z£Ééæj\Ş™é^®)İ{]4ÒW«‰»¥jvò™é^®
-å®G§Ök4–F«¶‰]ºá¢¶Ø ‰Ø²¢»Z­§çu©Ú’V§tº ŠËbzKŞ®)^®)Ş‚·®–ë%j¶«jÊbÉ«u§Zçib‘¸«j»`®\¨¯úiŠh,­
+id: 75073782-f9bf-479a-a7aa-5388c04c2d42
+createdAt: '2024-01-16T15:25:19.752Z'
+publishedAt: '2020-04-06T15:38:19.000Z'
+description: ''
+title: Kod Yazabilen Ticaret UzmanlarÄ± YetiÅŸtirmeye Ã‡alÄ±ÅŸÄ±yoruz
+type: halftext
+slug: kod-yazabilen-ticaret-uzmanlari-yetistirmeye-calisiyoruz
+image: /img/blogs/e8888ebd-b68f-4c99-8275-7f63297914ce-1705418719752.png
+tags: []
+content: >-
+  <p><em>Herkesin telefonlarÄ±na sarÄ±ldÄ±ÄŸÄ±, eÄŸitimlerin online ortamda verildiÄŸi,
+  iÅŸletmelerin evden Ã§alÄ±ÅŸma modeline geÃ§tiÄŸi, normal ticaretin elektronik
+  ortama taÅŸÄ±ndÄ±ÄŸÄ± sÄ±ra dÄ±ÅŸÄ± gÃ¼nler yaÅŸÄ±yoruz, peki bunun teknolojik arka
+  planÄ±nÄ± dÃ¼ÅŸÃ¼nÃ¼yor muyuz? TÃ¼m bu gÃ¶stergeler teknoloji odaklÄ± yatÄ±rÄ±m ve
+  istihdamÄ±n ne kadar Ã¶nemli olduÄŸunu bir kez daha ortaya Ã§Ä±kartÄ±yor.
+  </em></p><p><strong>Yalova Ãœniversitesi olarak â€œUzaktan EÄŸitimâ€ ile
+  KoronavirÃ¼s sÃ¼recinde eÄŸitime devam ediyoruz:</strong></p><p>KoronavirÃ¼sâ€™Ã¼n
+  hayatÄ±mÄ±za ansÄ±zÄ±n girmesi ile birlikte Ãœniversiteler Ã¶ÄŸrencilerinin
+  eÄŸitimlerinde geride kalmamasÄ± iÃ§in Ã§aba gÃ¶steriyor. Yalova Ãœniversitesi
+  teknolojik altyapÄ±sÄ± ile aynÄ± anda yÃ¼zlerce Ã¶ÄŸrencinin bir canlÄ± derse
+  katÄ±labildiÄŸi, katÄ±lamayanlarÄ±n video kayÄ±tlarÄ±nÄ± sonradan izleyebildiÄŸi,
+  kitap-dokÃ¼man gibi belge paylaÅŸÄ±mlarÄ±nÄ±n yapÄ±labildiÄŸi ve Ã¶dev altyapÄ±larÄ± ile
+  birlikte Ã¶ÄŸrencilere katÄ±lÄ±mcÄ± ders ortamÄ± saÄŸlÄ±yor. Sistem Ã¶ÄŸrenci ve Ã¶ÄŸretim
+  Ã¼yelerinin talepleri doÄŸrultusunda sÃ¼rekli geliÅŸtirilerek daha optimum ve
+  etkili Ã§alÄ±ÅŸmasÄ± saÄŸlanÄ±yor.</p><p><strong>Ä°ktisat FakÃ¼ltesi Ã¶ÄŸrencilerimizin
+  â€œticari teknolojik dÃ¶nÃ¼ÅŸÃ¼mÃ¼nâ€ mimarlarÄ± olmasÄ±nÄ± istiyoruz:</strong></p><p>TÃ¼m
+  dÃ¼nyayÄ± kasÄ±p kavuran KoronavirÃ¼s salgÄ±nÄ± ile birlikte Ã§oÄŸu sektÃ¶r ciddi
+  anlamda krize girerken, teknolojik altyapÄ±sÄ±nÄ± doÄŸru kurgulamÄ±ÅŸ ÅŸirketlerin
+  ayakta kaldÄ±ÄŸÄ±nÄ±, e-ticaret altyapÄ±sÄ±na sahip maÄŸazalarÄ±n istihdam artÄ±ÅŸÄ±
+  gerÃ§ekleÅŸtirdiÄŸini gÃ¶rÃ¼yoruz. Yalova Ãœniversitesi UluslararasÄ± Ticaret ve
+  Finansman bÃ¶lÃ¼mÃ¼ olarak Ã¶ÄŸrencilerimizin teknolojik altyapÄ±larÄ±nÄ± geliÅŸtirmek
+  iÃ§in veri bilimi, kodlama ve e-ticaret dersleri vererek yalnÄ±zca teknolojik
+  kullanÄ±mlarÄ±nÄ± geliÅŸtirmekle kalmayÄ±p, bu sistemlerin ticari faaliyetlerde en
+  optimum Ã¼rÃ¼nÃ¼n geliÅŸtirilmesinde etkin rol alabilmelerini
+  hedefliyoruz.</p><p><img
+  src="/img/blogs/kod-yazabilen-ticaret-uzmanlari-yetistirmeye-calisiyoruz/canli-ders.png"></p><p><strong>Sadece
+  kullanan deÄŸil, teknolojiyi kodlayan ticaret uzmanlarÄ± yetiÅŸtirmek istiyoruz:
+  </strong></p><p>Ä°ÅŸletmelere Ã§Ã¶zÃ¼m getirmesi iÃ§in yapÄ±lan teknoloji
+  projelerinde yalnÄ±zca mÃ¼hendislerin yer alÄ±p iÅŸi teslim etmesi doÄŸru mÃ¼mkÃ¼n
+  deÄŸildir. Ticari faaliyette bulunan iÅŸletmeleri en iyi tanÄ±yan buradaki
+  uzmanlardÄ±r. DolayÄ±sÄ±yla kendi iÅŸlerini kolaylaÅŸtÄ±racak teknolojilerin
+  belirlenmesi ve bunlarÄ±n geliÅŸtirilmesinde etkin rol oynamalarÄ± gerekmektedir.
+  Fakat Ã§oÄŸu zaman iÅŸletmelerde yer alan personellerin teknolojik bilgi
+  birikimleri yeterli olmadÄ±ÄŸÄ± iÃ§in yazÄ±lÄ±m ve teknoloji geliÅŸtirme
+  faaliyetlerinde optimum Ã¼rÃ¼nÃ¼n Ã§Ä±kmasÄ±nda sorunlar yaÅŸanmaktadÄ±r. Teknolojik
+  akÄ±ÅŸ ve algoritmalarÄ± bilmeyen iÅŸletmeciler Ã¼retilen programlarÄ±n sektÃ¶r ile
+  baÄŸdaÅŸmadÄ±klarÄ±nÄ± gÃ¶rdÃ¼klerinde revizyon isteklerinde bulunmaktadÄ±r. Bu soruna
+  Ã§Ã¶zÃ¼m olarak bizler â€œticari teknoloji uzmanlarÄ±â€ yetiÅŸtirerek TÃ¼rkiyeâ€™deki
+  teknoloji dÃ¶nÃ¼ÅŸÃ¼mÃ¼nde mezun olacak Ã¶ÄŸrencilerimizin daha etkin rol almalarÄ±nÄ±
+  saÄŸlamayÄ± amaÃ§lÄ±yoruz.</p><p><img
+  src="/img/blogs/kod-yazabilen-ticaret-uzmanlari-yetistirmeye-calisiyoruz/dersten.png"></p><p><strong>E-ticaret
+  ve E-ihracat iÃ§in nitelikli uzman yetiÅŸtirmeye
+  Ã§alÄ±ÅŸÄ±yoruz:</strong></p><p>KoronavirÃ¼s e-ticaret ve buna baÄŸlÄ± lojistik,
+  e-ihracat gibi dallarÄ±n Ã¶nemini bir kez daha ortaya koydu. Perakende ve hizmet
+  sektÃ¶rÃ¼ durma noktasÄ±na gelirken bu sektÃ¶rlerin elektronik ortamlarda faaliyet
+  gÃ¶sterdiÄŸini ve nitelikli eleman aradÄ±klarÄ±nÄ± gÃ¶rÃ¼yoruz. Yalova Ãœniversitesi
+  olarak ÅŸu anda perakende iÃ§erisindeki %5 civarÄ±nda olan e-ticaretin yakÄ±n
+  gelecekte %20â€™lere yaklaÅŸacaÄŸÄ±nÄ± gÃ¶rerek buna yÃ¶nelik uzman yetiÅŸtirme
+  anlamÄ±nda Ã§alÄ±ÅŸmalarÄ±mÄ±z devam etmektedir.</p><p><strong>MaÄŸazalar kapandÄ±,
+  e-ticaret ayakta, satÄ±ÅŸlarda %52 artÄ±ÅŸ
+  gÃ¶zÃ¼kÃ¼yor:</strong></p><p>KoronavirÃ¼sâ€™Ã¼n giderek yayÄ±lmasÄ± ve perakende
+  maÄŸazalarÄ±n yavaÅŸ yavaÅŸ kapanmasÄ± ile birlikte iÅŸletmeler online maÄŸazalarÄ±na
+  aÄŸÄ±rlÄ±k vermeye ve mÃ¼ÅŸterilerini sitelerinden hizmet almaya yÃ¶nlendirmeye
+  baÅŸladÄ±lar. SÃ¼reÃ§te Ã¶zellikle hijyen malzemelerinde %1000â€™leri bulan bÃ¼yÃ¼meler
+  gÃ¶rÃ¼lÃ¼rken, gÄ±da da %500â€™lÃ¼k artÄ±ÅŸ olduÄŸu Gittigidiyor tarafÄ±ndan aÃ§Ä±klandÄ±.
+  Logistiek verilerine gÃ¶re uluslararasÄ± piyasada da %52â€™lik bir artÄ±ÅŸ
+  gÃ¶rÃ¼lÃ¼yor.</p><p><img
+  src="/img/blogs/kod-yazabilen-ticaret-uzmanlari-yetistirmeye-calisiyoruz/ders.jpeg"></p><p><strong>Amazon
+  100 bin kiÅŸiyi, Migros 3200 kiÅŸiyi istihdam ediyor</strong></p><p>Ã–te yandan
+  e-ticaret ÅŸirketi Amazon da koronavirÃ¼s sebebiyle hareketli gÃ¼nler geÃ§iriyor.
+  Amazon, yeni tip koronavirÃ¼s (Kovid-19) salgÄ±nÄ±yla Ã§evrimiÃ§i alÄ±ÅŸveriÅŸe artan
+  talebi karÅŸÄ±layabilmek iÃ§in ABD'de 100 bin yeni personel alacaÄŸÄ±nÄ± ilan etti.
+  Amazon'un DÃ¼nya OperasyonlarÄ±ndan Sorumlu KÄ±demli BaÅŸkan YardÄ±mcÄ±sÄ± Dave Clark
+  tarafÄ±ndan kaleme alÄ±nan blog paylaÅŸÄ±mÄ±nda, Kovid-19 salgÄ±nÄ±yla e-ticarete
+  olan talepte Ã¶nemli bir artÄ±ÅŸ gÃ¶rÃ¼ldÃ¼ÄŸÃ¼ ve iÅŸgÃ¼cÃ¼ ihtiyacÄ± doÄŸurduÄŸuna dikkat
+  Ã§ekildi.</p><p>Migros Sanal market operasyonlarÄ± iÃ§in 1200, maÄŸazalarÄ± iÃ§in
+  1000 yeni istihdam saÄŸlayan Migros, toplamda 10 gÃ¼nde 2 bin 200 kiÅŸiye iÅŸ baÅŸÄ±
+  yaptÄ±rdÄ±. YaptÄ±ÄŸÄ± ilk duyurunun ardÄ±ndan 60 bini aÅŸkÄ±n iÅŸ baÅŸvurusu alan
+  Migros'un gelecek 10 gÃ¼n iÃ§inde yapacaÄŸÄ± 1000 yeni iÅŸe alÄ±mla saÄŸladÄ±ÄŸÄ± ek
+  istihdamÄ± bir ayda 3 bin 200 kiÅŸiye ulaÅŸtÄ±racak.</p><p><img
+  src="/img/blogs/kod-yazabilen-ticaret-uzmanlari-yetistirmeye-calisiyoruz/lab.png"></p><p><strong>Ã–ÄŸrenciler
+  uzaktan eÄŸitimden memnun, fakat Ã¼niversitelerini de
+  Ã¶zlÃ¼yorlar</strong></p><p>Uzaktan eÄŸitim ile derslerine devam eden Ã¶ÄŸrencilere
+  uygulama hakkÄ±ndaki gÃ¶rÃ¼ÅŸlerini sorduk:</p><p><strong>Merve Nihal
+  YÄ±ldÄ±rÄ±m:</strong></p><p>â€œUzaktan eÄŸitimin bizim iÃ§in yararlÄ± olmayacaÄŸÄ±
+  konusunda Ã§ok emindim fakat Ã¶n yargÄ±lÄ± bir yaklaÅŸÄ±mda bulunmuÅŸtum.
+  HocalarÄ±mÄ±zÄ±n bizlerin dersi kaÃ§Ä±rmadan en iyi ÅŸekilde anlayabilmemiz iÃ§in
+  gÃ¶sterdikleri Ã§aba sayesinde Ã¶n yargÄ±m kÄ±rÄ±ldÄ±. Tabi ki Ã¶rgÃ¼n eÄŸitimimiz
+  bizler iÃ§in daha iyiydi ama bu ÅŸekilde de dersleri kaÃ§Ä±rmadan her an her yerde
+  takip etme imkanÄ±nÄ± bize sundular. Bizler iÃ§in Ã§abalayan bÃ¼tÃ¼n hocalarÄ±ma
+  sonsuz teÅŸekkÃ¼rlerimi sunuyorum.â€</p><p><strong>Yusuf:</strong></p><p>â€œUzaktan
+  eÄŸitim sisteminde derslerin kayÄ±t altÄ±na alÄ±nmasÄ± ve sonradan izlenebilmesi,
+  konuyu anlamadÄ±ÄŸÄ±mÄ±z zaman tekrar izlememiz aÃ§Ä±sÄ±ndan bÃ¼yÃ¼k avantaj. Bunun
+  yanÄ± sÄ±ra nerede olursak olalÄ±m eÄŸitimleri almaya devam edebiliyor ders
+  materyallerine kolayca ulaÅŸabiliyoruz. Ancak gerek sÄ±nÄ±f ortamÄ±ndaki atmosfer,
+  gerek bazÄ± derslerin uzaktan eÄŸitimde verimli olmayÄ±ÅŸÄ± Ã¶ÄŸrenciler aÃ§Ä±sÄ±ndan
+  sÄ±kÄ±ntÄ± olabiliyor.â€œ</p><p><strong>Alperen Ã‡elik:</strong></p><p>â€œUzaktan
+  eÄŸitim sayesinde derslerimiz, eÄŸitimimiz hiÃ§ aksamadÄ±ÄŸÄ± gibi gayet verimli de
+  oluyor. Konu anlatÄ±mlarÄ±mÄ±zÄ± gerek canlÄ± olarak gerekse kayÄ±t yoluyla
+  izleyebiliyor ve Ã¶devlerimizi yapabiliyoruz. Bu sayede Ã¶ÄŸrenmeye ve
+  bilgilenmeye devam ediyoruz.â€</p><p><strong>Batuhan
+  ErtunÃ§:</strong></p><p>â€œBaÅŸlarda uzaktan eÄŸitim derslerine Ã¶n yargÄ±yla
+  bakÄ±yordum fakat ÅŸu an ki ders iÅŸleyiÅŸine bakÄ±ldÄ±ÄŸÄ±nda verim alabildiÄŸimiz
+  aÅŸikar. SayÄ±sal dersler iÃ§in tamamÄ±yla aynÄ± ÅŸeyi sÃ¶ylemesem de Bilgisayar,
+  Ä°ngilizce gibi dersler oldukÃ§a verimli, emeÄŸi geÃ§en herkese teÅŸekkÃ¼rlerimi
+  sunuyorum.â€</p><p><strong>BurÃ§ak Asa:</strong></p><p>â€œAÃ§Ä±kÃ§asÄ± sayÄ±sal dersler
+  hariÃ§ daha Ã§ok verim aldÄ±ÄŸÄ±mÄ± dÃ¼ÅŸÃ¼nÃ¼yorum, sanki birebir Ã¶zel ders alÄ±yoruz
+  gibi hissediyorum. Ä°znikâ€™te oturduÄŸum iÃ§in sÃ¼rekli yollarda oluyordum ve eve
+  geldiÄŸimde yorgunluktan ders Ã§alÄ±ÅŸamÄ±yordum. Åimdi Bilgisayar ve Ä°ngilizce
+  dersleri benim iÃ§in gÃ¼zel geÃ§iyor. Video izleyerek, canlÄ± derslere katÄ±larak
+  ve uygulama Ã¶devlerini gerÃ§ekleÅŸtirerek verim alÄ±yorum. Olumsuzluk olarak
+  sistemsel sorunlar ve interneti olmayan Ã¶ÄŸrenciler gÃ¶rÃ¼lebilir, umarÄ±m bu
+  sÃ¼reci de saÄŸlÄ±kla atlatÄ±rÄ±z.â€</p><p><strong>Hilal
+  Ahat:</strong></p><p>â€œDerslerin uzaktan iÅŸleniyor olmasÄ±nda sayÄ±sal dersler
+  haricinde yeterli verim alabildiÄŸimi dÃ¼ÅŸÃ¼nÃ¼yorum. KonularÄ±n kayÄ±t yoluyla
+  tekrardan izlenebiliyor oluÅŸu da gÃ¼zel bir avantaj. Bu sÃ¼recin saÄŸlÄ±kla
+  geÃ§mesi dileÄŸiyle.â€</p><p><img
+  src="/img/blogs/kod-yazabilen-ticaret-uzmanlari-yetistirmeye-calisiyoruz/fakulte.jpeg"></p>
