@@ -12,7 +12,7 @@ Welcome to Personext, your personal blog boilerplate. This project, written in J
 ### Cloning the repository the local machine.
 
 ```bash
-git clone https://github.com/abdullahonden/personext/
+git clone https://github.com/fabrikod/personext/
 ```
 
 ## Installing the dependencies.
