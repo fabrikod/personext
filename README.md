@@ -2,7 +2,7 @@
 
 Welcome to Personext, your personal blog boilerplate. This project, written in JavaScript using Node.js, helps you create your own blog with ease.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/abdullahonden/personext/)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/fabrikod/personext/)
 
 ![Personext](./public/screenshot.png)
 
@@ -116,7 +116,7 @@ Once your account is set up, you can use Vercel's services for deploying and man
 
 Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=vercel-examples):
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/abdullahonden/personext/)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/fabrikod/personext/)
 
 ## License
 
