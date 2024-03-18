@@ -9,11 +9,12 @@ import Link from 'next/link'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useRouter } from 'next/router'
 import NewAppLayout from '@/layouts/NewAppLayout'
-import NewCard from '@/components/Card/NewCard'
-import NewChip from '@/components/Common/NewChip'
+import Card from '@/components/Card/Card'
+import Chip from '@/components/Common/Chip'
 import ArrowRight from '@/components/Icons/ArrowRight'
 import Head from 'next/head'
 import { useUser } from '@/context/user'
+import markdownIt from 'markdown-it'
 
 export default function BlogPage({ blog }) {
   const router = useRouter()
@@ -70,28 +71,28 @@ export default function BlogPage({ blog }) {
             content={`${settings.domain}${blog.image}`}
           />
         </Head>
-        <NewCard>
+        <Card>
           <div className="flex justify-between">
-            <NewChip
+            <Chip
               className="button inline-block rotate-180 px-3 py-3 dark:bg-lineer-nav-link"
               as="button"
               onClick={backToPage}
             >
               <ArrowRight className="bg-primary-6" height="18" width="18" />
-            </NewChip>
+            </Chip>
 
             {/* <div className="flex gap-3">
               <div className="flex items-center gap-2">
                 <span className="text-sm text-primary-6">12</span>
-                <NewChip className="flex h-9 w-9 items-center justify-center">
+                <Chip className="flex h-9 w-9 items-center justify-center">
                   <HandLike />
-                </NewChip>
+                </Chip>
               </div>
               <div className="flex items-center gap-2">
                 <span className="text-sm text-primary-6">12</span>
-                <NewChip className="flex h-9 w-9 items-center justify-center">
+                <Chip className="flex h-9 w-9 items-center justify-center">
                   <HeartFavorite />
-                </NewChip>
+                </Chip>
               </div>
             </div> */}
           </div>
@@ -125,7 +126,7 @@ export default function BlogPage({ blog }) {
             id="new-blog-content"
             className="break-words dark:text-darkmode-title"
             dangerouslySetInnerHTML={{
-              __html: blog.content.replace(/\n{1,}/g, '<br/>'),
+              __html: blog.content,
             }}
           />
 
@@ -140,15 +141,15 @@ export default function BlogPage({ blog }) {
                     }}
                     key={index}
                   >
-                    <NewChip className="px-5 text-sm text-primary-6">
+                    <Chip className="px-5 text-sm text-primary-6">
                       {tag.name}
-                    </NewChip>
+                    </Chip>
                   </Link>
                 ))}
               </div>
             )}
           </div>
-        </NewCard>
+        </Card>
       </section>
     </NewAppLayout>
   )
@@ -173,6 +174,14 @@ export async function getStaticProps({ params, locale }) {
   } catch (error) {
     console.log('Not Found')
   }
+
+  const md = markdownIt({
+    html: true,
+    linkify: true,
+    typographer: true,
+  })
+
+  blog.content = md.render(blog.content)
 
   return {
     props: {

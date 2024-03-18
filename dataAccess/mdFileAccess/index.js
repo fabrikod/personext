@@ -4,6 +4,6 @@ export {
   getBlogBySlugData,
   getBlogFileJsonData,
   readJsonFileData,
-  getPulicationsFileData,
   getSettingsFileData,
+  getStackFileData,
 } from './mdFileAccess'

@@ -1,35 +1,119 @@
-import React from 'react'
-import Card from '@/components/Card/Card'
-import { Document, Edit, Personal, Setting } from '../Icons'
+import { MENUS } from '@/constrait'
+import classNames from 'classnames'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
+import React, { useEffect, useState } from 'react'
 
-function Nav({ user }) {
+export default function Nav({ className }) {
+  const router = useRouter()
+  const [activeMenu, setActiveMenu] = useState()
+  const [menuList, setMenuList] = useState([])
+  const [isMoreMenu, setIsMoreMenu] = useState(false)
+
+  useEffect(() => {
+    setActiveMenu(router.asPath)
+    setIsMoreMenu(false)
+  }, [router])
+
+  useEffect(() => {
+    if (router.pathname === '/') {
+      const sectionList = document.querySelectorAll('#container > div')
+      setMenuList(
+        [...sectionList]
+          .filter(element => element.getAttribute('id') !== 'profile')
+          .map(element => ({
+            href: `/#${element.getAttribute('id')}`,
+            text: element.getAttribute('data-name'),
+          }))
+      )
+    } else {
+      setMenuList(MENUS)
+    }
+  }, [])
+
+  const handleMoreMenuBlock = () => {
+    setIsMoreMenu(prev => !prev)
+  }
+
   return (
-    <>
-      <Card
-        type="profile"
-        name={user.fullName}
-        job={user.job}
-        description={user.description}
-        socials={user.socials}
-        image={user.image}
-      />
+    <nav id="nav-menu">
+      <ul className={classNames('flex text-primary-6', className)}>
+        <li>
+          <Link
+            className={classNames(
+              'block rounded-full border border-transparent px-3.5 py-2 text-xs font-medium -tracking-wide text-primary-6 hover:bg-button-hover dark:bg-darkmode-base-1 dark:!text-darkmode-text dark:hover:!bg-lineer-nav-link',
+              activeMenu === '/' &&
+                ' bg-base-5 !text-active-menu dark:border-darkmode-border dark:bg-darkmode-base-1 dark:bg-lineer-nav-link dark:!text-darkmode-title'
+            )}
+            href="/"
+          >
+            Home
+          </Link>
+        </li>
+        {menuList.map((menu, index) => (
+          <li key={index}>
+            <Link
+              className={classNames(
+                'block rounded-full border border-transparent px-4 py-2 text-xs font-medium -tracking-wide text-primary-6 hover:bg-button-hover dark:bg-darkmode-base-1 dark:!text-darkmode-text dark:hover:!bg-lineer-nav-link',
+                activeMenu === menu.href &&
+                  'bg-base-5 !text-active-menu dark:border-darkmode-border  dark:bg-lineer-nav-link dark:!text-darkmode-title'
+              )}
+              href={menu.href}
+            >
+              {menu.text}
+            </Link>
+          </li>
+        ))}
 
-      <div className="mt-10 flex flex-col items-center justify-between gap-10 sm:flex-row">
-        <Card className="flex w-full justify-center gap-7 px-10 py-4 sm:w-auto">
-          <Personal />
-          <Edit />
-          <Setting />
-        </Card>
-        <Link href="publications" className="w-full sm:w-auto">
-          <Card className="flex w-full justify-center gap-5 px-10 py-3.5 sm:min-w-[14rem] ">
-            <Document />
-            <span className="font-semibold">Publications</span>
-          </Card>
-        </Link>
-      </div>
-    </>
+        {/* <li className="relative max-sm:hidden">
+          <Chip
+            as="button"
+            onClick={handleMoreMenuBlock}
+            className={classNames(
+              'flex h-[34px] items-center gap-1 px-3 dark:bg-darkmode-base-1 max-sm:ml-3.5',
+              isMoreMenu && 'bg-base-5 dark:bg-lineer-nav-link'
+            )}
+          >
+            {Array.from({ length: 3 }, (value, index) => (
+              <div
+                key={index}
+                className={classNames(
+                  'h-1.5 w-1.5 rounded-full border border-primary-1',
+                  isMoreMenu && '!border-active-menu'
+                )}
+              ></div>
+            ))}
+
+            <Card
+              className={classNames(
+                'invisible absolute left-1/2 top-10 min-w-[140px] -translate-x-1/2 px-1 py-2 opacity-0',
+                isMoreMenu && '!visible opacity-100'
+              )}
+            >
+              {menuList.map((menu, index) => (
+                <li
+                  key={index}
+                  className={classNames(
+                    'inline-block',
+                    index < MENUCOUNT && 'sm:hidden'
+                  )}
+                >
+                  <Link
+                    className={classNames(
+                      'block rounded-full border border-transparent px-4 py-2 text-xs font-medium -tracking-wide text-primary-6 dark:text-darkmode-text',
+                      activeMenu === menu.href &&
+                        'bg-base-5 text-active-menu dark:border-darkmode-border dark:bg-darkmode-base-1 dark:bg-lineer-nav-link'
+                    )}
+                    href={menu.href}
+                  >
+                    {menu.text}
+                  </Link>
+                </li>
+              ))}
+            </Card>
+          </Chip>
+        </li> */}
+      </ul>
+    </nav>
   )
 }
-
-export default Nav

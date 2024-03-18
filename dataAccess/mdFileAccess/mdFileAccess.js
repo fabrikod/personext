@@ -1,5 +1,4 @@
-import { BLOG_FOLDER_PATH, JSON_BLOG_PATH } from '@/constrait'
-import { toYaml } from '@/helpers'
+import { BLOG_FOLDER_PATH } from '@/constrait'
 
 const fs = require('fs').promises
 const path = require('path')
@@ -34,12 +33,6 @@ export const getUserFileData = async () => {
   //return user data
   const userData = getFileData('user.md')
   return userData
-}
-
-export const getPulicationsFileData = async () => {
-  //return publications data
-  const publicationsData = getFileData('publications.md')
-  return publicationsData
 }
 
 export const getBlogBySlugData = async slug => {
@@ -113,61 +106,7 @@ export const getSettingsFileData = async () => {
   return settingData
 }
 
-const writeJsonFile = async data => {
-  await fs.writeFile(path.join(JSON_BLOG_PATH), data, err => {
-    if (err) {
-      console.error('JSON file write error:', err)
-      return
-    }
-  })
-}
-
-const writeMdFile = async (fileName, data) => {
-  await fs.writeFile(
-    path.join(BLOG_FOLDER_PATH, fileName),
-    toYaml(data),
-    err => {
-      if (err) {
-        console.error('JSON file write error:', err)
-        return
-      }
-    }
-  )
-}
-
-const renameMdFile = async (fileName, newFileName) => {
-  await fs.rename(
-    path.join(BLOG_FOLDER_PATH, fileName),
-    path.join(
-      BLOG_FOLDER_PATH,
-      newFileName.includes('.md')
-        ? newFileName.split('/')[1]
-        : `${newFileName.split('/')[1]}.md`
-    ),
-    error => {
-      if (hata) {
-        console.error('Error while changing filename:', hata)
-        return
-      }
-    }
-  )
-}
-
-export const deleteBlogFile = async jsonBlogs => {
-  await writeJsonFile(JSON.stringify(jsonBlogs))
-}
-
-export const updateBlogJsonFile = async jsonBlogs => {
-  await writeJsonFile(JSON.stringify(jsonBlogs))
-}
-
-export const updateBlogMdFile = async (fileName, data) => {
-  await writeMdFile(fileName, data)
-  await renameMdFile(fileName, data.slug)
-}
-
-export const createBlogMdFile = async data => {
-  await writeMdFile(`${data.slug}.md`, data)
-
-  return data.id
+export const getStackFileData = async () => {
+  const stackData = await getFileData('stack.md')
+  return stackData
 }

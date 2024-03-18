@@ -1,37 +1,34 @@
-import Publications from '@/components/Pages/NewHome/Publications'
-import Stacks from '@/components/Pages/NewHome/Stacks'
-import Experience from '@/components/Pages/NewHome/Experiences'
-import FollowMe from '@/components/Pages/NewHome/FollowMe'
-import Profile from '@/components/Pages/NewHome/Profile'
+import Stacks from '@/components/Pages/Home/Stacks'
+import Experience from '@/components/Pages/Home/Experiences'
+import FollowMe from '@/components/Pages/Home/FollowMe'
+import Profile from '@/components/Pages/Home/Profile'
 import NewAppLayout from '@/layouts/NewAppLayout'
-import {
-  getBlogJsonService,
-  getPablicationsService,
-} from '@/services/md.services'
+import { getBlogJsonService } from '@/services/md.services'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import SelectedProjects from '@/components/Pages/NewHome/SelectedProjects'
-import Blogs from '@/components/Pages/NewHome/Blogs'
+import Blogs from '@/components/Pages/Home/Blogs'
 import apiClient from '@/utils/axios'
 import { useState } from 'react'
 import { useUser } from '@/context/user'
 import Head from 'next/head'
+import { getStackService } from '@/services/stack.service'
 
 const PERPAGE = 7
 
 export async function getServerSideProps({ query, locale }) {
   const { page, tag } = query
 
-  const articles = await getPablicationsService({ name: 'articles' })
   const { data, meta } = await getBlogJsonService({
     perpage: PERPAGE,
     page: page || 1,
     tag: tag,
   })
 
+  const stacks = await getStackService()
+
   return {
     props: {
+      stacks,
       blogs: data,
-      articles,
       meta: meta,
       ...(await serverSideTranslations(locale ?? 'en')),
     },
@@ -41,6 +38,7 @@ export async function getServerSideProps({ query, locale }) {
 export default function Index({
   blogs = [],
   articles = [],
+  stacks = [],
   // meta = {},
   // errors,
 }) {
@@ -94,9 +92,9 @@ export default function Index({
 
         {/* <Highlights /> */}
 
-        <Publications data={articles} />
+        {/* <Publications data={articles} /> */}
 
-        <Stacks />
+        <Stacks data={stacks} />
 
         {/* <Gallery /> */}
 

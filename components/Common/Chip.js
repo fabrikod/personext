@@ -1,31 +1,42 @@
 import classNames from 'classnames'
+import Link from 'next/link'
 import React from 'react'
 
-export default function Chip({ children, className, onClick }) {
-  const handleClick = () => {
-    onClick && onClick()
+export default function Chip({
+  as = 'div',
+  children,
+  className,
+  onClick,
+  ...props
+}) {
+  const handleOnClick = () => {
+    onClick()
   }
 
-  return (
-    <div
-      onClick={handleClick}
-      className={classNames(
-        'inline-flex',
-        'cursor-pointer',
-        'flex-wrap',
-        'gap-7',
-        'rounded-[30px]',
-        'bg-base-3',
-        'px-4',
-        'py-4',
-        'sm:text-sm',
-        'text-xs',
-        className,
-        'duration-500',
-        'hover:bg-gray-200'
-      )}
-    >
-      {children}
-    </div>
+  if (as === 'link') {
+    return (
+      <Link
+        className={classNames(
+          'rounded-full border-[1px] border-solid border-primary-1 p-2 dark:border-darkmode-border dark:text-darkmode-chip',
+          className
+        )}
+        {...props}
+      >
+        {children}
+      </Link>
+    )
+  }
+
+  return React.createElement(
+    as,
+    {
+      className: classNames(
+        'rounded-full border-[1px] border-solid border-primary-1 p-2 dark:border-darkmode-border dark:text-darkmode-chip',
+        className
+      ),
+      onClick: onClick ? handleOnClick : null,
+      ...props,
+    },
+    children
   )
 }

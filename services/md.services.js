@@ -1,11 +1,8 @@
 import {
   getBlogsFilesData,
-  getUserFileData,
   getBlogBySlugData,
   getBlogFileJsonData,
   readJsonFileData,
-  getPulicationsFileData,
-  getSettingsFileData,
 } from '@/dataAccess/mdFileAccess'
 import { getBlogByFileNameData } from '@/dataAccess/mdFileAccess/mdFileAccess'
 
@@ -19,13 +16,6 @@ export const getBlogService = async () => {
   }))
 
   return jsonBlogs
-}
-
-export const getUserService = async () => {
-  const user = await getUserFileData()
-  const jsonUser = toObject(user)
-  jsonUser.fullName = `${jsonUser.name} ${jsonUser.surname}`
-  return jsonUser
 }
 
 export const getBlogBySlugService = async slug => {
@@ -80,67 +70,4 @@ export const getBlogJsonService = async ({ perpage, page, tag }) => {
 export const getReadJsonFileService = async () => {
   const blog = await readJsonFileData()
   return blog
-}
-
-export const getArchives = async () => {
-  const archives = await readJsonFileData()
-  const groupedData = {}
-
-  archives.forEach(item => {
-    const publishedAt = new Date(item.publishedAt)
-    const year = publishedAt.getFullYear()
-    const month = publishedAt.getMonth() + 1 // Months are 0-based, so add 1 to get the actual month.
-    const day = publishedAt.getDay()
-
-    if (!groupedData[year]) {
-      groupedData[year] = {}
-    }
-
-    if (!groupedData[year][month]) {
-      groupedData[year][month] = []
-    }
-
-    groupedData[year][month].push(item)
-  })
-
-  const goodGruppedData = []
-
-  for (const [key, monthList] of Object.entries(groupedData)) {
-    goodGruppedData.push({
-      year: key,
-      monthList: Object.entries(monthList)
-        .reverse()
-        .map(month => ({
-          month: month[0],
-          titleList: month[1].reverse().map(({ title, publishedAt, file }) => ({
-            title,
-            publishedAt,
-            slug: `/${file.split('.')[0]}`,
-          })),
-        })),
-    })
-  }
-
-  return goodGruppedData.reverse()
-}
-
-export const getPablicationsService = async fields => {
-  const publications = await getPulicationsFileData()
-  const jsonPublications = toObject(publications)
-
-  if (fields) {
-    const { name } = fields
-    const data = name ? jsonPublications[name] : jsonPublications
-    data.length = 5
-
-    return data
-  }
-
-  return jsonPublications
-}
-
-export const getSettingsService = async settingName => {
-  const settings = await getSettingsFileData()
-  const settingsJson = toObject(settings)
-  return settingName ? settingsJson[settingName] : settingsJson
 }

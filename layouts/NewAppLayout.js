@@ -1,6 +1,6 @@
 import MobileMenu from '@/components/Common/MobileMenu'
-import NewChip from '@/components/Common/NewChip'
-import NewNav from '@/components/Common/NewNav'
+import Chip from '@/components/Common/Chip'
+import Nav from '@/components/Common/Nav'
 import { HamburgerMenu, Theme } from '@/components/Icons'
 import { throttle } from '@/helpers/dom'
 import { changeThemeMode } from '@/helpers/theme'
@@ -74,11 +74,11 @@ export default function NewAppLayout({ children, user }) {
     <>
       <header className="flex h-20 items-center justify-center bg-base-2 font-ibm-plex-sans dark:border-b dark:border-darkmode-border dark:bg-darkmode-base-1 max-sm:hidden">
         <div className="flex min-w-[620px] justify-between ">
-          <NewNav />
+          <Nav />
           <div>
-            <NewChip as="button" onClick={changeTheme}>
+            <Chip as="button" onClick={changeTheme}>
               <Theme />
-            </NewChip>
+            </Chip>
           </div>
         </div>
       </header>
@@ -97,7 +97,7 @@ export default function NewAppLayout({ children, user }) {
               )}
             >
               <Link href="/#">
-                <NewChip className="inline-flex p-1">
+                <Chip className="inline-flex p-1">
                   <div className="relative h-12 w-12">
                     <Image
                       fill
@@ -106,7 +106,7 @@ export default function NewAppLayout({ children, user }) {
                       alt=""
                     />
                   </div>
-                </NewChip>
+                </Chip>
               </Link>
             </div>
             <div className={classNames(imageMemo && 'ml-2')}>
@@ -119,13 +119,13 @@ export default function NewAppLayout({ children, user }) {
             </div>
           </div>
 
-          <NewChip
+          <Chip
             as="button"
             onClick={handleMobileMenu}
             className="flex h-10 w-11 items-center justify-center !p-0"
           >
             <HamburgerMenu />
-          </NewChip>
+          </Chip>
         </div>
 
         <div

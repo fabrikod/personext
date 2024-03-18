@@ -1,16 +1,16 @@
 import NewAppLayout from '@/layouts/NewAppLayout'
 import {
-  getUserService,
   getBlogJsonService,
-  getSettingsService,
   getReadJsonFileService,
 } from '@/services/md.services'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import Blogs from '@/components/Pages/NewHome/Blogs'
+import Blogs from '@/components/Pages/Home/Blogs'
 import apiClient from '@/utils/axios'
 import { useEffect, useState } from 'react'
 import { useUser } from '@/context/user'
 import Head from 'next/head'
+import { getUserService } from '@/services/user.service'
+import { getSettingsService } from '@/services/setting.service'
 
 const PERPAGE = 7
 

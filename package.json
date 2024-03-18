@@ -11,17 +11,13 @@
     "svgr": "svgr -d components/Icons assets/icons"
   },
   "dependencies": {
-    "@tiptap/pm": "^2.1.13",
-    "@tiptap/react": "^2.1.13",
-    "@tiptap/starter-kit": "^2.1.13",
     "autoprefixer": "10.4.16",
     "axios": "^1.4.0",
     "classnames": "^2.3.2",
-    "crypto-js": "^4.2.0",
-    "formidable": "^3.5.1",
     "fs": "^0.0.1-security",
     "i18next": "^23.6.0",
     "js-yaml": "^4.1.0",
+    "markdown-it": "^14.0.0",
     "next": "14.0.3",
     "next-auth": "^4.24.5",
     "next-i18next": "15.0.0",
@@ -30,18 +26,14 @@
     "postcss": "8.4.31",
     "prop-types": "^15.8.1",
     "react": "18.2.0",
-    "react-datepicker": "^4.25.0",
     "react-dom": "18.2.0",
     "react-i18next": "^13.3.1",
-    "react-paginate": "^8.2.0",
-    "react-quill": "^2.0.0",
-    "uuid": "^9.0.1"
+    "react-paginate": "^8.2.0"
   },
   "devDependencies": {
     "@commitlint/cli": "18.4.2",
     "@commitlint/config-conventional": "18.4.2",
     "@svgr/cli": "^8.1.0",
-    "cheerio": "^1.0.0-rc.12",
     "eslint": "^8.41.0",
     "eslint-config-next": "14.0.3",
     "eslint-config-prettier": "9.0.0",

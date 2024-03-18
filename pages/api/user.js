@@ -1,4 +1,5 @@
-import { getSettingsService, getUserService } from '@/services/md.services'
+import { getSettingsService } from '@/services/setting.service'
+import { getUserService } from '@/services/user.service'
 
 export default async function handler(req, res) {
   const user = await getUserService()

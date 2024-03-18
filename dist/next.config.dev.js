@@ -9,10 +9,10 @@ var nextConfig = {
   images: {
     remotePatterns: [{
       protocol: 'http',
-      hostname: 'www.abdullahonden.com'
+      hostname: '*'
     }, {
       protocol: 'https',
-      hostname: 'www.abdullahonden.com'
+      hostname: '*'
     }]
   },
   i18n: i18n,

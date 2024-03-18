@@ -1,1 +1,1 @@
-domain: https://abdullahonden.com
+domain: https://example.com

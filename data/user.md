@@ -1,25 +1,25 @@
-username: abdullah
-name: Abdullah
-surname: ÖNDEN
-job: 👋 Hey, I’m @abdullahonden Assistant Profesor at Yalova University and Founder of Fabrikod.
+username: username
+name: John
+surname: Doe
+job: 👋 Hey, I’m John.
 description: Developing new technologies, teaching to next generation.
-email: 'abdullah.onden@fabrikod.com'
+email: 'john.doe@fabrikod.com'
 image: '/img/profile.jpg'
 available_for_projects: 1
-connectLink: http://www.linkedin.com/in/abdullahonden
+connectLink: http://www.linkedin.com/in/
 socials:
   - name: Twitter
     icon: /img/icons/x.svg
-    url: http://twitter.com/abdullahonden
+    url: http://twitter.com/
   - name: Instagram
     icon: /img/icons/instagram.svg
-    url: http://instagram.com/abdullahonden
+    url: http://instagram.com/
   - name: LinkedIn
     icon: /img/icons/linkedin.svg
-    url: http://www.linkedin.com/in/abdullahonden
+    url: http://www.linkedin.com/in/
   - name: Github
     icon: /img/icons/facebook.svg
-    url: https://facebook.com/abdullahonden
-  - name: Github
+    url: https://facebook.com/
+  - name: Apple
     icon: /img/icons/github.svg
-    url: https://apple.com/abdullahonden
+    url: https://apple.com/

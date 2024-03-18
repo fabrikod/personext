@@ -1,17 +1,11 @@
-import Articles from '@/components/Pages/Publications/Articles'
-import Books from '@/components/Pages/Publications/Books'
-import Papers from '@/components/Pages/Publications/Papers'
+import Card from '@/components/Card/Card'
 import { useUser } from '@/context/user'
 import NewAppLayout from '@/layouts/NewAppLayout'
-import { getPablicationsService } from '@/services/md.services'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 export async function getServerSideProps({ query, locale }) {
-  const pablicationsData = await getPablicationsService()
-
   return {
     props: {
-      data: pablicationsData,
       ...(await serverSideTranslations(locale ?? 'en')),
     },
   }
@@ -27,9 +21,9 @@ export default function Publications({ data }) {
         className="mx-auto flex max-w-[620px] flex-col gap-9 pb-24 pt-9 max-sm:pt-28"
       >
         <section id="publications" className="grid gap-y-10">
-          <Articles title={Object.keys(data)[0]} data={data.articles} />
-          <Papers title={Object.keys(data)[1]} data={data.papers} />
-          <Books title={Object.keys(data)[2]} data={data.books} />
+          <Card>
+            <h2 className="text-center text-2xl font-semibold capitalize dark:text-darkmode-title"></h2>
+          </Card>
         </section>
       </section>
     </NewAppLayout>
