@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import '../settings/fonts.css';
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+html {
+  transition: scroll-behavior 0.3s ease-in-out;
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+* {
+  @apply !box-border duration-150 ease-in-out font-ibm-plex-sans;
+}
+
+body {
+  @apply bg-base-1
+}
+
+.column-blogs .blog-card {
+  @apply !p-6
+}
+
+#blog-post #new-blog-content p{
+  @apply text-primary-8 dark:text-darkmode-text
+}
+
+#blog-post #new-blog-content a{
+  @apply hover:underline !text-blue-500;
+}
+
+#blog #blog-content a{
+  @apply hover:underline text-blue-500;
+}
+
+#blog #blog-content .content-img-full{
+  @apply mx-auto w-full
+}
+
+#blog #blog-content .content-img-cover{
+  @apply mx-auto h-[500px]
+}
+
+#blog #blog-content .content-img-orginal{
+  @apply mx-auto
+}
+
+.card-list .card:nth-child(2n+1) {
+  @apply float-left mr-0 mb-12 w-full sm:mr-12 max-md:!w-full;
+  width: calc(50% - 24px);
+}
+
+.card-list .card:nth-child(2n) {
+  @apply float-left mb-12 md:float-right max-md:!w-full;
+  width: calc(50% - 24px);
+}
+
+.card-list .card {
+  @apply sm:min-w-[350px] md:min-w-[200px];
+}
+
+.pagination li a{
+  @apply px-3 py-2 shadow-card rounded-md duration-300 hover:bg-gray-200;
+}
+
+.pagination li.selected a{
+  @apply bg-gray-200;
+}
+
+.photo-gallery:hover .photo-arrow {
+  @apply opacity-100 visible
+}
+
+.loading {
+  @apply border-2 rounded-full w-5 h-5 animate-loading
+}
+
+.button {
+  @apply duration-300 active:translate-y-[1.5px] hover:bg-button-hover active:bg-button-press dark:hover:bg-hover-lineer dark:active:bg-active-lineer
+}
+
+.ql-container.ql-snow{
+  @apply !h-[30rem] !rounded-b-md !border-primary-1
+}
+
+.ql-toolbar.ql-snow{
+  @apply !rounded-t-md !border-primary-1
+}
