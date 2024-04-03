@@ -1,6 +1,6 @@
 import Card from '@/components/Card/Card'
 import { useUser } from '@/context/user'
-import NewAppLayout from '@/layouts/NewAppLayout'
+import AppLayout from '@/layouts/AppLayout'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 export async function getServerSideProps({ query, locale }) {
@@ -15,7 +15,7 @@ export default function Publications({ data }) {
   const { user, settings } = useUser()
 
   return (
-    <NewAppLayout>
+    <AppLayout>
       <section
         id="container"
         className="mx-auto flex max-w-[620px] flex-col gap-9 pb-24 pt-9 max-sm:pt-28"
@@ -26,6 +26,6 @@ export default function Publications({ data }) {
           </Card>
         </section>
       </section>
-    </NewAppLayout>
+    </AppLayout>
   )
 }

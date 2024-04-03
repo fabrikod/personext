@@ -8,7 +8,7 @@ import ErrorPage from 'next/error'
 import Link from 'next/link'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useRouter } from 'next/router'
-import NewAppLayout from '@/layouts/NewAppLayout'
+import AppLayout from '@/layouts/AppLayout'
 import Card from '@/components/Card/Card'
 import Chip from '@/components/Common/Chip'
 import ArrowRight from '@/components/Icons/ArrowRight'
@@ -29,7 +29,7 @@ export default function BlogPage({ blog }) {
   }
 
   return (
-    <NewAppLayout>
+    <AppLayout>
       <section
         id="blog-post"
         className="mx-auto flex max-w-[620px] flex-col gap-9 pb-24 pt-9 max-sm:pt-28"
@@ -136,7 +136,7 @@ export default function BlogPage({ blog }) {
           </div>
         </Card>
       </section>
-    </NewAppLayout>
+    </AppLayout>
   )
 }
 

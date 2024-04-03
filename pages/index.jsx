@@ -2,7 +2,7 @@ import Stacks from '@/components/Pages/Home/Stacks'
 import Experience from '@/components/Pages/Home/Experiences'
 import FollowMe from '@/components/Pages/Home/FollowMe'
 import Profile from '@/components/Pages/Home/Profile'
-import NewAppLayout from '@/layouts/NewAppLayout'
+import AppLayout from '@/layouts/AppLayout'
 import { getBlogJsonService } from '@/services/md.services'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import Blogs from '@/components/Pages/Home/Blogs'
@@ -58,7 +58,7 @@ export default function Index({ blogs = [], stacks = [] }) {
   }
 
   return (
-    <NewAppLayout>
+    <AppLayout>
       <Head>
         <title>{user.fullName}</title>
         <meta name="description" content={user.description} />
@@ -99,6 +99,6 @@ export default function Index({ blogs = [], stacks = [] }) {
 
         <FollowMe data={user.socials || []} />
       </section>
-    </NewAppLayout>
+    </AppLayout>
   )
 }

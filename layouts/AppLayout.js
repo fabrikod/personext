@@ -10,7 +10,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useEffect, useMemo, useState } from 'react'
 
-export default function NewAppLayout({ children, user }) {
+export default function AppLayout({ children, user }) {
   const [scrolled, setScrolled] = useState(false)
   const [isMobileMenu, setMobileMenu] = useState(false)
   const router = useRouter()

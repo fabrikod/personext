@@ -39,24 +39,31 @@ export default function Profile({ data }) {
           <Chip
             as="a"
             href={data.connectLink}
-            className={'flex items-center gap-1 px-4 text-xs text-primary-6'}
+            className={'flex items-center gap-2 px-4 text-xs text-primary-6'}
           >
-            <div className="text-2xl leading-3">+</div>
-            Connect
-          </Chip>
-
-          <Chip
-            as="a"
-            href={`mail:${data.email}`}
-            className="flex items-center px-3"
-          >
-            <Mail />
+            <Image
+              src="/img/icons/arrow-up.svg"
+              width={10}
+              height={10}
+              alt="Picture of the author"
+            />
+            View Demo
           </Chip>
         </div>
 
-        <Chip className="inline-flex items-center gap-2 px-5 text-xs text-primary-6">
-          <Circle className="fill-circle-red " />
-          {data.available_for_projects && 'Not'} available for projects
+        <Chip
+          as="a"
+          href={data.deploy}
+          className="inline-flex items-center gap-2 px-5 text-xs text-primary-6"
+        >
+          <Image
+            src="/img/icons/deploy.svg"
+            width={13.64}
+            height={15}
+            alt="Picture of the author"
+          />
+          {/*<div className="text-2xl leading-3">+</div>*/}
+          Deploy
         </Chip>
       </div>
     </Card>

@@ -7,21 +7,20 @@ import classNames from 'classnames'
 
 const EXPERIENCES = [
   {
-    company: 'Company',
+    company: 'Green Solutions Inc',
     description:
-      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been',
+      'Developing sustainable business practices for corporate clients. Collaborating with NGOs on conservation initiatives',
     date: '05/2011',
-    position: 'Co Founder',
+    position: 'Senior Environmental Scientist',
   },
   {
-    company: 'Company',
+    company: 'Environmental Consultant',
     description:
-      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been',
+      'Advised businesses on reducing environmental impact. Conducted environmental impact assessments for new construction projects. Implemented renewable energy solutions for small enterprises',
     date: '05/2011 - 06/2007',
     position: 'Software Development Professional',
   },
 ]
-
 export default function Experiences() {
   return (
     <Card className="px-0" id="experiences" data-name="Experiences">

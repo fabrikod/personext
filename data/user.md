@@ -1,12 +1,14 @@
-username: username
-name: John
-surname: Doe
-job: 👋 Hey, I’m John.
-description: Developing new technologies, teaching to next generation.
-email: 'john.doe@fabrikod.com'
+username: personext
+name: Personext
+surname: ""
+job: Your personalized, open-source solution for a comprehensive portfolio website, showcasing your achievements and skills.
+description: Portfolio Website Template
+email: 'personext@mail.com'
 image: '/img/profile.jpg'
 available_for_projects: 1
-connectLink: http://www.linkedin.com/in/
+connectLink: https://www.abdullahonden.com/
+viewDemo: https://www.abdullahonden.com/
+deploy: https://vercel.com/new/clone?repository-url=https://github.com/fabrikod/personext/
 socials:
   - name: Twitter
     icon: /img/icons/x.svg
@@ -16,10 +18,10 @@ socials:
     url: http://instagram.com/
   - name: LinkedIn
     icon: /img/icons/linkedin.svg
-    url: http://www.linkedin.com/in/
-  - name: Github
+    url: http://www.linkedin.com/
+  - name: Facebook
     icon: /img/icons/facebook.svg
     url: https://facebook.com/
-  - name: Apple
+  - name: Github
     icon: /img/icons/github.svg
     url: https://apple.com/

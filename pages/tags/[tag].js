@@ -1,4 +1,4 @@
-import NewAppLayout from '@/layouts/NewAppLayout'
+import AppLayout from '@/layouts/AppLayout'
 import {
   getBlogJsonService,
   getReadJsonFileService,
@@ -49,7 +49,7 @@ export default function Tags({
   }
 
   return (
-    <NewAppLayout>
+    <AppLayout>
       <Head>
         <title>{user.fullName} | Tags</title>
         <meta name="description" content={user.description} />
@@ -79,7 +79,7 @@ export default function Tags({
           blogMeta={blogMeta}
         />
       </section>
-    </NewAppLayout>
+    </AppLayout>
   )
 }
 
