@@ -6,6 +6,7 @@ Welcome to Personext, your personal blog boilerplate. This project, written in J
 
 ![Personext](./public/img/personext-img.png)
 
+https://github.com/fabrikod/personext/assets/3144843/954d1787-44fe-4bcc-8541-3d83c15e6901
 
 ## Running Locally
 
