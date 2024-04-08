@@ -59,6 +59,12 @@ This command will display the installed version of Yarn.
 
 For more detailed instructions and troubleshooting, visit the [Yarn Installation Guide](https://classic.yarnpkg.com/en/docs/install/).
 
+3. **Create ENV File**: Create ENV File and change 3001 to 3000 :
+
+```bash
+NEXT_PUBLIC_APP_URL=http://${URL}:3000/api
+```
+
 ## Running the Project
 
 To run the "Personext" blog locally:|
