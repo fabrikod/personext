@@ -111,7 +111,7 @@ export default function AppLayout({ children, user }) {
             </div>
             <div className={classNames(imageMemo && 'ml-2')}>
               <h1 className="text-sm font-semibold dark:text-darkmode-title">
-                Abdullah Önden
+                Personext
               </h1>
               <p className="text-2xs font-normal text-primary-6 dark:text-darkmode-text">
                 Academician Dr. Faculty Member

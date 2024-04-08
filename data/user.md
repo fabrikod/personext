@@ -6,7 +6,7 @@ description: Portfolio Website Template
 email: 'personext@mail.com'
 image: '/img/profile.jpg'
 available_for_projects: 1
-connectLink: https://www.abdullahonden.com/
+connectLink: https://www.personext.org/
 viewDemo: https://www.abdullahonden.com/
 deploy: https://vercel.com/new/clone?repository-url=https://github.com/fabrikod/personext/
 socials:
