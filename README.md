@@ -1,4 +1,4 @@
-# Personext -  Personal Blog Boilerplate
+# Personext -  Database-free Personal Site with Next.js
 
 Welcome to Personext, your personal blog boilerplate. This project, written in JavaScript using Node.js, helps you create your own blog with ease.
 
